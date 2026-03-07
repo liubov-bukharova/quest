@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>День 3 · Вода та очищення</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1c1c1e; --mist:#f0ede8; --water:#4e8fa3; --water-pale:#d0e8f0; --foam:#f7f4ef; --sage:#6b8f71; --gold:#b8965a; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
+  .progress-bar { position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,var(--sage),var(--water)); z-index:100; transition:width 0.15s; }
+
+  /* HERO — deep forest green */
+  .hero { min-height:100svh; background:linear-gradient(160deg,#0e1f12 0%,#162a1a 50%,#1e3622 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
+  .ripple { position:absolute; border-radius:50%; border:1px solid rgba(107,143,113,0.18); animation:ripple-out 7s ease-out infinite; }
+  .ripple:nth-child(1){width:180px;height:180px;animation-delay:0s}
+  .ripple:nth-child(2){width:380px;height:380px;animation-delay:1.8s}
+  .ripple:nth-child(3){width:620px;height:620px;animation-delay:3.6s}
+  .ripple:nth-child(4){width:880px;height:880px;animation-delay:5.4s}
+  @keyframes ripple-out{0%{transform:scale(0.3);opacity:0.5}100%{transform:scale(1.3);opacity:0}}
+
+  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:32px; position:relative; z-index:1; }
+  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--sage),#3a6040); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
+  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
+  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
+
+  .day-badge { display:inline-block; background:rgba(107,143,113,0.18); border:1px solid rgba(107,143,113,0.35); color:#a8c5ab; font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
+
+  .hero-icon { font-size:72px; animation:pulse 3.5s ease-in-out infinite; position:relative; z-index:1; margin-bottom:16px; }
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,7vw,5rem); font-weight:700; color:#fff; line-height:1.05; position:relative; z-index:1; margin-bottom:8px; }
+  .hero h1 em { color:#a8c5ab; font-style:italic; }
+  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.15); margin:18px auto; position:relative; z-index:1; }
+  .hero-tagline { color:rgba(255,255,255,0.45); font-size:0.82rem; letter-spacing:0.04em; position:relative; z-index:1; max-width:320px; line-height:1.6; }
+  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.2); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; z-index:1; }
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+  /* CONTENT */
+  .main { max-width:680px; margin:0 auto; padding:60px 24px 80px; }
+
+  /* TASK BLOCK */
+  .task-block { background:white; border-radius:20px; padding:32px; margin-bottom:20px; border:1px solid #e8e4de; }
+  .task-num { display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
+  .task-num-circle { width:28px; height:28px; border-radius:50%; background:var(--sage); color:white; font-size:0.78rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .task-num-label { font-size:0.63rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--sage); font-weight:600; }
+  .task-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:700; margin-bottom:6px; }
+  .task-sub { font-size:0.83rem; color:#888; margin-bottom:20px; line-height:1.5; }
+
+  /* SYMPTOM CHECKLIST */
+  .symptom-list { display:flex; flex-direction:column; gap:8px; margin-bottom:8px; }
+  .symptom-row { display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px; border:1.5px solid #e4e0da; cursor:pointer; user-select:none; transition:all 0.15s; font-size:0.86rem; color:#444; }
+  .symptom-row:hover { border-color:var(--sage); background:#f0f7f0; }
+  .symptom-row.checked { border-color:var(--sage); background:#edf6f0; }
+  .sym-box { width:20px; height:20px; border-radius:6px; border:2px solid #ccc; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.72rem; transition:all 0.15s; }
+  .symptom-row.checked .sym-box { background:var(--sage); border-color:var(--sage); color:white; }
+  .sym-emoji { font-size:1.1rem; }
+
+  /* FILTER CARDS */
+  .filters { display:flex; flex-direction:column; gap:12px; }
+  .filter-row { display:flex; gap:14px; align-items:flex-start; padding:18px; background:var(--mist); border-radius:14px; border-left:3px solid var(--sage); transition:transform 0.15s; cursor:default; }
+  .filter-row:hover { transform:translateX(3px); }
+  .filter-row:nth-child(2){border-left-color:var(--water)}
+  .filter-row:nth-child(3){border-left-color:#b8965a}
+  .filter-row:nth-child(4){border-left-color:#8f6b9e}
+  .fi { font-size:1.5rem; flex-shrink:0; width:36px; text-align:center; }
+  .filter-name { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:700; margin-bottom:3px; }
+  .filter-role { font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--sage); font-weight:600; margin-bottom:6px; }
+  .filter-row:nth-child(2) .filter-role{color:var(--water)}
+  .filter-row:nth-child(3) .filter-role{color:#b8965a}
+  .filter-row:nth-child(4) .filter-role{color:#8f6b9e}
+  .filter-desc { font-size:0.82rem; color:#666; line-height:1.55; }
+
+  /* FACTS STRIP */
+  .facts-strip { background:linear-gradient(135deg,#0e1f12,#1e3622); border-radius:20px; padding:28px 28px; margin-bottom:20px; }
+  .facts-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(168,197,171,0.6); font-weight:500; margin-bottom:18px; display:block; }
+  .fact-item { display:flex; gap:14px; align-items:flex-start; padding:14px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .fact-item:last-child { border-bottom:none; }
+  .fact-num { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:#a8c5ab; flex-shrink:0; line-height:1; min-width:56px; }
+  .fact-text { font-size:0.83rem; color:rgba(255,255,255,0.65); line-height:1.55; padding-top:4px; }
+
+  /* DETOX TRICKS */
+  .trick-list { display:flex; flex-direction:column; gap:14px; }
+  .trick-item { display:flex; gap:14px; align-items:flex-start; }
+  .trick-check { width:32px; height:32px; border-radius:50%; border:1.5px solid #d0e8d0; flex-shrink:0; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:all 0.15s; font-size:0.8rem; margin-top:2px; }
+  .trick-check:hover { border-color:var(--sage); background:#f0f7f0; }
+  .trick-check.done { background:var(--sage); border-color:var(--sage); color:white; }
+  .trick-body {}
+  .trick-title { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:700; margin-bottom:4px; }
+  .trick-desc { font-size:0.82rem; color:#666; line-height:1.55; }
+
+  /* REFLECTION */
+  .reflection { background:var(--ink); border-radius:20px; padding:28px 32px; margin-bottom:20px; }
+  .ref-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(168,197,171,0.6); font-weight:500; margin-bottom:18px; display:block; }
+  .ref-question { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:rgba(255,255,255,0.85); margin-bottom:12px; }
+  .ref-options { display:flex; flex-direction:column; gap:7px; }
+  .ref-opt { display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:10px; border:1.5px solid rgba(255,255,255,0.08); cursor:pointer; font-size:0.84rem; color:rgba(255,255,255,0.55); user-select:none; transition:all 0.15s; }
+  .ref-opt:hover { border-color:rgba(168,197,171,0.4); color:rgba(255,255,255,0.8); }
+  .ref-opt.selected { border-color:#a8c5ab; background:rgba(168,197,171,0.08); color:rgba(255,255,255,0.85); }
+  .ref-dot { width:16px; height:16px; border-radius:50%; border:2px solid rgba(255,255,255,0.2); flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; }
+  .ref-opt.selected .ref-dot { background:#a8c5ab; border-color:#a8c5ab; }
+  .ref-opt.selected .ref-dot::after { content:''; display:block; width:5px; height:5px; border-radius:50%; background:#1c3025; }
+  .ref-divider { height:1px; background:rgba(255,255,255,0.06); margin:18px 0; }
+
+  /* SUPPORT */
+  .support-block { background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:16px; padding:26px; border:1px solid #c8ddd0; margin-bottom:20px; }
+  .support-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:#1c3025; }
+  .support-text { font-size:0.85rem; color:#4a6050; line-height:1.7; }
+
+  .submit-btn { display:block; width:100%; background:var(--ink); color:white; border:none; border-radius:14px; padding:17px; font-family:'DM Sans',sans-serif; font-size:0.93rem; font-weight:500; cursor:pointer; margin-top:24px; transition:background 0.2s, transform 0.15s; }
+  .submit-btn:hover { background:#1e3622; transform:translateY(-1px); }
+  .submitted-msg { display:none; text-align:center; padding:28px; background:#edf6f0; border-radius:14px; margin-top:14px; }
+  .submitted-msg h4 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--sage); margin-bottom:8px; }
+  .submitted-msg p { font-size:0.83rem; color:#555; line-height:1.6; }
+
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  footer { background:var(--ink); padding:32px 24px; text-align:center; }
+  footer p { color:rgba(255,255,255,0.25); font-size:0.75rem; letter-spacing:0.06em; }
+  footer span { color:#a8c5ab; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+
+  <div class="author-badge">
+    <div class="author-avatar">ЛБ</div>
+    <div>
+      <span class="author-name">Любов Бухарова</span>
+      <span class="author-role">Нутриціолог</span>
+    </div>
+  </div>
+
+  <div class="day-badge">Відео-квест · День 3</div>
+  <div class="hero-icon">🌿</div>
+  <h1>Вода та<br><em>очищення</em></h1>
+  <div class="hero-line"></div>
+  <p class="hero-tagline">Твій організм — ціла система фільтрів. Допоможи їй працювати.</p>
+  <div class="hero-scroll">↓ гортай</div>
+</section>
+
+<main class="main">
+
+  <!-- TASK 1: SYMPTOMS -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">1</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">🔍 Перевір свої сигнали</div>
+    <div class="task-sub">Відзнач, що відчуваєш зараз. Це симптоми перевантажених фільтрів.</div>
+    <div class="symptom-list">
+      <div class="symptom-row" onclick="toggleSym(this)">
+        <div class="sym-box">✓</div><span class="sym-emoji">😫</span><span>Хронічна втома</span>
+      </div>
+      <div class="symptom-row" onclick="toggleSym(this)">
+        <div class="sym-box">✓</div><span class="sym-emoji">😰</span><span>Важкість у тілі</span>
+      </div>
+      <div class="symptom-row" onclick="toggleSym(this)">
+        <div class="sym-box">✓</div><span class="sym-emoji">🫧</span><span>Набряки</span>
+      </div>
+      <div class="symptom-row" onclick="toggleSym(this)">
+        <div class="sym-box">✓</div><span class="sym-emoji">🔴</span><span>Проблеми зі шкірою (акне, сухість)</span>
+      </div>
+    </div>
+    <p id="sym-msg" style="display:none;margin-top:14px;font-size:0.82rem;color:var(--sage);padding:12px 16px;background:#edf6f0;border-radius:10px;line-height:1.55;"></p>
+  </div>
+
+  <!-- TASK 2: KNOW YOUR FILTERS -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">2</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">🔬 Познайом зі своїми фільтрами</div>
+    <div class="task-sub">Прочитай про кожен орган і запам'ятай, як вода допомагає саме йому.</div>
+    <div class="filters">
+      <div class="filter-row">
+        <div class="fi">🫘</div>
+        <div>
+          <div class="filter-name">Нирки</div>
+          <div class="filter-role">Головний фільтр</div>
+          <div class="filter-desc">Виводять відходи обміну речовин через сечу. Без води перевантажуються — токсини накопичуються, зростає ризик каменів.</div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="fi">🧪</div>
+        <div>
+          <div class="filter-name">Печінка</div>
+          <div class="filter-role">Хімічна лабораторія</div>
+          <div class="filter-desc">Нейтралізує токсини, алкоголь, ліки. Без води не може «змити» все зайве — виникає важкість та жирова дистрофія.</div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="fi">🌊</div>
+        <div>
+          <div class="filter-name">Лімфа</div>
+          <div class="filter-role">Каналізація організму</div>
+          <div class="filter-desc">Транспортує клітинні відходи. Без руху та води застоюється — набряки, целюліт, знижений імунітет.</div>
+        </div>
+      </div>
+      <div class="filter-row">
+        <div class="fi">🌿</div>
+        <div>
+          <div class="filter-name">Кишківник</div>
+          <div class="filter-role">Вивідний шлях</div>
+          <div class="filter-desc">Вода забезпечує регулярне випорожнення та виводить токсини. Без неї — запори та інтоксикація.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FACTS -->
+  <div class="facts-strip reveal">
+    <span class="facts-label">📊 Цікаві факти</span>
+    <div class="fact-item">
+      <div class="fact-num">−50%</div>
+      <div class="fact-text">Ризик каменів у нирках знижується при вживанні 1.5 л води на день</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-num">95%</div>
+      <div class="fact-text">Лімфа складається з води — без неї система просто не рухається</div>
+    </div>
+    <div class="fact-item">
+      <div class="fact-num">−30%</div>
+      <div class="fact-text">Ефективність роботи печінки при зневодненні організму</div>
+    </div>
+  </div>
+
+  <!-- TASK 3: DETOX TRICKS -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">3</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">🍋 Спробуй сьогодні</div>
+    <div class="task-sub">Вибери хоча б одну хитрощ і виконай її. Відзнач що зробила.</div>
+    <div class="trick-list">
+      <div class="trick-item">
+        <div class="trick-check" onclick="toggleTrick(this)">✓</div>
+        <div class="trick-body">
+          <div class="trick-title">☀️ Тепла вода з лимоном натщесерце</div>
+          <div class="trick-desc">Підтримує печінку, підвищує pH, додає вітамін С. 250 мл теплої води + сік чверті лимона — перша справа зранку.</div>
+        </div>
+      </div>
+      <div class="trick-item">
+        <div class="trick-check" onclick="toggleTrick(this)">✓</div>
+        <div class="trick-body">
+          <div class="trick-title">🚶 Рух + вода = турбо-детокс</div>
+          <div class="trick-desc">10 хвилин ходьби розганяють лімфу. Пий невеликими ковтками під час руху — ця комбінація вдвічі ефективніша.</div>
+        </div>
+      </div>
+      <div class="trick-item">
+        <div class="trick-check" onclick="toggleTrick(this)">✓</div>
+        <div class="trick-body">
+          <div class="trick-title">🚫 Замість солодкого напою — вода</div>
+          <div class="trick-desc">Сік, газованка, пакетовані напої перевантажують печінку та викликають стрибки цукру. Сьогодні — заміни один на чисту воду або трав'яний чай.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 4: REFLECTION -->
+  <div class="reflection reveal">
+    <span class="ref-label">📝 Рефлексія дня</span>
+
+    <div class="ref-question">Чи відчула різницю після ранкової води з лимоном?</div>
+    <div class="ref-options" id="rq1">
+      <div class="ref-opt" onclick="pickOpt(this,'rq1')"><div class="ref-dot"></div>Так, відчула легкість</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq1')"><div class="ref-dot"></div>Поки не помітила різниці</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq1')"><div class="ref-dot"></div>Ще не пробувала — зроблю завтра</div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <div class="ref-question">Скільки склянок води вдалося випити сьогодні?</div>
+    <div class="ref-options" id="rq2">
+      <div class="ref-opt" onclick="pickOpt(this,'rq2')"><div class="ref-dot"></div>1–3 склянки</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq2')"><div class="ref-dot"></div>4–6 склянок</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq2')"><div class="ref-dot"></div>7+ склянок 🎉</div>
+    </div>
+
+    <div class="ref-divider"></div>
+
+    <div class="ref-question">Яке завдання детоксу виконала сьогодні?</div>
+    <div class="ref-options" id="rq3">
+      <div class="ref-opt" onclick="pickOpt(this,'rq3')"><div class="ref-dot"></div>Вода з лимоном зранку</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq3')"><div class="ref-dot"></div>Прогулянка з водою</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq3')"><div class="ref-dot"></div>Замінила солодкий напій</div>
+      <div class="ref-opt" onclick="pickOpt(this,'rq3')"><div class="ref-dot"></div>Усе три 💚</div>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">Зберегти рефлексію ✓</button>
+    <div class="submitted-msg" id="submitted">
+      <h4>Молодець! 🌿</h4>
+      <p>День 3 позаду. Твої фільтри вже відчувають різницю.<br>До зустрічі на День 4!</p>
+    </div>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="support-block reveal">
+    <div class="support-title">💚 Підтримка від нутриціолога</div>
+    <p class="support-text">Не потрібно робити все і одразу. Один маленький крок сьогодні — вже перемога. Твій організм чудово справляється з очищенням, коли отримує достатньо води. Просто дай йому цей ресурс 🌿</p>
+  </div>
+
+</main>
+
+<footer>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест · День 3</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    document.getElementById('progress').style.width=(s/h*100)+'%';
+  });
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  function toggleSym(el){
+    el.classList.toggle('checked');
+    const checked=document.querySelectorAll('.symptom-row.checked').length;
+    const msg=document.getElementById('sym-msg');
+    if(checked>0){
+      msg.style.display='block';
+      const texts=['Є один сигнал — вже привід звернути увагу на гідратацію.','Два сигнали — твоїм фільтрам точно не вистачає води.','Три сигнали — організм явно потребує більше рідини. Вода допоможе!','Усі чотири сигнали присутні. Гарна новина: вода — найпростіший крок до покращення вже сьогодні 💚'];
+      msg.textContent=texts[Math.min(checked-1,3)];
+    } else {
+      msg.style.display='none';
+    }
+  }
+
+  function toggleTrick(el){
+    el.classList.toggle('done');
+    el.textContent=el.classList.contains('done')?'✓':'✓';
+    el.style.opacity=el.classList.contains('done')?'1':'0.4';
+  }
+  document.querySelectorAll('.trick-check').forEach(el=>{ el.style.opacity='0.4'; });
+
+  function pickOpt(el,groupId){
+    document.querySelectorAll('#'+groupId+' .ref-opt').forEach(o=>o.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  function submitForm(){
+    document.querySelector('.submit-btn').style.display='none';
+    const m=document.getElementById('submitted');
+    m.style.display='block';
+    m.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+</script>
+</body>
+</html>
