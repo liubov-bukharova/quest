@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>День 2 · Як навчити воду працювати на тебе</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1c1c1e; --mist:#f0ede8; --water:#4e8fa3; --water-pale:#d0e8f0; --foam:#f7f4ef; --sage:#6b8f71; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
+  .progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--water); z-index:100; transition:width 0.15s; }
+
+  /* HERO */
+  .hero { min-height:100svh; background:linear-gradient(160deg,#0d1f2d 0%,#122436 50%,#1a3245 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
+  .wave-bg { position:absolute; bottom:0; left:0; right:0; height:180px; background:linear-gradient(to top, rgba(78,143,163,0.08), transparent); }
+  .ripple { position:absolute; border-radius:50%; border:1px solid rgba(78,143,163,0.18); animation:ripple-out 7s ease-out infinite; }
+  .ripple:nth-child(1){width:180px;height:180px;animation-delay:0s}
+  .ripple:nth-child(2){width:380px;height:380px;animation-delay:1.8s}
+  .ripple:nth-child(3){width:620px;height:620px;animation-delay:3.6s}
+  .ripple:nth-child(4){width:880px;height:880px;animation-delay:5.4s}
+  @keyframes ripple-out{0%{transform:scale(0.3);opacity:0.5}100%{transform:scale(1.3);opacity:0}}
+
+  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:32px; position:relative; z-index:1; }
+  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--water),#2a6e85); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
+  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
+  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
+
+  .day-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(78,143,163,0.15); border:1px solid rgba(78,143,163,0.3); color:var(--water); font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
+
+  .hero-icon { font-size:72px; animation:sway 4s ease-in-out infinite; position:relative; z-index:1; margin-bottom:16px; }
+  @keyframes sway{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,7vw,5rem); font-weight:700; color:#fff; line-height:1.05; position:relative; z-index:1; margin-bottom:8px; }
+  .hero h1 em { color:var(--water); font-style:italic; }
+  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.15); margin:18px auto; position:relative; z-index:1; }
+  .hero-tagline { color:rgba(255,255,255,0.45); font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:1; max-width:320px; line-height:1.6; }
+  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.2); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; z-index:1; }
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+  /* CONTENT */
+  .main { max-width:680px; margin:0 auto; padding:60px 24px 80px; }
+
+  /* NORM CARD */
+  .norm-card { background:linear-gradient(135deg,#0d1f2d,#1a3245); border-radius:20px; padding:32px; margin-bottom:28px; position:relative; overflow:hidden; }
+  .norm-card::after { content:'30'; position:absolute; right:-10px; top:-20px; font-family:'Cormorant Garamond',serif; font-size:120px; font-weight:900; color:rgba(78,143,163,0.08); line-height:1; }
+  .norm-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(168,197,171,0.6); font-weight:500; margin-bottom:14px; display:block; }
+  .norm-formula { font-family:'Cormorant Garamond',serif; font-size:clamp(1.4rem,4vw,2rem); color:white; font-weight:600; margin-bottom:12px; }
+  .norm-formula span { color:var(--water); }
+  .norm-warning { display:flex; gap:12px; align-items:flex-start; background:rgba(255,255,255,0.05); border-radius:12px; padding:16px; border-left:3px solid #e8a87c; }
+  .norm-warning .wi { font-size:1.2rem; flex-shrink:0; }
+  .norm-warning p { font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.6; }
+  .norm-warning strong { color:rgba(255,255,255,0.85); }
+
+  /* TASK SECTIONS */
+  .task-block { background:white; border-radius:20px; padding:32px; margin-bottom:20px; border:1px solid #e8e4de; }
+  .task-num { display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
+  .task-num-circle { width:28px; height:28px; border-radius:50%; background:var(--water); color:white; font-size:0.78rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .task-num-label { font-size:0.63rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--water); font-weight:600; }
+  .task-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:700; margin-bottom:18px; }
+
+  /* CALCULATOR */
+  .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media(max-width:480px){.calc-grid{grid-template-columns:1fr}}
+  .calc-field { display:flex; flex-direction:column; gap:6px; }
+  .calc-field label { font-size:0.72rem; color:#999; text-transform:uppercase; letter-spacing:0.08em; }
+  .calc-input { background:var(--mist); border:1.5px solid #e4e0da; border-radius:10px; padding:12px 14px; font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--ink); outline:none; transition:border-color 0.15s; width:100%; }
+  .calc-input:focus { border-color:var(--water); background:var(--water-pale); }
+  .calc-result { grid-column:1/-1; background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:12px; padding:18px 20px; border:1px solid #c8ddd0; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  .calc-result-label { font-size:0.78rem; color:#4a6050; }
+  .calc-result-val { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:700; color:var(--sage); }
+  .calc-result-unit { font-size:0.75rem; color:#888; }
+
+  /* WEEK PLAN */
+  .week-plan { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
+  .week-row { display:flex; align-items:center; gap:14px; background:var(--mist); border-radius:12px; padding:14px 16px; }
+  .week-dot { width:10px; height:10px; border-radius:50%; background:var(--water); opacity:0.5; flex-shrink:0; transition:opacity 0.2s; }
+  .week-row.active .week-dot { opacity:1; }
+  .week-label { font-size:0.78rem; color:#888; min-width:72px; }
+  .week-input { flex:1; background:white; border:1.5px solid #ddd; border-radius:8px; padding:8px 12px; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--ink); outline:none; }
+  .week-input:focus { border-color:var(--water); }
+
+  /* RITUAL */
+  .ritual-box { background:linear-gradient(135deg,#edf6f0,#e8f4f0); border-radius:14px; padding:22px; display:flex; gap:16px; align-items:flex-start; border:1px solid #c8ddd0; }
+  .ritual-icon { font-size:2rem; flex-shrink:0; }
+  .ritual-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:700; margin-bottom:6px; color:#1c3025; }
+  .ritual-desc { font-size:0.83rem; color:#4a6050; line-height:1.6; }
+  .ritual-check { display:flex; align-items:center; gap:10px; margin-top:14px; background:white; border-radius:10px; padding:12px 14px; border:1.5px solid #c8ddd0; cursor:pointer; user-select:none; transition:all 0.15s; }
+  .ritual-check:hover { border-color:var(--sage); }
+  .ritual-check.done { border-color:var(--sage); background:#edf6f0; }
+  .check-box { width:20px; height:20px; border-radius:6px; border:2px solid #c8ddd0; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; font-size:0.75rem; }
+  .ritual-check.done .check-box { background:var(--sage); border-color:var(--sage); color:white; }
+  .check-text { font-size:0.85rem; color:#444; }
+
+  /* SCHEDULE */
+  .schedule { display:flex; flex-direction:column; gap:0; margin-top:4px; }
+  .sched-row { display:flex; gap:14px; align-items:center; padding:10px 0; border-bottom:1px solid #f0ece6; position:relative; }
+  .sched-row:last-child { border-bottom:none; }
+  .sched-time { font-size:0.78rem; color:#aaa; min-width:50px; font-weight:500; }
+  .sched-dot-wrap { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
+  .sched-dot { width:10px; height:10px; border-radius:50%; background:#e0dbd3; transition:background 0.2s; }
+  .sched-row.first .sched-dot { background:var(--water); }
+  .sched-line { width:1px; height:100%; background:#f0ece6; position:absolute; left:78px; top:0; }
+  .sched-text { font-size:0.84rem; color:#555; flex:1; }
+  .sched-row.first .sched-text { color:var(--ink); font-weight:500; }
+  .sched-check { width:22px; height:22px; border-radius:6px; border:1.5px solid #e0dbd3; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; font-size:0.7rem; }
+  .sched-check:hover { border-color:var(--water); }
+  .sched-check.done { background:var(--water); border-color:var(--water); color:white; }
+
+  /* PROGRESS */
+  .progress-section { background:var(--ink); border-radius:20px; padding:28px 32px; margin-bottom:20px; }
+  .progress-section .norm-label { margin-bottom:20px; }
+  .prog-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
+  .prog-row:last-child { border-bottom:none; }
+  .prog-label { font-size:0.82rem; color:rgba(255,255,255,0.45); }
+  .prog-input { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px 12px; color:white; font-family:'DM Sans',sans-serif; font-size:0.9rem; width:110px; text-align:right; outline:none; }
+  .prog-input:focus { border-color:var(--water); background:rgba(78,143,163,0.1); }
+  .prog-diff { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--water); }
+
+  /* SUPPORT */
+  .support-block { background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:16px; padding:26px; border:1px solid #c8ddd0; margin-bottom:20px; }
+  .support-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:12px; color:#1c3025; }
+  .support-text { font-size:0.85rem; color:#4a6050; line-height:1.7; margin-bottom:12px; }
+  .lifehack-personal { background:white; border-radius:12px; padding:18px; border:1px solid #c8ddd0; display:flex; gap:12px; align-items:flex-start; }
+  .lh-icon { font-size:1.4rem; flex-shrink:0; }
+  .lh-text { font-size:0.83rem; color:#4a6050; line-height:1.6; font-style:italic; }
+
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  footer { background:var(--ink); padding:32px 24px; text-align:center; }
+  footer p { color:rgba(255,255,255,0.25); font-size:0.75rem; letter-spacing:0.06em; }
+  footer span { color:var(--water); }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+  <div class="wave-bg"></div>
+
+  <div class="author-badge">
+    <div class="author-avatar">ЛБ</div>
+    <div>
+      <span class="author-name">Любов Бухарова</span>
+      <span class="author-role">Нутриціолог</span>
+    </div>
+  </div>
+
+  <div class="day-badge">Відео-квест · День 2</div>
+  <div class="hero-icon">🌊</div>
+  <h1>Навчи воду<br>працювати<br><em>на тебе</em></h1>
+  <div class="hero-line"></div>
+  <p class="hero-tagline">Учора ти спостерігала — сьогодні діємо!</p>
+  <div class="hero-scroll">↓ гортай</div>
+</section>
+
+<!-- MAIN -->
+<main class="main">
+
+  <!-- NORM -->
+  <div class="norm-card reveal">
+    <span class="norm-label">💧 Скільки води потрібно саме тобі</span>
+    <div class="norm-formula">Твоя вага <span>× 30 мл</span> = денна норма</div>
+    <div class="norm-warning">
+      <span class="wi">❗</span>
+      <p>Якщо п'єш значно менше норми — <strong>не додавай відразу багато!</strong> Підвищуй поступово: +200 мл на тиждень, щоб не перевантажувати нирки та серце.</p>
+    </div>
+  </div>
+
+  <!-- TASK 1: CALCULATOR -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">1</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">📊 Розрахунок норми</div>
+
+    <div class="calc-grid">
+      <div class="calc-field">
+        <label>Моя вага (кг)</label>
+        <input class="calc-input" type="number" id="weight" placeholder="наприклад, 60" oninput="calcNorm()">
+      </div>
+      <div class="calc-field">
+        <label>Вчора випила (мл)</label>
+        <input class="calc-input" type="number" id="yesterday" placeholder="наприклад, 800" oninput="calcNorm()">
+      </div>
+      <div class="calc-result" id="calc-result" style="display:none">
+        <div>
+          <div class="calc-result-label">Твоя денна норма</div>
+          <div><span class="calc-result-val" id="norm-val">—</span> <span class="calc-result-unit">мл/день</span></div>
+        </div>
+        <div>
+          <div class="calc-result-label">Не вистачало</div>
+          <div><span class="calc-result-val" id="diff-val" style="color:#c0614a">—</span> <span class="calc-result-unit">мл</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="week-plan" id="week-plan" style="display:none">
+      <div style="font-size:0.78rem;color:#999;margin-bottom:4px;letter-spacing:0.05em;">📅 Поступове збільшення</div>
+      <div class="week-row active">
+        <div class="week-dot"></div>
+        <span class="week-label">Тиждень 1</span>
+        <input class="week-input" id="w1" readonly placeholder="— мл/день">
+      </div>
+      <div class="week-row">
+        <div class="week-dot"></div>
+        <span class="week-label">Тиждень 2</span>
+        <input class="week-input" id="w2" readonly placeholder="— мл/день">
+      </div>
+      <div class="week-row">
+        <div class="week-dot"></div>
+        <span class="week-label">Тиждень 3</span>
+        <input class="week-input" id="w3" readonly placeholder="— мл/день">
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 2: MORNING RITUAL -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">2</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">☀️ Ранковий ритуал</div>
+    <div class="ritual-box">
+      <div class="ritual-icon">🥛</div>
+      <div>
+        <div class="ritual-title">Перша склянка — ще до сніданку</div>
+        <div class="ritual-desc">200–250 мл теплої або кімнатної температури води. До кави, до їжі. Це запускає метаболізм і готує шлунок до роботи.</div>
+        <div class="ritual-check" onclick="toggleCheck(this)">
+          <div class="check-box">✓</div>
+          <span class="check-text">Зранку, до сніданку — 1 склянка води</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 3: WATER ALARM -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">3</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">⏰ Водний будильник</div>
+    <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.6;">Постав нагадування на телефоні або використовуй водний трекер. Маленькі ковтки кожні 30 хвилин — це і є правильний ритм.</p>
+    <div class="schedule">
+      <div class="sched-row first">
+        <span class="sched-time">08:00</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 Склянка води — ранковий старт</span>
+        <div class="sched-check done">✓</div>
+      </div>
+      <div class="sched-row">
+        <span class="sched-time">08:30</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 2–3 ковтки</span>
+        <div class="sched-check" onclick="toggleSched(this)"></div>
+      </div>
+      <div class="sched-row">
+        <span class="sched-time">09:00</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 2–3 ковтки</span>
+        <div class="sched-check" onclick="toggleSched(this)"></div>
+      </div>
+      <div class="sched-row">
+        <span class="sched-time">09:30</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 2–3 ковтки</span>
+        <div class="sched-check" onclick="toggleSched(this)"></div>
+      </div>
+      <div class="sched-row">
+        <span class="sched-time">10:00</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 2–3 ковтки</span>
+        <div class="sched-check" onclick="toggleSched(this)"></div>
+      </div>
+      <div class="sched-row">
+        <span class="sched-time">10:30</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 2–3 ковтки</span>
+        <div class="sched-check" onclick="toggleSched(this)"></div>
+      </div>
+      <div class="sched-row">
+        <span class="sched-time">11:00</span>
+        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-text">💧 2–3 ковтки</span>
+        <div class="sched-check" onclick="toggleSched(this)"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-section reveal">
+    <span class="norm-label">📊 Мій прогрес</span>
+    <div class="prog-row">
+      <span class="prog-label">Вчора випила</span>
+      <input class="prog-input" type="number" id="prog-y" placeholder="мл" oninput="calcDiff()">
+    </div>
+    <div class="prog-row">
+      <span class="prog-label">Сьогодні випила</span>
+      <input class="prog-input" type="number" id="prog-t" placeholder="мл" oninput="calcDiff()">
+    </div>
+    <div class="prog-row" style="border-bottom:none">
+      <span class="prog-label" style="color:rgba(255,255,255,0.6);">Різниця</span>
+      <span class="prog-diff" id="prog-diff">—</span>
+    </div>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="support-block reveal">
+    <div class="support-title">💚 Підтримка від нутриціолога</div>
+    <p class="support-text">Зроби воду своїм другом! Постав склянку біля комп'ютера, у машині, на кухні. Кожен ковток — це маленький крок до здоров'я і ясної голови 🌿</p>
+    <div class="lifehack-personal">
+      <div class="lh-icon">💙</div>
+      <p class="lh-text">Мій особистий лайфхак: я завжди беру з собою скляну пляшку води, коли виходжу з дому. А на столі у мене завжди стоїть чашка з водою.</p>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест · День 2</p>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll',()=>{
+    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    document.getElementById('progress').style.width=(s/h*100)+'%';
+  });
+
+  // Reveal
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Calculator
+  function calcNorm(){
+    const w=parseFloat(document.getElementById('weight').value)||0;
+    const y=parseFloat(document.getElementById('yesterday').value)||0;
+    const norm=Math.round(w*30);
+    const diff=norm-y;
+    const res=document.getElementById('calc-result');
+    const wp=document.getElementById('week-plan');
+    if(w>0){
+      res.style.display='flex';
+      document.getElementById('norm-val').textContent=norm;
+      document.getElementById('diff-val').textContent=diff>0?diff:0;
+      if(diff>0){
+        wp.style.display='flex';
+        document.getElementById('w1').value=(y+200)+' мл/день';
+        document.getElementById('w2').value=(y+400)+' мл/день';
+        document.getElementById('w3').value=(y+600)+' мл/день';
+      }
+    } else {
+      res.style.display='none';
+      wp.style.display='none';
+    }
+  }
+
+  // Progress diff
+  function calcDiff(){
+    const y=parseFloat(document.getElementById('prog-y').value)||0;
+    const t=parseFloat(document.getElementById('prog-t').value)||0;
+    const d=t-y;
+    const el=document.getElementById('prog-diff');
+    if(y>0&&t>0){
+      el.textContent=(d>=0?'+':'')+d+' мл '+(d>=0?'🎉':'');
+      el.style.color=d>=0?'#7ac59e':'#e08070';
+    } else {
+      el.textContent='—';
+      el.style.color='var(--water)';
+    }
+  }
+
+  // Check toggle
+  function toggleCheck(el){
+    el.classList.toggle('done');
+    el.querySelector('.check-box').textContent=el.classList.contains('done')?'✓':'';
+  }
+
+  // Schedule check
+  function toggleSched(el){
+    el.classList.toggle('done');
+    el.textContent=el.classList.contains('done')?'✓':'';
+  }
+</script>
+</body>
+</html>
