@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вода — це життя · Домашнє завдання</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1c1c1e; --mist:#f0ede8; --water:#4e8fa3; --water-pale:#d0e8f0; --foam:#f7f4ef; --sage:#6b8f71; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
+  .progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--water); z-index:100; transition:width 0.15s; }
+
+  .hero { min-height:100svh; background:var(--ink); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
+  .ripple { position:absolute; border-radius:50%; border:1px solid rgba(78,143,163,0.2); animation:ripple-out 6s ease-out infinite; }
+  .ripple:nth-child(1){width:200px;height:200px;animation-delay:0s}
+  .ripple:nth-child(2){width:400px;height:400px;animation-delay:1.5s}
+  .ripple:nth-child(3){width:650px;height:650px;animation-delay:3s}
+  .ripple:nth-child(4){width:900px;height:900px;animation-delay:4.5s}
+  @keyframes ripple-out{0%{transform:scale(0.4);opacity:0.6}100%{transform:scale(1.2);opacity:0}}
+
+  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:36px; position:relative; z-index:1; }
+  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--water),#2a6e85); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
+  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
+  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
+
+  .lesson-tag { display:inline-block; background:rgba(78,143,163,0.15); border:1px solid rgba(78,143,163,0.3); color:var(--water); font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
+  .hero-drop { font-size:72px; animation:drip 3s ease-in-out infinite; position:relative; z-index:1; margin-bottom:16px; }
+  @keyframes drip{0%,100%{transform:translateY(0) scaleY(1)}45%{transform:translateY(-14px) scaleY(1.05)}55%{transform:translateY(-14px) scaleY(0.96)}}
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,8vw,5.5rem); font-weight:700; color:#fff; line-height:1; position:relative; z-index:1; margin-bottom:8px; }
+  .hero h1 em { color:var(--water); font-style:italic; }
+  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.2); margin:18px auto; position:relative; z-index:1; }
+  .hero-sub { color:rgba(255,255,255,0.4); font-size:0.78rem; letter-spacing:0.1em; text-transform:uppercase; position:relative; z-index:1; }
+  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.25); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; z-index:1; }
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+  .hw-section { padding:60px 24px 80px; max-width:680px; margin:0 auto; }
+  .hw-header { background:linear-gradient(135deg,#1c2e22,#2a4030); border-radius:24px 24px 0 0; padding:36px 36px 28px; position:relative; overflow:hidden; }
+  .hw-header::after { content:'💧'; position:absolute; right:20px; top:12px; font-size:70px; opacity:0.06; transform:rotate(-10deg); }
+  .eyebrow { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(168,197,171,0.6); font-weight:500; margin-bottom:12px; display:block; }
+  .hw-header h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(1.5rem,4vw,2rem); font-weight:700; color:#fff; line-height:1.2; margin-bottom:10px; }
+  .hw-header p { font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.65; }
+
+  .hw-body { background:white; border-radius:0 0 24px 24px; padding:36px; border:1px solid #e8e4de; border-top:none; }
+  .hw-task-zero { background:var(--mist); border-radius:14px; padding:20px 22px; margin-bottom:28px; display:flex; gap:14px; align-items:flex-start; }
+  .hw-task-zero .icon { font-size:1.4rem; flex-shrink:0; }
+  .hw-task-zero h4 { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:700; margin-bottom:5px; }
+  .hw-task-zero p { font-size:0.83rem; color:#666; line-height:1.55; }
+
+  .form-section-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; margin-bottom:4px; }
+  .form-section-sub { font-size:0.78rem; color:#aaa; margin-bottom:22px; }
+  .form-group { margin-bottom:26px; }
+  .question-label { display:flex; align-items:center; gap:8px; font-size:0.86rem; font-weight:500; margin-bottom:12px; }
+  .radio-group { display:flex; flex-direction:column; gap:7px; }
+  .radio-option { display:flex; align-items:center; gap:12px; padding:11px 15px; border-radius:10px; border:1.5px solid #e4e0da; cursor:pointer; transition:all 0.15s; font-size:0.86rem; color:#444; user-select:none; }
+  .radio-option:hover { border-color:var(--water); background:var(--water-pale); }
+  .radio-option input[type="radio"] { display:none; }
+  .radio-dot { width:17px; height:17px; border-radius:50%; border:2px solid #ccc; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; }
+  .radio-option.selected { border-color:var(--water); background:#edf5fa; }
+  .radio-option.selected .radio-dot { border-color:var(--water); background:var(--water); }
+  .radio-option.selected .radio-dot::after { content:''; display:block; width:5px; height:5px; border-radius:50%; background:white; }
+
+  .energy-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  @media(max-width:480px){.energy-grid{grid-template-columns:1fr}}
+  .energy-slot label { display:block; font-size:0.72rem; color:#999; margin-bottom:6px; text-transform:uppercase; letter-spacing:0.08em; }
+  .energy-val { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--water); text-align:center; margin-bottom:6px; }
+  input[type="range"] { -webkit-appearance:none; width:100%; height:4px; border-radius:2px; background:#e0dbd3; outline:none; }
+  input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--water); cursor:pointer; box-shadow:0 2px 8px rgba(78,143,163,0.4); }
+
+  .form-divider { height:1px; background:#f0ece6; margin:26px 0; }
+  .support-block { margin-top:28px; background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:14px; padding:24px; border:1px solid #c8ddd0; }
+  .support-block h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; margin-bottom:8px; color:#2a4030; }
+  .support-block p { font-size:0.84rem; color:#4a6050; line-height:1.65; }
+  .support-block .hl { font-style:italic; color:var(--sage); font-weight:500; }
+  .lifehack { margin-top:20px; display:flex; gap:14px; align-items:flex-start; background:#fffbf5; border-radius:12px; padding:20px; border:1px solid #e8dfc8; }
+  .lifehack-icon { font-size:1.5rem; flex-shrink:0; }
+  .lifehack h5 { font-weight:600; font-size:0.88rem; margin-bottom:5px; }
+  .lifehack p { font-size:0.81rem; color:#777; line-height:1.55; }
+
+  .submit-btn { display:block; width:100%; background:var(--ink); color:white; border:none; border-radius:14px; padding:17px; font-family:'DM Sans',sans-serif; font-size:0.93rem; font-weight:500; cursor:pointer; margin-top:28px; transition:background 0.2s, transform 0.15s; }
+  .submit-btn:hover { background:#2d4a2e; transform:translateY(-1px); }
+  .submitted-msg { display:none; text-align:center; padding:30px; background:#edf6f0; border-radius:14px; margin-top:16px; }
+  .submitted-msg h4 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--sage); margin-bottom:8px; }
+  .submitted-msg p { font-size:0.83rem; color:#555; line-height:1.6; }
+
+  footer { background:var(--ink); padding:32px 24px; text-align:center; }
+  footer p { color:rgba(255,255,255,0.25); font-size:0.75rem; letter-spacing:0.06em; }
+  footer span { color:var(--water); }
+
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<section class="hero">
+  <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+
+  <div class="author-badge">
+    <div class="author-avatar">ЛБ</div>
+    <div>
+      <span class="author-name">Любов Бухарова</span>
+      <span class="author-role">Нутриціолог</span>
+    </div>
+  </div>
+
+  <div class="lesson-tag">Відео-квест · Домашнє завдання</div>
+  <div class="hero-drop">💧</div>
+  <h1>Вода —<br>це <em>життя</em></h1>
+  <div class="hero-line"></div>
+  <p class="hero-sub">День усвідомлення</p>
+  <div class="hero-scroll">↓ гортай</div>
+</section>
+
+<section class="hw-section">
+  <div class="hw-header reveal">
+    <span class="eyebrow">Домашнє завдання</span>
+    <h2>Відчуття дня</h2>
+    <p>Сьогодні — лише спостерігай. Не суди себе, не виправляй. Просто побач реальність. Це перший крок до змін 💚</p>
+  </div>
+
+  <div class="hw-body reveal">
+    <div class="hw-task-zero">
+      <div class="icon">🔍</div>
+      <div>
+        <h4>Нічого не змінюй</h4>
+        <p>Живи звичним днем. Твоє завдання — лише <strong>чесно відповісти</strong> на питання нижче наприкінці дня.</p>
+      </div>
+    </div>
+
+    <div class="form-section-title">💭 Чекліст самоспостереження</div>
+    <div class="form-section-sub">Заповни ввечері — чесно та без осуду</div>
+
+    <div class="form-group">
+      <label class="question-label"><span>💧</span> Чи відчував/ла спрагу протягом дня?</label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="q1"><div class="radio-dot"></div>Так, часто</label>
+        <label class="radio-option"><input type="radio" name="q1"><div class="radio-dot"></div>Іноді</label>
+        <label class="radio-option"><input type="radio" name="q1"><div class="radio-dot"></div>Рідко</label>
+        <label class="radio-option"><input type="radio" name="q1"><div class="radio-dot"></div>Не відчував/ла</label>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-group">
+      <label class="question-label"><span>💋</span> Стан шкіри та губ</label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="q2"><div class="radio-dot"></div>Суха шкіра</label>
+        <label class="radio-option"><input type="radio" name="q2"><div class="radio-dot"></div>Потріскані губи</label>
+        <label class="radio-option"><input type="radio" name="q2"><div class="radio-dot"></div>Нормальний стан</label>
+        <label class="radio-option"><input type="radio" name="q2"><div class="radio-dot"></div>Добре зволожені</label>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-group">
+      <label class="question-label"><span>⚡</span> Рівень енергії протягом дня</label>
+      <div class="energy-grid">
+        <div class="energy-slot">
+          <label>Зранку</label>
+          <div class="energy-val" id="vm">5</div>
+          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('vm').textContent=this.value">
+        </div>
+        <div class="energy-slot">
+          <label>Вдень</label>
+          <div class="energy-val" id="vd">5</div>
+          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('vd').textContent=this.value">
+        </div>
+        <div class="energy-slot">
+          <label>Ввечері</label>
+          <div class="energy-val" id="ve">5</div>
+          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('ve').textContent=this.value">
+        </div>
+      </div>
+    </div>
+
+    <div class="form-divider"></div>
+
+    <div class="form-group">
+      <label class="question-label"><span>🧠</span> Концентрація уваги</label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="q4"><div class="radio-dot"></div>Важко зосередитись</label>
+        <label class="radio-option"><input type="radio" name="q4"><div class="radio-dot"></div>Середньо</label>
+        <label class="radio-option"><input type="radio" name="q4"><div class="radio-dot"></div>Добре</label>
+        <label class="radio-option"><input type="radio" name="q4"><div class="radio-dot"></div>Відмінно</label>
+      </div>
+    </div>
+
+    <div class="support-block">
+      <h4>💚 Підтримка від нутриціолога</h4>
+      <p>Не дивуйся, якщо виявиш, що п'єш дуже мало — <span class="hl">більшість людей вживають лише 30–40% від норми</span>. Це перший крок — просто побачити реальність.</p>
+    </div>
+
+    <div class="lifehack">
+      <div class="lifehack-icon">📸</div>
+      <div>
+        <h5>Лайфхак дня</h5>
+        <p>Зроби фото свого стакана з водою — так починається твоя подорож до нової звички!</p>
+      </div>
+    </div>
+
+    <button class="submit-btn" onclick="submitForm()">Зберегти відповіді ✓</button>
+    <div class="submitted-msg" id="submitted">
+      <h4>Чудово! 💚</h4>
+      <p>Ти зробив/ла перший крок — побачив/ла реальність.<br>Завтра ми починаємо змінювати її разом.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    document.getElementById('progress').style.width=(s/h*100)+'%';
+  });
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  document.querySelectorAll('.radio-option').forEach(opt=>{
+    opt.addEventListener('click',function(){
+      this.closest('.radio-group').querySelectorAll('.radio-option').forEach(o=>o.classList.remove('selected'));
+      this.classList.add('selected');
+    });
+  });
+  function submitForm(){
+    document.querySelector('.submit-btn').style.display='none';
+    const m=document.getElementById('submitted');
+    m.style.display='block';
+    m.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+</script>
+</body>
+</html>
