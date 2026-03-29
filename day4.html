@@ -3,150 +3,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>День 4 · Вода та краса</title>
+<title>День 4 · Вода і краса</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#1c1c1e; --mist:#f5f0ee; --water:#4e8fa3; --water-pale:#d0e8f0; --foam:#faf7f4; --rose:#c4736a; --rose-pale:#fdf0ee; --gold:#b8965a; --sage:#6b8f71; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
-  .progress-bar { position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,#c4736a,#d4a0a0,#4e8fa3); z-index:100; transition:width 0.15s; }
+  :root{
+    --ink:#1c1c1e;
+    --mist:#f5f0f2;
+    --rose:#a0526a;
+    --rose-light:#c4758e;
+    --rose-pale:#f0d8e0;
+    --foam:#faf6f7;
+    --gold:#b8924a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+  .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--rose-light);z-index:100;transition:width 0.15s;}
 
-  /* HERO — warm rose-gold */
-  .hero { min-height:100svh; background:linear-gradient(160deg,#1f1214 0%,#2e1a1a 45%,#3a2020 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
-  .ripple { position:absolute; border-radius:50%; border:1px solid rgba(196,115,106,0.15); animation:ripple-out 7s ease-out infinite; }
-  .ripple:nth-child(1){width:180px;height:180px;animation-delay:0s}
-  .ripple:nth-child(2){width:380px;height:380px;animation-delay:1.8s}
-  .ripple:nth-child(3){width:620px;height:620px;animation-delay:3.6s}
-  .ripple:nth-child(4){width:880px;height:880px;animation-delay:5.4s}
-  @keyframes ripple-out{0%{transform:scale(0.3);opacity:0.5}100%{transform:scale(1.3);opacity:0}}
+  /* ═══ HERO — рожево-золотий ═══ */
+  .hero{min-height:100svh;background:linear-gradient(160deg,#1f0d14 0%,#2e1220 50%,#3d1a2c 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
 
-  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:32px; position:relative; z-index:1; }
-  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#c4736a,#9a4a42); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
-  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
-  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
+  /* зірочки */
+  .stars{position:absolute;inset:0;z-index:0;pointer-events:none;}
+  .star{position:absolute;border-radius:50%;background:rgba(212,168,140,0.7);animation:twinkle var(--d) ease-in-out infinite;}
+  @keyframes twinkle{0%,100%{opacity:0.1;transform:scale(0.8)}50%{opacity:0.9;transform:scale(1.2)}}
 
-  .day-badge { display:inline-block; background:rgba(196,115,106,0.15); border:1px solid rgba(196,115,106,0.3); color:#e8a09a; font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
-  .hero-icon { font-size:72px; animation:shimmer 3s ease-in-out infinite; position:relative; z-index:1; margin-bottom:16px; }
-  @keyframes shimmer{0%,100%{transform:scale(1) rotate(-2deg)}50%{transform:scale(1.07) rotate(2deg)}}
-  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,7vw,5rem); font-weight:700; color:#fff; line-height:1.05; position:relative; z-index:1; margin-bottom:8px; }
-  .hero h1 em { color:#e8a09a; font-style:italic; }
-  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.15); margin:18px auto; position:relative; z-index:1; }
-  .hero-tagline { color:rgba(255,255,255,0.45); font-size:0.82rem; position:relative; z-index:1; max-width:300px; line-height:1.6; }
-  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.2); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; z-index:1; }
+  /* кільця — рожеві */
+  .rose-ring{position:absolute;border-radius:50%;border:1px solid rgba(196,117,142,0.15);animation:ring-out 8s ease-out infinite;}
+  .rose-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
+  .rose-ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
+  .rose-ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
+  .rose-ring:nth-child(4){width:960px;height:960px;animation-delay:6s}
+  @keyframes ring-out{0%{transform:scale(0.3);opacity:0.6}100%{transform:scale(1.3);opacity:0}}
+
+  .hero-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(196,117,142,0.15),transparent);}
+  .wave-bg{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(160,82,106,0.1),transparent);}
+
+  .author-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:8px 20px 8px 8px;margin-bottom:32px;position:relative;z-index:1;}
+  .author-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose-light),#7a3050);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:700;color:white;flex-shrink:0;}
+  .author-name{font-size:0.8rem;color:rgba(255,255,255,0.75);font-weight:400;display:block;}
+  .author-role{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;display:block;}
+
+  .day-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,117,142,0.15);border:1px solid rgba(196,117,142,0.35);color:#e8a8c0;font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px;position:relative;z-index:1;}
+
+  .hero-icon{font-size:72px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;margin-bottom:16px;}
+  @keyframes sway{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
+
+  .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.05;position:relative;z-index:1;margin-bottom:8px;}
+  .hero h1 em{color:#e8a8c0;font-style:italic;}
+  .hero-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:18px auto;position:relative;z-index:1;}
+  .hero-tagline{color:rgba(255,255,255,0.42);font-size:0.82rem;letter-spacing:0.06em;position:relative;z-index:1;max-width:300px;line-height:1.65;}
+  .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.2);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  .main { max-width:680px; margin:0 auto; padding:60px 24px 80px; }
+  /* ═══ MAIN ═══ */
+  .main{max-width:680px;margin:0 auto;padding:60px 24px 80px;}
 
-  /* SHARED */
-  .task-block { background:white; border-radius:20px; padding:32px; margin-bottom:20px; border:1px solid #ede8e2; }
-  .task-num { display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
-  .task-num-circle { width:28px; height:28px; border-radius:50%; background:var(--rose); color:white; font-size:0.78rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .task-num-label { font-size:0.63rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--rose); font-weight:600; }
-  .task-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:700; margin-bottom:6px; }
-  .task-sub { font-size:0.83rem; color:#888; margin-bottom:20px; line-height:1.55; }
+  /* INTRO */
+  .intro-card{background:linear-gradient(135deg,#1f0d14,#3d1a2c);border-radius:20px;padding:32px;margin-bottom:28px;position:relative;overflow:hidden;}
+  .intro-card::after{content:'✨';position:absolute;right:-10px;top:-10px;font-size:130px;opacity:0.06;line-height:1;}
+  .intro-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,168,192,0.6);font-weight:500;margin-bottom:14px;display:block;}
+  .intro-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,3vw,1.4rem);color:rgba(255,255,255,0.88);line-height:1.7;margin-bottom:18px;}
+  .intro-text em{color:#e8a8c0;font-style:italic;}
+  .intro-rule{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.05);border-radius:12px;padding:16px;border-left:3px solid var(--rose-light);}
+  .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
+  .intro-rule strong{color:rgba(255,255,255,0.9);}
 
-  /* CHECK ROW */
-  .check-row { display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px; border:1.5px solid #ede8e2; cursor:pointer; user-select:none; transition:all 0.15s; font-size:0.86rem; color:#444; margin-bottom:8px; }
-  .check-row:hover { border-color:var(--rose); background:var(--rose-pale); }
-  .check-row.done { border-color:var(--rose); background:var(--rose-pale); }
-  .cb { width:20px; height:20px; border-radius:6px; border:2px solid #ddd; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.72rem; transition:all 0.15s; }
-  .check-row.done .cb { background:var(--rose); border-color:var(--rose); color:white; }
+  /* BEAUTY FACTS CARD */
+  .beauty-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #eedde4;}
+  .beauty-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:16px;display:block;}
+  .beauty-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.25;}
+  .beauty-title span{color:var(--rose);}
 
-  /* SELFIE BLOCK */
-  .selfie-card { background:linear-gradient(135deg,#2e1a1a,#3a2828); border-radius:16px; padding:28px; display:flex; gap:20px; align-items:flex-start; margin-bottom:20px; }
-  .selfie-icon { font-size:2.2rem; flex-shrink:0; }
-  .selfie-title { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; color:#fff; margin-bottom:6px; }
-  .selfie-desc { font-size:0.82rem; color:rgba(255,255,255,0.55); line-height:1.6; margin-bottom:14px; }
-  .date-input { background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); border-radius:10px; padding:10px 14px; color:white; font-family:'DM Sans',sans-serif; font-size:0.85rem; width:100%; outline:none; }
-  .date-input:focus { border-color:rgba(196,115,106,0.5); }
-  .date-input::placeholder { color:rgba(255,255,255,0.3); }
-  .selfie-note { font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:10px; font-style:italic; }
+  /* без води */
+  .dehydr-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px;}
+  @media(max-width:460px){.dehydr-grid{grid-template-columns:1fr}}
+  .dehydr-item{background:var(--mist);border-radius:14px;padding:16px;border:1px solid #e8d4da;text-align:center;}
+  .dehydr-icon{font-size:1.8rem;display:block;margin-bottom:8px;}
+  .dehydr-name{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:4px;}
+  .dehydr-desc{font-size:0.74rem;color:#999;line-height:1.4;}
 
-  /* RECIPE */
-  .recipe-card { background:linear-gradient(135deg,#f5faf5,#eef6f0); border-radius:16px; padding:24px; border:1px solid #c8ddd0; margin-bottom:16px; }
-  .recipe-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:700; color:#1c3025; margin-bottom:14px; display:flex; align-items:center; gap:8px; }
-  .ingredients { list-style:none; display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
-  .ingredients li { display:flex; gap:10px; align-items:flex-start; font-size:0.85rem; color:#3a5040; }
-  .ing-dot { width:6px; height:6px; border-radius:50%; background:var(--sage); flex-shrink:0; margin-top:6px; }
-  .recipe-note { font-size:0.8rem; color:#4a6050; background:white; border-radius:10px; padding:12px 14px; border:1px solid #c8ddd0; line-height:1.55; }
+  /* факти */
+  .fact-row{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,#fdf5f8,#f8eef3);border-radius:12px;padding:16px 18px;border:1px solid #eedde4;margin-bottom:12px;}
+  .fact-icon{font-size:1.4rem;flex-shrink:0;}
+  .fact-body{flex:1;}
+  .fact-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--rose);line-height:1.1;margin-bottom:3px;}
+  .fact-text{font-size:0.82rem;color:#666;line-height:1.55;}
 
-  /* TASTE PICKER */
-  .taste-row { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
-  .taste-btn { flex:1; min-width:80px; padding:10px 8px; border-radius:10px; border:1.5px solid #e0dbd8; background:white; font-family:'DM Sans',sans-serif; font-size:0.82rem; color:#666; cursor:pointer; text-align:center; transition:all 0.15s; }
-  .taste-btn:hover { border-color:var(--sage); color:var(--sage); }
-  .taste-btn.selected { border-color:var(--sage); background:#edf6f0; color:var(--sage); font-weight:500; }
+  /* TASK BLOCKS */
+  .task-block{background:white;border-radius:20px;padding:32px;margin-bottom:20px;border:1px solid #eedde4;}
+  .task-num{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
+  .task-num-circle{width:28px;height:28px;border-radius:50%;background:var(--rose);color:white;font-size:0.78rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);font-weight:600;}
+  .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
+
+  /* TIPS */
+  .tips-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+  .tip-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
+  .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
+  .tip-body .tip-title{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:3px;}
+  .tip-body .tip-desc{font-size:0.8rem;color:#777;line-height:1.55;}
 
   /* COFFEE RULE */
-  .coffee-rule-info { display:flex; gap:12px; align-items:flex-start; background:#fffbf2; border-radius:12px; padding:16px; border:1px solid #e8dfc8; margin-bottom:18px; }
-  .cr-icon { font-size:1.3rem; flex-shrink:0; }
-  .cr-text { font-size:0.83rem; color:#6b5a30; line-height:1.6; }
-  .coffee-counter { display:flex; flex-direction:column; gap:10px; }
-  .coffee-row { display:flex; align-items:center; gap:12px; background:var(--mist); border-radius:12px; padding:14px 16px; }
-  .coffee-emoji { font-size:1.3rem; flex-shrink:0; }
-  .coffee-ml { background:white; border:1.5px solid #e4e0da; border-radius:8px; padding:8px 10px; font-family:'DM Sans',sans-serif; font-size:0.85rem; width:80px; text-align:center; outline:none; color:var(--ink); }
-  .coffee-ml:focus { border-color:var(--rose); }
-  .coffee-arrow { color:#aaa; font-size:1rem; }
-  .coffee-water { font-size:0.82rem; color:#666; flex:1; }
-  .water-check { width:22px; height:22px; border-radius:6px; border:1.5px solid #ddd; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.72rem; transition:all 0.15s; flex-shrink:0; }
-  .water-check:hover { border-color:var(--water); }
-  .water-check.done { background:var(--water); border-color:var(--water); color:white; }
+  .coffee-rule{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#fdf8f0,#faf3e8);border-radius:14px;padding:18px 20px;border:1px solid #e8d8b8;margin-top:16px;}
+  .coffee-rule-icon{font-size:2rem;flex-shrink:0;}
+  .coffee-rule-text{font-size:0.85rem;color:#6a4a20;line-height:1.65;}
+  .coffee-rule-text strong{color:#4a2e08;}
 
-  /* EVENING RITUAL */
-  .ritual-steps { display:flex; flex-direction:column; gap:10px; margin-top:4px; }
-  .ritual-why { background:linear-gradient(135deg,#2e1a1a,#3a2828); border-radius:12px; padding:18px; margin-top:16px; display:flex; gap:12px; align-items:flex-start; }
-  .rw-icon { font-size:1.2rem; flex-shrink:0; }
-  .rw-text { font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.6; }
-  .rw-text strong { color:rgba(255,255,255,0.85); }
+  /* CHECKLIST */
+  .checklist{display:flex;flex-direction:column;gap:0;margin-top:8px;}
+  .check-row{display:flex;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #f5eef1;}
+  .check-row:last-child{border-bottom:none;}
+  .check-dot{width:9px;height:9px;border-radius:50%;background:#e8d4da;flex-shrink:0;}
+  .check-text{font-size:0.84rem;color:#555;flex:1;line-height:1.5;}
+  .check-btn{width:22px;height:22px;border-radius:6px;border:1.5px solid #e8d4da;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;font-size:0.7rem;color:transparent;background:none;-webkit-appearance:none;appearance:none;}
+  .check-btn:hover{border-color:var(--rose);}
+  .check-btn.done{background:var(--rose);border-color:var(--rose);color:white;}
+
+  /* SELFIE TASK */
+  .selfie-card{background:linear-gradient(135deg,#fdf5f8,#f8eef3);border-radius:18px;padding:26px;border:1px solid #eedde4;margin-top:16px;}
+  .selfie-steps{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+  .selfie-step{display:flex;gap:12px;align-items:flex-start;}
+  .selfie-step-num{width:24px;height:24px;border-radius:50%;background:var(--rose);color:white;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .selfie-step-text{font-size:0.84rem;color:#555;line-height:1.55;flex:1;}
+
+  /* HABIT */
+  .habit-card{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;}
+  .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(160,82,106,0.1);border:1px solid rgba(160,82,106,0.25);color:var(--rose);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
+  .habit-icon-big{font-size:44px;display:block;margin-bottom:12px;animation:sway 4s ease-in-out infinite;}
+  .habit-title-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#3a1020;margin-bottom:8px;line-height:1.3;}
+  .habit-desc-text{font-size:0.84rem;color:#7a4060;line-height:1.65;}
 
   /* TRACKER */
-  .tracker-card { background:var(--ink); border-radius:20px; padding:28px 32px; margin-bottom:20px; }
-  .tracker-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(232,160,154,0.6); font-weight:500; margin-bottom:20px; display:block; }
-  .tracker-list { display:flex; flex-direction:column; gap:10px; margin-bottom:22px; }
-  .t-item { display:flex; align-items:center; gap:12px; }
-  .t-box { width:22px; height:22px; border-radius:6px; border:1.5px solid rgba(255,255,255,0.15); flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.72rem; cursor:pointer; transition:all 0.15s; }
-  .t-box:hover { border-color:rgba(232,160,154,0.5); }
-  .t-box.done { background:#c4736a; border-color:#c4736a; color:white; }
-  .t-text { font-size:0.84rem; color:rgba(255,255,255,0.6); flex:1; }
-  .t-input { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px 12px; color:white; font-family:'DM Sans',sans-serif; font-size:0.85rem; width:100px; text-align:center; outline:none; }
-  .t-input:focus { border-color:rgba(196,115,106,0.4); }
-  .t-input::placeholder { color:rgba(255,255,255,0.25); }
+  .tracker-dark{background:#1f0d14;border-radius:20px;padding:28px 32px;margin-bottom:20px;}
+  .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,168,192,0.5);font-weight:500;margin-bottom:6px;display:block;}
+  .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.3);margin-bottom:20px;}
+  .glasses-wrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px;}
+  .glass-item{width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(196,117,142,0.25);background:rgba(196,117,142,0.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.25s cubic-bezier(.34,1.56,.64,1);}
+  @media(max-width:380px){.glass-item{width:38px;height:38px;font-size:18px;}}
+  .glass-item.filled{background:rgba(196,117,142,0.28);border-color:rgba(196,117,142,0.8);transform:scale(1.08);}
+  .pbar-track{height:8px;border-radius:4px;background:rgba(255,255,255,0.07);overflow:hidden;margin-bottom:8px;}
+  .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#7a3050,#e8a8c0);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
+  .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.3);font-style:italic;min-height:18px;text-align:center;}
 
-  /* PROGRESS 4 DAYS */
-  .progress-4 { background:rgba(255,255,255,0.04); border-radius:14px; padding:20px; border:1px solid rgba(255,255,255,0.06); }
-  .p4-title { font-size:0.75rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:14px; }
-  .p4-row { display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.05); }
-  .p4-row:last-child { border-bottom:none; }
-  .p4-label { font-size:0.82rem; color:rgba(255,255,255,0.45); }
-  .p4-val { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:7px 12px; color:white; font-family:'DM Sans',sans-serif; font-size:0.85rem; width:160px; text-align:right; outline:none; }
-  .p4-val:focus { border-color:rgba(196,115,106,0.4); }
-  .p4-val::placeholder { color:rgba(255,255,255,0.2); }
+  /* REFLECTION */
+  .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #eedde4;}
+  .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
+  .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
+  .refl-questions{display:flex;flex-direction:column;gap:14px;}
+  .refl-q{display:flex;flex-direction:column;gap:6px;}
+  .refl-q-label{font-size:0.8rem;color:#666;font-weight:500;}
+  .refl-textarea{width:100%;background:var(--mist);border:1.5px solid #e8d4da;border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);outline:none;transition:border-color 0.15s;resize:none;min-height:70px;line-height:1.6;}
+  .refl-textarea:focus{border-color:var(--rose);background:var(--rose-pale);}
+  .refl-textarea::placeholder{color:#bbb;}
 
   /* SUPPORT */
-  .support-block { background:linear-gradient(135deg,#fdf0ee,#faf5f2); border-radius:16px; padding:26px; border:1px solid #f0d0cc; margin-bottom:20px; }
-  .support-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:#4a1f1c; }
-  .support-text { font-size:0.85rem; color:#7a4040; line-height:1.7; }
+  .support-block{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;margin-bottom:20px;}
+  .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#3a1020;}
+  .support-text{font-size:0.85rem;color:#7a4060;line-height:1.7;margin-bottom:14px;}
+  .support-quote{background:white;border-radius:12px;padding:20px 22px;border:1px solid #eedde4;border-left:3px solid var(--rose);}
+  .support-quote p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#3a1020;line-height:1.7;font-style:italic;}
+  .support-quote span{font-size:0.78rem;color:#b07090;margin-top:10px;display:block;}
 
-  .submit-btn { display:block; width:100%; background:var(--ink); color:white; border:none; border-radius:14px; padding:17px; font-family:'DM Sans',sans-serif; font-size:0.93rem; font-weight:500; cursor:pointer; margin-top:24px; transition:background 0.2s, transform 0.15s; }
-  .submit-btn:hover { background:#3a2020; transform:translateY(-1px); }
-  .submitted-msg { display:none; text-align:center; padding:28px; background:var(--rose-pale); border-radius:14px; margin-top:14px; }
-  .submitted-msg h4 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:var(--rose); margin-bottom:8px; }
-  .submitted-msg p { font-size:0.83rem; color:#7a4040; line-height:1.6; }
+  /* FINAL */
+  .final-card{background:linear-gradient(160deg,#1f0d14,#3d1a2c);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
+  .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(196,117,142,0.18),transparent);}
+  .final-icon{font-size:52px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
+  .final-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;color:white;line-height:1.2;margin-bottom:8px;position:relative;z-index:1;}
+  .final-title em{color:#e8a8c0;font-style:italic;}
+  .final-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:16px auto;position:relative;z-index:1;}
+  .final-sub{color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.65;max-width:280px;margin:0 auto 24px;position:relative;z-index:1;}
+  .day-dots{display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:1;}
+  .d-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);}
+  .d-dot.done{background:rgba(196,117,142,0.7);}
+  .d-dot.active{background:#e8a8c0;width:18px;border-radius:3px;}
 
-  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
-  .reveal.visible { opacity:1; transform:none; }
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
 
-  footer { background:var(--ink); padding:32px 24px; text-align:center; }
-  footer p { color:rgba(255,255,255,0.25); font-size:0.75rem; letter-spacing:0.06em; }
-  footer span { color:#e8a09a; }
+  footer{background:#1f0d14;padding:32px 24px;text-align:center;}
+  footer p{color:rgba(255,255,255,0.22);font-size:0.75rem;letter-spacing:0.06em;}
+  footer span{color:#e8a8c0;}
 </style>
 </head>
 <body>
 
 <div class="progress-bar" id="progress"></div>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+  <!-- кільця -->
+  <div class="rose-ring"></div>
+  <div class="rose-ring"></div>
+  <div class="rose-ring"></div>
+  <div class="rose-ring"></div>
+  <div class="hero-glow"></div>
+  <div class="wave-bg"></div>
+
+  <!-- зірочки (JS генерує) -->
+  <div class="stars" id="starsWrap"></div>
 
   <div class="author-badge">
     <div class="author-avatar">ЛБ</div>
@@ -158,216 +213,375 @@
 
   <div class="day-badge">Відео-квест · День 4</div>
   <div class="hero-icon">✨</div>
-  <h1>Вода та<br><em>краса</em></h1>
+  <h1>Вода<br>і<br><em>краса</em></h1>
   <div class="hero-line"></div>
-  <p class="hero-tagline">Найдоступніший засіб для сяючої шкіри — всередині тебе</p>
+  <p class="hero-tagline">Краса починається не з крему —<br>вона починається з клітини</p>
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
 <main class="main">
 
-  <!-- TASK 1: SELFIE -->
+  <!-- ВСТУП -->
+  <div class="intro-card reveal">
+    <span class="intro-label">✨ День 4 — вода і краса</span>
+    <p class="intro-text">
+      Ми вже знаємо, що вода потрібна для детоксу і самопочуття.<br>
+      А сьогодні поговоримо про <em>красу.</em>
+    </p>
+    <p class="intro-text" style="font-size:0.9rem;opacity:0.75;margin-bottom:18px;">
+      Так — звичайна вода дуже сильно впливає на те, <strong style="color:rgba(255,255,255,0.9)">як ми виглядаємо.</strong> Шкіра, волосся, нігті — все це залежить від зволоження зсередини.
+    </p>
+    <div class="intro-rule">
+      <span style="font-size:1.3rem;flex-shrink:0">💎</span>
+      <p>Можна витрачати сотні євро на креми і ходити до косметологів. Але якщо організм зневоднений — <strong>шкіра все одно буде виглядати втомленою.</strong> Краса починається з клітини. А клітина починається з води.</p>
+    </div>
+  </div>
+
+  <!-- ФАКТИ ПРО КРАСУ -->
+  <div class="beauty-card reveal">
+    <span class="beauty-label">💧 Що відбувається без води</span>
+    <div class="beauty-title">Зневоднення <span>видно одразу</span> — на обличчі, волоссі і нігтях</div>
+
+    <div class="dehydr-grid">
+      <div class="dehydr-item">
+        <span class="dehydr-icon">🪞</span>
+        <div class="dehydr-name">Шкіра</div>
+        <div class="dehydr-desc">Тьмяна, суха, глибші зморшки</div>
+      </div>
+      <div class="dehydr-item">
+        <span class="dehydr-icon">💇‍♀️</span>
+        <div class="dehydr-name">Волосся</div>
+        <div class="dehydr-desc">Ламке, слабке, без блиску</div>
+      </div>
+      <div class="dehydr-item">
+        <span class="dehydr-icon">💅</span>
+        <div class="dehydr-name">Нігті</div>
+        <div class="dehydr-desc">Розшаровуються і ламаються</div>
+      </div>
+    </div>
+
+    <div class="fact-row">
+      <div class="fact-icon">📊</div>
+      <div class="fact-body">
+        <div class="fact-num">2%</div>
+        <div class="fact-text">зневоднення вже знижують еластичність шкіри і прискорюють процес старіння — навіть якщо ти ще не відчуваєш спраги</div>
+      </div>
+    </div>
+    <div class="fact-row" style="margin-bottom:0">
+      <div class="fact-icon">⏳</div>
+      <div class="fact-body">
+        <div class="fact-num">4–6 тижнів</div>
+        <div class="fact-text">регулярного вживання достатньої кількості води можуть зменшити глибину зморшок. Вражає, правда?</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ЗВИЧКА ДНЯ -->
+  <div class="task-block reveal" style="padding:28px;">
+    <div class="task-num">
+      <div class="task-num-circle" style="background:#b8924a">✨</div>
+      <span class="task-num-label" style="color:#b8924a">Звичка дня</span>
+    </div>
+    <div class="habit-card">
+      <span class="habit-badge">✨ Звичка · День 4</span>
+      <span class="habit-icon-big">☕</span>
+      <div class="habit-title-text">На кожну чашку кави — склянка води</div>
+      <p class="habit-desc-text">Кава має легкий сечогінний ефект і виводить воду з організму. Просте правило: <strong style="color:#3a1020">1 кава = +1 склянка води.</strong> Так шкіра залишається зволоженою навіть у кавоманів ☕💧</p>
+    </div>
+  </div>
+
+  <!-- ЗАВДАННЯ 1: ІНФУЗОВАНА ВОДА -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">1</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">📸 Селфі «Before»</div>
-    <div class="task-sub">Зафіксуємо стан шкіри зараз — через тиждень порівняємо результат.</div>
-    <div class="selfie-card">
-      <div class="selfie-icon">🤳</div>
-      <div style="flex:1">
-        <div class="selfie-title">Зранку, без макіяжу</div>
-        <div class="selfie-desc">При природному освітленні. Збережи фото — через тиждень зробиш «After» і побачиш різницю!</div>
-        <input class="date-input" type="date" id="selfie-date" placeholder="Дата фото">
-        <p class="selfie-note">📌 Збережи у альбом «Вода та краса»</p>
+    <div class="task-title">🍋 Зроби воду приємнішою</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Щоб вода була смачнішою і приносила ще більше користі — спробуй додати один з варіантів:</p>
+    <div class="tips-list">
+      <div class="tip-row">
+        <span class="tip-icon">🍋</span>
+        <div class="tip-body">
+          <div class="tip-title">Скибочка лимона</div>
+          <div class="tip-desc">Вітамін C, освіжає і допомагає печінці</div>
+        </div>
       </div>
-    </div>
-    <div class="check-row" onclick="toggleCheck(this)">
-      <div class="cb">✓</div>
-      <span>Зробила селфі «Before» і зберегла фото</span>
+      <div class="tip-row">
+        <span class="tip-icon">🥒</span>
+        <div class="tip-body">
+          <div class="tip-title">Огірок</div>
+          <div class="tip-desc">Зволожує, містить кремній — корисний для шкіри</div>
+        </div>
+      </div>
+      <div class="tip-row">
+        <span class="tip-icon">🌿</span>
+        <div class="tip-body">
+          <div class="tip-title">М'ята</div>
+          <div class="tip-desc">Освіжає, допомагає травленню і знімає втому</div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- TASK 2: CUCUMBER WATER -->
+  <!-- ЗАВДАННЯ 2: КАВА І ВОДА -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">🥒 Огіркова вода</div>
-    <div class="task-sub">Детокс-вода для краси — смачно, корисно і легко.</div>
-
-    <div class="recipe-card">
-      <div class="recipe-title">🍋 Рецепт детокс-води</div>
-      <ul class="ingredients">
-        <li><span class="ing-dot"></span>1.5 л чистої води</li>
-        <li><span class="ing-dot"></span>½ огірка — скибочками</li>
-        <li><span class="ing-dot"></span>Кілька листочків свіжої м'яти</li>
-        <li><span class="ing-dot"></span>Кружечок лимона</li>
-      </ul>
-      <div class="recipe-note">⏱ Залиш на 2–3 години у холодильнику, потім пий протягом дня невеликими ковтками.</div>
-    </div>
-
-    <div class="check-row" onclick="toggleCheck(this)">
-      <div class="cb">✓</div>
-      <span>Приготувала огіркову воду сьогодні</span>
-    </div>
-
-    <div style="margin-top:14px;">
-      <div style="font-size:0.78rem;color:#999;margin-bottom:8px;">Як смак?</div>
-      <div class="taste-row" id="taste">
-        <button class="taste-btn" onclick="pickTaste(this)">😍 Подобається</button>
-        <button class="taste-btn" onclick="pickTaste(this)">🙂 Нормально</button>
-        <button class="taste-btn" onclick="pickTaste(this)">😐 Не дуже</button>
+    <div class="task-title">☕ Стеж за балансом кави і води</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:16px;line-height:1.65">Кава стимулює нервову систему і має легкий сечогінний ефект — тому кожна чашка потребує компенсації.</p>
+    <div class="coffee-rule">
+      <div class="coffee-rule-icon">☕</div>
+      <div class="coffee-rule-text">
+        <strong>Правило дня:</strong> після кожної чашки кави — випий склянку (200 мл) чистої води. Просто. Легко. Шкіра скаже дякую 💧
       </div>
     </div>
   </div>
 
-  <!-- TASK 3: COFFEE RULE -->
+  <!-- ЗАВДАННЯ 3: РОЗДІЛЯЙ ЇЖУ І НАПОЇ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">3</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">☕ Правило кави</div>
-    <div class="coffee-rule-info">
-      <span class="cr-icon">💡</span>
-      <p class="cr-text"><strong>На кожну чашку кави — додаткова склянка води (200 мл).</strong> Кава виводить воду з організму — компенсуємо одразу!</p>
-    </div>
-    <div class="coffee-counter">
-      <div class="coffee-row">
-        <span class="coffee-emoji">☕</span>
-        <span style="font-size:0.82rem;color:#666;min-width:80px;">Чашка №1</span>
-        <input class="coffee-ml" type="number" placeholder="мл">
-        <span class="coffee-arrow">→</span>
-        <span class="coffee-water">💧 +200 мл</span>
-        <div class="water-check" onclick="toggleWater(this)">✓</div>
+    <div class="task-title">🍽️ Розділяй їжу і напої</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Нова звичка на сьогодні — особливо коли йдеш у кафе або ресторан:</p>
+    <div class="tips-list">
+      <div class="tip-row">
+        <span class="tip-icon">☕</span>
+        <div class="tip-body">
+          <div class="tip-title">Прийшла пити каву — просто пий каву</div>
+          <div class="tip-desc">Не поєднуй з їжею в один прийом</div>
+        </div>
       </div>
-      <div class="coffee-row">
-        <span class="coffee-emoji">☕</span>
-        <span style="font-size:0.82rem;color:#666;min-width:80px;">Чашка №2</span>
-        <input class="coffee-ml" type="number" placeholder="мл">
-        <span class="coffee-arrow">→</span>
-        <span class="coffee-water">💧 +200 мл</span>
-        <div class="water-check" onclick="toggleWater(this)">✓</div>
+      <div class="tip-row">
+        <span class="tip-icon">🍽️</span>
+        <div class="tip-body">
+          <div class="tip-title">Прийшла їсти — їж</div>
+          <div class="tip-desc">Напої під час їжі розбавляють шлунковий сік і ускладнюють травлення</div>
+        </div>
+      </div>
+      <div class="tip-row">
+        <span class="tip-icon">💡</span>
+        <div class="tip-body">
+          <div class="tip-title">Чому це важливо?</div>
+          <div class="tip-desc">Коли їжа і напої розділені — травленню набагато легше працювати, і корисні речовини краще засвоюються</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- TASK 4: EVENING RITUAL -->
+  <!-- ЗАВДАННЯ 4: СЕЛФІ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">4</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">🌙 Вечірній ритуал краси</div>
-    <div class="task-sub">За 1–2 години до сну.</div>
-    <div class="ritual-steps">
-      <div class="check-row" onclick="toggleCheck(this)">
-        <div class="cb">✓</div>
-        <span>Легкий масаж обличчя — 2–3 хвилини</span>
+    <div class="task-title">📸 Зроби селфі — зафіксуй свій старт</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:16px;line-height:1.65">Це твоя точка відліку. В кінці квесту ми порівняємо — і я впевнена, ти побачиш різницю.</p>
+    <div class="selfie-card">
+      <div style="font-size:0.8rem;color:var(--rose);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Як зробити фото правильно</div>
+      <div class="selfie-steps">
+        <div class="selfie-step">
+          <div class="selfie-step-num">1</div>
+          <div class="selfie-step-text">Зранку, одразу після пробудження</div>
+        </div>
+        <div class="selfie-step">
+          <div class="selfie-step-num">2</div>
+          <div class="selfie-step-text">Без макіяжу і без фільтрів</div>
+        </div>
+        <div class="selfie-step">
+          <div class="selfie-step-num">3</div>
+          <div class="selfie-step-text">При природному освітленні — біля вікна</div>
+        </div>
+        <div class="selfie-step">
+          <div class="selfie-step-num">4</div>
+          <div class="selfie-step-text">Збережи фото — воно знадобиться в кінці квесту ✨</div>
+        </div>
       </div>
-      <div class="check-row" onclick="toggleCheck(this)">
-        <div class="cb">✓</div>
-        <span>Нічний крем + зволоження термальною водою</span>
-      </div>
-    </div>
-    <div class="ritual-why">
-      <span class="rw-icon">🔬</span>
-      <p class="rw-text"><strong>Чому це працює:</strong> Вночі шкіра активно відновлюється. Масаж покращує мікроциркуляцію, а термальна вода підсилює зволоження на клітинному рівні.</p>
     </div>
   </div>
 
-  <!-- TRACKER -->
-  <div class="tracker-card reveal">
-    <span class="tracker-label">📝 Трекер Дня 4</span>
-    <div class="tracker-list">
-      <div class="t-item">
-        <div class="t-box" onclick="toggleT(this)">✓</div>
-        <span class="t-text">Зробила селфі «Before»</span>
-      </div>
-      <div class="t-item">
-        <div class="t-box" onclick="toggleT(this)">✓</div>
-        <span class="t-text">Приготувала огіркову воду</span>
-      </div>
-      <div class="t-item">
-        <div class="t-box" onclick="toggleT(this)">✓</div>
-        <span class="t-text">Дотримувалась правила кава+вода</span>
-      </div>
-      <div class="t-item">
-        <div class="t-box" onclick="toggleT(this)">✓</div>
-        <span class="t-text">Виконала вечірній ритуал</span>
-      </div>
-      <div class="t-item">
-        <div class="t-box" onclick="toggleT(this)">✓</div>
-        <span class="t-text">Сьогодні випила:</span>
-        <input class="t-input" type="number" placeholder="мл">
-      </div>
+  <!-- ЧЕКЛІСТ ДНЯ -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">5</div>
+      <span class="task-num-label">Завдання</span>
     </div>
-
-    <div class="progress-4">
-      <div class="p4-title">📊 Мій прогрес за 4 дні</div>
-      <div class="p4-row">
-        <span class="p4-label">Середня кількість води</span>
-        <input class="p4-val" type="number" placeholder="мл/день">
+    <div class="task-title">✅ Чекліст дня</div>
+    <div class="checklist">
+      <div class="check-row">
+        <div class="check-dot"></div>
+        <span class="check-text">💧 Пила воду кожні 20–30 хвилин маленькими ковтками</span>
+        <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
       </div>
-      <div class="p4-row">
-        <span class="p4-label">Відчуття цих днів</span>
-        <input class="p4-val" type="text" placeholder="опиши...">
+      <div class="check-row">
+        <div class="check-dot"></div>
+        <span class="check-text">🌅 Випила склянку води вранці натще</span>
+        <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
       </div>
-    </div>
-
-    <button class="submit-btn" onclick="submitForm()">Зберегти день ✓</button>
-    <div class="submitted-msg" id="submitted">
-      <h4>Прекрасно! 💖</h4>
-      <p>День 4 завершено. Твоя шкіра вже отримує більше уваги та вологи.<br>До зустрічі на День 5!</p>
+      <div class="check-row">
+        <div class="check-dot"></div>
+        <span class="check-text">☕ Після кожної кави — випила склянку води</span>
+        <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
+      </div>
+      <div class="check-row">
+        <div class="check-dot"></div>
+        <span class="check-text">🍽️ Намагалась розділяти їжу і напої</span>
+        <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
+      </div>
+      <div class="check-row">
+        <div class="check-dot"></div>
+        <span class="check-text">📸 Зробила селфі без макіяжу і фільтрів</span>
+        <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
+      </div>
     </div>
   </div>
 
-  <!-- SUPPORT -->
+  <!-- ТРЕКЕР -->
+  <div class="tracker-dark reveal">
+    <span class="tracker-label">🥛 Трекер дня</span>
+    <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
+
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
+      <div>
+        <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Випито сьогодні</div>
+        <div style="display:flex;align-items:baseline;gap:6px;">
+          <span id="mlTotal" style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:#e8a8c0;line-height:1;">0</span>
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.3);">мл</span>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Склянок</div>
+        <span id="glassCount" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.4);">0 / 8</span>
+      </div>
+    </div>
+
+    <div class="pbar-track" style="margin-bottom:16px;"><div class="pbar-fill" id="glassPbar"></div></div>
+    <div class="glasses-wrap" id="glassesWrap" role="group" aria-label="Трекер склянок"></div>
+    <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
+  </div>
+
+  <!-- РЕФЛЕКСІЯ -->
+  <div class="refl-block reveal">
+    <div class="refl-title">📝 Рефлексія дня</div>
+    <p class="refl-sub">Запиши спостереження — вони знадобляться для порівняння в кінці квесту ✨</p>
+    <div class="refl-questions">
+      <div class="refl-q">
+        <label class="refl-q-label" for="refl1">Чи помітила зміни у шкірі, волоссі або самопочутті?</label>
+        <textarea class="refl-textarea" id="refl1" placeholder="Наприклад: шкіра стала менш суха, менше набряків зранку, більше енергії…" rows="3"></textarea>
+      </div>
+      <div class="refl-q">
+        <label class="refl-q-label" for="refl2">Як пройшов день — що вдалось, що було складно?</label>
+        <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: забула про каву і воду після неї, але зробила селфі і додала лимон у воду…" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПІДТРИМКА -->
   <div class="support-block reveal">
-    <div class="support-title">💚 Нагадування від нутриціолога</div>
-    <p class="support-text">Краса — це не лише зовнішній догляд. Це внутрішнє здоров'я клітин. Вода — найдоступніший і найефективніший засіб для сяючої шкіри 💖</p>
+    <div class="support-title">✨ Підтримка від нутриціолога</div>
+    <p class="support-text">Продовжуй пити воду так, як ми вчимося у цьому квесті. Кожен день — це маленький крок до того, щоб шкіра сяяла природно, а тіло відчувало себе легко.</p>
+    <div class="support-quote">
+      <p>Краса починається не з крему.<br>Вона починається з клітини.<br>А клітина починається з води.</p>
+      <span>— Дозволь своєму тілу омолоджуватися природно ✨</span>
+    </div>
+  </div>
+
+  <!-- ФІНАЛ -->
+  <div class="final-card reveal">
+    <span class="final-icon">✨</span>
+    <div class="final-title">День 4 —<br><em>виконано!</em></div>
+    <div class="final-line"></div>
+    <p class="final-sub">Завтра ми поговоримо про те, як вода впливає на твою енергію і настрій 🌊</p>
+    <div class="day-dots">
+      <div class="d-dot done"></div>
+      <div class="d-dot done"></div>
+      <div class="d-dot done"></div>
+      <div class="d-dot active"></div>
+      <div class="d-dot"></div>
+    </div>
   </div>
 
 </main>
 
 <footer>
-  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест · День 4</p>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест Вода · День 4</p>
 </footer>
 
 <script>
-  window.addEventListener('scroll',()=>{
-    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-    document.getElementById('progress').style.width=(s/h*100)+'%';
-  });
-  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+/* Progress bar */
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('progress').style.width=(s/h*100)+'%';
+});
 
-  function toggleCheck(el){
-    el.classList.toggle('done');
-    el.querySelector('.cb').textContent='✓';
-  }
-  function toggleT(el){
-    el.classList.toggle('done');
-    el.textContent='✓';
-  }
-  function toggleWater(el){
-    el.classList.toggle('done');
-    el.textContent='✓';
-  }
-  function pickTaste(btn){
-    document.querySelectorAll('.taste-btn').forEach(b=>b.classList.remove('selected'));
-    btn.classList.add('selected');
-  }
-  function submitForm(){
-    document.querySelector('.submit-btn').style.display='none';
-    const m=document.getElementById('submitted');
-    m.style.display='block';
-    m.scrollIntoView({behavior:'smooth',block:'center'});
-  }
+/* Зірочки у hero */
+const sw=document.getElementById('starsWrap');
+for(let i=0;i<38;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  const size=Math.random()*3+1.5;
+  s.style.cssText=`
+    width:${size}px;height:${size}px;
+    top:${Math.random()*100}%;left:${Math.random()*100}%;
+    --d:${2+Math.random()*4}s;
+    animation-delay:${Math.random()*5}s;
+  `;
+  sw.appendChild(s);
+}
+
+/* Reveal */
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+/* Checklist */
+function toggleCheck(el){
+  el.classList.toggle('done');
+  el.textContent=el.classList.contains('done')?'✓':'';
+}
+
+/* Трекер — 1 склянка = 200 мл */
+const ML_PER_GLASS=200;
+const glassMsgs=[
+  'Натисни на першу склянку 💧',
+  '200 мл — чудовий старт! 💪',
+  '400 мл — шкіра вже дякує! ✨',
+  '600 мл — ти в ритмі! 💅',
+  '800 мл — половина шляху! 💧',
+  '1000 мл — природне сяйво включено! 🌸',
+  '1200 мл — майже норма! 🎉',
+  '1400 мл — ще трішки! ⭐',
+  '1600 мл — норма виконана! 🎉✨'
+];
+const gw=document.getElementById('glassesWrap');
+let gc=0;
+
+function updateTracker(){
+  const ml=gc*ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent=ml;
+  document.getElementById('glassCount').textContent=gc+' / 8';
+  document.getElementById('glassPbar').style.width=(gc/8*100)+'%';
+  document.getElementById('glassMsg').textContent=glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x,j)=>{
+    x.classList.toggle('filled',j<gc);
+    x.setAttribute('aria-checked',j<gc?'true':'false');
+  });
+}
+
+for(let i=0;i<8;i++){
+  const b=document.createElement('button');
+  b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
+  b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
+  b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
+  b.onclick=()=>{
+    const idx=parseInt(b.dataset.i);
+    gc=b.classList.contains('filled')?idx:idx+1;
+    updateTracker();
+  };
+  gw.appendChild(b);
+}
 </script>
 </body>
 </html>
-
