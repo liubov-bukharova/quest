@@ -71,8 +71,11 @@
   .form-divider { height:1px; background:#f0ece6; margin:26px 0; }
   .support-block { margin-top:28px; background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:14px; padding:24px; border:1px solid #c8ddd0; }
   .support-block h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; margin-bottom:8px; color:#2a4030; }
-  .support-block p { font-size:0.84rem; color:#4a6050; line-height:1.65; }
+  .support-block p { font-size:0.84rem; color:#4a6050; line-height:1.75; }
   .support-block .hl { font-style:italic; color:var(--sage); font-weight:500; }
+  .tg-btn { display:inline-flex; align-items:center; gap:8px; margin-top:16px; background:#2a4030; color:#a8c5ab; border-radius:100px; padding:10px 20px; font-size:0.82rem; font-weight:500; text-decoration:none; transition:background 0.2s, transform 0.15s; }
+  .tg-btn:hover { background:#1c2e22; transform:translateY(-1px); }
+  .tg-btn svg { flex-shrink:0; }
   .lifehack { margin-top:20px; display:flex; gap:14px; align-items:flex-start; background:#fffbf5; border-radius:12px; padding:20px; border:1px solid #e8dfc8; }
   .lifehack-icon { font-size:1.5rem; flex-shrink:0; }
   .lifehack h5 { font-weight:600; font-size:0.88rem; margin-bottom:5px; }
@@ -192,8 +195,18 @@
     </div>
 
     <div class="support-block">
-      <h4>💚 Підтримка від нутриціолога</h4>
-      <p>Не дивуйся, якщо виявиш, що п'єш дуже мало — <span class="hl">більшість людей вживають лише 30–40% від норми</span>. Це перший крок — просто побачити реальність.</p>
+      <h4>💚 Слово від мене особисто</h4>
+      <p>Ти вже зробив/ла важливий крок — просто бути тут і помічати. <span class="hl">Це і є початок змін.</span> Не треба бути ідеальним/ною — треба бути чесною із собою.<br><br>Якщо виникнуть питання, сумніви або просто захочеться поділитися — <span class="hl">я завжди поруч</span>. Пиши мені в будь-який момент 🤍</p>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:18px;">
+        <a href="https://t.me/Lyubov_nutritionist" target="_blank" style="display:flex;align-items:center;gap:10px;background:white;border:1.5px solid #c8ddd0;border-radius:12px;padding:13px 16px;text-decoration:none;color:#2a4030;font-size:0.84rem;font-weight:500;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21.8 2.2L1.3 10.1c-1.4.6-1.4 1.4-.3 1.7l5.1 1.6 11.8-7.4c.6-.3 1.1-.1.7.2L8.4 16.4l-.4 5.2c.6 0 .9-.3 1.2-.6l2.9-2.8 5.1 3.7c.9.5 1.6.2 1.8-.8l3.3-15.6c.3-1.3-.5-1.9-1.5-1.3z" fill="#4e8fa3"/></svg>
+          Написати особисто — @Lyubov_nutritionist
+        </a>
+        <a href="https://t.me/+HjcCjo6AUOBkMTUy" target="_blank" style="display:flex;align-items:center;gap:10px;background:white;border:1.5px solid #c8ddd0;border-radius:12px;padding:13px 16px;text-decoration:none;color:#2a4030;font-size:0.84rem;font-weight:500;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21.8 2.2L1.3 10.1c-1.4.6-1.4 1.4-.3 1.7l5.1 1.6 11.8-7.4c.6-.3 1.1-.1.7.2L8.4 16.4l-.4 5.2c.6 0 .9-.3 1.2-.6l2.9-2.8 5.1 3.7c.9.5 1.6.2 1.8-.8l3.3-15.6c.3-1.3-.5-1.9-1.5-1.3z" fill="#4e8fa3"/></svg>
+          Приєднатись до групи в Telegram
+        </a>
+      </div>
     </div>
 
     <div class="lifehack">
@@ -208,6 +221,10 @@
     <div class="submitted-msg" id="submitted">
       <h4>Чудово! 💚</h4>
       <p>Ти зробив/ла перший крок — побачив/ла реальність.<br>Завтра ми починаємо змінювати її разом.</p>
+      <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" style="margin:16px auto 0;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.8 2.2L1.3 10.1c-1.4.6-1.4 1.4-.3 1.7l5.1 1.6 11.8-7.4c.6-.3 1.1-.1.7.2L8.4 16.4l-.4 5.2c.6 0 .9-.3 1.2-.6l2.9-2.8 5.1 3.7c.9.5 1.6.2 1.8-.8l3.3-15.6c.3-1.3-.5-1.9-1.5-1.3z" fill="#a8c5ab"/></svg>
+        Написати Любові в Telegram
+      </a>
     </div>
   </div>
 </section>
