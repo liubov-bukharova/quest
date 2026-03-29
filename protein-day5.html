@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>День 5 · Підсумок білкового тижня</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#1c1c1e; --mist:#f0ede8; --foam:#faf8f4; --sage:#6b8f71; --rose:#c4736a; --gold:#b8965a; --protein:#7a5c8a; --protein-light:#f5eeff; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
+  .progress-bar { position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,var(--sage),var(--protein),var(--rose),var(--gold)); z-index:100; transition:width 0.15s; }
+
+  /* HERO */
+  .hero { min-height:100svh; background:linear-gradient(160deg,#0e0a14 0%,#1a1020 45%,#241428 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
+  .ripple { position:absolute; border-radius:50%; border:1px solid rgba(122,92,138,0.18); animation:ripple-out 7s ease-out infinite; }
+  .ripple:nth-child(1){width:180px;height:180px;animation-delay:0s}
+  .ripple:nth-child(2){width:380px;height:380px;animation-delay:1.8s}
+  .ripple:nth-child(3){width:620px;height:620px;animation-delay:3.6s}
+  .ripple:nth-child(4){width:880px;height:880px;animation-delay:5.4s}
+  @keyframes ripple-out{0%{transform:scale(0.3);opacity:0.5}100%{transform:scale(1.3);opacity:0}}
+
+  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:32px; position:relative; z-index:1; }
+  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--protein),#4a2a6a); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
+  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
+  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
+  .day-badge { display:inline-block; background:rgba(122,92,138,0.18); border:1px solid rgba(122,92,138,0.4); color:#c4a0d8; font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
+  .hero-icon { font-size:80px; animation:glow 3s ease-in-out infinite; position:relative; z-index:1; margin-bottom:16px; }
+  @keyframes glow{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.1);filter:brightness(1.25)}}
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.8rem,7vw,5.5rem); font-weight:700; color:#fff; line-height:1; position:relative; z-index:1; margin-bottom:8px; }
+  .hero h1 em { color:#c4a0d8; font-style:italic; }
+  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.15); margin:18px auto; position:relative; z-index:1; }
+  .hero-tagline { color:rgba(255,255,255,0.5); font-size:0.85rem; position:relative; z-index:1; max-width:340px; line-height:1.7; }
+  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.2); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; z-index:1; }
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+  .main { max-width:680px; margin:0 auto; padding:60px 24px 80px; }
+
+  /* ACHIEVEMENTS */
+  .achieve-card { background:linear-gradient(135deg,#0e0a14,#1e1228); border-radius:20px; padding:32px; margin-bottom:20px; position:relative; overflow:hidden; }
+  .achieve-card::after { content:'💪'; position:absolute; right:-10px; top:-10px; font-size:110px; opacity:0.05; }
+  .ach-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(196,160,216,0.6); font-weight:500; margin-bottom:20px; display:block; }
+  .ach-list { display:flex; flex-direction:column; gap:12px; }
+  .ach-item { display:flex; align-items:center; gap:14px; }
+  .ach-icon { width:36px; height:36px; border-radius:50%; background:rgba(122,92,138,0.18); border:1px solid rgba(122,92,138,0.35); display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+  .ach-text { font-size:0.88rem; color:rgba(255,255,255,0.75); line-height:1.4; }
+
+  /* TASK BLOCK */
+  .task-block { background:white; border-radius:20px; padding:32px; margin-bottom:20px; border:1px solid #ede8e0; }
+  .task-num { display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
+  .task-num-circle { width:28px; height:28px; border-radius:50%; background:var(--protein); color:white; font-size:0.78rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .task-num-label { font-size:0.63rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--protein); font-weight:600; }
+  .task-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:700; margin-bottom:6px; }
+  .task-sub { font-size:0.83rem; color:#888; margin-bottom:20px; line-height:1.55; }
+
+  /* FEELINGS */
+  .feel-grid { display:flex; flex-direction:column; gap:14px; }
+  .feel-item { display:flex; flex-direction:column; gap:6px; }
+  .feel-label { font-size:0.8rem; font-weight:500; color:#555; }
+  .feel-row { display:flex; gap:8px; }
+  .feel-btn { flex:1; padding:9px 6px; border-radius:9px; border:1.5px solid #e4e0da; background:white; font-family:'DM Sans',sans-serif; font-size:0.78rem; color:#777; cursor:pointer; text-align:center; transition:all 0.15s; }
+  .feel-btn:hover { border-color:var(--protein); color:var(--protein); }
+  .feel-btn.sel { border-color:var(--protein); background:var(--protein-light); color:var(--protein); font-weight:500; }
+
+  /* BEFORE/AFTER */
+  .compare-wrap { display:flex; align-items:stretch; gap:10px; margin-bottom:14px; }
+  .compare-card { flex:1; border-radius:14px; padding:18px 16px; }
+  .compare-card.before { background:#f5f0ee; border:1px solid #e4d8d4; }
+  .compare-card.after { background:#f2eeff; border:1px solid #d4b8e8; }
+  .c-label { font-size:0.62rem; letter-spacing:0.15em; text-transform:uppercase; font-weight:600; margin-bottom:8px; display:block; }
+  .compare-card.before .c-label { color:var(--rose); }
+  .compare-card.after .c-label { color:var(--protein); }
+  .c-emoji { font-size:2rem; display:block; margin-bottom:8px; }
+  .c-items { list-style:none; font-size:0.76rem; color:#777; display:flex; flex-direction:column; gap:5px; }
+  .c-items li { padding-left:12px; position:relative; }
+  .c-items li::before { content:'·'; position:absolute; left:0; color:#bbb; }
+  .compare-card.after .c-items li::before { color:var(--protein); }
+  .compare-card.after .c-items { color:#5a3a7a; }
+  .compare-arrow { display:flex; align-items:center; font-size:1.4rem; color:#ccc; flex-shrink:0; }
+  .compare-note { font-size:0.76rem; color:#aaa; margin-bottom:12px; text-align:center; }
+
+  /* MEAL PLAN — 3 separate fields */
+  .meal-fields { display:flex; flex-direction:column; gap:14px; }
+  .meal-field-wrap { display:flex; flex-direction:column; gap:6px; }
+  .meal-field-label { display:flex; align-items:center; gap:8px; font-size:0.8rem; font-weight:500; color:var(--protein); }
+  .meal-badge { font-size:0.67rem; background:var(--protein-light); color:var(--protein); border-radius:6px; padding:2px 8px; font-weight:500; }
+  .meal-input { width:100%; background:var(--mist); border:1.5px solid #e4e0da; border-radius:11px; padding:11px 14px; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--ink); resize:none; outline:none; line-height:1.55; }
+  .meal-input:focus { border-color:var(--protein); background:var(--protein-light); }
+  .meal-input::placeholder { color:#bbb; }
+
+  /* HABITS */
+  .habit-list { display:flex; flex-direction:column; gap:9px; margin-bottom:16px; }
+  .habit-row { display:flex; align-items:center; gap:12px; padding:13px 15px; border-radius:12px; background:var(--mist); border:1.5px solid transparent; cursor:pointer; user-select:none; transition:all 0.15s; font-size:0.86rem; color:#444; }
+  .habit-row:hover { border-color:var(--protein); background:var(--protein-light); }
+  .habit-row.done { border-color:var(--protein); background:var(--protein-light); font-weight:500; color:var(--ink); }
+  .h-box { width:20px; height:20px; border-radius:6px; border:2px solid #ccc; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.72rem; transition:all 0.15s; }
+  .habit-row.done .h-box { background:var(--protein); border-color:var(--protein); color:white; }
+
+  /* PROGRESS COUNTER */
+  .habit-progress { background:linear-gradient(135deg,#0e0a14,#1e1228); border-radius:14px; padding:16px 20px; display:flex; align-items:center; gap:16px; }
+  .hp-bar-wrap { flex:1; height:5px; background:rgba(255,255,255,0.08); border-radius:3px; overflow:hidden; }
+  .hp-bar-fill { height:100%; background:linear-gradient(90deg,var(--protein),#c4a0d8); border-radius:3px; transition:width 0.4s ease; }
+  .hp-label { font-size:0.78rem; color:rgba(255,255,255,0.5); white-space:nowrap; }
+  .hp-count { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:#c4a0d8; white-space:nowrap; min-width:36px; }
+
+  /* SHARE */
+  .share-field { width:100%; background:var(--mist); border:1.5px solid #e4e0da; border-radius:12px; padding:14px 16px; font-family:'DM Sans',sans-serif; font-size:0.86rem; color:var(--ink); resize:none; outline:none; line-height:1.6; }
+  .share-field:focus { border-color:var(--protein); background:var(--protein-light); }
+  .share-field::placeholder { color:#bbb; }
+  .share-note { font-size:0.75rem; color:#bbb; margin-top:8px; }
+
+  /* SUPPORT */
+  .support-block { background:linear-gradient(135deg,#f5eeff,#ede5f8); border-radius:16px; padding:26px; border:1px solid #d4b8e8; margin-bottom:20px; }
+  .support-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:#3a1a4a; }
+  .support-text { font-size:0.85rem; color:#6b3a8a; line-height:1.75; }
+  .support-sign { margin-top:12px; font-size:0.82rem; color:var(--protein); font-style:italic; font-weight:500; }
+
+  /* TEASER */
+  .teaser { background:linear-gradient(135deg,#0c1408,#141a0c); border-radius:20px; padding:32px; margin-bottom:20px; text-align:center; position:relative; overflow:hidden; }
+  .teaser::before { content:'🥑'; position:absolute; right:16px; bottom:-8px; font-size:100px; opacity:0.07; }
+  .teaser-week { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(180,210,140,0.5); margin-bottom:16px; display:block; }
+  .teaser-icon { font-size:48px; margin-bottom:12px; }
+  .teaser-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:700; color:#fff; margin-bottom:10px; }
+  .teaser-title em { color:#b4d28c; font-style:italic; }
+  .teaser-desc { font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.7; max-width:420px; margin:0 auto; }
+
+  /* FINAL */
+  .final-wrap { background:linear-gradient(135deg,#0e0a14,#1e1228); border-radius:20px; padding:28px 32px; }
+  .final-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(196,160,216,0.5); margin-bottom:16px; display:block; }
+  .submit-btn { display:block; width:100%; background:var(--protein); color:white; border:none; border-radius:14px; padding:18px; font-family:'DM Sans',sans-serif; font-size:0.95rem; font-weight:500; cursor:pointer; transition:background 0.2s, transform 0.15s; letter-spacing:0.03em; }
+  .submit-btn:hover { background:#5a3c6a; transform:translateY(-1px); }
+  .submitted-msg { display:none; text-align:center; padding:36px 20px; }
+  .submitted-msg .s-trophy { font-size:56px; margin-bottom:16px; display:block; animation:glow 2s ease-in-out infinite; }
+  .submitted-msg h4 { font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:700; color:#fff; line-height:1.15; margin-bottom:14px; }
+  .submitted-msg h4 em { color:#c4a0d8; font-style:italic; }
+  .submitted-msg p { font-size:0.88rem; color:rgba(255,255,255,0.6); line-height:1.9; max-width:320px; margin:0 auto 20px; }
+  .submitted-habits { background:rgba(122,92,138,0.15); border:1px solid rgba(122,92,138,0.3); border-radius:12px; padding:14px 18px; font-size:0.82rem; color:rgba(196,160,216,0.75); line-height:1.7; text-align:left; }
+  .submitted-habits strong { color:#c4a0d8; display:block; margin-bottom:6px; }
+
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  footer { background:var(--ink); padding:40px 24px; text-align:center; }
+  .footer-congrats { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:600; color:rgba(255,255,255,0.4); margin-bottom:10px; }
+  footer p { color:rgba(255,255,255,0.2); font-size:0.75rem; letter-spacing:0.06em; }
+  footer span { color:#c4a0d8; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<section class="hero">
+  <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+  <div class="author-badge">
+    <div class="author-avatar">ЛБ</div>
+    <div>
+      <span class="author-name">Любов Бухарова</span>
+      <span class="author-role">Нутриціолог</span>
+    </div>
+  </div>
+  <div class="day-badge">Відео-квест · День 5 · Фінал Білкового тижня</div>
+  <div class="hero-icon">🏆</div>
+  <h1>Ти<br><em>зробила це!</em></h1>
+  <div class="hero-line"></div>
+  <p class="hero-tagline">Тиждень із білком завершено. Час побачити, як ти змінилась зсередини.</p>
+  <div class="hero-scroll">↓ гортай</div>
+</section>
+
+<main class="main">
+
+  <!-- ACHIEVEMENTS -->
+  <div class="achieve-card reveal">
+    <span class="ach-label">📊 Що ти досягла за цей тиждень</span>
+    <div class="ach-list">
+      <div class="ach-item"><div class="ach-icon">💪</div><span class="ach-text">Дізналася, що білок — будівельний матеріал для клітин, м'язів, гормонів і імунітету</span></div>
+      <div class="ach-item"><div class="ach-icon">🔢</div><span class="ach-text">Навчилася розраховувати свою індивідуальну норму білка (1–2 г/кг ваги)</span></div>
+      <div class="ach-item"><div class="ach-icon">⚖️</div><span class="ach-text">Зрозуміла різницю між тваринним і рослинним білком</span></div>
+      <div class="ach-item"><div class="ach-icon">✨</div><span class="ach-text">Відкрила формулу молодості — баланс 50/50</span></div>
+      <div class="ach-item"><div class="ach-icon">🌿</div><span class="ach-text">Усвідомила, що засвоєння білка залежить від спокою, ферментів і мікробіому</span></div>
+    </div>
+  </div>
+
+  <!-- TASK 1: FEELINGS -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">1</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">✍️ Проаналізуй свій тиждень</div>
+    <div class="task-sub">Чесно відповідь на кожне питання — це твій особистий звіт тижня.</div>
+    <div class="feel-grid">
+      <div class="feel-item">
+        <span class="feel-label">🥚 Чи вдалося досягти норми білка щодня?</span>
+        <div class="feel-row">
+          <button class="feel-btn" onclick="pickFeel(this,'n')">Так, щодня</button>
+          <button class="feel-btn" onclick="pickFeel(this,'n')">Більшість днів</button>
+          <button class="feel-btn" onclick="pickFeel(this,'n')">Ще працюю</button>
+        </div>
+      </div>
+      <div class="feel-item">
+        <span class="feel-label">⚡ Чи змінився рівень енергії?</span>
+        <div class="feel-row">
+          <button class="feel-btn" onclick="pickFeel(this,'e')">Стало більше</button>
+          <button class="feel-btn" onclick="pickFeel(this,'e')">Без змін</button>
+          <button class="feel-btn" onclick="pickFeel(this,'e')">Ще спостерігаю</button>
+        </div>
+      </div>
+      <div class="feel-item">
+        <span class="feel-label">🪞 Чи помітила зміни шкіри / волосся?</span>
+        <div class="feel-row">
+          <button class="feel-btn" onclick="pickFeel(this,'s')">Так, помітно</button>
+          <button class="feel-btn" onclick="pickFeel(this,'s')">Трохи</button>
+          <button class="feel-btn" onclick="pickFeel(this,'s')">Поки ні</button>
+        </div>
+      </div>
+      <div class="feel-item">
+        <span class="feel-label">😋 Як змінилося відчуття ситості?</span>
+        <div class="feel-row">
+          <button class="feel-btn" onclick="pickFeel(this,'f')">Ситіша довше</button>
+          <button class="feel-btn" onclick="pickFeel(this,'f')">Трохи краще</button>
+          <button class="feel-btn" onclick="pickFeel(this,'f')">Без змін</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 2: BEFORE / AFTER -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">2</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">🔄 Before → After самопочуття</div>
+    <div class="task-sub">Порівняй, як ти почувалась на початку тижня і зараз.</div>
+    <div class="compare-wrap">
+      <div class="compare-card before">
+        <span class="c-label">Before · День 1</span>
+        <span class="c-emoji">🌥</span>
+        <ul class="c-items">
+          <li>Втома після їжі</li>
+          <li>Не знала норму білка</li>
+          <li>Хаотичне харчування</li>
+        </ul>
+      </div>
+      <div class="compare-arrow">→</div>
+      <div class="compare-card after">
+        <span class="c-label">After · День 5</span>
+        <span class="c-emoji">✨</span>
+        <ul class="c-items">
+          <li>Більше сил і ситості</li>
+          <li>Знаю свою норму</li>
+          <li>Баланс 50/50 в тарілці</li>
+        </ul>
+      </div>
+    </div>
+    <p class="compare-note">📸 Зроби нове фото і порівняй зі фото початку тижня — шкіра, очі, загальний вигляд</p>
+    <textarea class="share-field" rows="3" placeholder="Що помітила? Які зміни відчуваєш у тілі, енергії, самопочутті..."></textarea>
+  </div>
+
+  <!-- TASK 3: IDEAL DAY — 3 окремі поля -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">3</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">🍽️ Мій ідеальний білковий день</div>
+    <div class="task-sub">Розпиши кожен прийом їжі окремо — так легше побачити баланс та досягти своєї норми.</div>
+    <div class="meal-fields">
+      <div class="meal-field-wrap">
+        <div class="meal-field-label">☀️ Сніданок <span class="meal-badge">≈ 20–25 г білка</span></div>
+        <textarea class="meal-input" rows="2" placeholder="Напр.: омлет (2 яйця) + зелень + цільнозерновий хліб..."></textarea>
+      </div>
+      <div class="meal-field-wrap">
+        <div class="meal-field-label">🌤 Обід <span class="meal-badge">≈ 30–35 г білка</span></div>
+        <textarea class="meal-input" rows="2" placeholder="Напр.: запечений лосось + салат з руколи + квіноа..."></textarea>
+      </div>
+      <div class="meal-field-wrap">
+        <div class="meal-field-label">🌙 Вечеря <span class="meal-badge">≈ 20–25 г білка</span></div>
+        <textarea class="meal-input" rows="2" placeholder="Напр.: тушковані боби + овочі + кефір..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- TASK 4: HABITS + CHECKLIST об'єднані + прогрес -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">4</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">💡 Мої білкові звички назавжди</div>
+    <div class="task-sub">Відміть те, що вже стало частиною твого життя — і побач свій прогрес.</div>
+    <div class="habit-list" id="habitList">
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>🔢 Знаю свою норму білка і прагну її дотримуватись</span></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>🥚 Додаю білок до кожного прийому їжі</span></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>⚖️ Балансую тваринний і рослинний білок (50/50)</span></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>🌿 Їм білок з зеленню та овочами для кращого засвоєння</span></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>🐌 Жую повільно, в спокої, без гаджетів</span></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>🫙 Підтримую мікробіом кисломолочними та ферментованими продуктами</span></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-box">✓</div><span>🫚 Використовую спеціі (імбир, куркуму) для кращого засвоєння</span></div>
+    </div>
+    <div class="habit-progress">
+      <div class="hp-count" id="habitCount">0/7</div>
+      <div class="hp-bar-wrap"><div class="hp-bar-fill" id="habitBar" style="width:0%"></div></div>
+      <div class="hp-label" id="habitLabel">Починай відмічати ✨</div>
+    </div>
+  </div>
+
+  <!-- TASK 5: SHARE -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">5</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">💬 Поділися досвідом</div>
+    <div class="task-sub">Що було найважче? Що стало відкриттям? Які зміни вже помітила?</div>
+    <textarea class="share-field" rows="4" placeholder="Найважче для мене було... Найбільшим відкриттям стало... Я вже помічаю..."></textarea>
+    <p class="share-note">📌 Можеш поділитись з нутриціологом або зберегти для себе як особистий щоденник</p>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="support-block reveal">
+    <div class="support-title">💡 Нагадування від нутриціолога</div>
+    <p class="support-text">Білок — це не просто їжа, це <strong>інвестиція в твою силу, молодість і довголіття</strong>.<br><br>Кожна твоя тарілка з правильним білком — це будівництво нових клітин, це енергія для активного життя, це сяюча шкіра і міцні м'язи.<br><br>Ти молодець, що пройшла цей тиждень усвідомлено! 💚</p>
+    <div class="support-sign">— Любов Бухарова</div>
+  </div>
+
+  <!-- TEASER -->
+  <div class="teaser reveal">
+    <span class="teaser-week">Наступний тиждень</span>
+    <div class="teaser-icon">🥑</div>
+    <div class="teaser-title">Починаємо<br><em>тиждень жирів</em></div>
+    <p class="teaser-desc">Продовжуй пити воду 💧, додавай білок до кожної тарілки 💪, і готуйся до нових відкриттів про корисні жири!</p>
+  </div>
+
+  <!-- FINAL -->
+  <div class="final-wrap reveal">
+    <span class="final-label">🏆 Завершити білковий квест</span>
+    <button class="submit-btn" onclick="submitForm()" id="submitBtn">Я завершила білковий квест! 🎉</button>
+    <div class="submitted-msg" id="submitted">
+      <span class="s-trophy">🏆</span>
+      <h4>Вітаю!<br><em>Тиждень білку позаду.</em></h4>
+      <p>Твоє тіло вже отримало все необхідне для будівництва нових клітин, сяючої шкіри та міцних м'язів.<br><br>Продовжуй пити воду 💧 і їсти правильний білок 💪<br><br>До зустрічі на тижні жирів! 🥑</p>
+      <div class="submitted-habits" id="submittedHabits"></div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-congrats">Дякую, що пройшла цей шлях разом зі мною 💪</div>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Білковий квест · Фінал</p>
+</footer>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    document.getElementById('progress').style.width=(s/h*100)+'%';
+  });
+
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  function pickFeel(btn,group){
+    btn.closest('.feel-row').querySelectorAll('.feel-btn').forEach(b=>b.classList.remove('sel'));
+    btn.classList.add('sel');
+  }
+
+  const progressLabels = ['Починай відмічати ✨','Добрий початок! 🌱','Вже 2 звички! 💫','Половина шляху! ⚡','Чудово! Ще трохи 🔥','Майже всі! 💜','Фантастично! 🎯','Всі 7 звичок! 🏆'];
+
+  function toggleHabit(el){
+    el.classList.toggle('done');
+    const total = document.querySelectorAll('#habitList .habit-row').length;
+    const done = document.querySelectorAll('#habitList .habit-row.done').length;
+    document.getElementById('habitCount').textContent = done+'/'+total;
+    document.getElementById('habitBar').style.width = (done/total*100)+'%';
+    document.getElementById('habitLabel').textContent = progressLabels[done];
+  }
+
+  function submitForm(){
+    const done = document.querySelectorAll('#habitList .habit-row.done');
+    const count = done.length;
+    let html = '';
+    if(count > 0){
+      const names = Array.from(done).map(r => r.querySelector('span').textContent.trim());
+      html = '<strong>Ти відмітила ' + count + ' з 7 звичок:</strong>' + names.map(n => '· ' + n).join('<br>');
+    } else {
+      html = 'Поверніться до чек-листу і відміть свої нові звички 💜';
+    }
+    document.getElementById('submittedHabits').innerHTML = html;
+    document.getElementById('submitBtn').style.display = 'none';
+    const m = document.getElementById('submitted');
+    m.style.display = 'block';
+    m.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+</script>
+</body>
+</html>
