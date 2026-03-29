@@ -3,146 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>День 2 · Як навчити воду працювати на тебе</title>
+<title>День 2 · Навчи воду працювати на тебе</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  :root { --ink:#1c1c1e; --mist:#f0ede8; --water:#4e8fa3; --water-pale:#d0e8f0; --foam:#f7f4ef; --sage:#6b8f71; }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
-  .progress-bar { position:fixed; top:0; left:0; height:2px; background:var(--water); z-index:100; transition:width 0.15s; }
+  :root{--ink:#1c1c1e;--mist:#f0ede8;--water:#4e8fa3;--water-pale:#d0e8f0;--foam:#f7f4ef;--sage:#6b8f71;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
+  .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--water);z-index:100;transition:width 0.15s;}
 
-  /* HERO */
-  .hero { min-height:100svh; background:linear-gradient(160deg,#0d1f2d 0%,#122436 50%,#1a3245 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
-  .wave-bg { position:absolute; bottom:0; left:0; right:0; height:180px; background:linear-gradient(to top, rgba(78,143,163,0.08), transparent); }
-  .ripple { position:absolute; border-radius:50%; border:1px solid rgba(78,143,163,0.18); animation:ripple-out 7s ease-out infinite; }
+  .hero{min-height:100svh;background:linear-gradient(160deg,#0d1f2d 0%,#122436 50%,#1a3245 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
+  .wave-bg{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(78,143,163,0.08),transparent);}
+  .ripple{position:absolute;border-radius:50%;border:1px solid rgba(78,143,163,0.18);animation:ripple-out 7s ease-out infinite;}
   .ripple:nth-child(1){width:180px;height:180px;animation-delay:0s}
   .ripple:nth-child(2){width:380px;height:380px;animation-delay:1.8s}
   .ripple:nth-child(3){width:620px;height:620px;animation-delay:3.6s}
   .ripple:nth-child(4){width:880px;height:880px;animation-delay:5.4s}
   @keyframes ripple-out{0%{transform:scale(0.3);opacity:0.5}100%{transform:scale(1.3);opacity:0}}
-
-  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:32px; position:relative; z-index:1; }
-  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--water),#2a6e85); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
-  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
-  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
-
-  .day-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(78,143,163,0.15); border:1px solid rgba(78,143,163,0.3); color:var(--water); font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
-
-  .hero-icon { font-size:72px; animation:sway 4s ease-in-out infinite; position:relative; z-index:1; margin-bottom:16px; }
+  .author-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:8px 20px 8px 8px;margin-bottom:32px;position:relative;z-index:1;}
+  .author-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--water),#2a6e85);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:700;color:white;flex-shrink:0;}
+  .author-name{font-size:0.8rem;color:rgba(255,255,255,0.75);font-weight:400;display:block;}
+  .author-role{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;display:block;}
+  .day-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(78,143,163,0.15);border:1px solid rgba(78,143,163,0.3);color:var(--water);font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px;position:relative;z-index:1;}
+  .hero-icon{font-size:72px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;margin-bottom:16px;}
   @keyframes sway{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-
-  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.4rem,7vw,5rem); font-weight:700; color:#fff; line-height:1.05; position:relative; z-index:1; margin-bottom:8px; }
-  .hero h1 em { color:var(--water); font-style:italic; }
-  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.15); margin:18px auto; position:relative; z-index:1; }
-  .hero-tagline { color:rgba(255,255,255,0.45); font-size:0.82rem; letter-spacing:0.06em; position:relative; z-index:1; max-width:320px; line-height:1.6; }
-  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.2); font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; animation:bob 2s ease-in-out infinite; z-index:1; }
+  .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.05;position:relative;z-index:1;margin-bottom:8px;}
+  .hero h1 em{color:var(--water);font-style:italic;}
+  .hero-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:18px auto;position:relative;z-index:1;}
+  .hero-tagline{color:rgba(255,255,255,0.45);font-size:0.82rem;letter-spacing:0.06em;position:relative;z-index:1;max-width:300px;line-height:1.65;}
+  .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.2);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* CONTENT */
-  .main { max-width:680px; margin:0 auto; padding:60px 24px 80px; }
+  .main{max-width:680px;margin:0 auto;padding:60px 24px 80px;}
 
-  /* NORM CARD */
-  .norm-card { background:linear-gradient(135deg,#0d1f2d,#1a3245); border-radius:20px; padding:32px; margin-bottom:28px; position:relative; overflow:hidden; }
-  .norm-card::after { content:'30'; position:absolute; right:-10px; top:-20px; font-family:'Cormorant Garamond',serif; font-size:120px; font-weight:900; color:rgba(78,143,163,0.08); line-height:1; }
-  .norm-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(168,197,171,0.6); font-weight:500; margin-bottom:14px; display:block; }
-  .norm-formula { font-family:'Cormorant Garamond',serif; font-size:clamp(1.4rem,4vw,2rem); color:white; font-weight:600; margin-bottom:12px; }
-  .norm-formula span { color:var(--water); }
-  .norm-warning { display:flex; gap:12px; align-items:flex-start; background:rgba(255,255,255,0.05); border-radius:12px; padding:16px; border-left:3px solid #e8a87c; }
-  .norm-warning .wi { font-size:1.2rem; flex-shrink:0; }
-  .norm-warning p { font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.6; }
-  .norm-warning strong { color:rgba(255,255,255,0.85); }
+  .intro-card{background:linear-gradient(135deg,#0d1f2d,#1a3245);border-radius:20px;padding:32px;margin-bottom:28px;position:relative;overflow:hidden;}
+  .intro-card::after{content:'💧';position:absolute;right:-6px;top:-8px;font-size:120px;opacity:0.05;line-height:1;}
+  .intro-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(168,197,210,0.6);font-weight:500;margin-bottom:14px;display:block;}
+  .intro-text{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,3vw,1.4rem);color:rgba(255,255,255,0.88);line-height:1.7;margin-bottom:18px;}
+  .intro-text em{color:var(--water);font-style:italic;}
+  .intro-rule{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.05);border-radius:12px;padding:16px;border-left:3px solid var(--water);}
+  .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
+  .intro-rule strong{color:rgba(255,255,255,0.88);}
 
-  /* TASK SECTIONS */
-  .task-block { background:white; border-radius:20px; padding:32px; margin-bottom:20px; border:1px solid #e8e4de; }
-  .task-num { display:inline-flex; align-items:center; gap:8px; margin-bottom:16px; }
-  .task-num-circle { width:28px; height:28px; border-radius:50%; background:var(--water); color:white; font-size:0.78rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .task-num-label { font-size:0.63rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--water); font-weight:600; }
-  .task-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:700; margin-bottom:18px; }
+  .formula-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8e4de;}
+  .formula-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--water);font-weight:600;margin-bottom:14px;display:block;}
+  .formula-eq{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--ink);margin-bottom:6px;}
+  .formula-eq span{color:var(--water);}
+  .formula-example{font-size:0.84rem;color:#888;line-height:1.6;}
 
-  /* CALCULATOR */
-  .calc-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-  @media(max-width:480px){.calc-grid{grid-template-columns:1fr}}
-  .calc-field { display:flex; flex-direction:column; gap:6px; }
-  .calc-field label { font-size:0.72rem; color:#999; text-transform:uppercase; letter-spacing:0.08em; }
-  .calc-input { background:var(--mist); border:1.5px solid #e4e0da; border-radius:10px; padding:12px 14px; font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--ink); outline:none; transition:border-color 0.15s; width:100%; }
-  .calc-input:focus { border-color:var(--water); background:var(--water-pale); }
-  .calc-result { grid-column:1/-1; background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:12px; padding:18px 20px; border:1px solid #c8ddd0; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-  .calc-result-label { font-size:0.78rem; color:#4a6050; }
-  .calc-result-val { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:700; color:var(--sage); }
-  .calc-result-unit { font-size:0.75rem; color:#888; }
+  .task-block{background:white;border-radius:20px;padding:32px;margin-bottom:20px;border:1px solid #e8e4de;}
+  .task-num{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
+  .task-num-circle{width:28px;height:28px;border-radius:50%;background:var(--water);color:white;font-size:0.78rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--water);font-weight:600;}
+  .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
 
-  /* WEEK PLAN */
-  .week-plan { display:flex; flex-direction:column; gap:10px; margin-top:20px; }
-  .week-row { display:flex; align-items:center; gap:14px; background:var(--mist); border-radius:12px; padding:14px 16px; }
-  .week-dot { width:10px; height:10px; border-radius:50%; background:var(--water); opacity:0.5; flex-shrink:0; transition:opacity 0.2s; }
-  .week-row.active .week-dot { opacity:1; }
-  .week-label { font-size:0.78rem; color:#888; min-width:72px; }
-  .week-input { flex:1; background:white; border:1.5px solid #ddd; border-radius:8px; padding:8px 12px; font-family:'DM Sans',sans-serif; font-size:0.85rem; color:var(--ink); outline:none; }
-  .week-input:focus { border-color:var(--water); }
+  /* inputs */
+  .calc-field{display:flex;flex-direction:column;gap:6px;}
+  .calc-field label{font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.08em;}
+  .calc-input{background:var(--mist);border:1.5px solid #e4e0da;border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.15s;width:100%;}
+  .calc-input:focus{border-color:var(--water);background:var(--water-pale);}
 
-  /* RITUAL */
-  .ritual-box { background:linear-gradient(135deg,#edf6f0,#e8f4f0); border-radius:14px; padding:22px; display:flex; gap:16px; align-items:flex-start; border:1px solid #c8ddd0; }
-  .ritual-icon { font-size:2rem; flex-shrink:0; }
-  .ritual-title { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:700; margin-bottom:6px; color:#1c3025; }
-  .ritual-desc { font-size:0.83rem; color:#4a6050; line-height:1.6; }
-  .ritual-check { display:flex; align-items:center; gap:10px; margin-top:14px; background:white; border-radius:10px; padding:12px 14px; border:1.5px solid #c8ddd0; cursor:pointer; user-select:none; transition:all 0.15s; }
-  .ritual-check:hover { border-color:var(--sage); }
-  .ritual-check.done { border-color:var(--sage); background:#edf6f0; }
-  .check-box { width:20px; height:20px; border-radius:6px; border:2px solid #c8ddd0; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; font-size:0.75rem; }
-  .ritual-check.done .check-box { background:var(--sage); border-color:var(--sage); color:white; }
-  .check-text { font-size:0.85rem; color:#444; }
+  /* task 1 norm result */
+  .norm-result{display:none;background:linear-gradient(135deg,#edf6f0,#e4f0f4);border-radius:14px;padding:20px 22px;border:1px solid #c8ddd0;margin-top:14px;}
+  .norm-result-label{font-size:0.72rem;color:#4a6050;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;}
+  .norm-result-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--sage);}
+  .norm-result-unit{font-size:0.82rem;color:#888;margin-left:6px;}
 
-  /* SCHEDULE */
-  .schedule { display:flex; flex-direction:column; gap:0; margin-top:4px; }
-  .sched-row { display:flex; gap:14px; align-items:center; padding:10px 0; border-bottom:1px solid #f0ece6; position:relative; }
-  .sched-row:last-child { border-bottom:none; }
-  .sched-time { font-size:0.78rem; color:#aaa; min-width:50px; font-weight:500; }
-  .sched-dot-wrap { display:flex; flex-direction:column; align-items:center; flex-shrink:0; }
-  .sched-dot { width:10px; height:10px; border-radius:50%; background:#e0dbd3; transition:background 0.2s; }
-  .sched-row.first .sched-dot { background:var(--water); }
-  .sched-line { width:1px; height:100%; background:#f0ece6; position:absolute; left:78px; top:0; }
-  .sched-text { font-size:0.84rem; color:#555; flex:1; }
-  .sched-row.first .sched-text { color:var(--ink); font-weight:500; }
-  .sched-check { width:22px; height:22px; border-radius:6px; border:1.5px solid #e0dbd3; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center; transition:all 0.15s; font-size:0.7rem; }
-  .sched-check:hover { border-color:var(--water); }
-  .sched-check.done { background:var(--water); border-color:var(--water); color:white; }
+  /* підбадьорення */
+  .no-worry{display:none;background:linear-gradient(135deg,#fff9f4,#fff3e8);border-radius:14px;padding:18px 20px;border:1px solid #f0cfaa;margin-top:14px;gap:14px;align-items:flex-start;}
+  .no-worry-icon{font-size:1.8rem;flex-shrink:0;}
+  .no-worry p{font-size:0.85rem;color:#7a4820;line-height:1.7;}
+  .no-worry strong{color:#5a2e08;}
 
-  /* PROGRESS */
-  .progress-section { background:var(--ink); border-radius:20px; padding:28px 32px; margin-bottom:20px; }
-  .progress-section .norm-label { margin-bottom:20px; }
-  .prog-row { display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.06); }
-  .prog-row:last-child { border-bottom:none; }
-  .prog-label { font-size:0.82rem; color:rgba(255,255,255,0.45); }
-  .prog-input { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:8px 12px; color:white; font-family:'DM Sans',sans-serif; font-size:0.9rem; width:110px; text-align:right; outline:none; }
-  .prog-input:focus { border-color:var(--water); background:rgba(78,143,163,0.1); }
-  .prog-diff { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:600; color:var(--water); }
+  /* task 2 grid */
+  .calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+  @media(max-width:480px){.calc-grid2{grid-template-columns:1fr}}
 
-  /* SUPPORT */
-  .support-block { background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:16px; padding:26px; border:1px solid #c8ddd0; margin-bottom:20px; }
-  .support-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:12px; color:#1c3025; }
-  .support-text { font-size:0.85rem; color:#4a6050; line-height:1.7; margin-bottom:12px; }
-  .lifehack-personal { background:white; border-radius:12px; padding:18px; border:1px solid #c8ddd0; display:flex; gap:12px; align-items:flex-start; }
-  .lh-icon { font-size:1.4rem; flex-shrink:0; }
-  .lh-text { font-size:0.83rem; color:#4a6050; line-height:1.6; font-style:italic; }
+  /* diff result */
+  .diff-result{display:none;flex-direction:column;gap:14px;}
+  .diff-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  @media(max-width:400px){.diff-cards{grid-template-columns:1fr}}
+  .diff-card{background:var(--mist);border-radius:12px;padding:16px 18px;}
+  .diff-card-label{font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;}
+  .diff-card-val{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--water);}
+  .diff-card-val.red{color:#c0614a;}
+  .diff-card-unit{font-size:0.72rem;color:#aaa;}
 
-  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
-  .reveal.visible { opacity:1; transform:none; }
+  .slow-warn{background:linear-gradient(135deg,#fff9f4,#fff3e8);border-radius:12px;padding:16px 18px;border:1px solid #f0cfaa;display:flex;gap:12px;align-items:flex-start;}
+  .slow-warn-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+  .slow-warn p{font-size:0.83rem;color:#7a4820;line-height:1.7;}
+  .slow-warn strong{color:#5a2e08;}
 
-  footer { background:var(--ink); padding:32px 24px; text-align:center; }
-  footer p { color:rgba(255,255,255,0.25); font-size:0.75rem; letter-spacing:0.06em; }
-  footer span { color:var(--water); }
+  .week-calc{background:white;border-radius:12px;border:1px solid #e0dbd4;padding:20px 22px;}
+  .week-calc-title{font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:12px;display:block;}
+  .week-calc-val{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--sage);}
+  .week-calc-unit{font-size:0.82rem;color:#aaa;margin-left:6px;}
+  .week-calc-sub{font-size:0.78rem;color:#bbb;margin-top:6px;}
+
+  /* schedule */
+  .schedule{display:flex;flex-direction:column;margin-top:8px;}
+  .sched-row{display:flex;gap:14px;align-items:center;padding:11px 0;border-bottom:1px solid #f0ece6;}
+  .sched-row:last-child{border-bottom:none;}
+  .sched-time{font-size:0.78rem;color:#aaa;min-width:48px;font-weight:500;}
+  .sched-dot{width:9px;height:9px;border-radius:50%;background:#e0dbd3;flex-shrink:0;}
+  .sched-row.first .sched-dot{background:var(--water);}
+  .sched-text{font-size:0.83rem;color:#666;flex:1;}
+  .sched-row.first .sched-text{color:var(--ink);font-weight:500;}
+  .sched-chk{width:22px;height:22px;border-radius:6px;border:1.5px solid #e0dbd3;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;font-size:0.7rem;color:transparent;background:none;-webkit-appearance:none;appearance:none;}
+  .sched-chk:hover{border-color:var(--water);}
+  .sched-chk.done{background:var(--water);border-color:var(--water);color:white;}
+
+  /* tips */
+  .tips-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
+  .tip-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
+  .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
+  .tip-body .tip-title{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:3px;}
+  .tip-body .tip-desc{font-size:0.8rem;color:#777;line-height:1.55;}
+
+  /* habit */
+  .habit-card{background:linear-gradient(135deg,#e8f4f0,#d8ecf4);border-radius:18px;padding:26px;border:1px solid #b8d8e4;}
+  .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(78,143,163,0.15);border:1px solid rgba(78,143,163,0.3);color:var(--water);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
+  .habit-icon-big{font-size:44px;display:block;margin-bottom:12px;animation:sway 4s ease-in-out infinite;}
+  .habit-title-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#1a3a4a;margin-bottom:8px;line-height:1.3;}
+  .habit-desc-text{font-size:0.84rem;color:#3a6070;line-height:1.65;}
+
+  /* tracker */
+  .tracker-dark{background:var(--ink);border-radius:20px;padding:28px 32px;margin-bottom:20px;}
+  .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(168,197,210,0.6);font-weight:500;margin-bottom:20px;display:block;}
+  .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.35);margin-bottom:20px;margin-top:-12px;}
+  .glasses-wrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px;}
+  .glass-item{width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(78,143,163,0.25);background:rgba(78,143,163,0.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.25s cubic-bezier(.34,1.56,.64,1);}
+  @media(max-width:380px){.glass-item{width:38px;height:38px;font-size:18px;}}
+  .glass-item.filled{background:rgba(78,143,163,0.25);border-color:rgba(78,143,163,0.7);transform:scale(1.08);}
+  .glasses-status{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .glasses-count{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--water);}
+  .glasses-goal{font-size:0.78rem;color:rgba(255,255,255,0.3);}
+  .pbar-track{height:8px;border-radius:4px;background:rgba(255,255,255,0.07);overflow:hidden;margin-bottom:8px;}
+  .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#2a6e85,#7ac5dc);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
+  .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.32);font-style:italic;min-height:18px;text-align:center;}
+  .ml-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
+  .ml-field{display:flex;flex-direction:column;gap:5px;}
+  .ml-label{font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;}
+  .ml-input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 12px;color:white;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color 0.15s;text-align:center;-moz-appearance:textfield;width:100%;}
+  .ml-input::-webkit-outer-spin-button,.ml-input::-webkit-inner-spin-button{-webkit-appearance:none;}
+  .ml-input:focus{border-color:var(--water);background:rgba(78,143,163,0.12);}
+  .ml-diff{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;margin-top:4px;}
+  .ml-diff-label{font-size:0.78rem;color:rgba(255,255,255,0.35);}
+  .ml-diff-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--water);}
+
+  /* reflection */
+  .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8e4de;}
+  .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
+  .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
+  .refl-questions{display:flex;flex-direction:column;gap:14px;}
+  .refl-q{display:flex;flex-direction:column;gap:6px;}
+  .refl-q-label{font-size:0.8rem;color:#666;font-weight:500;}
+  .refl-textarea{width:100%;background:var(--mist);border:1.5px solid #e4e0da;border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);outline:none;transition:border-color 0.15s;resize:none;min-height:70px;line-height:1.6;}
+  .refl-textarea:focus{border-color:var(--water);background:var(--water-pale);}
+  .refl-textarea::placeholder{color:#bbb;}
+
+  /* support */
+  .support-block{background:linear-gradient(135deg,#edf6f0,#e4f0f4);border-radius:18px;padding:26px;border:1px solid #c8ddd0;margin-bottom:20px;}
+  .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#1c3025;}
+  .support-text{font-size:0.85rem;color:#4a6050;line-height:1.7;margin-bottom:14px;}
+  .support-personal{background:white;border-radius:12px;padding:16px 18px;border:1px solid #c8ddd0;display:flex;gap:12px;align-items:flex-start;}
+  .sp-icon{font-size:1.4rem;flex-shrink:0;}
+  .sp-text{font-size:0.83rem;color:#4a6050;line-height:1.65;font-style:italic;}
+
+  /* final */
+  .final-card{background:linear-gradient(160deg,#0d1f2d,#1a3245);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
+  .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(78,143,163,0.15),transparent);}
+  .final-icon{font-size:52px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
+  .final-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;color:white;line-height:1.2;margin-bottom:8px;position:relative;z-index:1;}
+  .final-title em{color:var(--water);font-style:italic;}
+  .final-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:16px auto;position:relative;z-index:1;}
+  .final-sub{color:rgba(255,255,255,0.42);font-size:0.82rem;line-height:1.65;max-width:280px;margin:0 auto 24px;position:relative;z-index:1;}
+  .day-dots{display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:1;}
+  .d-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);}
+  .d-dot.done{background:rgba(78,143,163,0.6);}
+  .d-dot.active{background:var(--water);width:18px;border-radius:3px;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  footer{background:var(--ink);padding:32px 24px;text-align:center;}
+  footer p{color:rgba(255,255,255,0.25);font-size:0.75rem;letter-spacing:0.06em;}
+  footer span{color:var(--water);}
 </style>
 </head>
 <body>
 
 <div class="progress-bar" id="progress"></div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
   <div class="wave-bg"></div>
-
   <div class="author-badge">
     <div class="author-avatar">ЛБ</div>
     <div>
@@ -150,245 +205,380 @@
       <span class="author-role">Нутриціолог</span>
     </div>
   </div>
-
   <div class="day-badge">Відео-квест · День 2</div>
   <div class="hero-icon">🌊</div>
   <h1>Навчи воду<br>працювати<br><em>на тебе</em></h1>
   <div class="hero-line"></div>
-  <p class="hero-tagline">Учора ти спостерігала — сьогодні діємо!</p>
+  <p class="hero-tagline">Вчора ти спостерігала —<br>сьогодні починаємо діяти!</p>
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
-<!-- MAIN -->
 <main class="main">
 
-  <!-- NORM -->
-  <div class="norm-card reveal">
-    <span class="norm-label">💧 Скільки води потрібно саме тобі</span>
-    <div class="norm-formula">Твоя вага <span>× 30 мл</span> = денна норма</div>
-    <div class="norm-warning">
-      <span class="wi">❗</span>
-      <p>Якщо п'єш значно менше норми — <strong>не додавай відразу багато!</strong> Підвищуй поступово: +200 мл на тиждень, щоб не перевантажувати нирки та серце.</p>
+  <!-- ВСТУП -->
+  <div class="intro-card reveal">
+    <span class="intro-label">💧 Сьогодні все інакше</span>
+    <p class="intro-text">
+      Вчора ми просто спостерігали. А сьогодні я навчу тебе пити воду так,<br>
+      щоб вона <em>працювала на тебе, а не проти тебе.</em>
+    </p>
+    <p class="intro-text" style="font-size:0.9rem;opacity:0.75;margin-bottom:18px;">
+      Тому що вода — це не просто «треба випити 2 літри на день».<br>
+      Насправді все трохи глибше. Дуже важливо <strong style="color:rgba(255,255,255,0.9)">як саме ти п'єш воду.</strong>
+    </p>
+    <div class="intro-rule">
+      <span style="font-size:1.3rem;flex-shrink:0">✨</span>
+      <p>Коли вода заходить маленькими порціями — вона <strong>краще засвоюється</strong>, не перевантажує серце і нирки, і не змушує тебе кожні 10 хвилин бігати в туалет.</p>
     </div>
   </div>
 
-  <!-- TASK 1: CALCULATOR -->
+  <!-- ЗВИЧКА ДНЯ -->
+  <div class="task-block reveal" style="padding:28px;">
+    <div class="task-num">
+      <div class="task-num-circle" style="background:var(--sage)">💚</div>
+      <span class="task-num-label" style="color:var(--sage)">Звичка дня</span>
+    </div>
+    <div class="habit-card">
+      <span class="habit-badge">💧 Звичка · День 2</span>
+      <span class="habit-icon-big">💧</span>
+      <div class="habit-title-text">2–3 ковтки кожні 20–30 хвилин</div>
+      <p class="habit-desc-text">Не стакан одразу — а повільно і поступово протягом усього дня. Встанови нагадування на телефоні і просто спостерігай, як твоє тіло починає відповідати 💫</p>
+    </div>
+  </div>
+
+  <!-- ФОРМУЛА -->
+  <div class="formula-card reveal">
+    <span class="formula-label">💧 Скільки води потрібно саме тобі</span>
+    <div class="formula-eq">Твоя вага <span>× 30 мл</span> = денна норма</div>
+    <p class="formula-example">Наприклад: 70 кг × 30 = <strong>2 100 мл / день</strong> — для органів, шкіри, обміну речовин та енергії</p>
+  </div>
+
+  <!-- ЗАВДАННЯ 1: РОЗРАХУЙ НОРМУ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">1</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">📊 Розрахунок норми</div>
+    <div class="task-title">📊 Розрахуй свою денну норму</div>
+    <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Введи свою вагу — і дізнайся, скільки води <strong>саме твоєму тілу</strong> потрібно щодня.</p>
 
-    <div class="calc-grid">
-      <div class="calc-field">
-        <label>Моя вага (кг)</label>
-        <input class="calc-input" type="number" id="weight" placeholder="наприклад, 60" oninput="calcNorm()">
-      </div>
-      <div class="calc-field">
-        <label>Вчора випила (мл)</label>
-        <input class="calc-input" type="number" id="yesterday" placeholder="наприклад, 800" oninput="calcNorm()">
-      </div>
-      <div class="calc-result" id="calc-result" style="display:none">
-        <div>
-          <div class="calc-result-label">Твоя денна норма</div>
-          <div><span class="calc-result-val" id="norm-val">—</span> <span class="calc-result-unit">мл/день</span></div>
-        </div>
-        <div>
-          <div class="calc-result-label">Не вистачало</div>
-          <div><span class="calc-result-val" id="diff-val" style="color:#c0614a">—</span> <span class="calc-result-unit">мл</span></div>
-        </div>
+    <div class="calc-field">
+      <label for="t1Weight">Моя вага (кг)</label>
+      <input class="calc-input" type="number" id="t1Weight" placeholder="наприклад, 65" oninput="calcNorm()">
+    </div>
+
+    <div class="norm-result" id="normResult">
+      <div class="norm-result-label">Твоя денна норма</div>
+      <div>
+        <span class="norm-result-val" id="normVal">—</span>
+        <span class="norm-result-unit">мл / день</span>
       </div>
     </div>
 
-    <div class="week-plan" id="week-plan" style="display:none">
-      <div style="font-size:0.78rem;color:#999;margin-bottom:4px;letter-spacing:0.05em;">📅 Поступове збільшення</div>
-      <div class="week-row active">
-        <div class="week-dot"></div>
-        <span class="week-label">Тиждень 1</span>
-        <input class="week-input" id="w1" readonly placeholder="— мл/день">
-      </div>
-      <div class="week-row">
-        <div class="week-dot"></div>
-        <span class="week-label">Тиждень 2</span>
-        <input class="week-input" id="w2" readonly placeholder="— мл/день">
-      </div>
-      <div class="week-row">
-        <div class="week-dot"></div>
-        <span class="week-label">Тиждень 3</span>
-        <input class="week-input" id="w3" readonly placeholder="— мл/день">
-      </div>
+    <div class="no-worry" id="noWorry">
+      <div class="no-worry-icon">🤍</div>
+      <p>Якщо виявиш, що п'єш набагато менше — <strong>не засмучуйся!</strong> Більшість людей вживають лише 30–40% від норми. Це нормально — і саме тому ти тут. Головне — тепер ти знаєш своє число 💧</p>
     </div>
   </div>
 
-  <!-- TASK 2: MORNING RITUAL -->
+  <!-- ЗАВДАННЯ 2: СКІЛЬКИ П'ЄШ І СКІЛЬКИ НЕ ВИСТАЧАЄ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">☀️ Ранковий ритуал</div>
-    <div class="ritual-box">
-      <div class="ritual-icon">🥛</div>
-      <div>
-        <div class="ritual-title">Перша склянка — ще до сніданку</div>
-        <div class="ritual-desc">200–250 мл теплої або кімнатної температури води. До кави, до їжі. Це запускає метаболізм і готує шлунок до роботи.</div>
-        <div class="ritual-check" onclick="toggleCheck(this)">
-          <div class="check-box">✓</div>
-          <span class="check-text">Зранку, до сніданку — 1 склянка води</span>
+    <div class="task-title">💧 Скільки п'єш зараз — і скільки не вистачає?</div>
+    <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Введи свою норму з завдання 1 і те, скільки зазвичай п'єш — побачиш реальну картину.</p>
+
+    <div class="calc-grid2">
+      <div class="calc-field">
+        <label for="t2Norm">Моя норма (мл)</label>
+        <input class="calc-input" type="number" id="t2Norm" placeholder="з завдання 1" oninput="calcDiff()">
+      </div>
+      <div class="calc-field">
+        <label for="t2Current">Зараз п'ю (мл/день)</label>
+        <input class="calc-input" type="number" id="t2Current" placeholder="наприклад, 800" oninput="calcDiff()">
+      </div>
+    </div>
+
+    <div class="diff-result" id="diffResult">
+      <div class="diff-cards">
+        <div class="diff-card">
+          <div class="diff-card-label">Зараз п'єш</div>
+          <div class="diff-card-val" id="drCurrent">—</div>
+          <div class="diff-card-unit">мл / день</div>
         </div>
+        <div class="diff-card">
+          <div class="diff-card-label">Не вистачає</div>
+          <div class="diff-card-val red" id="drDiff">—</div>
+          <div class="diff-card-unit">мл</div>
+        </div>
+      </div>
+
+      <div class="slow-warn">
+        <div class="slow-warn-icon">🐢</div>
+        <p><strong>Не збільшуй різко!</strong> Додавай лише <strong>+200 мл на цей тиждень</strong> — організм звикне без стресу. Ось твоя ціль на найближчі 7 днів:</p>
+      </div>
+
+      <div class="week-calc">
+        <span class="week-calc-title">🎯 Твоя ціль на цей тиждень</span>
+        <div>
+          <span class="week-calc-val" id="weekTarget">—</span>
+          <span class="week-calc-unit">мл / день</span>
+        </div>
+        <div class="week-calc-sub" id="weekSub"></div>
       </div>
     </div>
   </div>
 
-  <!-- TASK 3: WATER ALARM -->
+  <!-- ЗАВДАННЯ 3: ЯК ПИТИ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">3</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">⏰ Водний будильник</div>
-    <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.6;">Постав нагадування на телефоні або використовуй водний трекер. Маленькі ковтки кожні 30 хвилин — це і є правильний ритм.</p>
+    <div class="task-title">💧 Пий повільно — маленькими ковтками</div>
+    <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Сьогодні спробуй пити <strong>кожні 20–30 хвилин</strong> по <strong>2–3 ковтки</strong>. Не стакан одразу — а повільно, усвідомлено, протягом усього дня.</p>
     <div class="schedule">
       <div class="sched-row first">
         <span class="sched-time">08:00</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <div class="sched-dot"></div>
         <span class="sched-text">💧 Склянка води — ранковий старт</span>
-        <div class="sched-check done">✓</div>
+        <button class="sched-chk done" style="color:white" aria-label="Виконано">✓</button>
       </div>
       <div class="sched-row">
-        <span class="sched-time">08:30</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-time">08:30</span><div class="sched-dot"></div>
         <span class="sched-text">💧 2–3 ковтки</span>
-        <div class="sched-check" onclick="toggleSched(this)"></div>
+        <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
       <div class="sched-row">
-        <span class="sched-time">09:00</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-time">09:00</span><div class="sched-dot"></div>
         <span class="sched-text">💧 2–3 ковтки</span>
-        <div class="sched-check" onclick="toggleSched(this)"></div>
+        <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
       <div class="sched-row">
-        <span class="sched-time">09:30</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-time">09:30</span><div class="sched-dot"></div>
         <span class="sched-text">💧 2–3 ковтки</span>
-        <div class="sched-check" onclick="toggleSched(this)"></div>
+        <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
       <div class="sched-row">
-        <span class="sched-time">10:00</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-time">10:00</span><div class="sched-dot"></div>
         <span class="sched-text">💧 2–3 ковтки</span>
-        <div class="sched-check" onclick="toggleSched(this)"></div>
+        <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
       <div class="sched-row">
-        <span class="sched-time">10:30</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-time">10:30</span><div class="sched-dot"></div>
         <span class="sched-text">💧 2–3 ковтки</span>
-        <div class="sched-check" onclick="toggleSched(this)"></div>
+        <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
       <div class="sched-row">
-        <span class="sched-time">11:00</span>
-        <div class="sched-dot-wrap"><div class="sched-dot"></div></div>
+        <span class="sched-time">11:00</span><div class="sched-dot"></div>
         <span class="sched-text">💧 2–3 ковтки</span>
-        <div class="sched-check" onclick="toggleSched(this)"></div>
+        <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
     </div>
   </div>
 
-  <!-- PROGRESS -->
-  <div class="progress-section reveal">
-    <span class="norm-label">📊 Мій прогрес</span>
-    <div class="prog-row">
-      <span class="prog-label">Вчора випила</span>
-      <input class="prog-input" type="number" id="prog-y" placeholder="мл" oninput="calcDiff()">
+  <!-- ЗАВДАННЯ 4: ПОСТАВ ВОДУ НА ВИДУ -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">4</div>
+      <span class="task-num-label">Завдання</span>
     </div>
-    <div class="prog-row">
-      <span class="prog-label">Сьогодні випила</span>
-      <input class="prog-input" type="number" id="prog-t" placeholder="мл" oninput="calcDiff()">
-    </div>
-    <div class="prog-row" style="border-bottom:none">
-      <span class="prog-label" style="color:rgba(255,255,255,0.6);">Різниця</span>
-      <span class="prog-diff" id="prog-diff">—</span>
+    <div class="task-title">🎯 Постав воду на виду</div>
+    <p style="font-size:0.85rem;color:#666;margin-bottom:18px;line-height:1.65">Більшість людей не п'ють воду не тому що не хочуть — а тому що <strong>вода просто не знаходиться поруч.</strong> Виправ це сьогодні!</p>
+    <div class="tips-list">
+      <div class="tip-row">
+        <span class="tip-icon">🛏️</span>
+        <div class="tip-body"><div class="tip-title">Біля ліжка</div><div class="tip-desc">Склянка води — перше, що ти бачиш вранці</div></div>
+      </div>
+      <div class="tip-row">
+        <span class="tip-icon">💻</span>
+        <div class="tip-body"><div class="tip-title">На робочому столі</div><div class="tip-desc">Коли вода перед очима — п'єш автоматично</div></div>
+      </div>
+      <div class="tip-row">
+        <span class="tip-icon">👜</span>
+        <div class="tip-body"><div class="tip-title">У сумці</div><div class="tip-desc">Невелика пляшка завжди з тобою в дорозі</div></div>
+      </div>
+      <div class="tip-row">
+        <span class="tip-icon">🚗</span>
+        <div class="tip-body"><div class="tip-title">В машині</div><div class="tip-desc">Пробки — чудовий час для кількох ковтків</div></div>
+      </div>
     </div>
   </div>
 
-  <!-- SUPPORT -->
+  <!-- ТРЕКЕР -->
+  <div class="tracker-dark reveal">
+    <span class="tracker-label">🥛 Трекер дня</span>
+    <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
+
+    <!-- головний лічильник мл -->
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
+      <div>
+        <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Випито сьогодні</div>
+        <div style="display:flex;align-items:baseline;gap:6px;">
+          <span id="mlTotal" style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--water);line-height:1;">0</span>
+          <span style="font-size:0.9rem;color:rgba(255,255,255,0.3);">мл</span>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Склянок</div>
+        <span id="glassCount" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.5);">0 / 8</span>
+      </div>
+    </div>
+
+    <div class="pbar-track" style="margin-bottom:16px;"><div class="pbar-fill" id="glassPbar"></div></div>
+
+    <div class="glasses-wrap" id="glassesWrap" role="group" aria-label="Трекер склянок"></div>
+
+    <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
+  </div>
+
+  <!-- РЕФЛЕКСІЯ -->
+  <div class="refl-block reveal">
+    <div class="refl-title">📝 Рефлексія дня</div>
+    <p class="refl-sub">Запиши свої спостереження — це і є усвідомлена звичка 🌿</p>
+    <div class="refl-questions">
+      <div class="refl-q">
+        <label class="refl-q-label" for="refl1">Скільки води випила сьогодні? Чи відчула різницю?</label>
+        <textarea class="refl-textarea" id="refl1" placeholder="Наприклад: випила близько 1200 мл — більше ніж зазвичай. Відчула, що менше втомилась після обіду…" rows="3"></textarea>
+      </div>
+      <div class="refl-q">
+        <label class="refl-q-label" for="refl2">Що найважче — і що допомогло сьогодні?</label>
+        <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: забула вдень, але поставила пляшку на стіл — і це спрацювало…" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПІДТРИМКА -->
   <div class="support-block reveal">
     <div class="support-title">💚 Підтримка від нутриціолога</div>
-    <p class="support-text">Зроби воду своїм другом! Постав склянку біля комп'ютера, у машині, на кухні. Кожен ковток — це маленький крок до здоров'я і ясної голови 🌿</p>
-    <div class="lifehack-personal">
-      <div class="lh-icon">💙</div>
-      <p class="lh-text">Мій особистий лайфхак: я завжди беру з собою скляну пляшку води, коли виходжу з дому. А на столі у мене завжди стоїть чашка з водою.</p>
+    <p class="support-text">Звичка пити воду маленькими ковтками протягом дня — здається простою. Але вона запускає ланцюжок змін: кращий обмін речовин, ясна голова, рівна енергія 💧</p>
+    <div class="support-personal">
+      <div class="sp-icon">💙</div>
+      <p class="sp-text">Інколи, щоб почати змінювати своє тіло і самопочуття — достатньо просто навчитися правильно пити воду. Маленькі кроки щодня створюють великі зміни. І сьогодні ти вже зробила свій крок 🌿</p>
+    </div>
+  </div>
+
+  <!-- ФІНАЛ -->
+  <div class="final-card reveal">
+    <span class="final-icon">💧</span>
+    <div class="final-title">День 2 —<br><em>виконано!</em></div>
+    <div class="final-line"></div>
+    <p class="final-sub">Завтра ми перейдемо ще глибше — і відкриємо, що робить воду справжнім союзником твого тіла 🌊</p>
+    <div class="day-dots">
+      <div class="d-dot done"></div>
+      <div class="d-dot active"></div>
+      <div class="d-dot"></div>
+      <div class="d-dot"></div>
+      <div class="d-dot"></div>
     </div>
   </div>
 
 </main>
 
 <footer>
-  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест · День 2</p>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Відео-квест Вода · День 2</p>
 </footer>
 
 <script>
-  // Progress bar
-  window.addEventListener('scroll',()=>{
-    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-    document.getElementById('progress').style.width=(s/h*100)+'%';
-  });
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('progress').style.width=(s/h*100)+'%';
+});
 
-  // Reveal
-  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-  // Calculator
-  function calcNorm(){
-    const w=parseFloat(document.getElementById('weight').value)||0;
-    const y=parseFloat(document.getElementById('yesterday').value)||0;
+/* Завдання 1 — норма */
+function calcNorm(){
+  const w=parseFloat(document.getElementById('t1Weight').value)||0;
+  const nr=document.getElementById('normResult');
+  const nw=document.getElementById('noWorry');
+  if(w>0){
     const norm=Math.round(w*30);
-    const diff=norm-y;
-    const res=document.getElementById('calc-result');
-    const wp=document.getElementById('week-plan');
-    if(w>0){
-      res.style.display='flex';
-      document.getElementById('norm-val').textContent=norm;
-      document.getElementById('diff-val').textContent=diff>0?diff:0;
-      if(diff>0){
-        wp.style.display='flex';
-        document.getElementById('w1').value=(y+200)+' мл/день';
-        document.getElementById('w2').value=(y+400)+' мл/день';
-        document.getElementById('w3').value=(y+600)+' мл/день';
-      }
-    } else {
-      res.style.display='none';
-      wp.style.display='none';
-    }
+    document.getElementById('normVal').textContent=norm;
+    nr.style.display='block';
+    nw.style.display='flex';
+    // автопідставляємо в завдання 2
+    const t2=document.getElementById('t2Norm');
+    t2.value=norm;
+    calcDiff();
+  } else {
+    nr.style.display='none';
+    nw.style.display='none';
   }
+}
 
-  // Progress diff
-  function calcDiff(){
-    const y=parseFloat(document.getElementById('prog-y').value)||0;
-    const t=parseFloat(document.getElementById('prog-t').value)||0;
-    const d=t-y;
-    const el=document.getElementById('prog-diff');
-    if(y>0&&t>0){
-      el.textContent=(d>=0?'+':'')+d+' мл '+(d>=0?'🎉':'');
-      el.style.color=d>=0?'#7ac59e':'#e08070';
-    } else {
-      el.textContent='—';
-      el.style.color='var(--water)';
-    }
+/* Завдання 2 — різниця і тижнева ціль */
+function calcDiff(){
+  const norm=parseFloat(document.getElementById('t2Norm').value)||0;
+  const cur=parseFloat(document.getElementById('t2Current').value)||0;
+  const dr=document.getElementById('diffResult');
+  if(norm>0&&cur>0){
+    dr.style.display='flex';
+    document.getElementById('drCurrent').textContent=cur;
+    const diff=Math.max(0,norm-cur);
+    document.getElementById('drDiff').textContent=diff;
+    const target=cur+200;
+    document.getElementById('weekTarget').textContent=target;
+    document.getElementById('weekSub').textContent=
+      diff>0
+        ? `це всього +200 мл до твоїх поточних ${cur} мл`
+        : `ти вже п'єш достатньо — підтримуй цей ритм! 🎉`;
+  } else {
+    dr.style.display='none';
   }
+}
 
-  // Check toggle
-  function toggleCheck(el){
-    el.classList.toggle('done');
-    el.querySelector('.check-box').textContent=el.classList.contains('done')?'✓':'';
-  }
+function toggleSched(el){
+  el.classList.toggle('done');
+  el.textContent=el.classList.contains('done')?'✓':'';
+}
 
-  // Schedule check
-  function toggleSched(el){
-    el.classList.toggle('done');
-    el.textContent=el.classList.contains('done')?'✓':'';
-  }
+/* Трекер склянок — 1 склянка = 200 мл */
+const ML_PER_GLASS = 200;
+const glassMsgs = [
+  'Натисни на першу склянку 💧',
+  '200 мл — чудовий старт! 💪',
+  '400 мл — продовжуй! 🌊',
+  '600 мл — ти в ритмі! ✨',
+  '800 мл — половина шляху! 💧',
+  '1000 мл — ти на правильному шляху! 🌿',
+  '1200 мл — майже норма! 🎉',
+  '1400 мл — ще трішки! ⭐',
+  '1600 мл — норма виконана! 🎉💧'
+];
+const gw = document.getElementById('glassesWrap');
+let gc = 0;
+
+function updateTracker() {
+  const ml = gc * ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent = ml;
+  document.getElementById('glassCount').textContent = gc + ' / 8';
+  document.getElementById('glassPbar').style.width = (gc / 8 * 100) + '%';
+  document.getElementById('glassMsg').textContent = glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x, j) => {
+    x.classList.toggle('filled', j < gc);
+    x.setAttribute('aria-checked', j < gc ? 'true' : 'false');
+  });
+}
+
+for (let i = 0; i < 8; i++) {
+  const b = document.createElement('button');
+  b.className = 'glass-item';
+  b.textContent = '🥛';
+  b.dataset.i = i;
+  b.setAttribute('aria-label', `Склянка ${i + 1} — ${(i + 1) * ML_PER_GLASS} мл`);
+  b.setAttribute('role', 'checkbox');
+  b.setAttribute('aria-checked', 'false');
+  b.onclick = () => {
+    const idx = parseInt(b.dataset.i);
+    gc = b.classList.contains('filled') ? idx : idx + 1;
+    updateTracker();
+  };
+  gw.appendChild(b);
+}
 </script>
 </body>
 </html>
