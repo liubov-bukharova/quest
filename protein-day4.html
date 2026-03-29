@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>День 4 · Білковий тиждень</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1c1c1e; --mist:#f0ede8; --foam:#faf8f4;
+    --sage:#6b8f71; --rose:#c4736a; --gold:#b8965a;
+    --protein:#7a5c8a; --protein-light:#f5eeff;
+    --warm:#c87d3e; --warm-light:#fdf3e8;
+    --water:#4e8fa3;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { background:var(--foam); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6; }
+  .progress-bar { position:fixed; top:0; left:0; height:2px; background:linear-gradient(90deg,var(--sage),var(--warm),var(--protein),var(--rose)); z-index:100; transition:width 0.15s; }
+
+  /* ── HERO ── */
+  .hero { min-height:100svh; background:linear-gradient(160deg,#0f0b08 0%,#1e1208 50%,#2a1a0c 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; padding:60px 24px; text-align:center; position:relative; overflow:hidden; }
+  .hero-particles { position:absolute; inset:0; pointer-events:none; }
+  .particle { position:absolute; border-radius:50%; animation:float-p 10s ease-in-out infinite; opacity:0; }
+  .particle:nth-child(1){width:3px;height:3px;background:#c87d3e;left:20%;top:30%;animation-delay:0s}
+  .particle:nth-child(2){width:2px;height:2px;background:#b8965a;left:70%;top:20%;animation-delay:2s}
+  .particle:nth-child(3){width:4px;height:4px;background:#7a5c8a;left:50%;top:60%;animation-delay:4s}
+  .particle:nth-child(4){width:2px;height:2px;background:#c87d3e;left:85%;top:70%;animation-delay:1s}
+  .particle:nth-child(5){width:3px;height:3px;background:#b8965a;left:15%;top:75%;animation-delay:3s}
+  .particle:nth-child(6){width:2px;height:2px;background:#7a5c8a;left:40%;top:15%;animation-delay:5s}
+  @keyframes float-p{0%,100%{transform:translateY(0);opacity:0}20%{opacity:0.7}80%{opacity:0.4}50%{transform:translateY(-30px)}}
+
+  .author-badge { display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:100px; padding:8px 20px 8px 8px; margin-bottom:32px; position:relative; z-index:1; }
+  .author-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--warm),#7a4010); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:0.88rem; font-weight:700; color:white; flex-shrink:0; }
+  .author-name { font-size:0.8rem; color:rgba(255,255,255,0.75); font-weight:400; display:block; }
+  .author-role { font-size:0.62rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em; text-transform:uppercase; display:block; }
+  .day-badge { display:inline-block; background:rgba(200,125,62,0.15); border:1px solid rgba(200,125,62,0.35); color:#e8a870; font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; padding:5px 16px; border-radius:100px; margin-bottom:20px; position:relative; z-index:1; }
+  .hero-icon { font-size:76px; position:relative; z-index:1; margin-bottom:16px; animation:breathe 4s ease-in-out infinite; }
+  @keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2.6rem,7vw,5rem); font-weight:700; color:#fff; line-height:1.05; position:relative; z-index:1; margin-bottom:8px; }
+  .hero h1 em { color:#e8a870; font-style:italic; }
+  .hero-line { width:36px; height:1px; background:rgba(255,255,255,0.12); margin:18px auto; position:relative; z-index:1; }
+  .hero-tagline { color:rgba(255,255,255,0.45); font-size:0.85rem; position:relative; z-index:1; max-width:360px; line-height:1.75; }
+  .hero-scroll { position:absolute; bottom:28px; left:50%; transform:translateX(-50%); color:rgba(255,255,255,0.18); font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; animation:bob 2.2s ease-in-out infinite; z-index:1; }
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+
+  .main { max-width:680px; margin:0 auto; padding:60px 24px 80px; }
+
+  /* ── INTRO ── */
+  .intro-card { background:linear-gradient(135deg,#0f0b08,#241608); border-radius:20px; padding:30px; margin-bottom:20px; position:relative; overflow:hidden; }
+  .intro-card::after { content:'🔥'; position:absolute; right:-8px; top:-8px; font-size:100px; opacity:0.06; }
+  .intro-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(232,168,112,0.55); font-weight:500; margin-bottom:14px; display:block; }
+  .intro-text { font-size:0.9rem; color:rgba(255,255,255,0.7); line-height:1.8; }
+  .intro-text strong { color:#e8a870; font-weight:500; }
+
+  /* ── THEORY ── */
+  .theory-block { background:white; border-radius:20px; padding:30px; margin-bottom:20px; border:1px solid #ede8e0; position:relative; overflow:hidden; }
+  .theory-tag { display:inline-flex; align-items:center; gap:6px; font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; color:var(--warm); margin-bottom:12px; }
+  .theory-num { width:22px; height:22px; border-radius:50%; background:var(--warm); color:white; font-size:0.7rem; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .theory-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; margin-bottom:10px; line-height:1.3; }
+  .theory-body { font-size:0.85rem; color:#555; line-height:1.8; }
+  .theory-body strong { color:var(--ink); font-weight:500; }
+
+  .alert-box { background:var(--warm-light); border-left:3px solid var(--warm); border-radius:0 10px 10px 0; padding:12px 16px; margin-top:14px; font-size:0.83rem; color:#7a3a08; line-height:1.65; }
+  .alert-box strong { font-weight:600; }
+
+  /* FIX 5: Паразити — accordion розгортається */
+  .parasite-accordion { margin-top:14px; border:1px solid rgba(196,115,106,0.2); border-radius:12px; overflow:hidden; }
+  .pa-trigger { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; cursor:pointer; user-select:none; background:#fdf8f6; font-size:0.83rem; font-weight:500; color:#7a3a08; transition:background 0.15s; }
+  .pa-trigger:hover { background:#faf0ec; }
+  .pa-arrow { font-size:0.7rem; transition:transform 0.25s; color:#c4736a; }
+  .pa-body { display:none; background:#fff9f8; padding:14px 16px; border-top:1px solid rgba(196,115,106,0.1); }
+  .pa-body.open { display:block; }
+  .pa-note { font-size:0.8rem; color:#888; line-height:1.65; margin-bottom:10px; font-style:italic; }
+  .parasite-list { display:flex; flex-direction:column; gap:8px; }
+  .parasite-item { display:flex; align-items:flex-start; gap:10px; font-size:0.82rem; color:#6a3008; line-height:1.5; }
+  .parasite-dot { width:6px; height:6px; border-radius:50%; background:var(--rose); margin-top:6px; flex-shrink:0; }
+  .pa-cta { margin-top:12px; font-size:0.8rem; color:#888; padding:10px 12px; background:#f5f0ee; border-radius:8px; line-height:1.55; }
+  .pa-cta strong { color:#7a3a08; font-weight:500; }
+
+  .micro-needs { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+  .micro-chip { background:var(--mist); border:1px solid #ddd8d0; border-radius:20px; padding:6px 14px; font-size:0.78rem; color:#555; }
+
+  /* FIX 2: Таблиця з overflow scroll на мобільному */
+  .table-block { background:white; border-radius:20px; padding:30px; margin-bottom:20px; border:1px solid #ede8e0; }
+  .table-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--warm); font-weight:600; margin-bottom:10px; display:block; }
+  .table-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:16px; }
+  .table-scroll { overflow-x:auto; -webkit-overflow-scrolling:touch; margin:0 -4px; }
+  .helper-table { width:100%; min-width:480px; border-collapse:collapse; font-size:0.8rem; }
+  .helper-table th { background:linear-gradient(135deg,#1e1208,#2a1a0c); color:rgba(255,255,255,0.7); font-size:0.62rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; padding:10px 12px; text-align:left; }
+  .helper-table th:first-child { border-radius:8px 0 0 0; }
+  .helper-table th:last-child { border-radius:0 8px 0 0; }
+  .helper-table td { padding:10px 12px; border-bottom:1px solid #f0ede8; vertical-align:top; line-height:1.5; color:#444; }
+  .helper-table tr:last-child td { border-bottom:none; }
+  .helper-table tr:hover td { background:#fdf8f2; }
+  .cat-badge { display:inline-block; font-size:0.72rem; font-weight:500; padding:2px 10px; border-radius:20px; white-space:nowrap; }
+  .cat-badge.green { background:#e8f5eb; color:#3a7a45; }
+  .cat-badge.acid { background:#fdf0e8; color:#a0501a; }
+  .cat-badge.spice { background:#fef9e8; color:#8a7010; }
+  .cat-badge.dairy { background:#f0f4ff; color:#3a50a0; }
+  .cat-badge.fruit { background:#fce8f5; color:#883a7a; }
+  .tip-note { background:var(--mist); border-radius:10px; padding:12px 14px; margin-top:14px; font-size:0.8rem; color:#666; line-height:1.65; }
+  .tip-note span { font-weight:500; color:var(--ink); }
+
+  /* ── COMBOS ── */
+  .combo-block { background:white; border-radius:20px; padding:30px; margin-bottom:20px; border:1px solid #ede8e0; }
+  .combo-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--sage); font-weight:600; margin-bottom:8px; display:block; }
+  .combo-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:16px; }
+  .combo-grid { display:flex; flex-direction:column; gap:10px; }
+  .combo-row { display:flex; align-items:center; gap:12px; padding:13px 16px; background:var(--mist); border-radius:12px; border-left:3px solid var(--sage); font-size:0.86rem; }
+  .combo-plus { color:#ccc; }
+  .combo-protein { font-weight:500; color:var(--ink); }
+  .combo-side { color:#888; }
+
+  /* ── FIX 1: TASKS без дублюючих кнопок — синхронізовані з трекером ── */
+  .tasks-block { background:linear-gradient(135deg,#0f0b08,#241608); border-radius:20px; padding:30px; margin-bottom:20px; }
+  .tasks-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(232,168,112,0.55); font-weight:500; margin-bottom:6px; display:block; }
+  .tasks-hint { font-size:0.75rem; color:rgba(255,255,255,0.25); margin-bottom:20px; }
+  .task-list { display:flex; flex-direction:column; gap:14px; }
+  .task-item { display:flex; align-items:flex-start; gap:14px; padding:14px; border-radius:13px; border:1.5px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); cursor:pointer; user-select:none; transition:all 0.2s; }
+  .task-item:hover { background:rgba(255,255,255,0.04); border-color:rgba(200,125,62,0.25); }
+  .task-item.done { background:rgba(200,125,62,0.08); border-color:rgba(200,125,62,0.35); }
+  .task-circle { width:32px; height:32px; border-radius:50%; background:rgba(200,125,62,0.15); border:1.5px solid rgba(200,125,62,0.35); color:#e8a870; font-size:0.85rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-family:'Cormorant Garamond',serif; transition:all 0.2s; }
+  .task-item.done .task-circle { background:var(--warm); border-color:var(--warm); color:white; }
+  .task-content { flex:1; }
+  .task-text { font-size:0.87rem; color:rgba(255,255,255,0.65); line-height:1.65; transition:color 0.2s; }
+  .task-text strong { color:#e8a870; font-weight:500; }
+  .task-item.done .task-text { color:rgba(255,255,255,0.85); }
+  .task-link-note { font-size:0.72rem; color:rgba(232,168,112,0.4); margin-top:5px; }
+
+  /* ── FIX 4: Порядок — ТРЕКЕР → РЕФЛЕКСІЯ ── */
+  /* ── TRACKER ── */
+  .tracker-block { background:linear-gradient(135deg,#0e0a14,#1a0e10); border-radius:20px; padding:30px; margin-bottom:20px; }
+  .tracker-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(196,160,216,0.5); font-weight:500; margin-bottom:16px; display:block; }
+  .tracker-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:700; color:#fff; margin-bottom:5px; }
+  .tracker-sub { font-size:0.82rem; color:rgba(255,255,255,0.4); margin-bottom:22px; line-height:1.6; }
+
+  .days-row { display:flex; gap:7px; margin-bottom:24px; }
+  .day-pill { flex:1; border-radius:10px; padding:10px 4px; text-align:center; border:1.5px solid transparent; user-select:none; }
+  .day-pill .dp-num { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; color:rgba(255,255,255,0.2); display:block; }
+  .day-pill .dp-label { font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.18); display:block; margin-top:2px; }
+  .day-pill.active-day { background:rgba(200,125,62,0.15); border-color:rgba(200,125,62,0.4); }
+  .day-pill.active-day .dp-num { color:#e8a870; }
+  .day-pill.active-day .dp-label { color:rgba(232,168,112,0.6); }
+  .day-pill.past { background:rgba(107,143,113,0.1); border-color:rgba(107,143,113,0.2); }
+  .day-pill.past .dp-num { color:rgba(107,143,113,0.75); }
+  .day-pill.past .dp-label { color:rgba(107,143,113,0.45); }
+  .day-pill.future { background:rgba(255,255,255,0.02); border-color:rgba(255,255,255,0.05); }
+
+  .tracker-sections { display:flex; flex-direction:column; gap:14px; }
+  .tracker-section { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:14px; padding:18px; }
+  .ts-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+  .ts-title { font-size:0.78rem; font-weight:500; color:rgba(255,255,255,0.55); }
+  .ts-count { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:700; }
+
+  /* Water */
+  .water-cups { display:flex; gap:7px; flex-wrap:wrap; }
+  .cup { width:38px; height:38px; border-radius:9px; border:1.5px solid rgba(78,143,163,0.2); background:transparent; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.1rem; transition:all 0.18s; color:rgba(78,143,163,0.25); }
+  .cup.filled { background:rgba(78,143,163,0.18); border-color:rgba(78,143,163,0.55); color:rgba(78,143,163,1); }
+
+  /* Protein meals */
+  .protein-meals { display:flex; flex-direction:column; gap:8px; }
+  .meal-check { display:flex; align-items:center; gap:10px; cursor:pointer; user-select:none; padding:8px 10px; border-radius:9px; border:1.5px solid rgba(255,255,255,0.06); background:transparent; transition:all 0.18s; }
+  .meal-check.checked { background:rgba(122,92,138,0.12); border-color:rgba(122,92,138,0.3); }
+  .mc-box { width:20px; height:20px; border-radius:6px; border:2px solid rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-size:0.72rem; flex-shrink:0; transition:all 0.15s; }
+  .meal-check.checked .mc-box { background:var(--protein); border-color:var(--protein); color:white; }
+  .mc-label { font-size:0.84rem; color:rgba(255,255,255,0.5); flex:1; }
+  .meal-check.checked .mc-label { color:rgba(255,255,255,0.8); }
+  .mc-protein { font-size:0.72rem; color:rgba(122,92,138,0.55); }
+  .meal-check.checked .mc-protein { color:#c4a0d8; }
+
+  /* Digest habits — FIX 1: ці самі пункти що і завдання, синхронізовані */
+  .digest-habits { display:flex; flex-direction:column; gap:8px; }
+  .dh-row { display:flex; align-items:center; gap:10px; padding:8px 10px; border-radius:9px; border:1.5px solid rgba(255,255,255,0.06); transition:all 0.18s; }
+  .dh-row.checked { background:rgba(200,125,62,0.1); border-color:rgba(200,125,62,0.3); }
+  .dh-box { width:20px; height:20px; border-radius:6px; border:2px solid rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-size:0.72rem; flex-shrink:0; transition:all 0.15s; }
+  .dh-row.checked .dh-box { background:var(--warm); border-color:var(--warm); color:white; }
+  .dh-label { font-size:0.84rem; color:rgba(255,255,255,0.5); }
+  .dh-row.checked .dh-label { color:rgba(255,255,255,0.8); }
+
+  /* FIX 3: 3 окремих міні-бари замість одного загального */
+  .tracker-multi-summary { margin-top:18px; display:flex; flex-direction:column; gap:10px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.06); border-radius:12px; padding:16px 20px; }
+  .mini-bar-row { display:flex; align-items:center; gap:12px; }
+  .mini-bar-icon { font-size:0.9rem; width:20px; text-align:center; flex-shrink:0; }
+  .mini-bar-wrap { flex:1; height:4px; background:rgba(255,255,255,0.07); border-radius:2px; overflow:hidden; }
+  .mini-bar-fill { height:100%; border-radius:2px; transition:width 0.4s ease; }
+  .mini-bar-fill.water { background:linear-gradient(90deg,#4e8fa3,#7ab8cc); }
+  .mini-bar-fill.protein { background:linear-gradient(90deg,var(--protein),#c4a0d8); }
+  .mini-bar-fill.digest { background:linear-gradient(90deg,var(--warm),#e8a870); }
+  .mini-bar-pct { font-family:'Cormorant Garamond',serif; font-size:0.95rem; font-weight:700; white-space:nowrap; min-width:36px; text-align:right; }
+  .mini-bar-pct.water { color:#4e8fa3; }
+  .mini-bar-pct.protein { color:#c4a0d8; }
+  .mini-bar-pct.digest { color:#e8a870; }
+  .tracker-total-label { text-align:center; font-size:0.76rem; color:rgba(255,255,255,0.3); padding-top:4px; border-top:1px solid rgba(255,255,255,0.05); }
+  .tracker-total-label span { color:#e8a870; font-weight:500; }
+
+  /* ── FIX 4: РЕФЛЕКСІЯ — тепер після трекера ── */
+  .reflect-block { background:white; border-radius:20px; padding:30px; margin-bottom:20px; border:1px solid #ede8e0; }
+  .reflect-label { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--protein); font-weight:600; margin-bottom:8px; display:block; }
+  .reflect-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:700; margin-bottom:6px; }
+  .reflect-sub { font-size:0.83rem; color:#888; margin-bottom:18px; line-height:1.5; }
+  .reflect-questions { display:flex; flex-direction:column; gap:14px; }
+  .rq-item { display:flex; flex-direction:column; gap:6px; }
+  .rq-label { font-size:0.82rem; font-weight:500; color:#444; }
+  .rq-field { width:100%; background:var(--mist); border:1.5px solid #e4e0da; border-radius:11px; padding:11px 14px; font-family:'DM Sans',sans-serif; font-size:0.84rem; color:var(--ink); resize:none; outline:none; line-height:1.55; }
+  .rq-field:focus { border-color:var(--protein); background:var(--protein-light); }
+  .rq-field::placeholder { color:#bbb; }
+
+  /* ── NUTRI NOTE ── */
+  .nutri-block { background:linear-gradient(135deg,#f5eeff,#ede5f8); border-radius:16px; padding:26px; border:1px solid #d4b8e8; margin-bottom:20px; }
+  .nutri-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:700; margin-bottom:10px; color:#3a1a4a; }
+  .nutri-text { font-size:0.85rem; color:#6b3a8a; line-height:1.8; }
+  .nutri-sign { margin-top:12px; font-size:0.82rem; color:var(--protein); font-style:italic; font-weight:500; }
+
+  /* ── REMINDER ── */
+  .reminder-strip { background:linear-gradient(135deg,#0a100c,#0e1810); border-radius:16px; padding:22px 26px; margin-bottom:20px; display:flex; align-items:center; gap:16px; }
+  .rs-icon { font-size:2rem; flex-shrink:0; }
+  .rs-text { font-size:0.85rem; color:rgba(255,255,255,0.5); line-height:1.65; }
+  .rs-text strong { color:rgba(107,143,113,0.9); font-weight:500; }
+
+  /* ── TEASER ── */
+  .teaser { background:linear-gradient(135deg,#100810,#1a0e1a); border-radius:20px; padding:30px; margin-bottom:20px; text-align:center; position:relative; overflow:hidden; }
+  .teaser::before { content:'🏆'; position:absolute; right:12px; bottom:-12px; font-size:100px; opacity:0.06; }
+  .teaser-week { font-size:0.63rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(196,160,216,0.45); margin-bottom:16px; display:block; }
+  .teaser-icon { font-size:44px; margin-bottom:10px; }
+  .teaser-title { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:700; color:#fff; margin-bottom:8px; }
+  .teaser-title em { color:#c4a0d8; font-style:italic; }
+  .teaser-desc { font-size:0.84rem; color:rgba(255,255,255,0.45); line-height:1.7; max-width:380px; margin:0 auto; }
+
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity 0.6s ease,transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  footer { background:var(--ink); padding:40px 24px; text-align:center; }
+  .footer-text { font-family:'Cormorant Garamond',serif; font-size:1.1rem; color:rgba(255,255,255,0.35); margin-bottom:10px; }
+  footer p { color:rgba(255,255,255,0.18); font-size:0.75rem; letter-spacing:0.06em; }
+  footer span { color:#e8a870; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<section class="hero">
+  <div class="hero-particles">
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+  </div>
+  <div class="author-badge">
+    <div class="author-avatar">ЛБ</div>
+    <div>
+      <span class="author-name">Любов Бухарова</span>
+      <span class="author-role">Нутриціолог</span>
+    </div>
+  </div>
+  <div class="day-badge">Відео-квест · Білковий тиждень · День 4</div>
+  <div class="hero-icon">🌿</div>
+  <h1>Не тільки<br><em>що їси —</em><br>а як їси</h1>
+  <div class="hero-line"></div>
+  <p class="hero-tagline">Секрет здорового травлення та справжнього засвоєння білка</p>
+  <div class="hero-scroll">↓ гортай</div>
+</section>
+
+<main class="main">
+
+  <!-- INTRO -->
+  <div class="intro-card reveal">
+    <span class="intro-label">💡 Головна думка дня</span>
+    <p class="intro-text">Ти вже знаєш, що білок — основа молодості й відновлення клітин.<br><br>Але є одна деталь, про яку часто забувають навіть ті, хто харчується "правильно":<br><br><strong>їжа не працює, якщо тіло в стресі.</strong></p>
+  </div>
+
+  <!-- THEORY 1 -->
+  <div class="theory-block reveal">
+    <div class="theory-tag"><div class="theory-num">1</div> Стрес і травлення</div>
+    <div class="theory-title">💆‍♀️ Травлення починається не в шлунку — а в голові</div>
+    <div class="theory-body">
+      Коли ти напружена, поспішаєш, їси "на бігу" — тіло в режимі <strong>боротьби або втечі</strong>.<br><br>
+      У цьому стані шлунок не виділяє достатньо кислоти та ферментів. Білок не розщеплюється повністю, і з часом це дає важкість після їжі, здуття і втому замість енергії.
+    </div>
+    <div class="alert-box">
+      💡 <strong>Правило №1:</strong> Перед їжею — заспокойся.<br>
+      Кілька глибоких вдихів, ковток теплої води, вдячність за їжу — і тіло переходить у режим "травлення та відновлення".<br><br>
+      Не поспішай — жуй усвідомлено. Це найпростіша й найдієвіша допомога засвоєнню білка 🌿
+    </div>
+  </div>
+
+  <!-- THEORY 2 -->
+  <div class="theory-block reveal">
+    <div class="theory-tag"><div class="theory-num">2</div> Ферменти</div>
+    <div class="theory-title">🥗 Підтримай свої ферменти природним шляхом</div>
+    <div class="theory-body">
+      Додавай у раціон зелень, кислі салати, лимон, імбир, ферментовані овочі.<br>
+      Їж білок разом з овочами — це допомагає ферментам працювати ефективніше.<br><br>
+      Якщо відчуваєш важкість після їжі — іноді потрібна допомога у вигляді ферментних комплексів, але підбирає лише спеціаліст.
+    </div>
+
+    <!-- FIX 5: Паразити як м'який accordion -->
+    <div class="parasite-accordion">
+      <div class="pa-trigger" onclick="toggleParasite(this)">
+        🔬 Чому мікробіом і паразити впливають на засвоєння білка?
+        <span class="pa-arrow" id="paArrow">▼</span>
+      </div>
+      <div class="pa-body" id="paBody">
+        <p class="pa-note">Це важлива тема, яку варто знати — без тривоги, просто як корисний факт для здоров'я.</p>
+        <div class="parasite-list">
+          <div class="parasite-item"><div class="parasite-dot"></div><span>Шкідливі мікроорганізми можуть пошкоджувати слизову кишківника, де всмоктуються амінокислоти</span></div>
+          <div class="parasite-item"><div class="parasite-dot"></div><span>Вони конкурують за поживні речовини — буквально "з'їдаючи" частину білка, яку ти з'їла</span></div>
+          <div class="parasite-item"><div class="parasite-dot"></div><span>Можуть викликати хронічне запалення кишківника, що зменшує активність травних ферментів</span></div>
+          <div class="parasite-item"><div class="parasite-dot"></div><span>Знижують вироблення жовчі та ферментів — без них білок не розщеплюється повністю</span></div>
+        </div>
+        <div class="pa-cta">👉 <strong>Хороша новина:</strong> регулярні антипаразитарні програми під наглядом спеціаліста — це проста і ефективна профілактика. Поговори зі своїм нутриціологом про оптимальний підхід для тебе.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THEORY 3 -->
+  <div class="theory-block reveal">
+    <div class="theory-tag"><div class="theory-num">3</div> Мікробіом</div>
+    <div class="theory-title">🦠 Піклуйся про мікробіом — він "налаштовує" травлення</div>
+    <div class="theory-body">
+      Корисні бактерії впливають навіть на вироблення ферментів.<br>
+      Коли мікробіом у балансі — білок засвоюється краще, енергія підвищується, настрій стабільний 🌸
+    </div>
+    <div class="micro-needs">
+      <div class="micro-chip">🥦 Клітковина</div>
+      <div class="micro-chip">🥛 Пробіотики</div>
+      <div class="micro-chip">🍃 Ферментовані продукти</div>
+      <div class="micro-chip">🧘 Спокій</div>
+    </div>
+  </div>
+
+  <!-- THEORY 4 -->
+  <div class="theory-block reveal">
+    <div class="theory-tag"><div class="theory-num">4</div> Температура їжі</div>
+    <div class="theory-title">🔥 Не забувай про тепло</div>
+    <div class="theory-body">
+      Холодна їжа й напої <strong>гальмують</strong> травлення.<br><br>
+      Тепла, приготована їжа навпаки — підтримує "вогонь травлення", допомагає білку повністю розщепитися й засвоїтися.
+    </div>
+  </div>
+
+  <!-- FIX 2: TABLE зі scroll-обгорткою -->
+  <div class="table-block reveal">
+    <span class="table-label">🌿 Продукти-помічники</span>
+    <div class="table-title">Що допомагає засвоїти білок</div>
+    <div class="table-scroll">
+      <table class="helper-table">
+        <thead>
+          <tr><th>Категорія</th><th>Приклади</th><th>Як допомагають</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="cat-badge green">🌿 Зелень</span></td><td>Рукола, кріп, петрушка, шпинат</td><td>Стимулюють травлення, містять ферменти й хлорофіл</td></tr>
+          <tr><td><span class="cat-badge acid">🍋 З кислинкою</span></td><td>Квашена капуста, лимон, помідор</td><td>Підсилюють вироблення шлункового соку</td></tr>
+          <tr><td><span class="cat-badge spice">🫚 Спеції</span></td><td>Імбир, куркума, кмин, фенхель</td><td>Активують ферменти, зменшують газоутворення</td></tr>
+          <tr><td><span class="cat-badge dairy">🥛 Кисломолочні</span></td><td>Кефір, йогурт натуральний, ряжанка</td><td>Підтримують корисну мікрофлору кишківника</td></tr>
+          <tr><td><span class="cat-badge fruit">🍍 Фрукти</span></td><td>Ананас, папая, ківі</td><td>Природні ферменти — вживати окремо від білка!</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="tip-note">📌 <span>Порада:</span> Якщо відчуваєш важкість після їжі — спробуй кисломолочні продукти або ферментні комплекси (лише за рекомендацією спеціаліста).</div>
+  </div>
+
+  <!-- COMBOS -->
+  <div class="combo-block reveal">
+    <span class="combo-label">🍽️ Ідеальні поєднання</span>
+    <div class="combo-title">Білок + помічник для засвоєння</div>
+    <div class="combo-grid">
+      <div class="combo-row"><span class="combo-protein">🥩 М'ясо</span><span class="combo-plus">+</span><span class="combo-side">🥬 квашена капуста або рукола</span></div>
+      <div class="combo-row"><span class="combo-protein">🐟 Риба</span><span class="combo-plus">+</span><span class="combo-side">🍋 салат з руколи + лимон</span></div>
+      <div class="combo-row"><span class="combo-protein">🥚 Яйця</span><span class="combo-plus">+</span><span class="combo-side">🌿 зелень + томат</span></div>
+      <div class="combo-row"><span class="combo-protein">🫘 Бобові</span><span class="combo-plus">+</span><span class="combo-side">🫚 куркума + кмин + кефір</span></div>
+    </div>
+  </div>
+
+  <!-- FIX 1: Завдання — клік на весь блок, синхронізований з трекером -->
+  <div class="tasks-block reveal">
+    <span class="tasks-label">🎯 Завдання на сьогодні</span>
+    <p class="tasks-hint">Натисни на завдання щоб відмітити — воно автоматично оновиться в трекері нижче</p>
+    <div class="task-list">
+      <div class="task-item" id="task-breath" onclick="toggleTask('breath')">
+        <div class="task-circle" id="tc-breath">1</div>
+        <div class="task-content">
+          <div class="task-text">Перед кожним прийомом їжі зроби <strong>3 глибоких вдихи і видихи</strong> — повністю видихни стрес і увійди в режим травлення.</div>
+          <div class="task-link-note">→ відмічається в трекері як "3 вдихи перед їжею"</div>
+        </div>
+      </div>
+      <div class="task-item" id="task-greens" onclick="toggleTask('greens')">
+        <div class="task-circle" id="tc-greens">2</div>
+        <div class="task-content">
+          <div class="task-text">Додай у кожну страву <strong>зелень або трохи кислинки</strong> — лимон, рукола, квашена капуста.</div>
+          <div class="task-link-note">→ відмічається в трекері як "Зелень або кислинка"</div>
+        </div>
+      </div>
+      <div class="task-item" id="task-mindful" onclick="toggleTask('mindful')">
+        <div class="task-circle" id="tc-mindful">3</div>
+        <div class="task-content">
+          <div class="task-text">Спробуй їсти <strong>повільно й усвідомлено</strong> — без телефону, в спокої, жуючи кожен шматок 20–30 разів.</div>
+          <div class="task-link-note">→ відмічається в трекері як "Без телефону, в спокої"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FIX 4: ТРЕКЕР стоїть ДО рефлексії -->
+  <div class="tracker-block reveal">
+    <span class="tracker-label">📊 Трекер звичок</span>
+    <div class="tracker-title">Мій прогрес тижня</div>
+    <div class="tracker-sub">Відміч виконане — і побач, як росте твій результат</div>
+
+    <div class="days-row">
+      <div class="day-pill past"><span class="dp-num">1</span><span class="dp-label">Пн</span></div>
+      <div class="day-pill past"><span class="dp-num">2</span><span class="dp-label">Вт</span></div>
+      <div class="day-pill past"><span class="dp-num">3</span><span class="dp-label">Ср</span></div>
+      <div class="day-pill active-day"><span class="dp-num">4</span><span class="dp-label">Чт</span></div>
+      <div class="day-pill future"><span class="dp-num">5</span><span class="dp-label">Пт</span></div>
+      <div class="day-pill future"><span class="dp-num">6</span><span class="dp-label">Сб</span></div>
+      <div class="day-pill future"><span class="dp-num">7</span><span class="dp-label">Нд</span></div>
+    </div>
+
+    <div class="tracker-sections">
+
+      <!-- Water -->
+      <div class="tracker-section">
+        <div class="ts-head">
+          <span class="ts-title">💧 Вода сьогодні</span>
+          <span class="ts-count" style="color:#4e8fa3" id="waterCount">0 / 8 склянок</span>
+        </div>
+        <div class="water-cups" id="waterCups">
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+          <div class="cup" onclick="toggleCup(this)">💧</div>
+        </div>
+      </div>
+
+      <!-- Protein -->
+      <div class="tracker-section">
+        <div class="ts-head">
+          <span class="ts-title">💪 Білок у прийомах їжі</span>
+          <span class="ts-count" style="color:#c4a0d8" id="proteinCount">0 / 3</span>
+        </div>
+        <div class="protein-meals" id="proteinMeals">
+          <div class="meal-check" onclick="toggleMeal(this)">
+            <div class="mc-box">✓</div><span class="mc-label">☀️ Сніданок</span><span class="mc-protein">≈ 20–25 г</span>
+          </div>
+          <div class="meal-check" onclick="toggleMeal(this)">
+            <div class="mc-box">✓</div><span class="mc-label">🌤 Обід</span><span class="mc-protein">≈ 30–35 г</span>
+          </div>
+          <div class="meal-check" onclick="toggleMeal(this)">
+            <div class="mc-box">✓</div><span class="mc-label">🌙 Вечеря</span><span class="mc-protein">≈ 20–25 г</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FIX 1: Звички травлення — перші 3 синхронізовані з завданнями -->
+      <div class="tracker-section">
+        <div class="ts-head">
+          <span class="ts-title">🌿 Звички травлення</span>
+          <span class="ts-count" style="color:#e8a870" id="digestCount">0 / 4</span>
+        </div>
+        <div class="digest-habits" id="digestHabits">
+          <div class="dh-row" id="dh-breath">
+            <div class="dh-box">✓</div><span class="dh-label">🫁 3 вдихи перед кожним прийомом їжі</span>
+          </div>
+          <div class="dh-row" id="dh-greens">
+            <div class="dh-box">✓</div><span class="dh-label">🌿 Зелень або кислинка до кожної страви</span>
+          </div>
+          <div class="dh-row" id="dh-mindful">
+            <div class="dh-box">✓</div><span class="dh-label">📵 Їла без телефону, в спокої</span>
+          </div>
+          <!-- 4-й пункт — окремий, кликабельний -->
+          <div class="dh-row" id="dh-warm" onclick="toggleDigestOnly('warm')" style="cursor:pointer">
+            <div class="dh-box">✓</div><span class="dh-label">☕ Тепла їжа або напій</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FIX 3: 3 окремих міні-бари замість одного -->
+    <div class="tracker-multi-summary">
+      <div class="mini-bar-row">
+        <span class="mini-bar-icon">💧</span>
+        <div class="mini-bar-wrap"><div class="mini-bar-fill water" id="barWater" style="width:0%"></div></div>
+        <span class="mini-bar-pct water" id="pctWater">0%</span>
+      </div>
+      <div class="mini-bar-row">
+        <span class="mini-bar-icon">💪</span>
+        <div class="mini-bar-wrap"><div class="mini-bar-fill protein" id="barProtein" style="width:0%"></div></div>
+        <span class="mini-bar-pct protein" id="pctProtein">0%</span>
+      </div>
+      <div class="mini-bar-row">
+        <span class="mini-bar-icon">🌿</span>
+        <div class="mini-bar-wrap"><div class="mini-bar-fill digest" id="barDigest" style="width:0%"></div></div>
+        <span class="mini-bar-pct digest" id="pctDigest">0%</span>
+      </div>
+      <div class="tracker-total-label" id="totalLabel">Починай відмічати ✨</div>
+    </div>
+  </div>
+
+  <!-- FIX 4: РЕФЛЕКСІЯ — тепер ПІСЛЯ трекера -->
+  <div class="reflect-block reveal">
+    <span class="reflect-label">🪞 Рефлексія дня</span>
+    <div class="reflect-title">Як пройшов твій день?</div>
+    <div class="reflect-sub">Кілька хвилин чесних відповідей — це твій особистий щоденник здоров'я. Заповни після виконання завдань.</div>
+    <div class="reflect-questions">
+      <div class="rq-item">
+        <span class="rq-label">🫁 Чи вдалося поїсти в спокої, без поспіху?</span>
+        <textarea class="rq-field" rows="2" placeholder="Що заважало або допомагало залишатися спокійною..."></textarea>
+      </div>
+      <div class="rq-item">
+        <span class="rq-label">🌿 Які продукти-помічники ти додала сьогодні?</span>
+        <textarea class="rq-field" rows="2" placeholder="Рукола, кефір, лимон, спеції, квашена капуста..."></textarea>
+      </div>
+      <div class="rq-item">
+        <span class="rq-label">⚡ Чи відчула різницю після усвідомленого прийому їжі?</span>
+        <textarea class="rq-field" rows="2" placeholder="Менше важкості, більше енергії, краща ситість..."></textarea>
+      </div>
+      <div class="rq-item">
+        <span class="rq-label">💭 Яка думка або відкриття з'явились сьогодні?</span>
+        <textarea class="rq-field" rows="2" placeholder="Що здивувало, що хочеш запам'ятати..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- NUTRI NOTE -->
+  <div class="nutri-block reveal">
+    <div class="nutri-title">✨ Нагадування від нутриціолога</div>
+    <p class="nutri-text">Їжа — це не лише калорії, це <strong>енергія і сигнал для тіла</strong>.<br><br>А спокій — це <strong>головний фермент травлення</strong> 💚<br><br>Поєднуй білок з овочами та ферментованими продуктами — і твоє тіло скаже "дякую" більшою енергією, ясністю й красою.</p>
+    <div class="nutri-sign">— Любов Бухарова</div>
+  </div>
+
+  <!-- REMINDER -->
+  <div class="reminder-strip reveal">
+    <div class="rs-icon">💧</div>
+    <div class="rs-text"><strong>Продовжуй пити воду</strong> — мінімум 6–8 склянок на день.<br>І не забувай — <strong>білок у кожну тарілку</strong> 💪 Завтра — фінальний день тижня!</div>
+  </div>
+
+  <!-- TEASER -->
+  <div class="teaser reveal">
+    <span class="teaser-week">Вже завтра · День 5</span>
+    <div class="teaser-icon">🏆</div>
+    <div class="teaser-title">Підсумок<br><em>білкового тижня</em></div>
+    <p class="teaser-desc">Аналіз результатів, фінальний чек-лист звичок і перехід до наступного нутрієнта 🥑</p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-text">Твоє тіло дякує тобі за кожен усвідомлений крок 🌿</div>
+  <p><span>Любов Бухарова</span> · Нутриціолог · Білковий квест · День 4</p>
+</footer>
+
+<script>
+  // Progress bar on scroll
+  window.addEventListener('scroll',()=>{
+    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+    document.getElementById('progress').style.width=(s/h*100)+'%';
+  });
+
+  // Reveal on scroll
+  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // FIX 5: Accordion для паразитів
+  function toggleParasite(trigger) {
+    const body = document.getElementById('paBody');
+    const arrow = document.getElementById('paArrow');
+    const open = body.classList.toggle('open');
+    arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+
+  // FIX 1: Завдання синхронізовані з трекером
+  const taskMap = { breath:'dh-breath', greens:'dh-greens', mindful:'dh-mindful' };
+
+  function toggleTask(key) {
+    const taskEl = document.getElementById('task-' + key);
+    const circleEl = document.getElementById('tc-' + key);
+    const dhEl = document.getElementById(taskMap[key]);
+    const isDone = taskEl.classList.toggle('done');
+    circleEl.textContent = isDone ? '✓' : ({breath:'1',greens:'2',mindful:'3'}[key]);
+    if (isDone) {
+      dhEl.classList.add('checked');
+      dhEl.querySelector('.dh-box').textContent = '✓';
+    } else {
+      dhEl.classList.remove('checked');
+      dhEl.querySelector('.dh-box').textContent = '✓';
+    }
+    updateTracker();
+  }
+
+  // 4-й пункт трекера — окремо кликабельний
+  function toggleDigestOnly(key) {
+    const el = document.getElementById('dh-' + key);
+    el.classList.toggle('checked');
+    updateTracker();
+  }
+
+  // Water
+  function toggleCup(cup) {
+    cup.classList.toggle('filled');
+    const f = document.querySelectorAll('#waterCups .cup.filled').length;
+    document.getElementById('waterCount').textContent = f + ' / 8 склянок';
+    updateTracker();
+  }
+
+  // Protein meals
+  function toggleMeal(el) {
+    el.classList.toggle('checked');
+    const d = document.querySelectorAll('#proteinMeals .meal-check.checked').length;
+    document.getElementById('proteinCount').textContent = d + ' / 3';
+    updateTracker();
+  }
+
+  // FIX 3: окремі бари + загальний лейбл
+  const totalLabels = ['Починай відмічати ✨','Добрий початок! 🌱','Розкачуємось 💫','Вже половина! ⚡','Майже там! 🔥','Фантастично! 💜','Ідеальний день! 🏆'];
+
+  function updateTracker() {
+    const w = document.querySelectorAll('#waterCups .cup.filled').length;
+    const p = document.querySelectorAll('#proteinMeals .meal-check.checked').length;
+    const d = document.querySelectorAll('#digestHabits .dh-row.checked').length;
+
+    // Digest count label
+    document.getElementById('digestCount').textContent = d + ' / 4';
+
+    // FIX 3: 3 окремих бари, кожен 0–100% своєї секції
+    const wPct = Math.round(w / 8 * 100);
+    const pPct = Math.round(p / 3 * 100);
+    const dPct = Math.round(d / 4 * 100);
+
+    document.getElementById('barWater').style.width = wPct + '%';
+    document.getElementById('pctWater').textContent = wPct + '%';
+    document.getElementById('barProtein').style.width = pPct + '%';
+    document.getElementById('pctProtein').textContent = pPct + '%';
+    document.getElementById('barDigest').style.width = dPct + '%';
+    document.getElementById('pctDigest').textContent = dPct + '%';
+
+    // Загальний лейбл — середнє трьох секцій
+    const avgPct = Math.round((wPct + pPct + dPct) / 3);
+    const idx = Math.min(Math.floor(avgPct / 17), 6);
+    document.getElementById('totalLabel').textContent = totalLabels[idx];
+  }
+</script>
+</body>
+</html>
