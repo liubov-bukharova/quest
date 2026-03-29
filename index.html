@@ -69,6 +69,104 @@
   input[type="range"]::-webkit-slider-thumb { -webkit-appearance:none; width:20px; height:20px; border-radius:50%; background:var(--water); cursor:pointer; box-shadow:0 2px 8px rgba(78,143,163,0.4); }
 
   .form-divider { height:1px; background:#f0ece6; margin:26px 0; }
+
+  /* ── Water intake block ── */
+  .water-intake-block {
+    background: linear-gradient(135deg, #eaf4f9, #d6ecf5);
+    border: 1.5px solid #b6d8ea;
+    border-radius: 16px;
+    padding: 24px 22px 20px;
+    margin-bottom: 26px;
+  }
+  .water-intake-block .wi-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .water-intake-block .wi-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .water-intake-block .wi-sub {
+    font-size: 0.78rem;
+    color: #6a9ab0;
+    margin-top: 2px;
+  }
+  /* Cups row */
+  .cups-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .cup {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    border: 2px solid #b6d8ea;
+    background: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    transition: all 0.15s;
+    user-select: none;
+    position: relative;
+  }
+  .cup:hover { border-color: var(--water); transform: translateY(-2px); }
+  .cup.filled { background: var(--water); border-color: var(--water); }
+  .cup.filled::after { content: ''; position:absolute; inset:0; border-radius:8px; background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 60%); }
+  /* Manual input */
+  .wi-manual {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    border: 1.5px solid #d0e8f0;
+    border-radius: 12px;
+    padding: 12px 16px;
+  }
+  .wi-manual label {
+    font-size: 0.8rem;
+    color: #7aa5b8;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .wi-manual input[type="number"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--water);
+    width: 60px;
+    background: transparent;
+    -moz-appearance: textfield;
+  }
+  .wi-manual input[type="number"]::-webkit-outer-spin-button,
+  .wi-manual input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .wi-manual .wi-unit {
+    font-size: 0.82rem;
+    color: #9bbccc;
+    font-weight: 400;
+    flex-shrink: 0;
+  }
+  .wi-summary {
+    margin-top: 14px;
+    font-size: 0.8rem;
+    color: #5a8fa5;
+    text-align: center;
+    min-height: 18px;
+    transition: all 0.2s;
+    font-weight: 400;
+  }
+  /* ── end water intake ── */
+
   .support-block { margin-top:28px; background:linear-gradient(135deg,#edf6f0,#e4f0f4); border-radius:14px; padding:24px; border:1px solid #c8ddd0; }
   .support-block h4 { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:700; margin-bottom:8px; color:#2a4030; }
   .support-block p { font-size:0.84rem; color:#4a6050; line-height:1.75; }
@@ -136,6 +234,42 @@
 
     <div class="form-section-title">💭 Чекліст самоспостереження</div>
     <div class="form-section-sub">Заповни ввечері — чесно та без осуду</div>
+
+    <!-- ── WATER INTAKE ── -->
+    <div class="form-group">
+      <div class="water-intake-block">
+        <div class="wi-header">
+          <span style="font-size:1.4rem">💧</span>
+          <div>
+            <div class="wi-title">Скільки чистої води ти випив/ла сьогодні?</div>
+            <div class="wi-sub">Натискай на стакани або введи кількість вручну</div>
+          </div>
+        </div>
+
+        <!-- 8 cups = 8 × 250 ml = 2 L -->
+        <div class="cups-row" id="cupsRow">
+          <div class="cup" data-index="0" onclick="toggleCup(0)" title="250 мл">🥛</div>
+          <div class="cup" data-index="1" onclick="toggleCup(1)" title="250 мл">🥛</div>
+          <div class="cup" data-index="2" onclick="toggleCup(2)" title="250 мл">🥛</div>
+          <div class="cup" data-index="3" onclick="toggleCup(3)" title="250 мл">🥛</div>
+          <div class="cup" data-index="4" onclick="toggleCup(4)" title="250 мл">🥛</div>
+          <div class="cup" data-index="5" onclick="toggleCup(5)" title="250 мл">🥛</div>
+          <div class="cup" data-index="6" onclick="toggleCup(6)" title="250 мл">🥛</div>
+          <div class="cup" data-index="7" onclick="toggleCup(7)" title="250 мл">🥛</div>
+        </div>
+
+        <div class="wi-manual">
+          <label>або введи мл вручну:</label>
+          <input type="number" id="waterMl" min="0" max="5000" step="50" placeholder="0" oninput="syncFromInput()">
+          <span class="wi-unit">мл</span>
+        </div>
+
+        <div class="wi-summary" id="wiSummary"></div>
+      </div>
+    </div>
+    <!-- ── END WATER INTAKE ── -->
+
+    <div class="form-divider"></div>
 
     <div class="form-group">
       <label class="question-label"><span>💧</span> Чи відчував/ла спрагу протягом дня?</label>
@@ -217,14 +351,10 @@
       </div>
     </div>
 
-    <button class="submit-btn" onclick="submitForm()">Зберегти відповіді ✓</button>
+    <button class="submit-btn" onclick="submitForm()">Перший день завершен✓</button>
     <div class="submitted-msg" id="submitted">
       <h4>Чудово! 💚</h4>
       <p>Ти зробив/ла перший крок — побачив/ла реальність.<br>Завтра ми починаємо змінювати її разом.</p>
-      <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" style="margin:16px auto 0;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21.8 2.2L1.3 10.1c-1.4.6-1.4 1.4-.3 1.7l5.1 1.6 11.8-7.4c.6-.3 1.1-.1.7.2L8.4 16.4l-.4 5.2c.6 0 .9-.3 1.2-.6l2.9-2.8 5.1 3.7c.9.5 1.6.2 1.8-.8l3.3-15.6c.3-1.3-.5-1.9-1.5-1.3z" fill="#a8c5ab"/></svg>
-        Написати Любові в Telegram
-      </a>
     </div>
   </div>
 </section>
@@ -234,18 +364,67 @@
 </footer>
 
 <script>
+  // Progress bar
   window.addEventListener('scroll',()=>{
     const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
     document.getElementById('progress').style.width=(s/h*100)+'%';
   });
+
+  // Scroll reveal
   const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+  // Radio options
   document.querySelectorAll('.radio-option').forEach(opt=>{
     opt.addEventListener('click',function(){
       this.closest('.radio-group').querySelectorAll('.radio-option').forEach(o=>o.classList.remove('selected'));
       this.classList.add('selected');
     });
   });
+
+  // ── Water intake logic ──
+  const CUP_ML = 250;
+  let filledCups = 0;
+
+  function toggleCup(index) {
+    const cups = document.querySelectorAll('.cup');
+    // Fill/unfill sequentially up to clicked cup
+    if (filledCups === index + 1) {
+      // clicking last filled → unfill it
+      filledCups = index;
+    } else {
+      filledCups = index + 1;
+    }
+    cups.forEach((c, i) => {
+      c.classList.toggle('filled', i < filledCups);
+    });
+    document.getElementById('waterMl').value = filledCups * CUP_ML || '';
+    updateSummary(filledCups * CUP_ML);
+  }
+
+  function syncFromInput() {
+    const ml = parseInt(document.getElementById('waterMl').value) || 0;
+    filledCups = Math.min(Math.round(ml / CUP_ML), 8);
+    document.querySelectorAll('.cup').forEach((c, i) => {
+      c.classList.toggle('filled', i < filledCups);
+    });
+    updateSummary(ml);
+  }
+
+  function updateSummary(ml) {
+    const el = document.getElementById('wiSummary');
+    if (!ml) { el.textContent = ''; return; }
+    const L = (ml / 1000).toFixed(2).replace(/\.?0+$/, '');
+    let msg = '';
+    if (ml < 500) msg = '';
+    else if (ml < 1000) msg = '🙂 Добрий початок усвідомлення';
+    else if (ml < 1500) msg = '👍 Добрий початок усвідомлення';
+    else if (ml < 2000) msg = '💪 Добрий початок усвідомлення';
+    else msg = '💧 Добре';
+    el.textContent = msg ? `${L} л · ${msg}` : `${L} л`;
+  }
+
+  // Submit
   function submitForm(){
     document.querySelector('.submit-btn').style.display='none';
     const m=document.getElementById('submitted');
