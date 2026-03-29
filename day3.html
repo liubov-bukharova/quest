@@ -21,30 +21,22 @@
   body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
   .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--leaf-light);z-index:100;transition:width 0.15s;}
 
-  /* ═══ HERO — зелений з листочком ═══ */
   .hero{min-height:100svh;background:linear-gradient(160deg,#0d2010 0%,#122a16 50%,#1a3d20 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
-
-  /* листяні кола замість хвиль */
   .leaf-ring{position:absolute;border-radius:50%;border:1px solid rgba(90,158,104,0.15);animation:ring-out 8s ease-out infinite;}
   .leaf-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
   .leaf-ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
   .leaf-ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
   .leaf-ring:nth-child(4){width:960px;height:960px;animation-delay:6s}
   @keyframes ring-out{0%{transform:scale(0.3);opacity:0.5}100%{transform:scale(1.3);opacity:0}}
-
   .hero-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(90,158,104,0.12),transparent);}
   .wave-bg{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(61,122,74,0.1),transparent);}
-
   .author-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:8px 20px 8px 8px;margin-bottom:32px;position:relative;z-index:1;}
   .author-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--leaf-light),#2a6e3a);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:700;color:white;flex-shrink:0;}
   .author-name{font-size:0.8rem;color:rgba(255,255,255,0.75);font-weight:400;display:block;}
   .author-role{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;display:block;}
-
   .day-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(90,158,104,0.15);border:1px solid rgba(90,158,104,0.35);color:#8ecf9a;font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px;position:relative;z-index:1;}
-
   .hero-icon{font-size:72px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;margin-bottom:16px;}
   @keyframes sway{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-
   .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.05;position:relative;z-index:1;margin-bottom:8px;}
   .hero h1 em{color:#8ecf9a;font-style:italic;}
   .hero-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:18px auto;position:relative;z-index:1;}
@@ -52,10 +44,7 @@
   .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.2);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* ═══ MAIN ═══ */
   .main{max-width:680px;margin:0 auto;padding:60px 24px 80px;}
-
-  /* INTRO — зелена */
   .intro-card{background:linear-gradient(135deg,#0d2010,#1a3d20);border-radius:20px;padding:32px;margin-bottom:28px;position:relative;overflow:hidden;}
   .intro-card::after{content:'🌿';position:absolute;right:-10px;top:-10px;font-size:130px;opacity:0.06;line-height:1;}
   .intro-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(142,207,154,0.6);font-weight:500;margin-bottom:14px;display:block;}
@@ -65,7 +54,6 @@
   .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
   .intro-rule strong{color:rgba(255,255,255,0.9);}
 
-  /* FILTERS CARD */
   .filters-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #dde8dd;}
   .filters-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--leaf);font-weight:600;margin-bottom:16px;display:block;}
   .filters-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.25;}
@@ -80,28 +68,24 @@
   .filters-warn p{font-size:0.83rem;color:#7a3020;line-height:1.65;}
   .filters-warn strong{color:#5a1e10;}
 
-  /* TASK BLOCKS */
   .task-block{background:white;border-radius:20px;padding:32px;margin-bottom:20px;border:1px solid #dde8dd;}
   .task-num{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
   .task-num-circle{width:28px;height:28px;border-radius:50%;background:var(--leaf);color:white;font-size:0.78rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--leaf);font-weight:600;}
   .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
 
-  /* TIPS */
   .tips-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
   .tip-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
   .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
   .tip-body .tip-title{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:3px;}
   .tip-body .tip-desc{font-size:0.8rem;color:#777;line-height:1.55;}
 
-  /* NO DRINKS */
   .no-drinks{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
   .no-drink-row{display:flex;gap:14px;align-items:center;background:#fff5f5;border-radius:12px;padding:12px 16px;border:1px solid #f0d8d4;}
   .no-drink-icon{font-size:1.3rem;flex-shrink:0;}
   .no-drink-text{font-size:0.83rem;color:#7a3020;}
   .no-drink-why{font-size:0.75rem;color:#b07060;margin-top:2px;}
 
-  /* SCHEDULE / CHECKLIST */
   .checklist{display:flex;flex-direction:column;gap:0;margin-top:8px;}
   .check-row{display:flex;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #edf0ed;}
   .check-row:last-child{border-bottom:none;}
@@ -111,20 +95,17 @@
   .check-btn:hover{border-color:var(--leaf);}
   .check-btn.done{background:var(--leaf);border-color:var(--leaf);color:white;}
 
-  /* OBSERVATION */
   .obs-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
   .obs-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
   .obs-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
   .obs-text{font-size:0.84rem;color:#555;line-height:1.55;}
 
-  /* HABIT */
   .habit-card{background:linear-gradient(135deg,#e4f0e6,#d4ecd8);border-radius:18px;padding:26px;border:1px solid #b4d8bc;}
   .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(61,122,74,0.12);border:1px solid rgba(61,122,74,0.25);color:var(--leaf);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
   .habit-icon-big{font-size:44px;display:block;margin-bottom:12px;animation:sway 4s ease-in-out infinite;}
   .habit-title-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#1a3a1e;margin-bottom:8px;line-height:1.3;}
   .habit-desc-text{font-size:0.84rem;color:#3a6040;line-height:1.65;}
 
-  /* TRACKER */
   .tracker-dark{background:#0f1f12;border-radius:20px;padding:28px 32px;margin-bottom:20px;}
   .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(142,207,154,0.5);font-weight:500;margin-bottom:6px;display:block;}
   .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.3);margin-bottom:20px;}
@@ -136,7 +117,6 @@
   .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#2a6e3a,#6ecf80);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
   .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.3);font-style:italic;min-height:18px;text-align:center;}
 
-  /* REFLECTION */
   .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #dde8dd;}
   .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
   .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
@@ -147,7 +127,6 @@
   .refl-textarea:focus{border-color:var(--leaf);background:var(--leaf-pale);}
   .refl-textarea::placeholder{color:#bbb;}
 
-  /* SUPPORT */
   .support-block{background:linear-gradient(135deg,#e4f0e6,#d4ecd8);border-radius:18px;padding:26px;border:1px solid #b4d8bc;margin-bottom:20px;}
   .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#1a3a1e;}
   .support-text{font-size:0.85rem;color:#3a6040;line-height:1.7;margin-bottom:14px;}
@@ -155,7 +134,6 @@
   .sp-icon{font-size:1.4rem;flex-shrink:0;}
   .sp-text{font-size:0.83rem;color:#3a6040;line-height:1.65;font-style:italic;}
 
-  /* FINAL */
   .final-card{background:linear-gradient(160deg,#0d2010,#1a3d20);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
   .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(90,158,104,0.18),transparent);}
   .final-icon{font-size:52px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
@@ -180,7 +158,6 @@
 
 <div class="progress-bar" id="progress"></div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="leaf-ring"></div>
   <div class="leaf-ring"></div>
@@ -207,7 +184,6 @@
 
 <main class="main">
 
-  <!-- ВСТУП -->
   <div class="intro-card reveal">
     <span class="intro-label">🌿 Природне очищення</span>
     <p class="intro-text">
@@ -224,7 +200,6 @@
     </div>
   </div>
 
-  <!-- ФІЛЬТРИ ОРГАНІЗМУ -->
   <div class="filters-card reveal">
     <span class="filters-label">🫁 Природні фільтри тіла</span>
     <div class="filters-title">Твоє тіло має <span>4 природних фільтри</span> — і всім їм потрібна вода</div>
@@ -256,7 +231,6 @@
     </div>
   </div>
 
-  <!-- ЗВИЧКА ДНЯ -->
   <div class="task-block reveal" style="padding:28px;">
     <div class="task-num">
       <div class="task-num-circle" style="background:var(--sage)">🌿</div>
@@ -270,7 +244,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 1: РАНКОВИЙ РИТУАЛ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">1</div>
@@ -283,7 +256,7 @@
         <span class="tip-icon">🍋</span>
         <div class="tip-body">
           <div class="tip-title">Трохи лимонного соку</div>
-          <div class="tip-desc">Активує вироблення жовчі і допомагає печінці</div>
+          <div class="tip-desc">Олужнює тіло</div>
         </div>
       </div>
       <div class="tip-row">
@@ -303,7 +276,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 2: РУХ ЗА ВОДОЮ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
@@ -312,13 +284,6 @@
     <div class="task-title">🚶‍♀️ Коли згадала — встань і пройдись за водою</div>
     <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Маленький лайфхак із великим ефектом. Коли ти встаєш і йдеш на кухню — <strong>рух запускає лімфу</strong>, а значить детокс-процеси працюють активніше.</p>
     <div class="tips-list">
-      <div class="tip-row">
-        <span class="tip-icon">💡</span>
-        <div class="tip-body">
-          <div class="tip-title">Не носи воду до себе заздалегідь</div>
-          <div class="tip-desc">Кожен похід на кухню — це маленький рух для лімфатичної системи</div>
-        </div>
-      </div>
       <div class="tip-row">
         <span class="tip-icon">🌿</span>
         <div class="tip-body">
@@ -329,7 +294,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 3: ВІДМОВА ВІД СОЛОДКИХ НАПОЇВ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">3</div>
@@ -362,7 +326,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 4: СПОСТЕРЕЖЕННЯ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">4</div>
@@ -390,7 +353,6 @@
     </div>
   </div>
 
-  <!-- ЧЕКЛІСТ ДНЯ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">5</div>
@@ -406,7 +368,7 @@
       </div>
       <div class="check-row">
         <div class="check-dot"></div>
-        <span class="check-text">🚶‍♀️ Щоразу вставала і йшла за водою (не чекала поруч)</span>
+        <span class="check-text">🚶‍♀️ Щоразу вставала і йшла за водою</span>
         <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
       </div>
       <div class="check-row">
@@ -422,7 +384,6 @@
     </div>
   </div>
 
-  <!-- ТРЕКЕР -->
   <div class="tracker-dark reveal">
     <span class="tracker-label">🥛 Трекер дня</span>
     <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
@@ -446,7 +407,6 @@
     <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
   </div>
 
-  <!-- РЕФЛЕКСІЯ -->
   <div class="refl-block reveal">
     <div class="refl-title">📝 Рефлексія дня</div>
     <p class="refl-sub">Запиши спостереження — вони знадобляться в кінці квесту 🌿</p>
@@ -462,8 +422,6 @@
     </div>
   </div>
 
-  <!-- ЗВИЧКА ДНЯ (нагадування перед підтримкою) -->
-  <!-- ПІДТРИМКА ВІД НУТРИЦІОЛОГА -->
   <div class="support-block reveal">
     <div class="support-title">💚 Підтримка від нутриціолога</div>
     <p class="support-text">Вода робить більше, ніж здається на перший погляд. Кожна склянка, яку ти випиваєш — це допомога нирками, печінці, лімфі і кишківнику.</p>
@@ -474,12 +432,11 @@
     </div>
   </div>
 
-  <!-- ФІНАЛ -->
   <div class="final-card reveal">
     <span class="final-icon">🌿</span>
     <div class="final-title">День 3 —<br><em>виконано!</em></div>
     <div class="final-line"></div>
-    <p class="final-sub">Завтра ми підемо ще глибше — і дізнаємось, як вода впливає на твою енергію і настрій 🌊</p>
+    <p class="final-sub">Завтра ми підемо ще глибше — і дізнаємось, як вода впливає на красу🌊</p>
     <div class="day-dots">
       <div class="d-dot done"></div>
       <div class="d-dot done"></div>
@@ -496,23 +453,18 @@
 </footer>
 
 <script>
-/* Progress bar */
 window.addEventListener('scroll',()=>{
   const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
   document.getElementById('progress').style.width=(s/h*100)+'%';
 });
-
-/* Reveal */
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Checklist */
 function toggleCheck(el){
   el.classList.toggle('done');
   el.textContent=el.classList.contains('done')?'✓':'';
 }
 
-/* Трекер склянок — 1 склянка = 200 мл */
 const ML_PER_GLASS=200;
 const glassMsgs=[
   'Натисни на першу склянку 💧',
