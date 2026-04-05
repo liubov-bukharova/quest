@@ -57,29 +57,24 @@
   .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--water);font-weight:600;}
   .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
 
-  /* inputs */
   .calc-field{display:flex;flex-direction:column;gap:6px;}
   .calc-field label{font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.08em;}
   .calc-input{background:var(--mist);border:1.5px solid #e4e0da;border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--ink);outline:none;transition:border-color 0.15s;width:100%;}
   .calc-input:focus{border-color:var(--water);background:var(--water-pale);}
 
-  /* task 1 norm result */
   .norm-result{display:none;background:linear-gradient(135deg,#edf6f0,#e4f0f4);border-radius:14px;padding:20px 22px;border:1px solid #c8ddd0;margin-top:14px;}
   .norm-result-label{font-size:0.72rem;color:#4a6050;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px;}
   .norm-result-val{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--sage);}
   .norm-result-unit{font-size:0.82rem;color:#888;margin-left:6px;}
 
-  /* підбадьорення */
   .no-worry{display:none;background:linear-gradient(135deg,#fff9f4,#fff3e8);border-radius:14px;padding:18px 20px;border:1px solid #f0cfaa;margin-top:14px;gap:14px;align-items:flex-start;}
   .no-worry-icon{font-size:1.8rem;flex-shrink:0;}
   .no-worry p{font-size:0.85rem;color:#7a4820;line-height:1.7;}
   .no-worry strong{color:#5a2e08;}
 
-  /* task 2 grid */
   .calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
   @media(max-width:480px){.calc-grid2{grid-template-columns:1fr}}
 
-  /* diff result */
   .diff-result{display:none;flex-direction:column;gap:14px;}
   .diff-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   @media(max-width:400px){.diff-cards{grid-template-columns:1fr}}
@@ -113,21 +108,24 @@
   .sched-chk:hover{border-color:var(--water);}
   .sched-chk.done{background:var(--water);border-color:var(--water);color:white;}
 
-  /* tips */
+  /* sched done message */
+  .sched-done-msg{display:none;margin-top:16px;background:linear-gradient(135deg,#e8f4f0,#d8ecf4);border-radius:14px;padding:18px 20px;border:1px solid #b8d8e4;}
+  .sched-done-msg-icon{font-size:1.6rem;margin-bottom:8px;}
+  .sched-done-msg-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#1a3a4a;margin-bottom:6px;}
+  .sched-done-msg-text{font-size:0.84rem;color:#3a6070;line-height:1.65;}
+
   .tips-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
   .tip-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
   .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
   .tip-body .tip-title{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:3px;}
   .tip-body .tip-desc{font-size:0.8rem;color:#777;line-height:1.55;}
 
-  /* habit */
   .habit-card{background:linear-gradient(135deg,#e8f4f0,#d8ecf4);border-radius:18px;padding:26px;border:1px solid #b8d8e4;}
   .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(78,143,163,0.15);border:1px solid rgba(78,143,163,0.3);color:var(--water);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
   .habit-icon-big{font-size:44px;display:block;margin-bottom:12px;animation:sway 4s ease-in-out infinite;}
   .habit-title-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#1a3a4a;margin-bottom:8px;line-height:1.3;}
   .habit-desc-text{font-size:0.84rem;color:#3a6070;line-height:1.65;}
 
-  /* tracker */
   .tracker-dark{background:var(--ink);border-radius:20px;padding:28px 32px;margin-bottom:20px;}
   .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(168,197,210,0.6);font-weight:500;margin-bottom:20px;display:block;}
   .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.35);margin-bottom:20px;margin-top:-12px;}
@@ -135,23 +133,10 @@
   .glass-item{width:44px;height:44px;border-radius:12px;border:1.5px solid rgba(78,143,163,0.25);background:rgba(78,143,163,0.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all 0.25s cubic-bezier(.34,1.56,.64,1);}
   @media(max-width:380px){.glass-item{width:38px;height:38px;font-size:18px;}}
   .glass-item.filled{background:rgba(78,143,163,0.25);border-color:rgba(78,143,163,0.7);transform:scale(1.08);}
-  .glasses-status{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
-  .glasses-count{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--water);}
-  .glasses-goal{font-size:0.78rem;color:rgba(255,255,255,0.3);}
   .pbar-track{height:8px;border-radius:4px;background:rgba(255,255,255,0.07);overflow:hidden;margin-bottom:8px;}
   .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#2a6e85,#7ac5dc);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
   .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.32);font-style:italic;min-height:18px;text-align:center;}
-  .ml-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px;}
-  .ml-field{display:flex;flex-direction:column;gap:5px;}
-  .ml-label{font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.08em;}
-  .ml-input{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 12px;color:white;font-family:'DM Sans',sans-serif;font-size:1rem;outline:none;transition:border-color 0.15s;text-align:center;-moz-appearance:textfield;width:100%;}
-  .ml-input::-webkit-outer-spin-button,.ml-input::-webkit-inner-spin-button{-webkit-appearance:none;}
-  .ml-input:focus{border-color:var(--water);background:rgba(78,143,163,0.12);}
-  .ml-diff{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.05);border-radius:10px;padding:12px 16px;margin-top:4px;}
-  .ml-diff-label{font-size:0.78rem;color:rgba(255,255,255,0.35);}
-  .ml-diff-val{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--water);}
 
-  /* reflection */
   .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8e4de;}
   .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
   .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
@@ -162,7 +147,6 @@
   .refl-textarea:focus{border-color:var(--water);background:var(--water-pale);}
   .refl-textarea::placeholder{color:#bbb;}
 
-  /* support */
   .support-block{background:linear-gradient(135deg,#edf6f0,#e4f0f4);border-radius:18px;padding:26px;border:1px solid #c8ddd0;margin-bottom:20px;}
   .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#1c3025;}
   .support-text{font-size:0.85rem;color:#4a6050;line-height:1.7;margin-bottom:14px;}
@@ -170,7 +154,6 @@
   .sp-icon{font-size:1.4rem;flex-shrink:0;}
   .sp-text{font-size:0.83rem;color:#4a6050;line-height:1.65;font-style:italic;}
 
-  /* final */
   .final-card{background:linear-gradient(160deg,#0d1f2d,#1a3245);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
   .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(78,143,163,0.15),transparent);}
   .final-icon{font-size:52px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
@@ -215,7 +198,6 @@
 
 <main class="main">
 
-  <!-- ВСТУП -->
   <div class="intro-card reveal">
     <span class="intro-label">💧 Сьогодні все інакше</span>
     <p class="intro-text">
@@ -232,7 +214,6 @@
     </div>
   </div>
 
-  <!-- ЗВИЧКА ДНЯ -->
   <div class="task-block reveal" style="padding:28px;">
     <div class="task-num">
       <div class="task-num-circle" style="background:var(--sage)">💚</div>
@@ -246,14 +227,13 @@
     </div>
   </div>
 
-  <!-- ФОРМУЛА -->
   <div class="formula-card reveal">
     <span class="formula-label">💧 Скільки води потрібно саме тобі</span>
     <div class="formula-eq">Твоя вага <span>× 30 мл</span> = денна норма</div>
     <p class="formula-example">Наприклад: 70 кг × 30 = <strong>2 100 мл / день</strong> — для органів, шкіри, обміну речовин та енергії</p>
   </div>
 
-  <!-- ЗАВДАННЯ 1: РОЗРАХУЙ НОРМУ -->
+  <!-- ЗАВДАННЯ 1 -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">1</div>
@@ -261,12 +241,10 @@
     </div>
     <div class="task-title">📊 Розрахуй свою денну норму</div>
     <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Введи свою вагу — і дізнайся, скільки води <strong>саме твоєму тілу</strong> потрібно щодня.</p>
-
     <div class="calc-field">
       <label for="t1Weight">Моя вага (кг)</label>
       <input class="calc-input" type="number" id="t1Weight" placeholder="наприклад, 65" oninput="calcNorm()">
     </div>
-
     <div class="norm-result" id="normResult">
       <div class="norm-result-label">Твоя денна норма</div>
       <div>
@@ -274,14 +252,13 @@
         <span class="norm-result-unit">мл / день</span>
       </div>
     </div>
-
     <div class="no-worry" id="noWorry">
       <div class="no-worry-icon">🤍</div>
       <p>Якщо виявиш, що п'єш набагато менше — <strong>не засмучуйся!</strong> Більшість людей вживають лише 30–40% від норми. Це нормально — і саме тому ти тут. Головне — тепер ти знаєш своє число 💧</p>
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 2: СКІЛЬКИ П'ЄШ І СКІЛЬКИ НЕ ВИСТАЧАЄ -->
+  <!-- ЗАВДАННЯ 2 -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
@@ -289,7 +266,6 @@
     </div>
     <div class="task-title">💧 Скільки п'єш зараз — і скільки не вистачає?</div>
     <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Введи свою норму з завдання 1 і те, скільки зазвичай п'єш — побачиш реальну картину.</p>
-
     <div class="calc-grid2">
       <div class="calc-field">
         <label for="t2Norm">Моя норма (мл)</label>
@@ -300,7 +276,6 @@
         <input class="calc-input" type="number" id="t2Current" placeholder="наприклад, 800" oninput="calcDiff()">
       </div>
     </div>
-
     <div class="diff-result" id="diffResult">
       <div class="diff-cards">
         <div class="diff-card">
@@ -314,12 +289,10 @@
           <div class="diff-card-unit">мл</div>
         </div>
       </div>
-
       <div class="slow-warn">
         <div class="slow-warn-icon">🐢</div>
         <p><strong>Не збільшуй різко!</strong> Додавай лише <strong>+200 мл на цей тиждень</strong> — організм звикне без стресу. Ось твоя ціль на найближчі 7 днів:</p>
       </div>
-
       <div class="week-calc">
         <span class="week-calc-title">🎯 Твоя ціль на цей тиждень</span>
         <div>
@@ -331,7 +304,7 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 3: ЯК ПИТИ -->
+  <!-- ЗАВДАННЯ 3: ПИЙ ПОВІЛЬНО -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">3</div>
@@ -339,7 +312,7 @@
     </div>
     <div class="task-title">💧 Пий повільно — маленькими ковтками</div>
     <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Сьогодні спробуй пити <strong>кожні 20–30 хвилин</strong> по <strong>2–3 ковтки</strong>. Не стакан одразу — а повільно, усвідомлено, протягом усього дня.</p>
-    <div class="schedule">
+    <div class="schedule" id="scheduleList">
       <div class="sched-row first">
         <span class="sched-time">08:00</span>
         <div class="sched-dot"></div>
@@ -377,6 +350,11 @@
         <button class="sched-chk" aria-label="Відмітити" onclick="toggleSched(this)"></button>
       </div>
     </div>
+    <div class="sched-done-msg" id="schedDoneMsg">
+      <div class="sched-done-msg-icon">💧</div>
+      <div class="sched-done-msg-title">Продовжуй в такому ж темпі!</div>
+      <div class="sched-done-msg-text">Ти молодець — саме так і працює правильний ритм пиття. Маленькі ковтки протягом дня, і тіло відчує різницю вже сьогодні ✨</div>
+    </div>
   </div>
 
   <!-- ЗАВДАННЯ 4: ПОСТАВ ВОДУ НА ВИДУ -->
@@ -385,9 +363,13 @@
       <div class="task-num-circle">4</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">🎯 Постав воду на виду</div>
+    <div class="task-title">🎯 Постав воду на видне місце</div>
     <p style="font-size:0.85rem;color:#666;margin-bottom:18px;line-height:1.65">Більшість людей не п'ють воду не тому що не хочуть — а тому що <strong>вода просто не знаходиться поруч.</strong> Виправ це сьогодні!</p>
     <div class="tips-list">
+      <div class="tip-row">
+        <span class="tip-icon">🍳</span>
+        <div class="tip-body"><div class="tip-title">На кухні</div><div class="tip-desc">Стакан на видному місці — п'єш поки готуєш</div></div>
+      </div>
       <div class="tip-row">
         <span class="tip-icon">🛏️</span>
         <div class="tip-body"><div class="tip-title">Біля ліжка</div><div class="tip-desc">Склянка води — перше, що ти бачиш вранці</div></div>
@@ -411,8 +393,6 @@
   <div class="tracker-dark reveal">
     <span class="tracker-label">🥛 Трекер дня</span>
     <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
-
-    <!-- головний лічильник мл -->
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
       <div>
         <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Випито сьогодні</div>
@@ -426,11 +406,8 @@
         <span id="glassCount" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.5);">0 / 8</span>
       </div>
     </div>
-
     <div class="pbar-track" style="margin-bottom:16px;"><div class="pbar-fill" id="glassPbar"></div></div>
-
     <div class="glasses-wrap" id="glassesWrap" role="group" aria-label="Трекер склянок"></div>
-
     <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
   </div>
 
@@ -448,6 +425,7 @@
         <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: забула вдень, але поставила пляшку на стіл — і це спрацювало…" rows="3"></textarea>
       </div>
     </div>
+    <p style="font-size:0.78rem;color:#bbb;margin-top:14px;line-height:1.55;">📓 Це твій особистий простір для нотаток — нікуди не відправляється.</p>
   </div>
 
   <!-- ПІДТРИМКА -->
@@ -486,11 +464,9 @@ window.addEventListener('scroll',()=>{
   const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
   document.getElementById('progress').style.width=(s/h*100)+'%';
 });
-
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Завдання 1 — норма */
 function calcNorm(){
   const w=parseFloat(document.getElementById('t1Weight').value)||0;
   const nr=document.getElementById('normResult');
@@ -500,7 +476,6 @@ function calcNorm(){
     document.getElementById('normVal').textContent=norm;
     nr.style.display='block';
     nw.style.display='flex';
-    // автопідставляємо в завдання 2
     const t2=document.getElementById('t2Norm');
     t2.value=norm;
     calcDiff();
@@ -510,7 +485,6 @@ function calcNorm(){
   }
 }
 
-/* Завдання 2 — різниця і тижнева ціль */
 function calcDiff(){
   const norm=parseFloat(document.getElementById('t2Norm').value)||0;
   const cur=parseFloat(document.getElementById('t2Current').value)||0;
@@ -534,11 +508,19 @@ function calcDiff(){
 function toggleSched(el){
   el.classList.toggle('done');
   el.textContent=el.classList.contains('done')?'✓':'';
+  // перевіряємо чи всі відмічені (крім першої яка вже done)
+  const all=document.querySelectorAll('#scheduleList .sched-chk');
+  const done=document.querySelectorAll('#scheduleList .sched-chk.done');
+  const msg=document.getElementById('schedDoneMsg');
+  if(all.length>0 && all.length===done.length){
+    msg.style.display='block';
+  } else {
+    msg.style.display='none';
+  }
 }
 
-/* Трекер склянок — 1 склянка = 200 мл */
-const ML_PER_GLASS = 200;
-const glassMsgs = [
+const ML_PER_GLASS=200;
+const glassMsgs=[
   'Натисни на першу склянку 💧',
   '200 мл — чудовий старт! 💪',
   '400 мл — продовжуй! 🌊',
@@ -549,32 +531,29 @@ const glassMsgs = [
   '1400 мл — ще трішки! ⭐',
   '1600 мл — норма виконана! 🎉💧'
 ];
-const gw = document.getElementById('glassesWrap');
-let gc = 0;
+const gw=document.getElementById('glassesWrap');
+let gc=0;
 
-function updateTracker() {
-  const ml = gc * ML_PER_GLASS;
-  document.getElementById('mlTotal').textContent = ml;
-  document.getElementById('glassCount').textContent = gc + ' / 8';
-  document.getElementById('glassPbar').style.width = (gc / 8 * 100) + '%';
-  document.getElementById('glassMsg').textContent = glassMsgs[gc];
-  document.querySelectorAll('.glass-item').forEach((x, j) => {
-    x.classList.toggle('filled', j < gc);
-    x.setAttribute('aria-checked', j < gc ? 'true' : 'false');
+function updateTracker(){
+  const ml=gc*ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent=ml;
+  document.getElementById('glassCount').textContent=gc+' / 8';
+  document.getElementById('glassPbar').style.width=(gc/8*100)+'%';
+  document.getElementById('glassMsg').textContent=glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x,j)=>{
+    x.classList.toggle('filled',j<gc);
+    x.setAttribute('aria-checked',j<gc?'true':'false');
   });
 }
 
-for (let i = 0; i < 8; i++) {
-  const b = document.createElement('button');
-  b.className = 'glass-item';
-  b.textContent = '🥛';
-  b.dataset.i = i;
-  b.setAttribute('aria-label', `Склянка ${i + 1} — ${(i + 1) * ML_PER_GLASS} мл`);
-  b.setAttribute('role', 'checkbox');
-  b.setAttribute('aria-checked', 'false');
-  b.onclick = () => {
-    const idx = parseInt(b.dataset.i);
-    gc = b.classList.contains('filled') ? idx : idx + 1;
+for(let i=0;i<8;i++){
+  const b=document.createElement('button');
+  b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
+  b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
+  b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
+  b.onclick=()=>{
+    const idx=parseInt(b.dataset.i);
+    gc=b.classList.contains('filled')?idx:idx+1;
     updateTracker();
   };
   gw.appendChild(b);
