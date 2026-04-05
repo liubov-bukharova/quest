@@ -20,35 +20,26 @@
   body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
   .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--rose-light);z-index:100;transition:width 0.15s;}
 
-  /* ═══ HERO — рожево-золотий ═══ */
+  /* ═══ HERO ═══ */
   .hero{min-height:100svh;background:linear-gradient(160deg,#1f0d14 0%,#2e1220 50%,#3d1a2c 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
-
-  /* зірочки */
   .stars{position:absolute;inset:0;z-index:0;pointer-events:none;}
   .star{position:absolute;border-radius:50%;background:rgba(212,168,140,0.7);animation:twinkle var(--d) ease-in-out infinite;}
   @keyframes twinkle{0%,100%{opacity:0.1;transform:scale(0.8)}50%{opacity:0.9;transform:scale(1.2)}}
-
-  /* кільця — рожеві */
   .rose-ring{position:absolute;border-radius:50%;border:1px solid rgba(196,117,142,0.15);animation:ring-out 8s ease-out infinite;}
   .rose-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
   .rose-ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
   .rose-ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
   .rose-ring:nth-child(4){width:960px;height:960px;animation-delay:6s}
   @keyframes ring-out{0%{transform:scale(0.3);opacity:0.6}100%{transform:scale(1.3);opacity:0}}
-
   .hero-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 50% 0%,rgba(196,117,142,0.15),transparent);}
   .wave-bg{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(160,82,106,0.1),transparent);}
-
   .author-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:8px 20px 8px 8px;margin-bottom:32px;position:relative;z-index:1;}
   .author-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose-light),#7a3050);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:700;color:white;flex-shrink:0;}
   .author-name{font-size:0.8rem;color:rgba(255,255,255,0.75);font-weight:400;display:block;}
   .author-role{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;display:block;}
-
   .day-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(196,117,142,0.15);border:1px solid rgba(196,117,142,0.35);color:#e8a8c0;font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px;position:relative;z-index:1;}
-
   .hero-icon{font-size:72px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;margin-bottom:16px;}
   @keyframes sway{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-12px) rotate(3deg)}}
-
   .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.05;position:relative;z-index:1;margin-bottom:8px;}
   .hero h1 em{color:#e8a8c0;font-style:italic;}
   .hero-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:18px auto;position:relative;z-index:1;}
@@ -69,21 +60,17 @@
   .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
   .intro-rule strong{color:rgba(255,255,255,0.9);}
 
-  /* BEAUTY FACTS CARD */
+  /* BEAUTY FACTS */
   .beauty-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #eedde4;}
   .beauty-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:16px;display:block;}
   .beauty-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.25;}
   .beauty-title span{color:var(--rose);}
-
-  /* без води */
   .dehydr-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:20px;}
   @media(max-width:460px){.dehydr-grid{grid-template-columns:1fr}}
   .dehydr-item{background:var(--mist);border-radius:14px;padding:16px;border:1px solid #e8d4da;text-align:center;}
   .dehydr-icon{font-size:1.8rem;display:block;margin-bottom:8px;}
   .dehydr-name{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:4px;}
   .dehydr-desc{font-size:0.74rem;color:#999;line-height:1.4;}
-
-  /* факти */
   .fact-row{display:flex;gap:14px;align-items:flex-start;background:linear-gradient(135deg,#fdf5f8,#f8eef3);border-radius:12px;padding:16px 18px;border:1px solid #eedde4;margin-bottom:12px;}
   .fact-icon{font-size:1.4rem;flex-shrink:0;}
   .fact-body{flex:1;}
@@ -110,6 +97,30 @@
   .coffee-rule-text{font-size:0.85rem;color:#6a4a20;line-height:1.65;}
   .coffee-rule-text strong{color:#4a2e08;}
 
+  /* THERMAL WATER */
+  .thermal-card{background:linear-gradient(135deg,#f5f0f8,#ede4f5);border-radius:14px;padding:20px 22px;border:1px solid #d8c8e8;margin-top:16px;}
+  .thermal-steps{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
+  .thermal-step{display:flex;gap:12px;align-items:flex-start;}
+  .thermal-step-num{width:22px;height:22px;border-radius:50%;background:#a070c0;color:white;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+  .thermal-step-text{font-size:0.84rem;color:#555;line-height:1.55;flex:1;}
+
+  /* HABIT */
+  .habit-card{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;}
+  .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(160,82,106,0.1);border:1px solid rgba(160,82,106,0.25);color:var(--rose);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
+  /* HABIT TWO-COL */
+  .habit-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0;}
+  @media(max-width:480px){.habit-two{grid-template-columns:1fr}}
+  .habit-item{background:white;border-radius:14px;padding:18px 16px;border:1px solid #eedde4;display:flex;flex-direction:column;gap:8px;}
+  .habit-item-icon{font-size:1.8rem;}
+  .habit-item-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#3a1020;line-height:1.25;}
+  .habit-item-desc{font-size:0.78rem;color:#7a4060;line-height:1.55;}
+  /* ТРЕТЯ ЗВИЧКА — на повну ширину */
+  .habit-item-full{background:white;border-radius:14px;padding:18px 16px;border:1px solid #eedde4;display:flex;gap:14px;align-items:flex-start;margin-top:12px;}
+  .habit-item-full-icon{font-size:1.8rem;flex-shrink:0;}
+  .habit-item-full-body{}
+  .habit-item-full-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#3a1020;margin-bottom:4px;}
+  .habit-item-full-desc{font-size:0.78rem;color:#7a4060;line-height:1.55;}
+
   /* CHECKLIST */
   .checklist{display:flex;flex-direction:column;gap:0;margin-top:8px;}
   .check-row{display:flex;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #f5eef1;}
@@ -119,20 +130,6 @@
   .check-btn{width:22px;height:22px;border-radius:6px;border:1.5px solid #e8d4da;cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all 0.15s;font-size:0.7rem;color:transparent;background:none;-webkit-appearance:none;appearance:none;}
   .check-btn:hover{border-color:var(--rose);}
   .check-btn.done{background:var(--rose);border-color:var(--rose);color:white;}
-
-  /* SELFIE TASK */
-  .selfie-card{background:linear-gradient(135deg,#fdf5f8,#f8eef3);border-radius:18px;padding:26px;border:1px solid #eedde4;margin-top:16px;}
-  .selfie-steps{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
-  .selfie-step{display:flex;gap:12px;align-items:flex-start;}
-  .selfie-step-num{width:24px;height:24px;border-radius:50%;background:var(--rose);color:white;font-size:0.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-  .selfie-step-text{font-size:0.84rem;color:#555;line-height:1.55;flex:1;}
-
-  /* HABIT */
-  .habit-card{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;}
-  .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(160,82,106,0.1);border:1px solid rgba(160,82,106,0.25);color:var(--rose);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
-  .habit-icon-big{font-size:44px;display:block;margin-bottom:12px;animation:sway 4s ease-in-out infinite;}
-  .habit-title-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#3a1020;margin-bottom:8px;line-height:1.3;}
-  .habit-desc-text{font-size:0.84rem;color:#7a4060;line-height:1.65;}
 
   /* TRACKER */
   .tracker-dark{background:#1f0d14;border-radius:20px;padding:28px 32px;margin-bottom:20px;}
@@ -161,9 +158,10 @@
   .support-block{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;margin-bottom:20px;}
   .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#3a1020;}
   .support-text{font-size:0.85rem;color:#7a4060;line-height:1.7;margin-bottom:14px;}
-  .support-quote{background:white;border-radius:12px;padding:20px 22px;border:1px solid #eedde4;border-left:3px solid var(--rose);}
-  .support-quote p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:#3a1020;line-height:1.7;font-style:italic;}
-  .support-quote span{font-size:0.78rem;color:#b07090;margin-top:10px;display:block;}
+  .support-next{background:white;border-radius:12px;padding:18px 20px;border:1px solid #eedde4;display:flex;gap:14px;align-items:flex-start;}
+  .support-next-icon{font-size:1.8rem;flex-shrink:0;}
+  .support-next-text{font-size:0.84rem;color:#7a4060;line-height:1.65;}
+  .support-next-text strong{color:#3a1020;}
 
   /* FINAL */
   .final-card{background:linear-gradient(160deg,#1f0d14,#3d1a2c);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
@@ -172,7 +170,7 @@
   .final-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,5vw,2.4rem);font-weight:700;color:white;line-height:1.2;margin-bottom:8px;position:relative;z-index:1;}
   .final-title em{color:#e8a8c0;font-style:italic;}
   .final-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:16px auto;position:relative;z-index:1;}
-  .final-sub{color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.65;max-width:280px;margin:0 auto 24px;position:relative;z-index:1;}
+  .final-sub{color:rgba(255,255,255,0.4);font-size:0.82rem;line-height:1.65;max-width:300px;margin:0 auto 24px;position:relative;z-index:1;}
   .day-dots{display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:1;}
   .d-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);}
   .d-dot.done{background:rgba(196,117,142,0.7);}
@@ -192,15 +190,12 @@
 
 <!-- HERO -->
 <section class="hero">
-  <!-- кільця -->
   <div class="rose-ring"></div>
   <div class="rose-ring"></div>
   <div class="rose-ring"></div>
   <div class="rose-ring"></div>
   <div class="hero-glow"></div>
   <div class="wave-bg"></div>
-
-  <!-- зірочки (JS генерує) -->
   <div class="stars" id="starsWrap"></div>
 
   <div class="author-badge">
@@ -233,7 +228,7 @@
     </p>
     <div class="intro-rule">
       <span style="font-size:1.3rem;flex-shrink:0">💎</span>
-      <p>Можна витрачати сотні євро на креми і ходити до косметологів. Але якщо організм зневоднений — <strong>шкіра все одно буде виглядати втомленою.</strong> Краса починається з клітини. А клітина починається з води.</p>
+      <p>Можна витрачати сотні євро на креми і ходити до косметологів. Але якщо організм зневоднений — <strong>шкіра все одно буде виглядати втомленою.</strong></p>
     </div>
   </div>
 
@@ -241,7 +236,6 @@
   <div class="beauty-card reveal">
     <span class="beauty-label">💧 Що відбувається без води</span>
     <div class="beauty-title">Зневоднення <span>видно одразу</span> — на обличчі, волоссі і нігтях</div>
-
     <div class="dehydr-grid">
       <div class="dehydr-item">
         <span class="dehydr-icon">🪞</span>
@@ -259,7 +253,6 @@
         <div class="dehydr-desc">Розшаровуються і ламаються</div>
       </div>
     </div>
-
     <div class="fact-row">
       <div class="fact-icon">📊</div>
       <div class="fact-body">
@@ -276,17 +269,31 @@
     </div>
   </div>
 
-  <!-- ЗВИЧКА ДНЯ -->
+  <!-- ЗВИЧКИ ДНЯ — три -->
   <div class="task-block reveal" style="padding:28px;">
     <div class="task-num">
       <div class="task-num-circle" style="background:#b8924a">✨</div>
-      <span class="task-num-label" style="color:#b8924a">Звичка дня</span>
+      <span class="task-num-label" style="color:#b8924a">Звички дня</span>
     </div>
-    <div class="habit-card">
-      <span class="habit-badge">✨ Звичка · День 4</span>
-      <span class="habit-icon-big">☕</span>
-      <div class="habit-title-text">На кожну чашку кави — склянка води</div>
-      <p class="habit-desc-text">Кава має легкий сечогінний ефект і виводить воду з організму. Просте правило: <strong style="color:#3a1020">1 кава = +1 склянка води.</strong> Так шкіра залишається зволоженою навіть у кавоманів ☕💧</p>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.3;">Три нові звички для краси та здоров'я</div>
+    <div class="habit-two">
+      <div class="habit-item">
+        <span class="habit-item-icon">☕</span>
+        <div class="habit-item-title">На кожну каву — склянка води</div>
+        <div class="habit-item-desc">Кава виводить воду з організму. Просте правило: <strong style="color:#3a1020">1 кава = +200 мл води.</strong> Шкіра залишається зволоженою 💧</div>
+      </div>
+      <div class="habit-item">
+        <span class="habit-item-icon">🍽️</span>
+        <div class="habit-item-title">Розділяй їжу та напої</div>
+        <div class="habit-item-desc">Або їж, або пий — не разом. Напої під час їжі розбавляють шлунковий сік і ускладнюють травлення 🌿</div>
+      </div>
+    </div>
+    <div class="habit-item-full">
+      <span class="habit-item-full-icon">🌸</span>
+      <div class="habit-item-full-body">
+        <div class="habit-item-full-title">Термальна вода на ніч</div>
+        <div class="habit-item-full-desc">Увечері після очищення шкіри — зволож обличчя термальною водою. Вона насичує шкіру мінералами і готує її до нічного відновлення. Просто розпили на чисте обличчя і дай всмоктатись ✨</div>
+      </div>
     </div>
   </div>
 
@@ -297,7 +304,7 @@
       <span class="task-num-label">Завдання</span>
     </div>
     <div class="task-title">🍋 Зроби воду приємнішою</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Щоб вода була смачнішою і приносила ще більше користі — спробуй додати один з варіантів:</p>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Щоб вода була смачнішою і приносила ще більше користі — <strong>обери один варіант і спробуй сьогодні:</strong></p>
     <div class="tips-list">
       <div class="tip-row">
         <span class="tip-icon">🍋</span>
@@ -323,90 +330,41 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 2: КАВА І ВОДА -->
+  <!-- ЗАВДАННЯ 2: ТЕРМАЛЬНА ВОДА -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">☕ Стеж за балансом кави і води</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:16px;line-height:1.65">Кава стимулює нервову систему і має легкий сечогінний ефект — тому кожна чашка потребує компенсації.</p>
-    <div class="coffee-rule">
-      <div class="coffee-rule-icon">☕</div>
-      <div class="coffee-rule-text">
-        <strong>Правило дня:</strong> після кожної чашки кави — випий склянку (200 мл) чистої води. Просто. Легко. Шкіра скаже дякую 💧
+    <div class="task-title">🌸 Використовуй термальну воду на ніч</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:16px;line-height:1.65">Це простий і дуже ефективний ритуал краси — займає лічені секунди, а шкіра відчуває різницю вже зранку.</p>
+    <div class="thermal-card">
+      <div style="font-size:0.8rem;color:#a070c0;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;">Як виконати</div>
+      <div class="thermal-steps">
+        <div class="thermal-step">
+          <div class="thermal-step-num">1</div>
+          <div class="thermal-step-text">Увечері очисти шкіру обличчя як зазвичай</div>
+        </div>
+        <div class="thermal-step">
+          <div class="thermal-step-num">2</div>
+          <div class="thermal-step-text">Візьми балончик термальної води (Avène, La Roche-Posay або будь-яка інша)</div>
+        </div>
+        <div class="thermal-step">
+          <div class="thermal-step-num">3</div>
+          <div class="thermal-step-text">Розпили на відстані 15–20 см від обличчя</div>
+        </div>
+        <div class="thermal-step">
+          <div class="thermal-step-num">4</div>
+          <div class="thermal-step-text">Дай всмоктатися 30 секунд — не витирай. Потім нанеси крем або масло як зазвичай ✨</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 3: РОЗДІЛЯЙ ЇЖУ І НАПОЇ -->
+  <!-- ЗАВДАННЯ 3: ЧЕКЛІСТ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">3</div>
-      <span class="task-num-label">Завдання</span>
-    </div>
-    <div class="task-title">🍽️ Розділяй їжу і напої</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Нова звичка на сьогодні — особливо коли йдеш у кафе або ресторан:</p>
-    <div class="tips-list">
-      <div class="tip-row">
-        <span class="tip-icon">☕</span>
-        <div class="tip-body">
-          <div class="tip-title">Прийшла пити каву — просто пий каву</div>
-          <div class="tip-desc">Не поєднуй з їжею в один прийом</div>
-        </div>
-      </div>
-      <div class="tip-row">
-        <span class="tip-icon">🍽️</span>
-        <div class="tip-body">
-          <div class="tip-title">Прийшла їсти — їж</div>
-          <div class="tip-desc">Напої під час їжі розбавляють шлунковий сік і ускладнюють травлення</div>
-        </div>
-      </div>
-      <div class="tip-row">
-        <span class="tip-icon">💡</span>
-        <div class="tip-body">
-          <div class="tip-title">Чому це важливо?</div>
-          <div class="tip-desc">Коли їжа і напої розділені — травленню набагато легше працювати, і корисні речовини краще засвоюються</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ЗАВДАННЯ 4: СЕЛФІ -->
-  <div class="task-block reveal">
-    <div class="task-num">
-      <div class="task-num-circle">4</div>
-      <span class="task-num-label">Завдання</span>
-    </div>
-    <div class="task-title">📸 Зроби селфі — зафіксуй свій старт</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:16px;line-height:1.65">Це твоя точка відліку. В кінці квесту ми порівняємо — і я впевнена, ти побачиш різницю.</p>
-    <div class="selfie-card">
-      <div style="font-size:0.8rem;color:var(--rose);font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">Як зробити фото правильно</div>
-      <div class="selfie-steps">
-        <div class="selfie-step">
-          <div class="selfie-step-num">1</div>
-          <div class="selfie-step-text">Зранку, одразу після пробудження</div>
-        </div>
-        <div class="selfie-step">
-          <div class="selfie-step-num">2</div>
-          <div class="selfie-step-text">Без макіяжу і без фільтрів</div>
-        </div>
-        <div class="selfie-step">
-          <div class="selfie-step-num">3</div>
-          <div class="selfie-step-text">При природному освітленні — біля вікна</div>
-        </div>
-        <div class="selfie-step">
-          <div class="selfie-step-num">4</div>
-          <div class="selfie-step-text">Збережи фото — воно знадобиться в кінці квесту ✨</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ЧЕКЛІСТ ДНЯ -->
-  <div class="task-block reveal">
-    <div class="task-num">
-      <div class="task-num-circle">5</div>
       <span class="task-num-label">Завдання</span>
     </div>
     <div class="task-title">✅ Чекліст дня</div>
@@ -433,7 +391,7 @@
       </div>
       <div class="check-row">
         <div class="check-dot"></div>
-        <span class="check-text">📸 Зробила селфі без макіяжу і фільтрів</span>
+        <span class="check-text">🌸 Використала термальну воду увечері після очищення</span>
         <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
       </div>
     </div>
@@ -443,7 +401,6 @@
   <div class="tracker-dark reveal">
     <span class="tracker-label">🥛 Трекер дня</span>
     <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
-
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
       <div>
         <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Випито сьогодні</div>
@@ -457,7 +414,6 @@
         <span id="glassCount" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.4);">0 / 8</span>
       </div>
     </div>
-
     <div class="pbar-track" style="margin-bottom:16px;"><div class="pbar-fill" id="glassPbar"></div></div>
     <div class="glasses-wrap" id="glassesWrap" role="group" aria-label="Трекер склянок"></div>
     <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
@@ -466,35 +422,29 @@
   <!-- РЕФЛЕКСІЯ -->
   <div class="refl-block reveal">
     <div class="refl-title">📝 Рефлексія дня</div>
-    <p class="refl-sub">Запиши спостереження — вони знадобляться для порівняння в кінці квесту ✨</p>
+    <p class="refl-sub">Одне просте питання — відповідай голосовим або текстом у чат 🌿</p>
     <div class="refl-questions">
       <div class="refl-q">
-        <label class="refl-q-label" for="refl1">Чи помітила зміни у шкірі, волоссі або самопочутті?</label>
-        <textarea class="refl-textarea" id="refl1" placeholder="Наприклад: шкіра стала менш суха, менше набряків зранку, більше енергії…" rows="3"></textarea>
-      </div>
-      <div class="refl-q">
-        <label class="refl-q-label" for="refl2">Як пройшов день — що вдалось, що було складно?</label>
-        <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: забула про каву і воду після неї, але зробила селфі і додала лимон у воду…" rows="3"></textarea>
+        <label class="refl-q-label" for="refl1">Що було найлегшим сьогодні — вода, кава чи термальна вода? ✨</label>
+        <textarea class="refl-textarea" id="refl1" placeholder="Наприклад: вода вже йде легко, а термальну воду тільки спробувала…" rows="3"></textarea>
       </div>
     </div>
+    <p style="font-size:0.78rem;color:#bbb;margin-top:14px;line-height:1.55;">📓 Це для особистих нотаток — нікуди не відправляється.</p>
   </div>
 
   <!-- ПІДТРИМКА -->
   <div class="support-block reveal">
     <div class="support-title">✨ Підтримка від нутриціолога</div>
     <p class="support-text">Продовжуй пити воду так, як ми вчимося у цьому квесті. Кожен день — це маленький крок до того, щоб шкіра сяяла природно, а тіло відчувало себе легко.</p>
-    <div class="support-quote">
-      <p>Краса починається не з крему.<br>Вона починається з клітини.<br>А клітина починається з води.</p>
-      <span>— Дозволь своєму тілу омолоджуватися природно ✨</span>
-    </div>
+    <p class="support-text">Спробуй сьогодні ввечері термальну воду — і зверни увагу, яка шкіра буде зранку 🌸</p>
   </div>
 
   <!-- ФІНАЛ -->
   <div class="final-card reveal">
-    <span class="final-icon">✨</span>
+    <span class="final-icon">🍍</span>
     <div class="final-title">День 4 —<br><em>виконано!</em></div>
     <div class="final-line"></div>
-    <p class="final-sub">Завтра ми поговоримо про те, як вода впливає на твою енергію і настрій 🌊</p>
+    <p class="final-sub">Завтра робимо підсумок водного тижня — побачимось! 💧🏆</p>
     <div class="day-dots">
       <div class="d-dot done"></div>
       <div class="d-dot done"></div>
@@ -517,18 +467,12 @@ window.addEventListener('scroll',()=>{
   document.getElementById('progress').style.width=(s/h*100)+'%';
 });
 
-/* Зірочки у hero */
+/* Зірочки */
 const sw=document.getElementById('starsWrap');
 for(let i=0;i<38;i++){
-  const s=document.createElement('div');
-  s.className='star';
+  const s=document.createElement('div');s.className='star';
   const size=Math.random()*3+1.5;
-  s.style.cssText=`
-    width:${size}px;height:${size}px;
-    top:${Math.random()*100}%;left:${Math.random()*100}%;
-    --d:${2+Math.random()*4}s;
-    animation-delay:${Math.random()*5}s;
-  `;
+  s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
   sw.appendChild(s);
 }
 
@@ -542,7 +486,7 @@ function toggleCheck(el){
   el.textContent=el.classList.contains('done')?'✓':'';
 }
 
-/* Трекер — 1 склянка = 200 мл */
+/* Трекер */
 const ML_PER_GLASS=200;
 const glassMsgs=[
   'Натисни на першу склянку 💧',
@@ -557,7 +501,6 @@ const glassMsgs=[
 ];
 const gw=document.getElementById('glassesWrap');
 let gc=0;
-
 function updateTracker(){
   const ml=gc*ML_PER_GLASS;
   document.getElementById('mlTotal').textContent=ml;
@@ -569,17 +512,12 @@ function updateTracker(){
     x.setAttribute('aria-checked',j<gc?'true':'false');
   });
 }
-
 for(let i=0;i<8;i++){
   const b=document.createElement('button');
   b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
   b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
   b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
-  b.onclick=()=>{
-    const idx=parseInt(b.dataset.i);
-    gc=b.classList.contains('filled')?idx:idx+1;
-    updateTracker();
-  };
+  b.onclick=()=>{const idx=parseInt(b.dataset.i);gc=b.classList.contains('filled')?idx:idx+1;updateTracker();};
   gw.appendChild(b);
 }
 </script>
