@@ -20,35 +20,26 @@
   body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
   .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--gold-light);z-index:100;transition:width 0.15s;}
 
-  /* ═══ HERO — золотий з кубком ═══ */
+  /* ═══ HERO ═══ */
   .hero{min-height:100svh;background:linear-gradient(160deg,#1a1408 0%,#2a2010 50%,#3a2c14 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
-
-  /* зірочки */
   .stars{position:absolute;inset:0;z-index:0;pointer-events:none;}
   .star{position:absolute;border-radius:50%;background:rgba(212,168,74,0.8);animation:twinkle var(--d) ease-in-out infinite;}
   @keyframes twinkle{0%,100%{opacity:0.1;transform:scale(0.7)}50%{opacity:1;transform:scale(1.3)}}
-
-  /* золоті кільця */
   .gold-ring{position:absolute;border-radius:50%;border:1px solid rgba(212,168,74,0.18);animation:ring-out 8s ease-out infinite;}
   .gold-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
   .gold-ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
   .gold-ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
   .gold-ring:nth-child(4){width:960px;height:960px;animation-delay:6s}
   @keyframes ring-out{0%{transform:scale(0.3);opacity:0.6}100%{transform:scale(1.3);opacity:0}}
-
   .hero-glow{position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 50% 20%,rgba(212,168,74,0.14),transparent);}
   .wave-bg{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(184,136,42,0.1),transparent);}
-
   .author-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:8px 20px 8px 8px;margin-bottom:32px;position:relative;z-index:1;}
   .author-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),#7a5810);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:700;color:white;flex-shrink:0;}
   .author-name{font-size:0.8rem;color:rgba(255,255,255,0.75);font-weight:400;display:block;}
   .author-role{font-size:0.62rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;display:block;}
-
   .day-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,74,0.15);border:1px solid rgba(212,168,74,0.35);color:#e8c870;font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:20px;position:relative;z-index:1;}
-
   .hero-icon{font-size:80px;animation:trophy-bounce 3s ease-in-out infinite;position:relative;z-index:1;margin-bottom:16px;}
   @keyframes trophy-bounce{0%,100%{transform:translateY(0) scale(1)}40%{transform:translateY(-14px) scale(1.06)}70%{transform:translateY(-6px) scale(1.02)}}
-
   .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:700;color:#fff;line-height:1.05;position:relative;z-index:1;margin-bottom:8px;}
   .hero h1 em{color:#e8c870;font-style:italic;}
   .hero-line{width:36px;height:1px;background:rgba(255,255,255,0.15);margin:18px auto;position:relative;z-index:1;}
@@ -69,7 +60,7 @@
   .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
   .intro-rule strong{color:rgba(255,255,255,0.9);}
 
-  /* ДОСЯГНЕННЯ ТИЖНЯ */
+  /* ДОСЯГНЕННЯ */
   .achieve-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8dcc8;}
   .achieve-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;display:block;}
   .achieve-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ink);margin-bottom:20px;line-height:1.25;}
@@ -86,49 +77,7 @@
   .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;}
   .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
 
-  /* FEELING GRID */
-  .feeling-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-  @media(max-width:460px){.feeling-grid{grid-template-columns:1fr}}
-  .feeling-item{background:var(--mist);border-radius:14px;padding:16px;}
-  .feeling-icon{font-size:1.6rem;display:block;margin-bottom:8px;}
-  .feeling-q{font-size:0.82rem;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.4;}
-  .feeling-textarea{width:100%;background:white;border:1.5px solid #e8dcc8;border-radius:8px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:0.82rem;color:var(--ink);outline:none;transition:border-color 0.15s;resize:none;min-height:60px;line-height:1.5;}
-  .feeling-textarea:focus{border-color:var(--gold);background:#fffdf5;}
-  .feeling-textarea::placeholder{color:#ccc;}
-
-  /* SELFIE COMPARE */
-  .selfie-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
-  @media(max-width:400px){.selfie-compare{grid-template-columns:1fr}}
-  .selfie-box{background:var(--mist);border-radius:14px;padding:20px;text-align:center;border:2px dashed #e0d4b8;}
-  .selfie-box-icon{font-size:2.4rem;display:block;margin-bottom:10px;}
-  .selfie-box-label{font-size:0.72rem;color:#999;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
-  .selfie-box-day{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--gold);}
-
-  /* HABIT PICK */
-  .habit-pick{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
-  .habit-option{display:flex;gap:14px;align-items:center;background:var(--mist);border-radius:12px;padding:14px 16px;cursor:pointer;border:1.5px solid transparent;transition:all 0.15s;}
-  .habit-option:hover{border-color:var(--gold-light);}
-  .habit-option.selected{background:linear-gradient(135deg,#fdf8ee,#f8f0d8);border-color:var(--gold-light);}
-  .habit-option-icon{font-size:1.3rem;flex-shrink:0;}
-  .habit-option-text{font-size:0.85rem;color:#444;flex:1;}
-  .habit-option-check{width:20px;height:20px;border-radius:50%;border:1.5px solid #ddd;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.65rem;color:transparent;transition:all 0.15s;}
-  .habit-option.selected .habit-option-check{background:var(--gold);border-color:var(--gold);color:white;}
-
-  /* TIPS */
-  .tips-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
-  .tip-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
-  .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
-  .tip-body .tip-title{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:3px;}
-  .tip-body .tip-desc{font-size:0.8rem;color:#777;line-height:1.55;}
-
-  /* HABIT CARD */
-  .habit-card{background:linear-gradient(135deg,#fdf8ee,#f0e8cc);border-radius:18px;padding:26px;border:1px solid #e0cca0;}
-  .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(184,136,42,0.12);border:1px solid rgba(184,136,42,0.28);color:var(--gold);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
-  .habit-icon-big{font-size:44px;display:block;margin-bottom:12px;animation:trophy-bounce 3s ease-in-out infinite;}
-  .habit-title-text{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#3a2808;margin-bottom:8px;line-height:1.3;}
-  .habit-desc-text{font-size:0.84rem;color:#7a5830;line-height:1.65;}
-
-  /* TRACKER */
+  /* ТРЕКЕР */
   .tracker-dark{background:#1a1408;border-radius:20px;padding:28px 32px;margin-bottom:20px;}
   .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,200,112,0.5);font-weight:500;margin-bottom:6px;display:block;}
   .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.3);margin-bottom:20px;}
@@ -138,20 +87,79 @@
   .glass-item.filled{background:rgba(212,168,74,0.28);border-color:rgba(212,168,74,0.8);transform:scale(1.08);}
   .pbar-track{height:8px;border-radius:4px;background:rgba(255,255,255,0.07);overflow:hidden;margin-bottom:8px;}
   .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#7a5810,#e8c870);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
-  .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.3);font-style:italic;min-height:18px;text-align:center;}
+  .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.3);font-style:italic;min-height:18px;text-align:center;margin-bottom:18px;}
 
-  /* REFLECTION */
+  /* HABIT CARD — Назавжди */
+  .habit-forever-card{background:linear-gradient(135deg,#1a1408,#3a2c14);border-radius:20px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;}
+  .habit-forever-card::after{content:'💧';position:absolute;right:-10px;bottom:-10px;font-size:120px;opacity:0.06;line-height:1;}
+  .habit-forever-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,200,112,0.6);font-weight:500;margin-bottom:20px;display:block;}
+  .habit-forever-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3.5vw,1.8rem);font-weight:700;color:white;line-height:1.2;margin-bottom:8px;}
+  .habit-forever-title em{color:#e8c870;font-style:italic;}
+  .habit-forever-sub{font-size:0.82rem;color:rgba(255,255,255,0.4);margin-bottom:24px;line-height:1.65;}
+  .habit-forever-list{display:flex;flex-direction:column;gap:10px;margin-bottom:22px;}
+  .habit-forever-item{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.05);border-radius:12px;padding:14px 16px;border:1px solid rgba(212,168,74,0.18);}
+  .habit-num{width:24px;height:24px;border-radius:50%;background:rgba(212,168,74,0.2);border:1px solid rgba(212,168,74,0.4);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:600;color:#e8c870;flex-shrink:0;margin-top:1px;}
+  .habit-forever-text{font-size:0.85rem;color:rgba(255,255,255,0.75);line-height:1.55;}
+  .habit-forever-footer{background:rgba(212,168,74,0.08);border-radius:12px;padding:16px;border-left:3px solid rgba(212,168,74,0.5);}
+  .habit-forever-footer p{font-size:0.84rem;color:rgba(255,255,255,0.55);line-height:1.65;}
+  .habit-forever-footer strong{color:rgba(255,255,255,0.88);}
+
+  /* FEELING — тільки питання як підказки */
+  .feeling-prompts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+  @media(max-width:460px){.feeling-prompts{grid-template-columns:1fr}}
+  .feeling-prompt{background:var(--mist);border-radius:14px;padding:16px;}
+  .feeling-icon{font-size:1.4rem;display:block;margin-bottom:8px;}
+  .feeling-q{font-size:0.82rem;font-weight:500;color:var(--ink);line-height:1.4;}
+  .feeling-cta{background:linear-gradient(135deg,#fdf8ee,#f0e4c0);border-radius:14px;padding:18px 20px;border:1px solid #e0cca0;display:flex;gap:14px;align-items:center;}
+  .feeling-cta p{font-size:0.85rem;color:#7a5830;line-height:1.6;flex:1;}
+  .feeling-cta strong{color:#3a2808;}
+
+  /* РЕФЛЕКСІЯ + TELEGRAM */
   .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8dcc8;}
   .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
   .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
-  .refl-questions{display:flex;flex-direction:column;gap:14px;}
+  .refl-questions{display:flex;flex-direction:column;gap:14px;margin-bottom:20px;}
   .refl-q{display:flex;flex-direction:column;gap:6px;}
   .refl-q-label{font-size:0.8rem;color:#666;font-weight:500;}
   .refl-textarea{width:100%;background:var(--mist);border:1.5px solid #e8dcc8;border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);outline:none;transition:border-color 0.15s;resize:none;min-height:70px;line-height:1.6;}
   .refl-textarea:focus{border-color:var(--gold);background:var(--gold-pale);}
   .refl-textarea::placeholder{color:#bbb;}
 
-  /* SUPPORT */
+  /* SHARE CTA */
+  .share-cta{background:#1a1408;border-radius:16px;padding:20px 24px;display:flex;gap:16px;align-items:center;}
+  .share-cta-icon{font-size:2rem;flex-shrink:0;}
+  .share-cta-body{}
+  .share-cta-body p{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:10px;}
+  .share-cta-body strong{color:rgba(255,255,255,0.9);}
+  .share-num-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,74,0.18);border:1px solid rgba(212,168,74,0.4);border-radius:100px;padding:8px 18px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;color:#e8c870;cursor:pointer;transition:all 0.2s;}
+  .share-num-btn:hover{background:rgba(212,168,74,0.28);}
+  .share-num-display{display:none;align-items:center;gap:10px;background:rgba(212,168,74,0.1);border-radius:10px;padding:12px 16px;margin-top:10px;}
+  .share-num-display.show{display:flex;}
+  .share-num-display p{font-size:0.84rem;color:rgba(255,255,255,0.6);}
+  .share-num-display strong{color:#e8c870;font-size:1.1rem;}
+  .glass-count-pick{display:flex;gap:6px;flex-wrap:wrap;}
+  .gcp-btn{width:36px;height:36px;border-radius:8px;border:1.5px solid rgba(212,168,74,0.25);background:rgba(212,168,74,0.06);font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;color:rgba(255,255,255,0.5);cursor:pointer;transition:all 0.2s;}
+  .gcp-btn:hover{border-color:rgba(212,168,74,0.5);color:rgba(255,255,255,0.8);}
+  .gcp-btn.picked{background:rgba(212,168,74,0.28);border-color:rgba(212,168,74,0.8);color:#e8c870;}
+
+  /* TELEGRAM BTN */
+  .tg-btn{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#0088cc,#229ed9);border-radius:14px;padding:16px 20px;text-decoration:none;transition:all 0.2s;width:100%;}
+  .tg-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,136,204,0.35);}
+  .tg-btn-icon{font-size:1.5rem;flex-shrink:0;}
+  .tg-btn-text{display:flex;flex-direction:column;gap:2px;flex:1;}
+  .tg-btn-label{font-size:0.9rem;font-weight:500;color:white;}
+  .tg-btn-sub{font-size:0.76rem;color:rgba(255,255,255,0.7);}
+  .tg-btn-arrow{font-size:1.1rem;color:rgba(255,255,255,0.6);flex-shrink:0;}
+
+  /* ІНТЕРАКТИВНИЙ ЧЕКЛІСТ ЗВИЧОК */
+  .hf-check{cursor:pointer;transition:all 0.2s;user-select:none;position:relative;}
+  .hf-check:hover{background:rgba(255,255,255,0.09);}
+  .hf-check.checked{background:rgba(212,168,74,0.18);border-color:rgba(212,168,74,0.5);}
+  .hf-check.checked .hf-num{background:rgba(212,168,74,0.8);border-color:rgba(212,168,74,1);color:#1a1408;font-weight:700;}
+  .hf-tick{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(212,168,74,0.3);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:transparent;flex-shrink:0;transition:all 0.2s;}
+  .hf-check.checked .hf-tick{background:rgba(212,168,74,0.8);border-color:rgba(212,168,74,1);color:#1a1408;}
+
+  /* ПІДТРИМКА */
   .support-block{background:linear-gradient(135deg,#fdf8ee,#f0e8cc);border-radius:18px;padding:26px;border:1px solid #e0cca0;margin-bottom:20px;}
   .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#3a2808;}
   .support-text{font-size:0.85rem;color:#7a5830;line-height:1.7;margin-bottom:16px;}
@@ -160,7 +168,7 @@
   .support-next-text{font-size:0.84rem;color:#7a5830;line-height:1.65;}
   .support-next-text strong{color:#3a2808;}
 
-  /* FINAL */
+  /* ФІНАЛ */
   .final-card{background:linear-gradient(160deg,#1a1408,#3a2c14);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
   .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(212,168,74,0.18),transparent);}
   .final-icon{font-size:56px;display:block;margin-bottom:16px;animation:trophy-bounce 3s ease-in-out infinite;position:relative;z-index:1;}
@@ -234,176 +242,18 @@
     <span class="achieve-label">📊 Що ти досягла за цей тиждень</span>
     <div class="achieve-title">5 днів — <span>5 важливих кроків</span></div>
     <div class="achieve-list">
-      <div class="achieve-row">
-        <div class="achieve-check">✓</div>
-        <div class="achieve-text">Дізналася свою особисту норму води на день</div>
-      </div>
-      <div class="achieve-row">
-        <div class="achieve-check">✓</div>
-        <div class="achieve-text">Навчилася пити правильно — повільно, маленькими ковтками, кожні 20–30 хвилин</div>
-      </div>
-      <div class="achieve-row">
-        <div class="achieve-check">✓</div>
-        <div class="achieve-text">Почала ранок зі склянки води натще — запустила детокс-процеси</div>
-      </div>
-      <div class="achieve-row">
-        <div class="achieve-check">✓</div>
-        <div class="achieve-text">Зрозуміла, як вода очищає організм через природні фільтри</div>
-      </div>
-      <div class="achieve-row">
-        <div class="achieve-check">✓</div>
-        <div class="achieve-text">Побачила вплив води на шкіру, волосся і зовнішній вигляд</div>
-      </div>
+      <div class="achieve-row"><div class="achieve-check">✓</div><div class="achieve-text">Дізналася свою особисту норму води на день</div></div>
+      <div class="achieve-row"><div class="achieve-check">✓</div><div class="achieve-text">Навчилася пити правильно — повільно, маленькими ковтками, кожні 20–30 хвилин</div></div>
+      <div class="achieve-row"><div class="achieve-check">✓</div><div class="achieve-text">Почала ранок зі склянки води натще — запустила детокс-процеси</div></div>
+      <div class="achieve-row"><div class="achieve-check">✓</div><div class="achieve-text">Зрозуміла, як вода очищає організм через природні фільтри</div></div>
+      <div class="achieve-row"><div class="achieve-check">✓</div><div class="achieve-text">Відчула вплив води на тіло, шкіру та самопочуття — якщо ні, не хвилюйся, до кінця квесту ти обов'язково це відчуєш 🌿</div></div>
     </div>
   </div>
 
-  <!-- ЗВИЧКА ТИЖНЯ -->
-  <div class="task-block reveal" style="padding:28px;">
-    <div class="task-num">
-      <div class="task-num-circle" style="background:var(--gold)">🏆</div>
-      <span class="task-num-label" style="color:var(--gold)">Звичка тижня</span>
-    </div>
-    <div class="habit-card">
-      <span class="habit-badge">💧 Звичка · Назавжди</span>
-      <span class="habit-icon-big">🏆</span>
-      <div class="habit-title-text">Вода — основа всіх здорових звичок</div>
-      <p class="habit-desc-text">Продовжуй пити воду маленькими ковтками кожні 20–30 хвилин. Починай ранок зі склянки натще. Ці маленькі дії щодня створюють великі зміни 💧</p>
-    </div>
-  </div>
-
-  <!-- ЗАВДАННЯ 1: ВІДЧУТТЯ ЗА ТИЖДЕНЬ -->
-  <div class="task-block reveal">
-    <div class="task-num">
-      <div class="task-num-circle">1</div>
-      <span class="task-num-label">Завдання</span>
-    </div>
-    <div class="task-title">✨ Запиши свої відчуття за тиждень</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Зверни увагу на кожну сферу — що змінилось порівняно з першим днем?</p>
-    <div class="feeling-grid">
-      <div class="feeling-item">
-        <span class="feeling-icon">⚡</span>
-        <div class="feeling-q">Як змінилася енергія?</div>
-        <textarea class="feeling-textarea" placeholder="Більше енергії, менше втоми…" rows="2"></textarea>
-      </div>
-      <div class="feeling-item">
-        <span class="feeling-icon">🪞</span>
-        <div class="feeling-q">Чи покращилася шкіра?</div>
-        <textarea class="feeling-textarea" placeholder="Менш суха, більше сяяння…" rows="2"></textarea>
-      </div>
-      <div class="feeling-item">
-        <span class="feeling-icon">👀</span>
-        <div class="feeling-q">Чи зменшились набряки?</div>
-        <textarea class="feeling-textarea" placeholder="Менше під очима, на руках…" rows="2"></textarea>
-      </div>
-      <div class="feeling-item">
-        <span class="feeling-icon">🧠</span>
-        <div class="feeling-q">Концентрація і ясність?</div>
-        <textarea class="feeling-textarea" placeholder="Легше зосереджуватись…" rows="2"></textarea>
-      </div>
-    </div>
-  </div>
-
-  <!-- ЗАВДАННЯ 2: ПОРІВНЯЙ СЕЛФІ -->
-  <div class="task-block reveal">
-    <div class="task-num">
-      <div class="task-num-circle">2</div>
-      <span class="task-num-label">Завдання</span>
-    </div>
-    <div class="task-title">📸 Порівняй селфі з першого та останнього дня</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Відкрий фото, яке зробила на 4-й день — і зроби нове сьогодні. Без макіяжу, при природному світлі. <strong>Бачиш різницю?</strong></p>
-    <div class="selfie-compare">
-      <div class="selfie-box">
-        <span class="selfie-box-icon">📷</span>
-        <div class="selfie-box-label">Було</div>
-        <div class="selfie-box-day">День 4</div>
-      </div>
-      <div class="selfie-box" style="border-color:var(--gold-light);background:linear-gradient(135deg,#fdf8ee,#f8f0d8);">
-        <span class="selfie-box-icon">🤳</span>
-        <div class="selfie-box-label">Стало</div>
-        <div class="selfie-box-day">День 5</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ЗАВДАННЯ 3: ОБЕРИ ЗВИЧКУ -->
-  <div class="task-block reveal">
-    <div class="task-num">
-      <div class="task-num-circle">3</div>
-      <span class="task-num-label">Завдання</span>
-    </div>
-    <div class="task-title">💧 Яку водну звичку продовжиш щодня?</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Обери одну — або кілька — звичок, які залишаться з тобою назавжди:</p>
-    <div class="habit-pick" id="habitPick">
-      <div class="habit-option" onclick="toggleHabit(this)">
-        <span class="habit-option-icon">🌅</span>
-        <span class="habit-option-text">Склянка води вранці натще</span>
-        <div class="habit-option-check">✓</div>
-      </div>
-      <div class="habit-option" onclick="toggleHabit(this)">
-        <span class="habit-option-icon">💧</span>
-        <span class="habit-option-text">Пити маленькими ковтками кожні 20–30 хвилин</span>
-        <div class="habit-option-check">✓</div>
-      </div>
-      <div class="habit-option" onclick="toggleHabit(this)">
-        <span class="habit-option-icon">☕</span>
-        <span class="habit-option-text">Після кожної кави — склянка води</span>
-        <div class="habit-option-check">✓</div>
-      </div>
-      <div class="habit-option" onclick="toggleHabit(this)">
-        <span class="habit-option-icon">🚶‍♀️</span>
-        <span class="habit-option-text">Вставати і йти за водою — рух для лімфи</span>
-        <div class="habit-option-check">✓</div>
-      </div>
-      <div class="habit-option" onclick="toggleHabit(this)">
-        <span class="habit-option-icon">🍋</span>
-        <span class="habit-option-text">Додавати лимон, огірок або м'яту у воду</span>
-        <div class="habit-option-check">✓</div>
-      </div>
-      <div class="habit-option" onclick="toggleHabit(this)">
-        <span class="habit-option-icon">🍽️</span>
-        <span class="habit-option-text">У ресторані — їси і не п'єш одночасно. Розділяти їжу і напої</span>
-        <div class="habit-option-check">✓</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ЗАВДАННЯ 4: ПОДІЛИСЯ ДОСВІДОМ -->
-  <div class="task-block reveal">
-    <div class="task-num">
-      <div class="task-num-circle">4</div>
-      <span class="task-num-label">Завдання</span>
-    </div>
-    <div class="task-title">💬 Поділися своїм досвідом</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Напиши у чат або коментарі — це важливо і для тебе, і для інших учасниць квесту:</p>
-    <div class="tips-list">
-      <div class="tip-row">
-        <span class="tip-icon">🤔</span>
-        <div class="tip-body">
-          <div class="tip-title">Що було найважче?</div>
-          <div class="tip-desc">Може, забувала пити? Або важко було не пити каву без води?</div>
-        </div>
-      </div>
-      <div class="tip-row">
-        <span class="tip-icon">🌟</span>
-        <div class="tip-body">
-          <div class="tip-title">Що стало легким і природним?</div>
-          <div class="tip-desc">Яка звичка вже вкоренилась і відчувається легко?</div>
-        </div>
-      </div>
-      <div class="tip-row">
-        <span class="tip-icon">💧</span>
-        <div class="tip-body">
-          <div class="tip-title">Скільки склянок п'єш тепер?</div>
-          <div class="tip-desc">Порівняй з першим днем — є прогрес?</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ТРЕКЕР -->
+  <!-- ТРЕКЕР — розміщено раніше, паралельно з читанням -->
   <div class="tracker-dark reveal">
-    <span class="tracker-label">🥛 Трекер останнього дня</span>
-    <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
+    <span class="tracker-label">🥛 Трекер сьогоднішнього дня</span>
+    <p class="tracker-subtitle">Натискай склянку щоразу як випила — рахуй паралельно з читанням</p>
 
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
       <div>
@@ -424,20 +274,133 @@
     <p class="pbar-msg" id="glassMsg">Останній день — допий свою норму! 🏆</p>
   </div>
 
-  <!-- РЕФЛЕКСІЯ -->
+  <!-- ЗВИЧКА НАЗАВЖДИ -->
+  <div class="habit-forever-card reveal">
+    <span class="habit-forever-label">💧 Звичка · Назавжди</span>
+    <div class="habit-forever-title">Вода — <em>основа всіх</em><br>здорових звичок</div>
+    <p class="habit-forever-sub">Відміч кожну звичку, яку берёш із собою назавжди 👇</p>
+    <div class="habit-forever-list" id="habitList">
+      <div class="habit-forever-item hf-check" onclick="toggleHabitForever(this)">
+        <div class="habit-num hf-num">1</div>
+        <div class="habit-forever-text">Пити воду маленькими ковтками <strong style="color:rgba(255,255,255,0.9)">кожні 20–30 хвилин</strong> протягом усього дня</div>
+        <div class="hf-tick">✓</div>
+      </div>
+      <div class="habit-forever-item hf-check" onclick="toggleHabitForever(this)">
+        <div class="habit-num hf-num">2</div>
+        <div class="habit-forever-text">Починати ранок зі <strong style="color:rgba(255,255,255,0.9)">склянки води натще</strong> — запускаємо детокс і обмін речовин</div>
+        <div class="hf-tick">✓</div>
+      </div>
+      <div class="habit-forever-item hf-check" onclick="toggleHabitForever(this)">
+        <div class="habit-num hf-num">3</div>
+        <div class="habit-forever-text">Ставити воду на <strong style="color:rgba(255,255,255,0.9)">видне місце</strong> і завжди брати пляшку з собою на прогулянку</div>
+        <div class="hf-tick">✓</div>
+      </div>
+      <div class="habit-forever-item hf-check" onclick="toggleHabitForever(this)">
+        <div class="habit-num hf-num">4</div>
+        <div class="habit-forever-text"><strong style="color:rgba(255,255,255,0.9)">Розділяти їжу і напої</strong> — або їж, або пий, не разом за одним столом</div>
+        <div class="hf-tick">✓</div>
+      </div>
+      <div class="habit-forever-item hf-check" onclick="toggleHabitForever(this)">
+        <div class="habit-num hf-num">5</div>
+        <div class="habit-forever-text">До кожної чашки кави — <strong style="color:rgba(255,255,255,0.9)">одна додаткова склянка води</strong></div>
+        <div class="hf-tick">✓</div>
+      </div>
+    </div>
+    <div class="habit-forever-footer" id="habitFooter">
+      <p>Ти підготувала тіло до засвоювання інших важливих нутрієнтів. <strong>Водна основа закладена — рухаємось далі! 💪</strong></p>
+    </div>
+  </div>
+
+  <!-- ЗАВДАННЯ 1: ВІДЧУТТЯ — питання як підказки -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">1</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">✨ Зверни увагу на своє тіло</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Порівняй з першим днем — що змінилось? Подумай над кожним питанням:</p>
+    <div class="feeling-prompts">
+      <div class="feeling-prompt">
+        <span class="feeling-icon">⚡</span>
+        <div class="feeling-q">Як змінилася енергія протягом дня?</div>
+      </div>
+      <div class="feeling-prompt">
+        <span class="feeling-icon">🪞</span>
+        <div class="feeling-q">Чи покращилася шкіра — зволоженість, сяяння?</div>
+      </div>
+      <div class="feeling-prompt">
+        <span class="feeling-icon">👀</span>
+        <div class="feeling-q">Набряки зранку — більше чи менше?</div>
+      </div>
+      <div class="feeling-prompt">
+        <span class="feeling-icon">🧠</span>
+        <div class="feeling-q">Концентрація і ясність думок?</div>
+      </div>
+    </div>
+    <div class="feeling-cta" style="margin-top:4px;">
+      <span style="font-size:1.5rem;flex-shrink:0">💬</span>
+      <p>Подумала? Напиши <strong>у чат</strong> — що найбільше змінилось за тиждень 🌿</p>
+    </div>
+  </div>
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle">2</div>
+      <span class="task-num-label">Завдання</span>
+    </div>
+    <div class="task-title">💧 Скільки склянок ти п'єш тепер?</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Порівняй з першим днем. Обери своє число — твій прогрес надихне інших! 💪</p>
+    <div class="share-cta">
+      <div class="share-cta-icon">🥛</div>
+      <div class="share-cta-body">
+        <p><strong>Скільки склянок ти п'єш сьогодні?</strong><br>Натисни на своє число:</p>
+        <div class="glass-count-pick" id="gcPick"></div>
+        <div class="share-num-display" id="shareDisplay">
+          <span style="font-size:1.3rem;">🏆</span>
+          <p>Твій результат: <strong id="shareNum">–</strong> склянок — <span id="sharePhrase"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПОДІЛИСЯ ВІДГУКОМ — після обох завдань -->
+  <div class="task-block reveal">
+    <div class="task-num">
+      <div class="task-num-circle" style="background:var(--sage)">💬</div>
+      <span class="task-num-label" style="color:var(--sage)">Поділися</span>
+    </div>
+    <div class="task-title">Поділися своїм відгуком</div>
+    <p style="font-size:0.85rem;color:#555;margin-bottom:20px;line-height:1.65">Виконала обидва завдання? Тепер розкажи — що змінилося за цей тиждень. Напиши у чат або особисто Любові:</p>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div class="feeling-cta">
+        <span style="font-size:1.5rem;flex-shrink:0">💬</span>
+        <p>Напиши <strong>у чат</strong> — голосовим або текстом. Твій відгук надихне інших учасниць 🌿</p>
+      </div>
+      <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tg-btn">
+        <span class="tg-btn-icon">✈️</span>
+        <div class="tg-btn-text">
+          <span class="tg-btn-label">Написати Любові особисто</span>
+          <span class="tg-btn-sub">Буду рада почути твій відгук і що змінилося 💚</span>
+        </div>
+        <span class="tg-btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- РЕФЛЕКСІЯ + КНОПКА ЗБЕРЕГТИ -->
   <div class="refl-block reveal">
     <div class="refl-title">📝 Фінальна рефлексія тижня</div>
-    <p class="refl-sub">Найважливіші нотатки — запиши зараз, поки свіжі відчуття 🌿</p>
+    <p class="refl-sub">Два питання про звички і наміри — не про тіло, а про дії 🌿</p>
     <div class="refl-questions">
       <div class="refl-q">
         <label class="refl-q-label" for="refl1">Яке твоє головне відкриття за цей тиждень?</label>
         <textarea class="refl-textarea" id="refl1" placeholder="Наприклад: виявилось, що я пила лише 400 мл на день, а потрібно 1800…" rows="3"></textarea>
       </div>
       <div class="refl-q">
-        <label class="refl-q-label" for="refl2">Що ти візьмеш із собою у наступний тиждень?</label>
+        <label class="refl-q-label" for="refl2">Яку водну звичку продовжиш точно — наступного тижня і далі?</label>
         <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: точно продовжу ранкову воду — вона вже стала звичкою…" rows="3"></textarea>
       </div>
     </div>
+    <p style="font-size:0.78rem;color:#bbb;margin-top:14px;line-height:1.55;">📓 Це твій особистий простір для нотаток — нікуди відправляти не треба.</p>
   </div>
 
   <!-- ПІДТРИМКА -->
@@ -484,23 +447,17 @@ window.addEventListener('scroll',()=>{
 /* Зірочки */
 const sw=document.getElementById('starsWrap');
 for(let i=0;i<45;i++){
-  const s=document.createElement('div');
-  s.className='star';
+  const s=document.createElement('div');s.className='star';
   const size=Math.random()*3.5+1.5;
   s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
   sw.appendChild(s);
 }
 
-/* Reveal */
+/* Reveal on scroll */
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* Habit picker */
-function toggleHabit(el){
-  el.classList.toggle('selected');
-}
-
-/* Трекер — 1 склянка = 200 мл */
+/* Трекер */
 const ML_PER_GLASS=200;
 const glassMsgs=[
   'Останній день — допий свою норму! 🏆',
@@ -515,7 +472,6 @@ const glassMsgs=[
 ];
 const gw=document.getElementById('glassesWrap');
 let gc=0;
-
 function updateTracker(){
   const ml=gc*ML_PER_GLASS;
   document.getElementById('mlTotal').textContent=ml;
@@ -527,19 +483,48 @@ function updateTracker(){
     x.setAttribute('aria-checked',j<gc?'true':'false');
   });
 }
-
 for(let i=0;i<8;i++){
   const b=document.createElement('button');
   b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
   b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
   b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
-  b.onclick=()=>{
-    const idx=parseInt(b.dataset.i);
-    gc=b.classList.contains('filled')?idx:idx+1;
-    updateTracker();
-  };
+  b.onclick=()=>{const idx=parseInt(b.dataset.i);gc=b.classList.contains('filled')?idx:idx+1;updateTracker();};
   gw.appendChild(b);
 }
+
+/* Інтерактивний чекліст звичок назавжди */
+function toggleHabitForever(el){
+  el.classList.toggle('checked');
+  const total=document.querySelectorAll('.hf-check').length;
+  const done=document.querySelectorAll('.hf-check.checked').length;
+  const footer=document.getElementById('habitFooter');
+  if(done===total){
+    footer.style.borderLeftColor='rgba(212,168,74,0.8)';
+    footer.querySelector('p').innerHTML='🏆 <strong style="color:rgba(255,255,255,0.9)">Всі 5 звичок відмічено!</strong> Ти підготувала тіло до засвоювання інших важливих нутрієнтів. Водна основа закладена — рухаємось далі! 💪';
+  } else {
+    footer.style.borderLeftColor='rgba(212,168,74,0.5)';
+    footer.querySelector('p').innerHTML='Ти підготувала тіло до засвоювання інших важливих нутрієнтів. <strong style="color:rgba(255,255,255,0.88)">Водна основа закладена — рухаємось далі! 💪</strong>';
+  }
+}
+
+
+const phrases=['Це вже початок! Рухайся далі 💪','Непогано! Додавай ще трошки 💧','Добре! Ти вже відчуваєш різницю ✨','Чудово! Тіло дякує тобі 🌟','Відмінно! Ти в нормі 💧','Бомба! Ти майстер гідратації 🏆','Неймовірно! Зразок для натхнення 🏆💧'];
+const gcPick=document.getElementById('gcPick');
+for(let i=1;i<=8;i++){
+  const b=document.createElement('button');
+  b.className='gcp-btn';b.textContent=i;
+  b.onclick=()=>{
+    document.querySelectorAll('.gcp-btn').forEach(x=>x.classList.remove('picked'));
+    b.classList.add('picked');
+    const display=document.getElementById('shareDisplay');
+    document.getElementById('shareNum').textContent=i;
+    document.getElementById('sharePhrase').textContent=phrases[Math.min(i-1,phrases.length-1)];
+    display.classList.add('show');
+  };
+  gcPick.appendChild(b);
+}
+
+
 </script>
 </body>
 </html>
