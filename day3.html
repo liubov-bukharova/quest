@@ -358,9 +358,8 @@
       <div class="task-num-circle">5</div>
       <span class="task-num-label">Завдання</span>
     </div>
-    <div class="task-title">✅ Чекліст дня</div>
-    <p style="font-size:0.85rem;color:#555;margin-bottom:16px;line-height:1.65">Відміч що виконала сьогодні:</p>
-    <div class="checklist">
+    <div class="task-title">✅ Відміть що виконала сьогодні</div>
+    <div class="checklist" id="dayChecklist">
       <div class="check-row">
         <div class="check-dot"></div>
         <span class="check-text">🌅 Випила склянку води одразу після пробудження</span>
@@ -368,7 +367,7 @@
       </div>
       <div class="check-row">
         <div class="check-dot"></div>
-        <span class="check-text">🚶‍♀️ Щоразу вставала і йшла за водою</span>
+        <span class="check-text">🚶‍♀️ Поєднувала рух та воду</span>
         <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
       </div>
       <div class="check-row">
@@ -382,12 +381,16 @@
         <button class="check-btn" onclick="toggleCheck(this)" aria-label="Відмітити"></button>
       </div>
     </div>
+    <div id="checkDone" style="display:none;margin-top:16px;background:linear-gradient(135deg,#e4f0e6,#d4ecd8);border-radius:14px;padding:18px 20px;border:1px solid #b4d8bc;">
+      <div style="font-size:1.6rem;margin-bottom:8px;">🌿</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#1a3a1e;margin-bottom:6px;">Ти молодець!</div>
+      <div style="font-size:0.84rem;color:#3a6040;line-height:1.65;">День 3 виконано повністю. Твоє тіло вже починає очищатись і відновлюватись — маленькими кроками щодня 💧✨</div>
+    </div>
   </div>
 
   <div class="tracker-dark reveal">
     <span class="tracker-label">🥛 Трекер дня</span>
     <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
-
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
       <div>
         <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Випито сьогодні</div>
@@ -401,7 +404,6 @@
         <span id="glassCount" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.4);">0 / 8</span>
       </div>
     </div>
-
     <div class="pbar-track" style="margin-bottom:16px;"><div class="pbar-fill" id="glassPbar"></div></div>
     <div class="glasses-wrap" id="glassesWrap" role="group" aria-label="Трекер склянок"></div>
     <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
@@ -419,7 +421,12 @@
         <label class="refl-q-label" for="refl2">Чи помітила зміни протягом дня — набряки, енергія, шкіра?</label>
         <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: вранці менше набряків під очима ніж зазвичай, більше енергії після обіду…" rows="3"></textarea>
       </div>
+      <div class="refl-q">
+        <label class="refl-q-label" for="refl3">Чи вдалось замінити солодкі напої на воду? Як це було?</label>
+        <textarea class="refl-textarea" id="refl3" placeholder="Наприклад: не пила солоду весь день — спочатку хотілось, але потім відчула що тіло легше…" rows="3"></textarea>
+      </div>
     </div>
+    <p style="font-size:0.78rem;color:#bbb;margin-top:14px;line-height:1.55;">📓 Це твій особистий простір для нотаток — нікуди не відправляється.</p>
   </div>
 
   <div class="support-block reveal">
@@ -436,7 +443,7 @@
     <span class="final-icon">🌿</span>
     <div class="final-title">День 3 —<br><em>виконано!</em></div>
     <div class="final-line"></div>
-    <p class="final-sub">Завтра ми підемо ще глибше — і дізнаємось, як вода впливає на красу🌊</p>
+    <p class="final-sub">Завтра ми підемо ще глибше — і дізнаємось, як вода впливає на красу 🌊</p>
     <div class="day-dots">
       <div class="d-dot done"></div>
       <div class="d-dot done"></div>
@@ -463,6 +470,13 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 function toggleCheck(el){
   el.classList.toggle('done');
   el.textContent=el.classList.contains('done')?'✓':'';
+  const all=document.querySelectorAll('#dayChecklist .check-btn');
+  const done=document.querySelectorAll('#dayChecklist .check-btn.done');
+  if(all.length>0 && all.length===done.length){
+    document.getElementById('checkDone').style.display='block';
+  } else {
+    document.getElementById('checkDone').style.display='none';
+  }
 }
 
 const ML_PER_GLASS=200;
