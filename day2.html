@@ -243,7 +243,7 @@
     <p style="font-size:0.85rem;color:#666;margin-bottom:20px;line-height:1.65">Введи свою вагу — і дізнайся, скільки води <strong>саме твоєму тілу</strong> потрібно щодня.</p>
     <div class="calc-field">
       <label for="t1Weight">Моя вага (кг)</label>
-      <input class="calc-input" type="number" id="t1Weight" placeholder="наприклад, 65" oninput="calcNorm()">
+      <input class="calc-input" type="number" id="t1Weight" placeholder="наприклад, 65" oninput="calcNorm(); saveState();">
     </div>
     <div class="norm-result" id="normResult">
       <div class="norm-result-label">Твоя денна норма</div>
@@ -269,11 +269,11 @@
     <div class="calc-grid2">
       <div class="calc-field">
         <label for="t2Norm">Моя норма (мл)</label>
-        <input class="calc-input" type="number" id="t2Norm" placeholder="з завдання 1" oninput="calcDiff()">
+        <input class="calc-input" type="number" id="t2Norm" placeholder="з завдання 1" oninput="calcDiff(); saveState();">
       </div>
       <div class="calc-field">
         <label for="t2Current">Зараз п'ю (мл/день)</label>
-        <input class="calc-input" type="number" id="t2Current" placeholder="наприклад, 800" oninput="calcDiff()">
+        <input class="calc-input" type="number" id="t2Current" placeholder="наприклад, 800" oninput="calcDiff(); saveState();">
       </div>
     </div>
     <div class="diff-result" id="diffResult">
@@ -460,67 +460,85 @@
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-function calcNorm(){
-  const w=parseFloat(document.getElementById('t1Weight').value)||0;
-  const nr=document.getElementById('normResult');
-  const nw=document.getElementById('noWorry');
-  if(w>0){
-    const norm=Math.round(w*30);
-    document.getElementById('normVal').textContent=norm;
-    nr.style.display='block';
-    nw.style.display='flex';
-    const t2=document.getElementById('t2Norm');
-    t2.value=norm;
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─────────────────────────────────────────────
+// Task 1: calc norm
+// ─────────────────────────────────────────────
+function calcNorm() {
+  const w = parseFloat(document.getElementById('t1Weight').value) || 0;
+  const nr = document.getElementById('normResult');
+  const nw = document.getElementById('noWorry');
+  if (w > 0) {
+    const norm = Math.round(w * 30);
+    document.getElementById('normVal').textContent = norm;
+    nr.style.display = 'block';
+    nw.style.display = 'flex';
+    const t2 = document.getElementById('t2Norm');
+    t2.value = norm;
     calcDiff();
   } else {
-    nr.style.display='none';
-    nw.style.display='none';
+    nr.style.display = 'none';
+    nw.style.display = 'none';
   }
 }
 
-function calcDiff(){
-  const norm=parseFloat(document.getElementById('t2Norm').value)||0;
-  const cur=parseFloat(document.getElementById('t2Current').value)||0;
-  const dr=document.getElementById('diffResult');
-  if(norm>0&&cur>0){
-    dr.style.display='flex';
-    document.getElementById('drCurrent').textContent=cur;
-    const diff=Math.max(0,norm-cur);
-    document.getElementById('drDiff').textContent=diff;
-    const target=cur+200;
-    document.getElementById('weekTarget').textContent=target;
-    document.getElementById('weekSub').textContent=
-      diff>0
+// ─────────────────────────────────────────────
+// Task 2: calc diff
+// ─────────────────────────────────────────────
+function calcDiff() {
+  const norm = parseFloat(document.getElementById('t2Norm').value) || 0;
+  const cur = parseFloat(document.getElementById('t2Current').value) || 0;
+  const dr = document.getElementById('diffResult');
+  if (norm > 0 && cur > 0) {
+    dr.style.display = 'flex';
+    document.getElementById('drCurrent').textContent = cur;
+    const diff = Math.max(0, norm - cur);
+    document.getElementById('drDiff').textContent = diff;
+    const target = cur + 200;
+    document.getElementById('weekTarget').textContent = target;
+    document.getElementById('weekSub').textContent =
+      diff > 0
         ? `це всього +200 мл до твоїх поточних ${cur} мл`
         : `ти вже п'єш достатньо — підтримуй цей ритм! 🎉`;
   } else {
-    dr.style.display='none';
+    dr.style.display = 'none';
   }
 }
 
-function toggleSched(el){
+// ─────────────────────────────────────────────
+// Task 3: schedule checkboxes
+// ─────────────────────────────────────────────
+function toggleSched(el) {
   el.classList.toggle('done');
-  el.textContent=el.classList.contains('done')?'✓':'';
-  // перевіряємо чи всі відмічені (крім першої яка вже done)
-  const all=document.querySelectorAll('#scheduleList .sched-chk');
-  const done=document.querySelectorAll('#scheduleList .sched-chk.done');
-  const msg=document.getElementById('schedDoneMsg');
-  if(all.length>0 && all.length===done.length){
-    msg.style.display='block';
-  } else {
-    msg.style.display='none';
-  }
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  const all = document.querySelectorAll('#scheduleList .sched-chk');
+  const done = document.querySelectorAll('#scheduleList .sched-chk.done');
+  const msg = document.getElementById('schedDoneMsg');
+  msg.style.display = (all.length > 0 && all.length === done.length) ? 'block' : 'none';
+  saveState();
 }
 
-const ML_PER_GLASS=200;
-const glassMsgs=[
+// ─────────────────────────────────────────────
+// Tracker (glasses)
+// ─────────────────────────────────────────────
+const ML_PER_GLASS = 200;
+const glassMsgs = [
   'Натисни на першу склянку 💧',
   '200 мл — чудовий старт! 💪',
   '400 мл — продовжуй! 🌊',
@@ -531,33 +549,140 @@ const glassMsgs=[
   '1400 мл — ще трішки! ⭐',
   '1600 мл — норма виконана! 🎉💧'
 ];
-const gw=document.getElementById('glassesWrap');
-let gc=0;
 
-function updateTracker(){
-  const ml=gc*ML_PER_GLASS;
-  document.getElementById('mlTotal').textContent=ml;
-  document.getElementById('glassCount').textContent=gc+' / 8';
-  document.getElementById('glassPbar').style.width=(gc/8*100)+'%';
-  document.getElementById('glassMsg').textContent=glassMsgs[gc];
-  document.querySelectorAll('.glass-item').forEach((x,j)=>{
-    x.classList.toggle('filled',j<gc);
-    x.setAttribute('aria-checked',j<gc?'true':'false');
+const gw = document.getElementById('glassesWrap');
+let gc = 0;
+
+function updateTracker() {
+  const ml = gc * ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent = ml;
+  document.getElementById('glassCount').textContent = gc + ' / 8';
+  document.getElementById('glassPbar').style.width = (gc / 8 * 100) + '%';
+  document.getElementById('glassMsg').textContent = glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x, j) => {
+    x.classList.toggle('filled', j < gc);
+    x.setAttribute('aria-checked', j < gc ? 'true' : 'false');
   });
 }
 
-for(let i=0;i<8;i++){
-  const b=document.createElement('button');
-  b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
-  b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
-  b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
-  b.onclick=()=>{
-    const idx=parseInt(b.dataset.i);
-    gc=b.classList.contains('filled')?idx:idx+1;
+for (let i = 0; i < 8; i++) {
+  const b = document.createElement('button');
+  b.className = 'glass-item';
+  b.textContent = '🥛';
+  b.dataset.i = i;
+  b.setAttribute('aria-label', `Склянка ${i + 1} — ${(i + 1) * ML_PER_GLASS} мл`);
+  b.setAttribute('role', 'checkbox');
+  b.setAttribute('aria-checked', 'false');
+  b.onclick = () => {
+    const idx = parseInt(b.dataset.i);
+    gc = b.classList.contains('filled') ? idx : idx + 1;
     updateTracker();
+    saveState();
   };
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Reflection textareas — auto-save on input
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+document.getElementById('refl2').addEventListener('input', saveState);
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'water_hw_day2_state';
+
+function getSchedDoneStates() {
+  // returns array of booleans for all .sched-chk buttons (including the fixed first one)
+  return Array.from(document.querySelectorAll('#scheduleList .sched-chk'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function saveState() {
+  const state = {
+    t1Weight    : document.getElementById('t1Weight').value,
+    t2Norm      : document.getElementById('t2Norm').value,
+    t2Current   : document.getElementById('t2Current').value,
+    schedDone   : getSchedDoneStates(),
+    glassCount  : gc,
+    refl1       : document.getElementById('refl1').value,
+    refl2       : document.getElementById('refl2').value,
+  };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+    return;
+  }
+  if (!raw) return;
+
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (e) {
+    console.warn('Corrupted localStorage data, skipping restore.', e);
+    return;
+  }
+
+  // — Task 1: weight —
+  if (state.t1Weight) {
+    document.getElementById('t1Weight').value = state.t1Weight;
+    calcNorm(); // recalculates normResult + auto-fills t2Norm
+  }
+
+  // — Task 2: norm & current (override auto-filled norm if user had a custom value) —
+  if (state.t2Norm) {
+    document.getElementById('t2Norm').value = state.t2Norm;
+  }
+  if (state.t2Current) {
+    document.getElementById('t2Current').value = state.t2Current;
+    calcDiff();
+  }
+
+  // — Task 3: schedule checkboxes —
+  if (Array.isArray(state.schedDone)) {
+    const btns = document.querySelectorAll('#scheduleList .sched-chk');
+    btns.forEach((btn, i) => {
+      if (state.schedDone[i]) {
+        btn.classList.add('done');
+        btn.textContent = '✓';
+        btn.style.color = 'white'; // match the first pre-done button style
+      } else {
+        btn.classList.remove('done');
+        btn.textContent = '';
+      }
+    });
+    // check if all done
+    const allDone = state.schedDone.length > 0 && state.schedDone.every(Boolean);
+    document.getElementById('schedDoneMsg').style.display = allDone ? 'block' : 'none';
+  }
+
+  // — Tracker (glasses) —
+  if (typeof state.glassCount === 'number') {
+    gc = state.glassCount;
+    updateTracker();
+  }
+
+  // — Reflection —
+  if (state.refl1 !== undefined) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2 !== undefined) document.getElementById('refl2').value = state.refl2;
+}
+
+// Run load as soon as DOM is ready
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
