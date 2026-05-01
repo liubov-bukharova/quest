@@ -134,6 +134,9 @@
   .sp-icon{font-size:1.4rem;flex-shrink:0;}
   .sp-text{font-size:0.83rem;color:#3a6040;line-height:1.65;font-style:italic;}
 
+  .submit-btn{display:block;width:100%;background:#0f1f12;color:white;border:none;border-radius:14px;padding:17px;font-family:'DM Sans',sans-serif;font-size:0.93rem;font-weight:500;cursor:pointer;margin-bottom:20px;transition:background 0.2s,transform 0.15s;}
+  .submit-btn:hover{background:#1a3d20;transform:translateY(-1px);}
+
   .final-card{background:linear-gradient(160deg,#0d2010,#1a3d20);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
   .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(90,158,104,0.18),transparent);}
   .final-icon{font-size:52px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
@@ -439,7 +442,11 @@
     </div>
   </div>
 
-  <div class="final-card reveal">
+  <!-- КНОПКА ЗАВЕРШЕННЯ -->
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">День 3 завершено ✓</button>
+
+  <!-- ФІНАЛ — прихований до натискання кнопки -->
+  <div class="final-card reveal" id="finalCard" style="display:none">
     <span class="final-icon">🌿</span>
     <div class="final-title">День 3 —<br><em>виконано!</em></div>
     <div class="final-line"></div>
@@ -460,27 +467,41 @@
 </footer>
 
 <script>
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-function toggleCheck(el){
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─────────────────────────────────────────────
+// Checklist (Task 5)
+// ─────────────────────────────────────────────
+function toggleCheck(el) {
   el.classList.toggle('done');
-  el.textContent=el.classList.contains('done')?'✓':'';
-  const all=document.querySelectorAll('#dayChecklist .check-btn');
-  const done=document.querySelectorAll('#dayChecklist .check-btn.done');
-  if(all.length>0 && all.length===done.length){
-    document.getElementById('checkDone').style.display='block';
-  } else {
-    document.getElementById('checkDone').style.display='none';
-  }
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  const all = document.querySelectorAll('#dayChecklist .check-btn');
+  const done = document.querySelectorAll('#dayChecklist .check-btn.done');
+  document.getElementById('checkDone').style.display =
+    (all.length > 0 && all.length === done.length) ? 'block' : 'none';
+  saveState();
 }
 
-const ML_PER_GLASS=200;
-const glassMsgs=[
+// ─────────────────────────────────────────────
+// Tracker (glasses)
+// ─────────────────────────────────────────────
+const ML_PER_GLASS = 200;
+const glassMsgs = [
   'Натисни на першу склянку 💧',
   '200 мл — чудовий старт! 💪',
   '400 мл — продовжуй! 🌿',
@@ -491,33 +512,141 @@ const glassMsgs=[
   '1400 мл — ще трішки! ⭐',
   '1600 мл — норма виконана! 🎉🌿'
 ];
-const gw=document.getElementById('glassesWrap');
-let gc=0;
+const gw = document.getElementById('glassesWrap');
+let gc = 0;
 
-function updateTracker(){
-  const ml=gc*ML_PER_GLASS;
-  document.getElementById('mlTotal').textContent=ml;
-  document.getElementById('glassCount').textContent=gc+' / 8';
-  document.getElementById('glassPbar').style.width=(gc/8*100)+'%';
-  document.getElementById('glassMsg').textContent=glassMsgs[gc];
-  document.querySelectorAll('.glass-item').forEach((x,j)=>{
-    x.classList.toggle('filled',j<gc);
-    x.setAttribute('aria-checked',j<gc?'true':'false');
+function updateTracker() {
+  const ml = gc * ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent = ml;
+  document.getElementById('glassCount').textContent = gc + ' / 8';
+  document.getElementById('glassPbar').style.width = (gc / 8 * 100) + '%';
+  document.getElementById('glassMsg').textContent = glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x, j) => {
+    x.classList.toggle('filled', j < gc);
+    x.setAttribute('aria-checked', j < gc ? 'true' : 'false');
   });
 }
 
-for(let i=0;i<8;i++){
-  const b=document.createElement('button');
-  b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
-  b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
-  b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
-  b.onclick=()=>{
-    const idx=parseInt(b.dataset.i);
-    gc=b.classList.contains('filled')?idx:idx+1;
+for (let i = 0; i < 8; i++) {
+  const b = document.createElement('button');
+  b.className = 'glass-item';
+  b.textContent = '🥛';
+  b.dataset.i = i;
+  b.setAttribute('aria-label', `Склянка ${i + 1} — ${(i + 1) * ML_PER_GLASS} мл`);
+  b.setAttribute('role', 'checkbox');
+  b.setAttribute('aria-checked', 'false');
+  b.onclick = () => {
+    const idx = parseInt(b.dataset.i);
+    gc = b.classList.contains('filled') ? idx : idx + 1;
     updateTracker();
+    saveState();
   };
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Reflection textareas — auto-save on input
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+document.getElementById('refl2').addEventListener('input', saveState);
+document.getElementById('refl3').addEventListener('input', saveState);
+
+// ─────────────────────────────────────────────
+// Submit — reveal final card
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitBtn').style.display = 'none';
+  const card = document.getElementById('finalCard');
+  card.style.display = 'block';
+  requestAnimationFrame(() => card.classList.add('visible'));
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'water_hw_day3_state';
+
+function getCheckStates() {
+  return Array.from(document.querySelectorAll('#dayChecklist .check-btn'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function saveState() {
+  const state = {
+    checkDone   : getCheckStates(),
+    glassCount  : gc,
+    refl1       : document.getElementById('refl1').value,
+    refl2       : document.getElementById('refl2').value,
+    refl3       : document.getElementById('refl3').value,
+    submitted   : document.getElementById('finalCard').style.display === 'block',
+  };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+    return;
+  }
+  if (!raw) return;
+
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (e) {
+    console.warn('Corrupted localStorage data, skipping restore.', e);
+    return;
+  }
+
+  // — Checklist —
+  if (Array.isArray(state.checkDone)) {
+    const btns = document.querySelectorAll('#dayChecklist .check-btn');
+    btns.forEach((btn, i) => {
+      if (state.checkDone[i]) {
+        btn.classList.add('done');
+        btn.textContent = '✓';
+      } else {
+        btn.classList.remove('done');
+        btn.textContent = '';
+      }
+    });
+    const allDone = state.checkDone.length > 0 && state.checkDone.every(Boolean);
+    document.getElementById('checkDone').style.display = allDone ? 'block' : 'none';
+  }
+
+  // — Tracker —
+  if (typeof state.glassCount === 'number') {
+    gc = state.glassCount;
+    updateTracker();
+  }
+
+  // — Reflection —
+  if (state.refl1 !== undefined) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2 !== undefined) document.getElementById('refl2').value = state.refl2;
+  if (state.refl3 !== undefined) document.getElementById('refl3').value = state.refl3;
+
+  // — Submitted state —
+  if (state.submitted) {
+    document.getElementById('submitBtn').style.display = 'none';
+    const card = document.getElementById('finalCard');
+    card.style.display = 'block';
+    card.classList.add('visible');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
