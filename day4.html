@@ -20,7 +20,6 @@
   body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
   .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--rose-light);z-index:100;transition:width 0.15s;}
 
-  /* ═══ HERO ═══ */
   .hero{min-height:100svh;background:linear-gradient(160deg,#1f0d14 0%,#2e1220 50%,#3d1a2c 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
   .stars{position:absolute;inset:0;z-index:0;pointer-events:none;}
   .star{position:absolute;border-radius:50%;background:rgba(212,168,140,0.7);animation:twinkle var(--d) ease-in-out infinite;}
@@ -47,10 +46,8 @@
   .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.2);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* ═══ MAIN ═══ */
   .main{max-width:680px;margin:0 auto;padding:60px 24px 80px;}
 
-  /* INTRO */
   .intro-card{background:linear-gradient(135deg,#1f0d14,#3d1a2c);border-radius:20px;padding:32px;margin-bottom:28px;position:relative;overflow:hidden;}
   .intro-card::after{content:'✨';position:absolute;right:-10px;top:-10px;font-size:130px;opacity:0.06;line-height:1;}
   .intro-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,168,192,0.6);font-weight:500;margin-bottom:14px;display:block;}
@@ -60,7 +57,6 @@
   .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
   .intro-rule strong{color:rgba(255,255,255,0.9);}
 
-  /* BEAUTY FACTS */
   .beauty-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #eedde4;}
   .beauty-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:16px;display:block;}
   .beauty-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.25;}
@@ -77,51 +73,37 @@
   .fact-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--rose);line-height:1.1;margin-bottom:3px;}
   .fact-text{font-size:0.82rem;color:#666;line-height:1.55;}
 
-  /* TASK BLOCKS */
   .task-block{background:white;border-radius:20px;padding:32px;margin-bottom:20px;border:1px solid #eedde4;}
   .task-num{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
   .task-num-circle{width:28px;height:28px;border-radius:50%;background:var(--rose);color:white;font-size:0.78rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);font-weight:600;}
   .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
 
-  /* TIPS */
   .tips-list{display:flex;flex-direction:column;gap:10px;margin-top:4px;}
   .tip-row{display:flex;gap:14px;align-items:flex-start;background:var(--mist);border-radius:12px;padding:14px 16px;}
   .tip-icon{font-size:1.3rem;flex-shrink:0;margin-top:1px;}
   .tip-body .tip-title{font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:3px;}
   .tip-body .tip-desc{font-size:0.8rem;color:#777;line-height:1.55;}
 
-  /* COFFEE RULE */
-  .coffee-rule{display:flex;gap:16px;align-items:center;background:linear-gradient(135deg,#fdf8f0,#faf3e8);border-radius:14px;padding:18px 20px;border:1px solid #e8d8b8;margin-top:16px;}
-  .coffee-rule-icon{font-size:2rem;flex-shrink:0;}
-  .coffee-rule-text{font-size:0.85rem;color:#6a4a20;line-height:1.65;}
-  .coffee-rule-text strong{color:#4a2e08;}
-
-  /* THERMAL WATER */
   .thermal-card{background:linear-gradient(135deg,#f5f0f8,#ede4f5);border-radius:14px;padding:20px 22px;border:1px solid #d8c8e8;margin-top:16px;}
   .thermal-steps{display:flex;flex-direction:column;gap:10px;margin-top:12px;}
   .thermal-step{display:flex;gap:12px;align-items:flex-start;}
   .thermal-step-num{width:22px;height:22px;border-radius:50%;background:#a070c0;color:white;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
   .thermal-step-text{font-size:0.84rem;color:#555;line-height:1.55;flex:1;}
 
-  /* HABIT */
   .habit-card{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;}
   .habit-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(160,82,106,0.1);border:1px solid rgba(160,82,106,0.25);color:var(--rose);font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:14px;}
-  /* HABIT TWO-COL */
   .habit-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0;}
   @media(max-width:480px){.habit-two{grid-template-columns:1fr}}
   .habit-item{background:white;border-radius:14px;padding:18px 16px;border:1px solid #eedde4;display:flex;flex-direction:column;gap:8px;}
   .habit-item-icon{font-size:1.8rem;}
   .habit-item-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#3a1020;line-height:1.25;}
   .habit-item-desc{font-size:0.78rem;color:#7a4060;line-height:1.55;}
-  /* ТРЕТЯ ЗВИЧКА — на повну ширину */
   .habit-item-full{background:white;border-radius:14px;padding:18px 16px;border:1px solid #eedde4;display:flex;gap:14px;align-items:flex-start;margin-top:12px;}
   .habit-item-full-icon{font-size:1.8rem;flex-shrink:0;}
-  .habit-item-full-body{}
   .habit-item-full-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:#3a1020;margin-bottom:4px;}
   .habit-item-full-desc{font-size:0.78rem;color:#7a4060;line-height:1.55;}
 
-  /* CHECKLIST */
   .checklist{display:flex;flex-direction:column;gap:0;margin-top:8px;}
   .check-row{display:flex;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid #f5eef1;}
   .check-row:last-child{border-bottom:none;}
@@ -131,7 +113,6 @@
   .check-btn:hover{border-color:var(--rose);}
   .check-btn.done{background:var(--rose);border-color:var(--rose);color:white;}
 
-  /* TRACKER */
   .tracker-dark{background:#1f0d14;border-radius:20px;padding:28px 32px;margin-bottom:20px;}
   .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,168,192,0.5);font-weight:500;margin-bottom:6px;display:block;}
   .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.3);margin-bottom:20px;}
@@ -143,7 +124,6 @@
   .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#7a3050,#e8a8c0);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
   .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.3);font-style:italic;min-height:18px;text-align:center;}
 
-  /* REFLECTION */
   .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #eedde4;}
   .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
   .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
@@ -154,16 +134,13 @@
   .refl-textarea:focus{border-color:var(--rose);background:var(--rose-pale);}
   .refl-textarea::placeholder{color:#bbb;}
 
-  /* SUPPORT */
   .support-block{background:linear-gradient(135deg,#fdf0f4,#f8e4ec);border-radius:18px;padding:26px;border:1px solid #eedde4;margin-bottom:20px;}
   .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#3a1020;}
   .support-text{font-size:0.85rem;color:#7a4060;line-height:1.7;margin-bottom:14px;}
-  .support-next{background:white;border-radius:12px;padding:18px 20px;border:1px solid #eedde4;display:flex;gap:14px;align-items:flex-start;}
-  .support-next-icon{font-size:1.8rem;flex-shrink:0;}
-  .support-next-text{font-size:0.84rem;color:#7a4060;line-height:1.65;}
-  .support-next-text strong{color:#3a1020;}
 
-  /* FINAL */
+  .submit-btn{display:block;width:100%;background:#1f0d14;color:white;border:none;border-radius:14px;padding:17px;font-family:'DM Sans',sans-serif;font-size:0.93rem;font-weight:500;cursor:pointer;margin-bottom:20px;transition:background 0.2s,transform 0.15s;}
+  .submit-btn:hover{background:#3d1a2c;transform:translateY(-1px);}
+
   .final-card{background:linear-gradient(160deg,#1f0d14,#3d1a2c);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
   .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(196,117,142,0.18),transparent);}
   .final-icon{font-size:52px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
@@ -188,7 +165,6 @@
 
 <div class="progress-bar" id="progress"></div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="rose-ring"></div>
   <div class="rose-ring"></div>
@@ -216,7 +192,6 @@
 
 <main class="main">
 
-  <!-- ВСТУП -->
   <div class="intro-card reveal">
     <span class="intro-label">✨ День 4 — вода і краса</span>
     <p class="intro-text">
@@ -232,7 +207,6 @@
     </div>
   </div>
 
-  <!-- ФАКТИ ПРО КРАСУ -->
   <div class="beauty-card reveal">
     <span class="beauty-label">💧 Що відбувається без води</span>
     <div class="beauty-title">Зневоднення <span>видно одразу</span> — на обличчі, волоссі і нігтях</div>
@@ -269,7 +243,6 @@
     </div>
   </div>
 
-  <!-- ЗВИЧКИ ДНЯ — три -->
   <div class="task-block reveal" style="padding:28px;">
     <div class="task-num">
       <div class="task-num-circle" style="background:#b8924a">✨</div>
@@ -297,7 +270,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 1: ІНФУЗОВАНА ВОДА -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">1</div>
@@ -330,7 +302,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 2: ТЕРМАЛЬНА ВОДА -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
@@ -361,14 +332,13 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 3: ЧЕКЛІСТ -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">3</div>
       <span class="task-num-label">Завдання</span>
     </div>
     <div class="task-title">✅ Чекліст дня</div>
-    <div class="checklist">
+    <div class="checklist" id="dayChecklist">
       <div class="check-row">
         <div class="check-dot"></div>
         <span class="check-text">💧 Пила воду кожні 20–30 хвилин маленькими ковтками</span>
@@ -397,7 +367,6 @@
     </div>
   </div>
 
-  <!-- ТРЕКЕР -->
   <div class="tracker-dark reveal">
     <span class="tracker-label">🥛 Трекер дня</span>
     <p class="tracker-subtitle">Натискай склянку щоразу як випила — мілілітри рахуються автоматично</p>
@@ -419,7 +388,6 @@
     <p class="pbar-msg" id="glassMsg">Натисни на першу склянку 💧</p>
   </div>
 
-  <!-- РЕФЛЕКСІЯ -->
   <div class="refl-block reveal">
     <div class="refl-title">📝 Рефлексія дня</div>
     <p class="refl-sub">Одне просте питання — відповідай голосовим або текстом у чат 🌿</p>
@@ -432,15 +400,17 @@
     <p style="font-size:0.78rem;color:#bbb;margin-top:14px;line-height:1.55;">📓 Це для особистих нотаток — нікуди не відправляється.</p>
   </div>
 
-  <!-- ПІДТРИМКА -->
   <div class="support-block reveal">
     <div class="support-title">✨ Підтримка від нутриціолога</div>
     <p class="support-text">Продовжуй пити воду так, як ми вчимося у цьому квесті. Кожен день — це маленький крок до того, щоб шкіра сяяла природно, а тіло відчувало себе легко.</p>
     <p class="support-text">Спробуй сьогодні ввечері термальну воду — і зверни увагу, яка шкіра буде зранку 🌸</p>
   </div>
 
-  <!-- ФІНАЛ -->
-  <div class="final-card reveal">
+  <!-- КНОПКА ЗАВЕРШЕННЯ -->
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">День 4 завершено ✓</button>
+
+  <!-- ФІНАЛ — прихований до натискання кнопки -->
+  <div class="final-card reveal" id="finalCard" style="display:none">
     <span class="final-icon">🍍</span>
     <div class="final-title">День 4 —<br><em>виконано!</em></div>
     <div class="final-line"></div>
@@ -461,34 +431,49 @@
 </footer>
 
 <script>
-/* Progress bar */
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
 
-/* Зірочки */
-const sw=document.getElementById('starsWrap');
-for(let i=0;i<38;i++){
-  const s=document.createElement('div');s.className='star';
-  const size=Math.random()*3+1.5;
-  s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
+// ─────────────────────────────────────────────
+// Stars
+// ─────────────────────────────────────────────
+const sw = document.getElementById('starsWrap');
+for (let i = 0; i < 38; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 3 + 1.5;
+  s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
   sw.appendChild(s);
 }
 
-/* Reveal */
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* Checklist */
-function toggleCheck(el){
+// ─────────────────────────────────────────────
+// Checklist
+// ─────────────────────────────────────────────
+function toggleCheck(el) {
   el.classList.toggle('done');
-  el.textContent=el.classList.contains('done')?'✓':'';
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  saveState();
 }
 
-/* Трекер */
-const ML_PER_GLASS=200;
-const glassMsgs=[
+// ─────────────────────────────────────────────
+// Tracker (glasses)
+// ─────────────────────────────────────────────
+const ML_PER_GLASS = 200;
+const glassMsgs = [
   'Натисни на першу склянку 💧',
   '200 мл — чудовий старт! 💪',
   '400 мл — шкіра вже дякує! ✨',
@@ -499,27 +484,133 @@ const glassMsgs=[
   '1400 мл — ще трішки! ⭐',
   '1600 мл — норма виконана! 🎉✨'
 ];
-const gw=document.getElementById('glassesWrap');
-let gc=0;
-function updateTracker(){
-  const ml=gc*ML_PER_GLASS;
-  document.getElementById('mlTotal').textContent=ml;
-  document.getElementById('glassCount').textContent=gc+' / 8';
-  document.getElementById('glassPbar').style.width=(gc/8*100)+'%';
-  document.getElementById('glassMsg').textContent=glassMsgs[gc];
-  document.querySelectorAll('.glass-item').forEach((x,j)=>{
-    x.classList.toggle('filled',j<gc);
-    x.setAttribute('aria-checked',j<gc?'true':'false');
+const gw = document.getElementById('glassesWrap');
+let gc = 0;
+
+function updateTracker() {
+  const ml = gc * ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent = ml;
+  document.getElementById('glassCount').textContent = gc + ' / 8';
+  document.getElementById('glassPbar').style.width = (gc / 8 * 100) + '%';
+  document.getElementById('glassMsg').textContent = glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x, j) => {
+    x.classList.toggle('filled', j < gc);
+    x.setAttribute('aria-checked', j < gc ? 'true' : 'false');
   });
 }
-for(let i=0;i<8;i++){
-  const b=document.createElement('button');
-  b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
-  b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
-  b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
-  b.onclick=()=>{const idx=parseInt(b.dataset.i);gc=b.classList.contains('filled')?idx:idx+1;updateTracker();};
+
+for (let i = 0; i < 8; i++) {
+  const b = document.createElement('button');
+  b.className = 'glass-item';
+  b.textContent = '🥛';
+  b.dataset.i = i;
+  b.setAttribute('aria-label', `Склянка ${i + 1} — ${(i + 1) * ML_PER_GLASS} мл`);
+  b.setAttribute('role', 'checkbox');
+  b.setAttribute('aria-checked', 'false');
+  b.onclick = () => {
+    const idx = parseInt(b.dataset.i);
+    gc = b.classList.contains('filled') ? idx : idx + 1;
+    updateTracker();
+    saveState();
+  };
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Reflection textarea — auto-save on input
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+
+// ─────────────────────────────────────────────
+// Submit — reveal final card
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitBtn').style.display = 'none';
+  const card = document.getElementById('finalCard');
+  card.style.display = 'block';
+  requestAnimationFrame(() => card.classList.add('visible'));
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'water_hw_day4_state';
+
+function getCheckStates() {
+  return Array.from(document.querySelectorAll('#dayChecklist .check-btn'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function saveState() {
+  const state = {
+    checkDone  : getCheckStates(),
+    glassCount : gc,
+    refl1      : document.getElementById('refl1').value,
+    submitted  : document.getElementById('finalCard').style.display === 'block',
+  };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+    return;
+  }
+  if (!raw) return;
+
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (e) {
+    console.warn('Corrupted localStorage data, skipping restore.', e);
+    return;
+  }
+
+  // — Checklist —
+  if (Array.isArray(state.checkDone)) {
+    const btns = document.querySelectorAll('#dayChecklist .check-btn');
+    btns.forEach((btn, i) => {
+      if (state.checkDone[i]) {
+        btn.classList.add('done');
+        btn.textContent = '✓';
+      } else {
+        btn.classList.remove('done');
+        btn.textContent = '';
+      }
+    });
+  }
+
+  // — Tracker —
+  if (typeof state.glassCount === 'number') {
+    gc = state.glassCount;
+    updateTracker();
+  }
+
+  // — Reflection —
+  if (state.refl1 !== undefined) document.getElementById('refl1').value = state.refl1;
+
+  // — Submitted state —
+  if (state.submitted) {
+    document.getElementById('submitBtn').style.display = 'none';
+    const card = document.getElementById('finalCard');
+    card.style.display = 'block';
+    card.classList.add('visible');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
