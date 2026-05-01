@@ -169,6 +169,12 @@
   .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
   .reveal.visible{opacity:1;transform:none;}
 
+  .submit-btn{display:block;width:100%;background:var(--ink);color:white;border:none;border-radius:14px;padding:17px;font-family:'DM Sans',sans-serif;font-size:0.93rem;font-weight:500;cursor:pointer;margin-bottom:20px;transition:background 0.2s,transform 0.15s;}
+  .submit-btn:hover{background:#2d4a2e;transform:translateY(-1px);}
+  .submitted-msg{display:none;text-align:center;padding:30px;background:#edf6f0;border-radius:14px;margin-bottom:20px;}
+  .submitted-msg h4{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--sage);margin-bottom:8px;}
+  .submitted-msg p{font-size:0.83rem;color:#555;line-height:1.6;}
+
   footer{background:var(--ink);padding:32px 24px;text-align:center;}
   footer p{color:rgba(255,255,255,0.25);font-size:0.75rem;letter-spacing:0.06em;}
   footer span{color:var(--water);}
@@ -438,6 +444,13 @@
     </div>
   </div>
 
+  <!-- КНОПКА ЗАВЕРШЕННЯ -->
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">День 2 завершено ✓</button>
+  <div class="submitted-msg" id="submitted">
+    <h4>Чудово! 💚</h4>
+    <p>Ти зробила ще один крок вперед — і вже вмієш пити воду правильно.<br>Завтра відкриємо ще більше секретів 🌊</p>
+  </div>
+
   <!-- ФІНАЛ -->
   <div class="final-card reveal">
     <span class="final-icon">💧</span>
@@ -589,6 +602,17 @@ document.getElementById('refl1').addEventListener('input', saveState);
 document.getElementById('refl2').addEventListener('input', saveState);
 
 // ─────────────────────────────────────────────
+// Submit
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitBtn').style.display = 'none';
+  const m = document.getElementById('submitted');
+  m.style.display = 'block';
+  m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
 // localStorage — SAVE
 // ─────────────────────────────────────────────
 const STORAGE_KEY = 'water_hw_day2_state';
@@ -608,6 +632,7 @@ function saveState() {
     glassCount  : gc,
     refl1       : document.getElementById('refl1').value,
     refl2       : document.getElementById('refl2').value,
+    submitted   : document.getElementById('submitted').style.display === 'block',
   };
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
@@ -679,6 +704,12 @@ function loadState() {
   // — Reflection —
   if (state.refl1 !== undefined) document.getElementById('refl1').value = state.refl1;
   if (state.refl2 !== undefined) document.getElementById('refl2').value = state.refl2;
+
+  // — Submitted state —
+  if (state.submitted) {
+    document.getElementById('submitBtn').style.display = 'none';
+    document.getElementById('submitted').style.display = 'block';
+  }
 }
 
 // Run load as soon as DOM is ready
