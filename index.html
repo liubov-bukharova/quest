@@ -301,17 +301,17 @@
         <div class="energy-slot">
           <label>Зранку</label>
           <div class="energy-val" id="vm">5</div>
-          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('vm').textContent=this.value">
+          <input type="range" id="sliderMorning" min="1" max="10" value="5" oninput="document.getElementById('vm').textContent=this.value; saveState();">
         </div>
         <div class="energy-slot">
           <label>Вдень</label>
           <div class="energy-val" id="vd">5</div>
-          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('vd').textContent=this.value">
+          <input type="range" id="sliderDay" min="1" max="10" value="5" oninput="document.getElementById('vd').textContent=this.value; saveState();">
         </div>
         <div class="energy-slot">
           <label>Ввечері</label>
           <div class="energy-val" id="ve">5</div>
-          <input type="range" min="1" max="10" value="5" oninput="document.getElementById('ve').textContent=this.value">
+          <input type="range" id="sliderEvening" min="1" max="10" value="5" oninput="document.getElementById('ve').textContent=this.value; saveState();">
         </div>
       </div>
     </div>
@@ -351,7 +351,7 @@
       </div>
     </div>
 
-    <button class="submit-btn" onclick="submitForm()">Перший день завершен✓</button>
+    <button class="submit-btn" id="submitBtn" onclick="submitForm()">Перший день завершен✓</button>
     <div class="submitted-msg" id="submitted">
       <h4>Чудово! 💚</h4>
       <p>Ти зробив/ла перший крок — побачив/ла реальність.<br>Завтра ми починаємо змінювати її разом.</p>
@@ -364,51 +364,59 @@
 </footer>
 
 <script>
+  // ─────────────────────────────────────────────
   // Progress bar
-  window.addEventListener('scroll',()=>{
-    const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-    document.getElementById('progress').style.width=(s/h*100)+'%';
+  // ─────────────────────────────────────────────
+  window.addEventListener('scroll', () => {
+    const s = document.documentElement.scrollTop;
+    const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('progress').style.width = (s / h * 100) + '%';
   });
 
+  // ─────────────────────────────────────────────
   // Scroll reveal
-  const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.1});
-  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  // ─────────────────────────────────────────────
+  const obs = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  // Radio options
-  document.querySelectorAll('.radio-option').forEach(opt=>{
-    opt.addEventListener('click',function(){
-      this.closest('.radio-group').querySelectorAll('.radio-option').forEach(o=>o.classList.remove('selected'));
+  // ─────────────────────────────────────────────
+  // Radio options — click handler + save on change
+  // ─────────────────────────────────────────────
+  document.querySelectorAll('.radio-option').forEach(opt => {
+    opt.addEventListener('click', function () {
+      this.closest('.radio-group').querySelectorAll('.radio-option').forEach(o => o.classList.remove('selected'));
       this.classList.add('selected');
+      saveState(); // persist on every radio change
     });
   });
 
-  // ── Water intake logic ──
+  // ─────────────────────────────────────────────
+  // Water intake logic
+  // ─────────────────────────────────────────────
   const CUP_ML = 250;
   let filledCups = 0;
 
   function toggleCup(index) {
     const cups = document.querySelectorAll('.cup');
-    // Fill/unfill sequentially up to clicked cup
     if (filledCups === index + 1) {
-      // clicking last filled → unfill it
       filledCups = index;
     } else {
       filledCups = index + 1;
     }
-    cups.forEach((c, i) => {
-      c.classList.toggle('filled', i < filledCups);
-    });
+    cups.forEach((c, i) => c.classList.toggle('filled', i < filledCups));
     document.getElementById('waterMl').value = filledCups * CUP_ML || '';
     updateSummary(filledCups * CUP_ML);
+    saveState();
   }
 
   function syncFromInput() {
     const ml = parseInt(document.getElementById('waterMl').value) || 0;
     filledCups = Math.min(Math.round(ml / CUP_ML), 8);
-    document.querySelectorAll('.cup').forEach((c, i) => {
-      c.classList.toggle('filled', i < filledCups);
-    });
+    document.querySelectorAll('.cup').forEach((c, i) => c.classList.toggle('filled', i < filledCups));
     updateSummary(ml);
+    saveState();
   }
 
   function updateSummary(ml) {
@@ -424,13 +432,121 @@
     el.textContent = msg ? `${L} л · ${msg}` : `${L} л`;
   }
 
+  // ─────────────────────────────────────────────
   // Submit
-  function submitForm(){
-    document.querySelector('.submit-btn').style.display='none';
-    const m=document.getElementById('submitted');
-    m.style.display='block';
-    m.scrollIntoView({behavior:'smooth',block:'center'});
+  // ─────────────────────────────────────────────
+  function submitForm() {
+    document.getElementById('submitBtn').style.display = 'none';
+    const m = document.getElementById('submitted');
+    m.style.display = 'block';
+    m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    saveState(); // persist the submitted state too
   }
+
+  // ─────────────────────────────────────────────
+  // localStorage — SAVE
+  // ─────────────────────────────────────────────
+  const STORAGE_KEY = 'water_hw_state';
+
+  function getSelectedRadioIndex(name) {
+    const opts = document.querySelectorAll(`.radio-option input[name="${name}"]`);
+    for (let i = 0; i < opts.length; i++) {
+      if (opts[i].closest('.radio-option').classList.contains('selected')) return i;
+    }
+    return -1;
+  }
+
+  function saveState() {
+    const state = {
+      waterMl     : parseInt(document.getElementById('waterMl').value) || 0,
+      filledCups  : filledCups,
+      q1          : getSelectedRadioIndex('q1'),
+      q2          : getSelectedRadioIndex('q2'),
+      q4          : getSelectedRadioIndex('q4'),
+      sliderMorning : document.getElementById('sliderMorning').value,
+      sliderDay     : document.getElementById('sliderDay').value,
+      sliderEvening : document.getElementById('sliderEvening').value,
+      submitted   : document.getElementById('submitted').style.display === 'block',
+    };
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      // localStorage may be unavailable (private mode, storage full, etc.)
+      console.warn('localStorage not available:', e);
+    }
+  }
+
+  // ─────────────────────────────────────────────
+  // localStorage — LOAD (runs on DOMContentLoaded)
+  // ─────────────────────────────────────────────
+  function setSelectedRadioByIndex(name, index) {
+    if (index < 0) return;
+    const opts = document.querySelectorAll(`.radio-option input[name="${name}"]`);
+    if (opts[index]) {
+      const opt = opts[index].closest('.radio-option');
+      // deselect all first
+      opts.forEach(o => o.closest('.radio-option').classList.remove('selected'));
+      opt.classList.add('selected');
+    }
+  }
+
+  function loadState() {
+    let raw;
+    try {
+      raw = localStorage.getItem(STORAGE_KEY);
+    } catch (e) {
+      console.warn('localStorage not available:', e);
+      return;
+    }
+    if (!raw) return; // nothing saved yet
+
+    let state;
+    try {
+      state = JSON.parse(raw);
+    } catch (e) {
+      console.warn('Corrupted localStorage data, skipping restore.', e);
+      return;
+    }
+
+    // — Water intake —
+    if (typeof state.waterMl === 'number') {
+      document.getElementById('waterMl').value = state.waterMl || '';
+      filledCups = typeof state.filledCups === 'number' ? state.filledCups : 0;
+      document.querySelectorAll('.cup').forEach((c, i) => c.classList.toggle('filled', i < filledCups));
+      updateSummary(state.waterMl);
+    }
+
+    // — Radio groups —
+    setSelectedRadioByIndex('q1', state.q1 ?? -1);
+    setSelectedRadioByIndex('q2', state.q2 ?? -1);
+    setSelectedRadioByIndex('q4', state.q4 ?? -1);
+
+    // — Energy sliders —
+    if (state.sliderMorning !== undefined) {
+      const s = document.getElementById('sliderMorning');
+      s.value = state.sliderMorning;
+      document.getElementById('vm').textContent = state.sliderMorning;
+    }
+    if (state.sliderDay !== undefined) {
+      const s = document.getElementById('sliderDay');
+      s.value = state.sliderDay;
+      document.getElementById('vd').textContent = state.sliderDay;
+    }
+    if (state.sliderEvening !== undefined) {
+      const s = document.getElementById('sliderEvening');
+      s.value = state.sliderEvening;
+      document.getElementById('ve').textContent = state.sliderEvening;
+    }
+
+    // — Submitted state —
+    if (state.submitted) {
+      document.getElementById('submitBtn').style.display = 'none';
+      document.getElementById('submitted').style.display = 'block';
+    }
+  }
+
+  // Run load as soon as DOM is ready
+  document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
