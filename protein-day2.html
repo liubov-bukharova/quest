@@ -19,7 +19,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 section{width:100%;}
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold));z-index:100;transition:width .15s;}
 
-/* HERO */
 #s1{min-height:100vh;background:radial-gradient(ellipse 60% 55% at 50% 25%,#3A1A04 0%,#1E0A02 55%,#0E0501 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 28px 100px;position:relative;overflow:hidden;color:#FFF0E0;}
 .glow-ring{position:absolute;border-radius:50%;border:1px solid rgba(212,168,67,0.1);animation:ring-out 8s ease-out infinite;}
 .glow-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
@@ -43,14 +42,12 @@ section{width:100%;}
 .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-/* shared */
 .sec-c{text-align:center;}
 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center;}
 .s-title{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,46px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:16px;}
 .s-title em{font-style:italic;color:var(--rose-light);}
 .s-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--muted);line-height:1.75;max-width:360px;margin:0 auto 36px;text-align:center;}
 
-/* WHY */
 #s-why{background:radial-gradient(ellipse 72% 55% at 18% 35%,#0A3020 0%,#041808 55%,#020C05 100%);padding:90px 28px;}
 .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:440px;margin:0 auto;}
 .why-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:20px 16px;text-align:left;transition:border-color .3s,transform .3s;}
@@ -59,7 +56,6 @@ section{width:100%;}
 .w-title{font-size:13px;font-weight:500;margin-bottom:4px;}
 .w-desc{font-size:11px;color:var(--muted);line-height:1.5;}
 
-/* CHEAT SHEET — LIGHT */
 #s-cheat{background:radial-gradient(ellipse 80% 60% at 30% 40%,#FDF6EC 0%,#F0E8D8 100%);padding:90px 24px;}
 .cheat-grid{display:grid;grid-template-columns:1fr;gap:10px;max-width:440px;margin:0 auto;}
 .cheat-card{background:rgba(255,255,255,.82);border:1px solid rgba(180,140,80,.2);border-radius:16px;padding:15px 18px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden;transition:transform .22s;}
@@ -74,7 +70,6 @@ section{width:100%;}
 .cheat-grams{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent);line-height:1;}
 .cheat-per{font-size:10px;color:rgba(42,26,8,.4);margin-top:2px;}
 
-/* ANIMAL / PLANT TABLES */
 #s-animal{background:radial-gradient(ellipse 80% 60% at 80% 40%,#221040 0%,#100D1A 65%);padding:90px 24px;}
 #s-plant{background:radial-gradient(ellipse 80% 60% at 20% 60%,#0F3020 0%,#0A1A10 65%);padding:90px 24px;}
 .table-wrap{max-width:460px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;}
@@ -104,7 +99,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .pick-count{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:4px;}
 .pick-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted);line-height:1.6;}
 
-/* HABIT */
 #s-habit{background:radial-gradient(ellipse 80% 60% at 50% 50%,#220A1C 0%,#100810 70%);padding:90px 28px;}
 .habit-outer{max-width:400px;margin:0 auto;background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.25);border-radius:24px;padding:36px 28px;text-align:center;}
 .habit-badge-pill{display:inline-block;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.32);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
@@ -112,7 +106,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .habit-title-h{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold2);line-height:1.3;margin-bottom:12px;}
 .habit-desc-h{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--muted);line-height:1.7;}
 
-/* TASKS */
 #s-tasks{background:radial-gradient(ellipse 80% 60% at 60% 30%,#2E1608 0%,#180C04 65%);padding:90px 28px;}
 .task-block{max-width:440px;margin:0 auto 24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:24px 22px;}
 .task-num-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:13px;}
@@ -121,7 +114,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .task-title-t{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:9px;line-height:1.35;}
 .task-desc-t{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:16px;}
 
-/* Калькулятор в завданні 1 */
 .calc-inner{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:18px;}
 .calc-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block;}
 .calc-row{display:flex;gap:10px;margin-bottom:14px;align-items:flex-end;}
@@ -141,7 +133,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .result-label{font-size:11px;color:var(--muted);margin-top:4px;}
 .result-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.5;}
 
-/* Таблиця підрахунку у завданні 2 */
 .food-log{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;margin-bottom:12px;}
 .food-log-head{display:grid;grid-template-columns:1fr auto auto;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);}
 .food-log-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);transition:background .2s;}
@@ -156,7 +147,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .food-log-total-label{font-size:12px;color:var(--muted);}
 .food-log-total-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green);}
 
-/* Блок порівняння у завданні 3 */
 .compare-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:18px;}
 .compare-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
 .compare-label{font-size:13px;color:var(--muted);}
@@ -168,7 +158,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .compare-pct{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#C8A8F8;text-align:center;display:block;}
 .compare-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted);line-height:1.6;text-align:center;margin-top:8px;min-height:22px;}
 
-/* TRACKER */
 #s-tracker{background:radial-gradient(ellipse 80% 60% at 40% 70%,#1C0A20 0%,#0C0610 70%);padding:90px 28px;}
 .tracker-wrap{max-width:440px;margin:0 auto;}
 .tracker-dark-card{background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(155,127,212,.18);}
@@ -187,7 +176,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .td-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--green);margin-bottom:5px;}
 .td-desc{font-size:13px;color:rgba(107,191,138,.7);line-height:1.6;}
 
-/* WATER */
 #s-water{background:radial-gradient(ellipse 80% 60% at 60% 30%,#081C28 0%,#040E18 70%);padding:90px 28px;}
 .water-dark-card{max-width:440px;margin:0 auto;background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(78,143,163,.22);}
 .water-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(110,207,221,.55);margin-bottom:6px;display:block;}
@@ -199,7 +187,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .glass-btn{width:42px;height:42px;border-radius:12px;border:1.5px solid rgba(78,143,163,.25);background:rgba(78,143,163,.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);}
 .glass-btn.filled{background:rgba(78,143,163,.3);border-color:rgba(110,207,221,.7);transform:scale(1.08);}
 
-/* REFLECTION */
 #s-refl{background:radial-gradient(ellipse 80% 60% at 30% 60%,#201408 0%,#100A04 70%);padding:90px 28px;}
 .refl-wrap{max-width:440px;margin:0 auto;}
 .refl-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 22px;margin-bottom:14px;}
@@ -216,7 +203,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .refl-privacy-text{font-size:12px;color:var(--muted2);line-height:1.65;}
 .refl-privacy-text strong{color:var(--muted);}
 
-/* TELEGRAM */
 #s-tg{background:radial-gradient(ellipse 80% 60% at 40% 50%,#06141E 0%,#030A12 70%);padding:90px 28px;}
 .tg-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(78,143,200,.22);border-radius:24px;padding:30px 24px;text-align:center;}
 .tg-icon-big{font-size:46px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;}
@@ -226,7 +212,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .tg-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1A7AB8,#0E5A8A);color:#fff;border:none;border-radius:50px;padding:15px 36px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:.5px;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 8px 28px rgba(26,122,184,.35);}
 .tg-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(26,122,184,.45);}
 
-/* RECIPE */
 #s-recipe{background:radial-gradient(ellipse 80% 60% at 50% 40%,#F5ECD8 0%,#EAD9BE 70%,#E0CFA8 100%);padding:90px 28px;color:#2C1A0A;}
 .recipe-book-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.75);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:28px 24px;text-align:center;}
 .recipe-fruits-big{font-size:52px;display:block;margin-bottom:18px;animation:sway 4s ease-in-out infinite;}
@@ -234,8 +219,13 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .recipe-desc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#4A2A10;line-height:1.7;margin-bottom:20px;opacity:.85;}
 .recipe-badge{display:inline-block;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.35);border-radius:20px;padding:5px 16px;font-size:11px;letter-spacing:1.5px;color:#8B5E1A;text-transform:uppercase;}
 
-/* FINAL */
-#s-final{background:radial-gradient(ellipse 75% 62% at 50% 62%,#061628 0%,#030E18 60%,#020508 100%);padding:90px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;text-align:center;}
+/* Submit button */
+.submit-section{background:radial-gradient(ellipse 80% 60% at 50% 80%,#1a0f06 0%,#0c0806 70%);padding:40px 28px 60px;display:flex;justify-content:center;}
+.submit-btn{max-width:440px;width:100%;background:linear-gradient(135deg,var(--rose),#a85a40);color:#fff;border:none;border-radius:16px;padding:18px 24px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.5px;box-shadow:0 8px 28px rgba(196,120,90,.3);}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(196,120,90,.4);}
+
+#s-final{background:radial-gradient(ellipse 75% 62% at 50% 62%,#061628 0%,#030E18 60%,#020508 100%);padding:90px 28px;display:none;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;text-align:center;}
+#s-final.visible-section{display:flex;}
 .final-icon-big{font-size:56px;display:block;margin-bottom:20px;animation:sway 4s ease-in-out infinite;}
 .final-badge-done{display:inline-block;background:rgba(107,191,138,.12);border:1px solid rgba(107,191,138,.28);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:22px;}
 .final-title{font-family:'Playfair Display',serif;font-size:clamp(30px,9vw,48px);font-weight:700;line-height:1.2;margin-bottom:14px;}
@@ -280,7 +270,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
-<!-- ЧОМУ БІЛОК ВАЖЛИВИЙ -->
+<!-- WHY -->
 <section id="s-why" class="sec-c">
   <p class="eyebrow reveal" style="color:#64C882">Основи</p>
   <h2 class="s-title reveal">Чому білок<br><em style="color:#88E8A4">такий важливий</em></h2>
@@ -293,7 +283,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ШПАРГАЛКА -->
+<!-- CHEAT SHEET -->
 <section id="s-cheat" class="sec-c">
   <p class="eyebrow reveal" style="color:#8B5E1A">Швидко запам'ятай</p>
   <h2 class="s-title reveal" style="color:#2A1A08">Шпаргалка<br><em style="color:var(--rose)">білок на 100 г</em></h2>
@@ -308,7 +298,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ТВАРИННИЙ БІЛОК -->
+<!-- ANIMAL TABLE -->
 <section id="s-animal" class="sec-c">
   <p class="eyebrow reveal" style="color:var(--purple)">Таблиця · Тваринний білок</p>
   <h2 class="s-title reveal">Тваринні<br><em style="color:#B89FE8">джерела білка</em></h2>
@@ -338,7 +328,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   <p class="table-note reveal">✦ Значення можуть варіюватися залежно від жирності та способу приготування</p>
 </section>
 
-<!-- РОСЛИННИЙ БІЛОК -->
+<!-- PLANT TABLE -->
 <section id="s-plant" class="sec-c">
   <p class="eyebrow reveal" style="color:var(--green)">Таблиця · Рослинний білок</p>
   <h2 class="s-title reveal">Рослинні<br><em style="color:var(--green)">джерела білка</em></h2>
@@ -376,7 +366,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   <p class="table-note reveal">✦ Суха вага дає більше білка — після приготування значення зменшується</p>
 </section>
 
-<!-- ЗВИЧКА -->
+<!-- HABIT -->
 <section id="s-habit" class="sec-c">
   <p class="eyebrow reveal" style="color:var(--gold)">Звичка дня</p>
   <h2 class="s-title reveal">Одна<br><em>звичка</em></h2>
@@ -389,12 +379,11 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ЗАВДАННЯ -->
+<!-- TASKS -->
 <section id="s-tasks">
   <p class="eyebrow reveal">Практика дня</p>
   <h2 class="s-title reveal">Завдання<br><em>на сьогодні</em></h2>
 
-  <!-- Завдання 1 — підрахуй норму -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">1</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Підрахуй свою норму білка</div>
@@ -402,7 +391,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     <div class="calc-inner">
       <span class="calc-label">Твоя вага</span>
       <div class="calc-row">
-        <input class="calc-input" id="weightInput" type="number" min="30" max="200" placeholder="60" oninput="calcNorm()">
+        <input class="calc-input" id="weightInput" type="number" min="30" max="200" placeholder="60" oninput="calcNorm(); saveState();">
         <span class="calc-unit">кг</span>
       </div>
       <span class="calc-label">Рівень активності</span>
@@ -420,7 +409,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     </div>
   </div>
 
-  <!-- Завдання 2 — підрахуй реальний білок -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">2</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Підрахуй скільки білка з'їла реально сьогодні</div>
@@ -444,7 +432,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     <p style="font-size:11px;color:var(--muted2);font-style:italic;text-align:center;line-height:1.6;">✦ Приблизний підрахунок — значення усереднені по групах продуктів</p>
   </div>
 
-  <!-- Завдання 3 — порівняй з нормою -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">3</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Перевір чи вистачає білка твоєму тілу</div>
@@ -469,7 +456,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ТРЕКЕР ДНЯ -->
+<!-- DAY TRACKER -->
 <section id="s-tracker">
   <p class="eyebrow reveal" style="color:rgba(155,127,212,.7)">Трекер дня</p>
   <h2 class="s-title reveal">Відмітьте що<br><em style="color:#B89FE8">виконали</em></h2>
@@ -493,7 +480,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ВОДА -->
+<!-- WATER -->
 <section id="s-water">
   <p class="eyebrow reveal" style="color:rgba(110,207,221,.65)">Трекер води</p>
   <h2 class="s-title reveal">Стакани<br><em style="color:#6ecfdd">сьогодні</em></h2>
@@ -518,7 +505,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- РЕФЛЕКСІЯ -->
+<!-- REFLECTION -->
 <section id="s-refl">
   <p class="eyebrow reveal">Рефлексія дня</p>
   <h2 class="s-title reveal">Твої<br><em>відчуття</em></h2>
@@ -556,7 +543,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- КНИГА РЕЦЕПТІВ -->
+<!-- RECIPE -->
 <section id="s-recipe" class="sec-c">
   <p class="eyebrow reveal" style="color:#8B5E3C">Ділюся з вами</p>
   <h2 class="s-title reveal" style="color:#1C0E06">Збірка<br><em style="color:var(--rose)">рецептів</em></h2>
@@ -569,7 +556,12 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ФІНАЛ -->
+<!-- SUBMIT BUTTON -->
+<div class="submit-section" id="submitSection">
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">День 2 завершено ✓</button>
+</div>
+
+<!-- FINAL — hidden until submit -->
 <section id="s-final">
   <span class="final-icon-big reveal">🏗️</span>
   <div class="final-badge-done reveal">День 2 · Виконано</div>
@@ -586,124 +578,299 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 </section>
 
 <script>
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* table pick */
-const animalPhrases=['Натискай на рядки — відмічай своє 💜','Один — вже початок! 💜','Два — ти вже знаєш своє 💜','Три — відмінно! 💜','Чотири — уважна! 💜','П\'ять — знаєш своє харчування! 💜','Шість і більше — знавець! 💜'];
-const plantPhrases=['Натискай на рядки — відмічай своє 🌿','Один — рослинний початок! 🌿','Два — твоя база 🌿','Три — чудово! 🌿','Чотири — любиш рослинне! 🌿','П\'ять — справжній рослинний раціон! 🌿','Шість і більше — зелена зірка! 🌿'];
-function setupTable(tid,pid,cid,fid,phrases){
-  const t=document.getElementById(tid),p=document.getElementById(pid);
-  let cnt=0;
-  t.querySelectorAll('tbody tr').forEach(tr=>{
-    tr.addEventListener('click',()=>{
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─────────────────────────────────────────────
+// Table pick
+// ─────────────────────────────────────────────
+const animalPhrases = ['Натискай на рядки — відмічай своє 💜','Один — вже початок! 💜','Два — ти вже знаєш своє 💜','Три — відмінно! 💜','Чотири — уважна! 💜','П\'ять — знаєш своє харчування! 💜','Шість і більше — знавець! 💜'];
+const plantPhrases  = ['Натискай на рядки — відмічай своє 🌿','Один — рослинний початок! 🌿','Два — твоя база 🌿','Три — чудово! 🌿','Чотири — любиш рослинне! 🌿','П\'ять — справжній рослинний раціон! 🌿','Шість і більше — зелена зірка! 🌿'];
+
+function setupTable(tid, pid, cid, fid, phrases) {
+  const t = document.getElementById(tid), p = document.getElementById(pid);
+
+  function updatePopup() {
+    const cnt = t.querySelectorAll('tbody tr.picked').length;
+    const n = cnt === 1 ? 'продукт' : (cnt >= 2 && cnt <= 4 ? 'продукти' : 'продуктів');
+    document.getElementById(cid).textContent = cnt + ' ' + n;
+    document.getElementById(fid).textContent = phrases[Math.min(cnt, phrases.length - 1)];
+    p.classList.toggle('visible', cnt > 0);
+  }
+
+  t.querySelectorAll('tbody tr').forEach(tr => {
+    tr.addEventListener('click', () => {
       tr.classList.toggle('picked');
-      cnt=t.querySelectorAll('tbody tr.picked').length;
-      const n=cnt===1?'продукт':(cnt>=2&&cnt<=4?'продукти':'продуктів');
-      document.getElementById(cid).textContent=cnt+' '+n;
-      document.getElementById(fid).textContent=phrases[Math.min(cnt,phrases.length-1)];
-      p.classList.toggle('visible',cnt>0);
+      updatePopup();
+      saveState();
     });
   });
-}
-setupTable('animalTable','animalPopup','animalCount','animalPhrase',animalPhrases);
-setupTable('plantTable','plantPopup','plantCount','plantPhrase',plantPhrases);
 
-/* calculator */
-let selectedMult=null;
-function selectActivity(btn){
-  document.querySelectorAll('.act-btn').forEach(b=>b.classList.remove('selected'));
+  return updatePopup;
+}
+
+const updateAnimalPopup = setupTable('animalTable', 'animalPopup', 'animalCount', 'animalPhrase', animalPhrases);
+const updatePlantPopup  = setupTable('plantTable',  'plantPopup',  'plantCount',  'plantPhrase',  plantPhrases);
+
+// ─────────────────────────────────────────────
+// Calculator (Task 1)
+// ─────────────────────────────────────────────
+let selectedMult = null;
+let selectedMultVal = null;
+
+function selectActivity(btn) {
+  document.querySelectorAll('.act-btn').forEach(b => b.classList.remove('selected'));
   btn.classList.add('selected');
-  selectedMult=parseFloat(btn.dataset.mult);
-  calcNorm();updateCompare();
-}
-function calcNorm(){
-  const w=parseFloat(document.getElementById('weightInput').value);
-  const num=document.getElementById('resultNum'),hint=document.getElementById('resultHint'),box=document.getElementById('resultBox');
-  if(!w||!selectedMult){num.textContent='—';hint.textContent='Введи вагу та обери активність ✦';return;}
-  const r=Math.round(w*selectedMult);
-  num.textContent=r;
-  hint.textContent=w+' кг × '+selectedMult+' = '+r+' г білка на день';
-  box.style.borderColor='rgba(155,100,230,.5)';box.style.background='rgba(155,100,230,.14)';
+  selectedMult = btn;
+  selectedMultVal = parseFloat(btn.dataset.mult);
+  calcNorm();
   updateCompare();
-}
-function getGoal(){
-  const w=parseFloat(document.getElementById('weightInput').value);
-  if(!w||!selectedMult)return null;
-  return Math.round(w*selectedMult);
+  saveState();
 }
 
-/* food log */
-let foodTotal=0;
-function calcFood(){
-  const inputs=document.querySelectorAll('.food-log-g-input');
-  foodTotal=0;
-  inputs.forEach((inp,i)=>{
-    const v=parseFloat(inp.value)||0;
-    const prot=parseFloat(inp.dataset.prot)||0;
-    const isShts=inp.dataset.unit==='шт';
-    const protG=isShts?Math.round(v*prot):Math.round(v*prot);
-    document.getElementById('fl'+i).textContent=protG+' г';
-    foodTotal+=protG;
+function calcNorm() {
+  const w = parseFloat(document.getElementById('weightInput').value);
+  const num = document.getElementById('resultNum'), hint = document.getElementById('resultHint'), box = document.getElementById('resultBox');
+  if (!w || !selectedMultVal) { num.textContent = '—'; hint.textContent = 'Введи вагу та обери активність ✦'; return; }
+  const r = Math.round(w * selectedMultVal);
+  num.textContent = r;
+  hint.textContent = w + ' кг × ' + selectedMultVal + ' = ' + r + ' г білка на день';
+  box.style.borderColor = 'rgba(155,100,230,.5)';
+  box.style.background = 'rgba(155,100,230,.14)';
+  updateCompare();
+}
+
+function getGoal() {
+  const w = parseFloat(document.getElementById('weightInput').value);
+  if (!w || !selectedMultVal) return null;
+  return Math.round(w * selectedMultVal);
+}
+
+// ─────────────────────────────────────────────
+// Food log (Task 2)
+// ─────────────────────────────────────────────
+let foodTotal = 0;
+
+function calcFood() {
+  const inputs = document.querySelectorAll('.food-log-g-input');
+  foodTotal = 0;
+  inputs.forEach((inp, i) => {
+    const v = parseFloat(inp.value) || 0;
+    const prot = parseFloat(inp.dataset.prot) || 0;
+    const isShts = inp.dataset.unit === 'шт';
+    const protG = Math.round(isShts ? v * prot : v * prot);
+    document.getElementById('fl' + i).textContent = protG + ' г';
+    foodTotal += protG;
   });
-  document.getElementById('foodTotal').textContent=foodTotal+' г';
+  document.getElementById('foodTotal').textContent = foodTotal + ' г';
   updateCompare();
+  saveState();
 }
 
-/* compare */
-function updateCompare(){
-  const goal=getGoal();
-  document.getElementById('cmpNorm').textContent=goal?goal+' г':'— г';
-  document.getElementById('cmpEaten').textContent=foodTotal>0?foodTotal+' г':'— г';
-  if(!goal||foodTotal===0){
-    document.getElementById('cmpFill').style.width='0%';
-    document.getElementById('cmpPct').textContent='—';
-    document.getElementById('cmpMsg').textContent='Заповни завдання 1 і 2 — результат з\'явиться тут ✦';
-    document.getElementById('cmpGoalLabel').textContent='норма';
+// ─────────────────────────────────────────────
+// Compare (Task 3)
+// ─────────────────────────────────────────────
+function updateCompare() {
+  const goal = getGoal();
+  document.getElementById('cmpNorm').textContent = goal ? goal + ' г' : '— г';
+  document.getElementById('cmpEaten').textContent = foodTotal > 0 ? foodTotal + ' г' : '— г';
+  if (!goal || foodTotal === 0) {
+    document.getElementById('cmpFill').style.width = '0%';
+    document.getElementById('cmpPct').textContent = '—';
+    document.getElementById('cmpMsg').textContent = 'Заповни завдання 1 і 2 — результат з\'явиться тут ✦';
+    document.getElementById('cmpGoalLabel').textContent = 'норма';
     return;
   }
-  const pct=Math.min(Math.round(foodTotal/goal*100),120);
-  document.getElementById('cmpFill').style.width=Math.min(pct,100)+'%';
-  document.getElementById('cmpPct').textContent=pct+'%';
-  document.getElementById('cmpGoalLabel').textContent=goal+' г';
-  const msgs={
-    0:'Починаємо! Додай більше білка до раціону 💪',
-    25:'Добрий початок — але є куди рости 🌱',
-    50:'Половина шляху — продовжуй! ✨',
-    75:'Майже норма — чудово! 🎉',
-    100:'Норма виконана! Ти дбаєш про себе 💖',
-    105:'Норма виконана з запасом — молодець! ✦'
-  };
-  const key=pct>=105?105:pct>=100?100:pct>=75?75:pct>=50?50:pct>=25?25:0;
-  document.getElementById('cmpMsg').textContent=msgs[key];
+  const pct = Math.min(Math.round(foodTotal / goal * 100), 120);
+  document.getElementById('cmpFill').style.width = Math.min(pct, 100) + '%';
+  document.getElementById('cmpPct').textContent = pct + '%';
+  document.getElementById('cmpGoalLabel').textContent = goal + ' г';
+  const msgs = { 0: 'Починаємо! Додай більше білка до раціону 💪', 25: 'Добрий початок — але є куди рости 🌱', 50: 'Половина шляху — продовжуй! ✨', 75: 'Майже норма — чудово! 🎉', 100: 'Норма виконана! Ти дбаєш про себе 💖', 105: 'Норма виконана з запасом — молодець! ✦' };
+  const key = pct >= 105 ? 105 : pct >= 100 ? 100 : pct >= 75 ? 75 : pct >= 50 ? 50 : pct >= 25 ? 25 : 0;
+  document.getElementById('cmpMsg').textContent = msgs[key];
 }
 
-/* tracker */
-function toggleCheck(el){
-  el.classList.toggle('done');el.textContent=el.classList.contains('done')?'✓':'';
-  const all=document.querySelectorAll('#dayChecklist .check-btn'),done=document.querySelectorAll('#dayChecklist .check-btn.done');
-  document.getElementById('trackerDone').style.display=(all.length===done.length)?'block':'none';
+// ─────────────────────────────────────────────
+// Day tracker checklist
+// ─────────────────────────────────────────────
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  const all = document.querySelectorAll('#dayChecklist .check-btn');
+  const done = document.querySelectorAll('#dayChecklist .check-btn.done');
+  document.getElementById('trackerDone').style.display = (all.length === done.length) ? 'block' : 'none';
+  saveState();
 }
 
-/* water */
-const ML=250;let gc=0;
-const gw=document.getElementById('glassesWrap');
-function updW(){
-  document.getElementById('mlTotal').textContent=gc*ML;
-  document.getElementById('glassCountVal').textContent=gc+' / 10';
-  document.getElementById('waterPbar').style.width=(gc/10*100)+'%';
-  document.querySelectorAll('.glass-btn').forEach((b,j)=>b.classList.toggle('filled',j<gc));
+// ─────────────────────────────────────────────
+// Water tracker
+// ─────────────────────────────────────────────
+const ML = 250;
+let gc = 0;
+const gw = document.getElementById('glassesWrap');
+
+function updW() {
+  document.getElementById('mlTotal').textContent = gc * ML;
+  document.getElementById('glassCountVal').textContent = gc + ' / 10';
+  document.getElementById('waterPbar').style.width = (gc / 10 * 100) + '%';
+  document.querySelectorAll('.glass-btn').forEach((b, j) => b.classList.toggle('filled', j < gc));
 }
-for(let i=0;i<10;i++){
-  const b=document.createElement('button');
-  b.type='button';b.className='glass-btn';b.textContent='🥛';b.dataset.i=i;
-  b.addEventListener('click',()=>{gc=b.classList.contains('filled')?i:i+1;updW();});
+
+for (let i = 0; i < 10; i++) {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'glass-btn'; b.textContent = '🥛'; b.dataset.i = i;
+  b.addEventListener('click', () => { gc = b.classList.contains('filled') ? i : i + 1; updW(); saveState(); });
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Auto-save textareas
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+document.getElementById('refl2').addEventListener('input', saveState);
+
+// ─────────────────────────────────────────────
+// Submit — reveal final section
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitSection').style.display = 'none';
+  const sf = document.getElementById('s-final');
+  sf.classList.add('visible-section');
+  requestAnimationFrame(() => sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')));
+  sf.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'protein_hw_day2_state';
+
+function getPickedRows(tableId) {
+  return Array.from(document.querySelectorAll('#' + tableId + ' tbody tr'))
+    .map(tr => tr.classList.contains('picked'));
+}
+
+function getCheckStates() {
+  return Array.from(document.querySelectorAll('#dayChecklist .check-btn'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function getFoodLogValues() {
+  return Array.from(document.querySelectorAll('.food-log-g-input'))
+    .map(inp => inp.value || '');
+}
+
+function saveState() {
+  const state = {
+    animalPicked  : getPickedRows('animalTable'),
+    plantPicked   : getPickedRows('plantTable'),
+    weight        : document.getElementById('weightInput').value,
+    actMult       : selectedMultVal,
+    foodLog       : getFoodLogValues(),
+    checkDone     : getCheckStates(),
+    glassCount    : gc,
+    refl1         : document.getElementById('refl1').value,
+    refl2         : document.getElementById('refl2').value,
+    submitted     : document.getElementById('s-final').classList.contains('visible-section'),
+  };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return; }
+  if (!raw) return;
+
+  let state;
+  try { state = JSON.parse(raw); } catch (e) { return; }
+
+  // — Animal table —
+  if (Array.isArray(state.animalPicked)) {
+    document.querySelectorAll('#animalTable tbody tr').forEach((tr, i) => {
+      if (state.animalPicked[i]) tr.classList.add('picked');
+    });
+    updateAnimalPopup();
+  }
+
+  // — Plant table —
+  if (Array.isArray(state.plantPicked)) {
+    document.querySelectorAll('#plantTable tbody tr').forEach((tr, i) => {
+      if (state.plantPicked[i]) tr.classList.add('picked');
+    });
+    updatePlantPopup();
+  }
+
+  // — Calculator —
+  if (state.weight) document.getElementById('weightInput').value = state.weight;
+  if (state.actMult) {
+    selectedMultVal = state.actMult;
+    document.querySelectorAll('.act-btn').forEach(btn => {
+      if (parseFloat(btn.dataset.mult) === selectedMultVal) {
+        btn.classList.add('selected');
+        selectedMult = btn;
+      }
+    });
+    calcNorm();
+  }
+
+  // — Food log —
+  if (Array.isArray(state.foodLog)) {
+    const inputs = document.querySelectorAll('.food-log-g-input');
+    state.foodLog.forEach((val, i) => {
+      if (inputs[i] && val !== '') inputs[i].value = val;
+    });
+    calcFood();
+  }
+
+  // — Checklist —
+  if (Array.isArray(state.checkDone)) {
+    const btns = document.querySelectorAll('#dayChecklist .check-btn');
+    btns.forEach((btn, i) => {
+      if (state.checkDone[i]) { btn.classList.add('done'); btn.textContent = '✓'; }
+    });
+    const all = btns.length, done = document.querySelectorAll('#dayChecklist .check-btn.done').length;
+    if (all === done) document.getElementById('trackerDone').style.display = 'block';
+  }
+
+  // — Water —
+  if (typeof state.glassCount === 'number') { gc = state.glassCount; updW(); }
+
+  // — Reflection —
+  if (state.refl1) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2) document.getElementById('refl2').value = state.refl2;
+
+  // — Submitted —
+  if (state.submitted) {
+    document.getElementById('submitSection').style.display = 'none';
+    const sf = document.getElementById('s-final');
+    sf.classList.add('visible-section');
+    sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
