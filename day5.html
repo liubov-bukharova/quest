@@ -20,7 +20,6 @@
   body{background:var(--foam);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.6;}
   .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--gold-light);z-index:100;transition:width 0.15s;}
 
-  /* ═══ HERO ═══ */
   .hero{min-height:100svh;background:linear-gradient(160deg,#1a1408 0%,#2a2010 50%,#3a2c14 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:60px 24px;text-align:center;position:relative;overflow:hidden;}
   .stars{position:absolute;inset:0;z-index:0;pointer-events:none;}
   .star{position:absolute;border-radius:50%;background:rgba(212,168,74,0.8);animation:twinkle var(--d) ease-in-out infinite;}
@@ -47,10 +46,8 @@
   .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.2);font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-  /* ═══ MAIN ═══ */
   .main{max-width:680px;margin:0 auto;padding:60px 24px 80px;}
 
-  /* INTRO */
   .intro-card{background:linear-gradient(135deg,#1a1408,#3a2c14);border-radius:20px;padding:32px;margin-bottom:28px;position:relative;overflow:hidden;}
   .intro-card::after{content:'🏆';position:absolute;right:-10px;top:-10px;font-size:130px;opacity:0.06;line-height:1;}
   .intro-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,200,112,0.6);font-weight:500;margin-bottom:14px;display:block;}
@@ -60,7 +57,6 @@
   .intro-rule p{font-size:0.84rem;color:rgba(255,255,255,0.6);line-height:1.65;}
   .intro-rule strong{color:rgba(255,255,255,0.9);}
 
-  /* ДОСЯГНЕННЯ */
   .achieve-card{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8dcc8;}
   .achieve-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;display:block;}
   .achieve-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.2rem,3.5vw,1.7rem);font-weight:700;color:var(--ink);margin-bottom:20px;line-height:1.25;}
@@ -70,14 +66,12 @@
   .achieve-check{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--gold-light),var(--gold));display:flex;align-items:center;justify-content:center;font-size:0.75rem;color:white;flex-shrink:0;font-weight:700;}
   .achieve-text{font-size:0.86rem;color:#444;line-height:1.5;}
 
-  /* TASK BLOCKS */
   .task-block{background:white;border-radius:20px;padding:32px;margin-bottom:20px;border:1px solid #e8dcc8;}
   .task-num{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;}
   .task-num-circle{width:28px;height:28px;border-radius:50%;background:var(--gold);color:white;font-size:0.78rem;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .task-num-label{font-size:0.63rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;}
   .task-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;margin-bottom:18px;}
 
-  /* ТРЕКЕР */
   .tracker-dark{background:#1a1408;border-radius:20px;padding:28px 32px;margin-bottom:20px;}
   .tracker-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,200,112,0.5);font-weight:500;margin-bottom:6px;display:block;}
   .tracker-subtitle{font-size:0.82rem;color:rgba(255,255,255,0.3);margin-bottom:20px;}
@@ -89,7 +83,6 @@
   .pbar-fill{height:100%;border-radius:4px;background:linear-gradient(to right,#7a5810,#e8c870);width:0%;transition:width 0.5s cubic-bezier(.34,1.2,.64,1);}
   .pbar-msg{font-size:0.78rem;color:rgba(255,255,255,0.3);font-style:italic;min-height:18px;text-align:center;margin-bottom:18px;}
 
-  /* HABIT CARD — Назавжди */
   .habit-forever-card{background:linear-gradient(135deg,#1a1408,#3a2c14);border-radius:20px;padding:32px;margin-bottom:20px;position:relative;overflow:hidden;}
   .habit-forever-card::after{content:'💧';position:absolute;right:-10px;bottom:-10px;font-size:120px;opacity:0.06;line-height:1;}
   .habit-forever-label{font-size:0.63rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(232,200,112,0.6);font-weight:500;margin-bottom:20px;display:block;}
@@ -104,7 +97,13 @@
   .habit-forever-footer p{font-size:0.84rem;color:rgba(255,255,255,0.55);line-height:1.65;}
   .habit-forever-footer strong{color:rgba(255,255,255,0.88);}
 
-  /* FEELING — тільки питання як підказки */
+  .hf-check{cursor:pointer;transition:all 0.2s;user-select:none;position:relative;}
+  .hf-check:hover{background:rgba(255,255,255,0.09);}
+  .hf-check.checked{background:rgba(212,168,74,0.18);border-color:rgba(212,168,74,0.5);}
+  .hf-check.checked .hf-num{background:rgba(212,168,74,0.8);border-color:rgba(212,168,74,1);color:#1a1408;font-weight:700;}
+  .hf-tick{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(212,168,74,0.3);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:transparent;flex-shrink:0;transition:all 0.2s;}
+  .hf-check.checked .hf-tick{background:rgba(212,168,74,0.8);border-color:rgba(212,168,74,1);color:#1a1408;}
+
   .feeling-prompts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
   @media(max-width:460px){.feeling-prompts{grid-template-columns:1fr}}
   .feeling-prompt{background:var(--mist);border-radius:14px;padding:16px;}
@@ -114,7 +113,6 @@
   .feeling-cta p{font-size:0.85rem;color:#7a5830;line-height:1.6;flex:1;}
   .feeling-cta strong{color:#3a2808;}
 
-  /* РЕФЛЕКСІЯ + TELEGRAM */
   .refl-block{background:white;border-radius:20px;padding:28px 32px;margin-bottom:20px;border:1px solid #e8dcc8;}
   .refl-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:6px;}
   .refl-sub{font-size:0.82rem;color:#999;margin-bottom:18px;line-height:1.5;}
@@ -125,14 +123,11 @@
   .refl-textarea:focus{border-color:var(--gold);background:var(--gold-pale);}
   .refl-textarea::placeholder{color:#bbb;}
 
-  /* SHARE CTA */
   .share-cta{background:#1a1408;border-radius:16px;padding:20px 24px;display:flex;gap:16px;align-items:center;}
   .share-cta-icon{font-size:2rem;flex-shrink:0;}
   .share-cta-body{}
   .share-cta-body p{font-size:0.85rem;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:10px;}
   .share-cta-body strong{color:rgba(255,255,255,0.9);}
-  .share-num-btn{display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,74,0.18);border:1px solid rgba(212,168,74,0.4);border-radius:100px;padding:8px 18px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;color:#e8c870;cursor:pointer;transition:all 0.2s;}
-  .share-num-btn:hover{background:rgba(212,168,74,0.28);}
   .share-num-display{display:none;align-items:center;gap:10px;background:rgba(212,168,74,0.1);border-radius:10px;padding:12px 16px;margin-top:10px;}
   .share-num-display.show{display:flex;}
   .share-num-display p{font-size:0.84rem;color:rgba(255,255,255,0.6);}
@@ -142,7 +137,6 @@
   .gcp-btn:hover{border-color:rgba(212,168,74,0.5);color:rgba(255,255,255,0.8);}
   .gcp-btn.picked{background:rgba(212,168,74,0.28);border-color:rgba(212,168,74,0.8);color:#e8c870;}
 
-  /* TELEGRAM BTN */
   .tg-btn{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,#0088cc,#229ed9);border-radius:14px;padding:16px 20px;text-decoration:none;transition:all 0.2s;width:100%;}
   .tg-btn:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,136,204,0.35);}
   .tg-btn-icon{font-size:1.5rem;flex-shrink:0;}
@@ -151,15 +145,6 @@
   .tg-btn-sub{font-size:0.76rem;color:rgba(255,255,255,0.7);}
   .tg-btn-arrow{font-size:1.1rem;color:rgba(255,255,255,0.6);flex-shrink:0;}
 
-  /* ІНТЕРАКТИВНИЙ ЧЕКЛІСТ ЗВИЧОК */
-  .hf-check{cursor:pointer;transition:all 0.2s;user-select:none;position:relative;}
-  .hf-check:hover{background:rgba(255,255,255,0.09);}
-  .hf-check.checked{background:rgba(212,168,74,0.18);border-color:rgba(212,168,74,0.5);}
-  .hf-check.checked .hf-num{background:rgba(212,168,74,0.8);border-color:rgba(212,168,74,1);color:#1a1408;font-weight:700;}
-  .hf-tick{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(212,168,74,0.3);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:transparent;flex-shrink:0;transition:all 0.2s;}
-  .hf-check.checked .hf-tick{background:rgba(212,168,74,0.8);border-color:rgba(212,168,74,1);color:#1a1408;}
-
-  /* ПІДТРИМКА */
   .support-block{background:linear-gradient(135deg,#fdf8ee,#f0e8cc);border-radius:18px;padding:26px;border:1px solid #e0cca0;margin-bottom:20px;}
   .support-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;margin-bottom:10px;color:#3a2808;}
   .support-text{font-size:0.85rem;color:#7a5830;line-height:1.7;margin-bottom:16px;}
@@ -168,7 +153,9 @@
   .support-next-text{font-size:0.84rem;color:#7a5830;line-height:1.65;}
   .support-next-text strong{color:#3a2808;}
 
-  /* ФІНАЛ */
+  .submit-btn{display:block;width:100%;background:#1a1408;color:#e8c870;border:1.5px solid rgba(212,168,74,0.4);border-radius:14px;padding:17px;font-family:'DM Sans',sans-serif;font-size:0.93rem;font-weight:500;cursor:pointer;margin-bottom:20px;transition:background 0.2s,transform 0.15s;}
+  .submit-btn:hover{background:#3a2c14;transform:translateY(-1px);}
+
   .final-card{background:linear-gradient(160deg,#1a1408,#3a2c14);border-radius:20px;padding:36px 28px;text-align:center;margin-bottom:20px;position:relative;overflow:hidden;}
   .final-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 110%,rgba(212,168,74,0.18),transparent);}
   .final-icon{font-size:56px;display:block;margin-bottom:16px;animation:trophy-bounce 3s ease-in-out infinite;position:relative;z-index:1;}
@@ -193,7 +180,6 @@
 
 <div class="progress-bar" id="progress"></div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="gold-ring"></div>
   <div class="gold-ring"></div>
@@ -221,7 +207,6 @@
 
 <main class="main">
 
-  <!-- ВСТУП -->
   <div class="intro-card reveal">
     <span class="intro-label">🏆 Останній день водного тижня</span>
     <p class="intro-text">
@@ -237,7 +222,6 @@
     </div>
   </div>
 
-  <!-- ДОСЯГНЕННЯ ТИЖНЯ -->
   <div class="achieve-card reveal">
     <span class="achieve-label">📊 Що ти досягла за цей тиждень</span>
     <div class="achieve-title">5 днів — <span>5 важливих кроків</span></div>
@@ -250,11 +234,9 @@
     </div>
   </div>
 
-  <!-- ТРЕКЕР — розміщено раніше, паралельно з читанням -->
   <div class="tracker-dark reveal">
     <span class="tracker-label">🥛 Трекер сьогоднішнього дня</span>
     <p class="tracker-subtitle">Натискай склянку щоразу як випила — рахуй паралельно з читанням</p>
-
     <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:6px;">
       <div>
         <div style="font-size:0.63rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;">Випито сьогодні</div>
@@ -268,13 +250,11 @@
         <span id="glassCount" style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:rgba(255,255,255,0.4);">0 / 8</span>
       </div>
     </div>
-
     <div class="pbar-track" style="margin-bottom:16px;"><div class="pbar-fill" id="glassPbar"></div></div>
     <div class="glasses-wrap" id="glassesWrap" role="group" aria-label="Трекер склянок"></div>
     <p class="pbar-msg" id="glassMsg">Останній день — допий свою норму! 🏆</p>
   </div>
 
-  <!-- ЗВИЧКА НАЗАВЖДИ -->
   <div class="habit-forever-card reveal">
     <span class="habit-forever-label">💧 Звичка · Назавжди</span>
     <div class="habit-forever-title">Вода — <em>основа всіх</em><br>здорових звичок</div>
@@ -311,7 +291,6 @@
     </div>
   </div>
 
-  <!-- ЗАВДАННЯ 1: ВІДЧУТТЯ — питання як підказки -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">1</div>
@@ -342,6 +321,7 @@
       <p>Подумала? Напиши <strong>у чат</strong> — що найбільше змінилось за тиждень 🌿</p>
     </div>
   </div>
+
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle">2</div>
@@ -362,7 +342,6 @@
     </div>
   </div>
 
-  <!-- ПОДІЛИСЯ ВІДГУКОМ — після обох завдань -->
   <div class="task-block reveal">
     <div class="task-num">
       <div class="task-num-circle" style="background:var(--sage)">💬</div>
@@ -386,7 +365,6 @@
     </div>
   </div>
 
-  <!-- РЕФЛЕКСІЯ + КНОПКА ЗБЕРЕГТИ -->
   <div class="refl-block reveal">
     <div class="refl-title">📝 Фінальна рефлексія тижня</div>
     <p class="refl-sub">Два питання про звички і наміри — не про тіло, а про дії 🌿</p>
@@ -403,7 +381,6 @@
     <p style="font-size:0.78rem;color:#bbb;margin-top:14px;line-height:1.55;">📓 Це твій особистий простір для нотаток — нікуди відправляти не треба.</p>
   </div>
 
-  <!-- ПІДТРИМКА -->
   <div class="support-block reveal">
     <div class="support-title">💚 Підтримка від нутриціолога</div>
     <p class="support-text">Вода — це основа всіх інших здорових звичок. Тепер, коли ти навчилась слухати своє тіло і давати йому те, що потрібно — ми готові рухатися далі.</p>
@@ -416,8 +393,11 @@
     </div>
   </div>
 
-  <!-- ФІНАЛ -->
-  <div class="final-card reveal">
+  <!-- КНОПКА ЗАВЕРШЕННЯ -->
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">🏆 Водний тиждень завершено ✓</button>
+
+  <!-- ФІНАЛ — прихований до натискання кнопки -->
+  <div class="final-card reveal" id="finalCard" style="display:none">
     <span class="final-icon">🏆</span>
     <div class="final-title">Водний тиждень —<br><em>завершено!</em></div>
     <div class="final-line"></div>
@@ -438,28 +418,40 @@
 </footer>
 
 <script>
-/* Progress bar */
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
 
-/* Зірочки */
-const sw=document.getElementById('starsWrap');
-for(let i=0;i<45;i++){
-  const s=document.createElement('div');s.className='star';
-  const size=Math.random()*3.5+1.5;
-  s.style.cssText=`width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
+// ─────────────────────────────────────────────
+// Stars
+// ─────────────────────────────────────────────
+const sw = document.getElementById('starsWrap');
+for (let i = 0; i < 45; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const size = Math.random() * 3.5 + 1.5;
+  s.style.cssText = `width:${size}px;height:${size}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4}s;animation-delay:${Math.random()*5}s;`;
   sw.appendChild(s);
 }
 
-/* Reveal on scroll */
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-/* Трекер */
-const ML_PER_GLASS=200;
-const glassMsgs=[
+// ─────────────────────────────────────────────
+// Tracker (glasses)
+// ─────────────────────────────────────────────
+const ML_PER_GLASS = 200;
+const glassMsgs = [
   'Останній день — допий свою норму! 🏆',
   '200 мл — чудовий старт! 💪',
   '400 мл — продовжуй! 💧',
@@ -470,61 +462,205 @@ const glassMsgs=[
   '1400 мл — ще трішки! ⭐',
   '1600 мл — тиждень завершено з перемогою! 🏆💧'
 ];
-const gw=document.getElementById('glassesWrap');
-let gc=0;
-function updateTracker(){
-  const ml=gc*ML_PER_GLASS;
-  document.getElementById('mlTotal').textContent=ml;
-  document.getElementById('glassCount').textContent=gc+' / 8';
-  document.getElementById('glassPbar').style.width=(gc/8*100)+'%';
-  document.getElementById('glassMsg').textContent=glassMsgs[gc];
-  document.querySelectorAll('.glass-item').forEach((x,j)=>{
-    x.classList.toggle('filled',j<gc);
-    x.setAttribute('aria-checked',j<gc?'true':'false');
+const gw = document.getElementById('glassesWrap');
+let gc = 0;
+
+function updateTracker() {
+  const ml = gc * ML_PER_GLASS;
+  document.getElementById('mlTotal').textContent = ml;
+  document.getElementById('glassCount').textContent = gc + ' / 8';
+  document.getElementById('glassPbar').style.width = (gc / 8 * 100) + '%';
+  document.getElementById('glassMsg').textContent = glassMsgs[gc];
+  document.querySelectorAll('.glass-item').forEach((x, j) => {
+    x.classList.toggle('filled', j < gc);
+    x.setAttribute('aria-checked', j < gc ? 'true' : 'false');
   });
 }
-for(let i=0;i<8;i++){
-  const b=document.createElement('button');
-  b.className='glass-item';b.textContent='🥛';b.dataset.i=i;
-  b.setAttribute('aria-label',`Склянка ${i+1} — ${(i+1)*ML_PER_GLASS} мл`);
-  b.setAttribute('role','checkbox');b.setAttribute('aria-checked','false');
-  b.onclick=()=>{const idx=parseInt(b.dataset.i);gc=b.classList.contains('filled')?idx:idx+1;updateTracker();};
+
+for (let i = 0; i < 8; i++) {
+  const b = document.createElement('button');
+  b.className = 'glass-item';
+  b.textContent = '🥛';
+  b.dataset.i = i;
+  b.setAttribute('aria-label', `Склянка ${i + 1} — ${(i + 1) * ML_PER_GLASS} мл`);
+  b.setAttribute('role', 'checkbox');
+  b.setAttribute('aria-checked', 'false');
+  b.onclick = () => {
+    const idx = parseInt(b.dataset.i);
+    gc = b.classList.contains('filled') ? idx : idx + 1;
+    updateTracker();
+    saveState();
+  };
   gw.appendChild(b);
 }
 
-/* Інтерактивний чекліст звичок назавжди */
-function toggleHabitForever(el){
+// ─────────────────────────────────────────────
+// Habit forever checklist
+// ─────────────────────────────────────────────
+function toggleHabitForever(el) {
   el.classList.toggle('checked');
-  const total=document.querySelectorAll('.hf-check').length;
-  const done=document.querySelectorAll('.hf-check.checked').length;
-  const footer=document.getElementById('habitFooter');
-  if(done===total){
-    footer.style.borderLeftColor='rgba(212,168,74,0.8)';
-    footer.querySelector('p').innerHTML='🏆 <strong style="color:rgba(255,255,255,0.9)">Всі 5 звичок відмічено!</strong> Ти підготувала тіло до засвоювання інших важливих нутрієнтів. Водна основа закладена — рухаємось далі! 💪';
+  const total = document.querySelectorAll('.hf-check').length;
+  const done = document.querySelectorAll('.hf-check.checked').length;
+  const footer = document.getElementById('habitFooter');
+  if (done === total) {
+    footer.style.borderLeftColor = 'rgba(212,168,74,0.8)';
+    footer.querySelector('p').innerHTML = '🏆 <strong style="color:rgba(255,255,255,0.9)">Всі 5 звичок відмічено!</strong> Ти підготувала тіло до засвоювання інших важливих нутрієнтів. Водна основа закладена — рухаємось далі! 💪';
   } else {
-    footer.style.borderLeftColor='rgba(212,168,74,0.5)';
-    footer.querySelector('p').innerHTML='Ти підготувала тіло до засвоювання інших важливих нутрієнтів. <strong style="color:rgba(255,255,255,0.88)">Водна основа закладена — рухаємось далі! 💪</strong>';
+    footer.style.borderLeftColor = 'rgba(212,168,74,0.5)';
+    footer.querySelector('p').innerHTML = 'Ти підготувала тіло до засвоювання інших важливих нутрієнтів. <strong style="color:rgba(255,255,255,0.88)">Водна основа закладена — рухаємось далі! 💪</strong>';
   }
+  saveState();
 }
 
+// ─────────────────────────────────────────────
+// Glass count picker (Task 2)
+// ─────────────────────────────────────────────
+const phrases = [
+  'Це вже початок! Рухайся далі 💪',
+  'Непогано! Додавай ще трошки 💧',
+  'Добре! Ти вже відчуваєш різницю ✨',
+  'Чудово! Тіло дякує тобі 🌟',
+  'Відмінно! Ти в нормі 💧',
+  'Бомба! Ти майстер гідратації 🏆',
+  'Неймовірно! Зразок для натхнення 🏆💧'
+];
+const gcPick = document.getElementById('gcPick');
+let pickedGlasses = 0;
 
-const phrases=['Це вже початок! Рухайся далі 💪','Непогано! Додавай ще трошки 💧','Добре! Ти вже відчуваєш різницю ✨','Чудово! Тіло дякує тобі 🌟','Відмінно! Ти в нормі 💧','Бомба! Ти майстер гідратації 🏆','Неймовірно! Зразок для натхнення 🏆💧'];
-const gcPick=document.getElementById('gcPick');
-for(let i=1;i<=8;i++){
-  const b=document.createElement('button');
-  b.className='gcp-btn';b.textContent=i;
-  b.onclick=()=>{
-    document.querySelectorAll('.gcp-btn').forEach(x=>x.classList.remove('picked'));
+for (let i = 1; i <= 8; i++) {
+  const b = document.createElement('button');
+  b.className = 'gcp-btn';
+  b.textContent = i;
+  b.dataset.val = i;
+  b.onclick = () => {
+    document.querySelectorAll('.gcp-btn').forEach(x => x.classList.remove('picked'));
     b.classList.add('picked');
-    const display=document.getElementById('shareDisplay');
-    document.getElementById('shareNum').textContent=i;
-    document.getElementById('sharePhrase').textContent=phrases[Math.min(i-1,phrases.length-1)];
+    pickedGlasses = i;
+    const display = document.getElementById('shareDisplay');
+    document.getElementById('shareNum').textContent = i;
+    document.getElementById('sharePhrase').textContent = phrases[Math.min(i - 1, phrases.length - 1)];
     display.classList.add('show');
+    saveState();
   };
   gcPick.appendChild(b);
 }
 
+// ─────────────────────────────────────────────
+// Reflection textareas — auto-save on input
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+document.getElementById('refl2').addEventListener('input', saveState);
 
+// ─────────────────────────────────────────────
+// Submit — reveal final card
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitBtn').style.display = 'none';
+  const card = document.getElementById('finalCard');
+  card.style.display = 'block';
+  requestAnimationFrame(() => card.classList.add('visible'));
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'water_hw_day5_state';
+
+function getHabitStates() {
+  return Array.from(document.querySelectorAll('.hf-check'))
+    .map(el => el.classList.contains('checked'));
+}
+
+function saveState() {
+  const state = {
+    glassCount    : gc,
+    habitChecked  : getHabitStates(),
+    pickedGlasses : pickedGlasses,
+    refl1         : document.getElementById('refl1').value,
+    refl2         : document.getElementById('refl2').value,
+    submitted     : document.getElementById('finalCard').style.display === 'block',
+  };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+    return;
+  }
+  if (!raw) return;
+
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (e) {
+    console.warn('Corrupted localStorage data, skipping restore.', e);
+    return;
+  }
+
+  // — Tracker —
+  if (typeof state.glassCount === 'number') {
+    gc = state.glassCount;
+    updateTracker();
+  }
+
+  // — Habit forever checklist —
+  if (Array.isArray(state.habitChecked)) {
+    const items = document.querySelectorAll('.hf-check');
+    items.forEach((el, i) => {
+      if (state.habitChecked[i]) {
+        el.classList.add('checked');
+      }
+    });
+    // Update footer state
+    const total = items.length;
+    const done = document.querySelectorAll('.hf-check.checked').length;
+    const footer = document.getElementById('habitFooter');
+    if (done === total && total > 0) {
+      footer.style.borderLeftColor = 'rgba(212,168,74,0.8)';
+      footer.querySelector('p').innerHTML = '🏆 <strong style="color:rgba(255,255,255,0.9)">Всі 5 звичок відмічено!</strong> Ти підготувала тіло до засвоювання інших важливих нутрієнтів. Водна основа закладена — рухаємось далі! 💪';
+    }
+  }
+
+  // — Glass count picker —
+  if (state.pickedGlasses && state.pickedGlasses > 0) {
+    pickedGlasses = state.pickedGlasses;
+    document.querySelectorAll('.gcp-btn').forEach(b => {
+      if (parseInt(b.dataset.val) === pickedGlasses) {
+        b.classList.add('picked');
+      }
+    });
+    document.getElementById('shareNum').textContent = pickedGlasses;
+    document.getElementById('sharePhrase').textContent = phrases[Math.min(pickedGlasses - 1, phrases.length - 1)];
+    document.getElementById('shareDisplay').classList.add('show');
+  }
+
+  // — Reflection —
+  if (state.refl1 !== undefined) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2 !== undefined) document.getElementById('refl2').value = state.refl2;
+
+  // — Submitted state —
+  if (state.submitted) {
+    document.getElementById('submitBtn').style.display = 'none';
+    const card = document.getElementById('finalCard');
+    card.style.display = 'block';
+    card.classList.add('visible');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
