@@ -35,12 +35,10 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
 }
 
-/* progress bar */
 .progress-bar{position:fixed;top:0;left:0;height:2px;background:var(--rose);z-index:100;transition:width .15s;}
 
 section{width:100%;}
 
-/* ═══ HERO ═══ */
 #s1{
   min-height:100vh;
   background:radial-gradient(ellipse 90% 70% at 50% 30%,#2E0F08 0%,var(--bg-hero) 68%);
@@ -76,7 +74,6 @@ section{width:100%;}
   text-transform:uppercase;margin-bottom:40px;position:relative;z-index:1;
 }
 
-/* будиночок замість зірочок */
 .hero-icon{
   font-size:72px;display:block;margin-bottom:20px;
   animation:sway 4s ease-in-out infinite;
@@ -106,7 +103,6 @@ section{width:100%;}
 }
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-/* ═══ WHY ═══ */
 #s2{
   background:radial-gradient(ellipse 100% 60% at 20% 50%,#142A1A 0%,var(--bg-why) 70%);
   padding:90px 28px;
@@ -131,7 +127,6 @@ section{width:100%;}
 .b-title{font-size:13px;font-weight:500;margin-bottom:4px;}
 .b-desc{font-size:11px;color:var(--muted);line-height:1.5;}
 
-/* ═══ TABLES ═══ */
 #s3{background:radial-gradient(ellipse 80% 60% at 80% 40%,#1A1030 0%,var(--bg-animal) 65%);padding:90px 24px;}
 #s4{background:radial-gradient(ellipse 80% 60% at 20% 60%,#0D2A18 0%,var(--bg-plant) 65%);padding:90px 24px;}
 .table-wrap{max-width:460px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;}
@@ -156,7 +151,6 @@ table.ptable.animal tbody tr.picked td:first-child{color:var(--purple);}
 table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .table-note{font-size:11px;color:var(--muted2);text-align:center;font-style:italic;margin-top:14px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.6;}
 
-/* ═══ popup after table pick ═══ */
 .pick-popup{
   max-width:400px;margin:24px auto 0;
   background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.25);
@@ -168,7 +162,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .pick-count{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:var(--gold);margin-bottom:6px;}
 .pick-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--muted);line-height:1.6;}
 
-/* ═══ HABIT — окремо ═══ */
 #s-habit{
   background:radial-gradient(ellipse 80% 60% at 50% 50%,#1A0A14 0%,#0C0A10 70%);
   padding:90px 28px;
@@ -192,13 +185,11 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .habit-divider{width:30px;height:1px;background:rgba(212,168,67,.3);margin:0 auto 18px;}
 .habit-desc{font-size:13px;color:var(--muted);line-height:1.7;}
 
-/* ═══ HOMEWORK ═══ */
 #s5{
   background:radial-gradient(ellipse 80% 60% at 60% 30%,#2A1408 0%,var(--bg-hw) 65%);
   padding:90px 28px;
 }
 
-/* task block — схоже на день воду */
 .task-block{
   max-width:400px;margin:0 auto 28px;
   background:rgba(255,255,255,.04);border:1px solid var(--border);
@@ -213,7 +204,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .task-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:12px;line-height:1.35;}
 .task-desc{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:18px;}
 
-/* field */
 .field-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
 .field-input{
   width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);
@@ -224,7 +214,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .field-input:focus{border-color:rgba(212,168,67,.4);}
 .field-input::placeholder{color:var(--muted2);font-style:italic;}
 
-/* sources */
 .sources-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px;}
 .src-btn{
   background:rgba(255,255,255,.04);border:1px solid var(--border);
@@ -236,7 +225,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .src-btn.sel{background:rgba(212,168,67,.1);border-color:rgba(212,168,67,.45);color:var(--gold);}
 .src-count{font-size:11px;color:var(--muted2);text-align:right;font-style:italic;}
 
-/* ═══ DAY TRACKER ═══ */
 #s-tracker{
   background:radial-gradient(ellipse 80% 60% at 40% 70%,#180A18 0%,#0C0810 70%);
   padding:90px 28px;
@@ -270,7 +258,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .tracker-done-msg .td-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--green);margin-bottom:6px;}
 .tracker-done-msg .td-desc{font-size:13px;color:rgba(107,191,138,.7);line-height:1.6;}
 
-/* ═══ WATER TRACKER ═══ */
 #s-water{
   background:radial-gradient(ellipse 80% 60% at 60% 30%,#081820 0%,#060E14 70%);
   padding:90px 28px;
@@ -283,10 +270,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .water-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(78,143,163,.6);margin-bottom:6px;display:block;}
 .water-subtitle{font-size:12px;color:var(--muted2);margin-bottom:20px;}
 .water-stats-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;}
-.water-ml{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:#6ecfdd;line-height:1;}
-.water-ml-label{font-size:13px;color:var(--muted2);margin-left:4px;}
-.water-count-label{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;text-align:right;}
-.water-count-val{font-family:'Playfair Display',serif;font-size:20px;color:rgba(255,255,255,.3);text-align:right;}
 .pbar-track{height:6px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden;margin-bottom:18px;}
 .pbar-fill{height:100%;border-radius:3px;background:linear-gradient(to right,#1a6e7a,#6ecfdd);width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1);}
 .glasses-wrap{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:14px;}
@@ -299,7 +282,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .glass-btn.filled{background:rgba(78,143,163,.28);border-color:rgba(78,143,163,.8);transform:scale(1.08);}
 .water-msg{font-size:13px;color:var(--muted2);font-style:italic;text-align:center;min-height:20px;}
 
-/* ═══ REFLECTION ═══ */
 #s-refl{
   background:radial-gradient(ellipse 80% 60% at 30% 60%,#1A1008 0%,#100C06 70%);
   padding:90px 28px;
@@ -331,12 +313,25 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .refl-privacy-text{font-size:12px;color:var(--muted2);line-height:1.65;}
 .refl-privacy-text strong{color:var(--muted);}
 
-/* ═══ FINAL ═══ */
+/* Submit button */
+.submit-section{
+  background:radial-gradient(ellipse 80% 60% at 50% 80%,#1a0f06 0%,#0c0806 70%);
+  padding:40px 28px 60px;display:flex;justify-content:center;
+}
+.submit-btn{
+  max-width:400px;width:100%;
+  background:var(--rose);color:#fff;border:none;border-radius:16px;
+  padding:18px 24px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;
+  cursor:pointer;transition:background .2s,transform .15s;letter-spacing:0.5px;
+}
+.submit-btn:hover{background:#b86448;transform:translateY(-1px);}
+
 #s6{
   background:radial-gradient(ellipse 80% 70% at 50% 60%,#0D1828 0%,var(--bg-final) 65%);
   padding:90px 28px;text-align:center;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;
+  display:none;flex-direction:column;align-items:center;justify-content:center;min-height:70vh;
 }
+#s6.visible-section{display:flex;}
 .final-icon-big{font-size:52px;display:block;margin-bottom:20px;animation:sway 4s ease-in-out infinite;}
 .final-title{font-family:'Playfair Display',serif;font-size:clamp(28px,8vw,44px);font-weight:700;line-height:1.25;margin-bottom:14px;}
 .final-title em{font-style:italic;color:var(--rose-light);}
@@ -347,7 +342,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 .d-dot.done{background:rgba(196,120,90,.6);}
 .d-dot.active{background:var(--rose-light);width:20px;border-radius:3px;}
 
-/* reveal */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:none;}
 </style>
@@ -356,7 +350,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 
 <div class="progress-bar" id="progress"></div>
 
-<!-- ══════ HERO ══════ -->
+<!-- HERO -->
 <section id="s1">
   <div class="glow-ring"></div><div class="glow-ring"></div>
   <div class="glow-ring"></div><div class="glow-ring"></div>
@@ -371,7 +365,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 
   <div class="quest-badge reveal">Тиждень білків · День 1</div>
-
   <span class="hero-icon reveal">🏠</span>
 
   <h1 class="reveal">
@@ -382,7 +375,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
-<!-- ══════ WHY ══════ -->
+<!-- WHY -->
 <section id="s2">
   <p class="eyebrow reveal">Чому це важливо</p>
   <h2 class="s-title reveal">Що білок робить<br>для <em>тебе</em></h2>
@@ -395,7 +388,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ══════ ANIMAL TABLE ══════ -->
+<!-- ANIMAL TABLE -->
 <section id="s3">
   <p class="eyebrow reveal" style="color:var(--purple)">Таблиця · Тваринний білок</p>
   <h2 class="s-title reveal">Тваринні<br><em style="color:#B89FE8">джерела білка</em></h2>
@@ -425,7 +418,7 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   <p class="table-note reveal">✦ Значення можуть варіюватися залежно від жирності та способу приготування</p>
 </section>
 
-<!-- ══════ PLANT TABLE ══════ -->
+<!-- PLANT TABLE -->
 <section id="s4">
   <p class="eyebrow reveal" style="color:var(--green)">Таблиця · Рослинний білок</p>
   <h2 class="s-title reveal">Рослинні<br><em style="color:var(--green)">джерела білка</em></h2>
@@ -462,12 +455,11 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   <p class="table-note reveal">✦ Суха вага дає більше білка — після приготування значення зменшується</p>
 </section>
 
-<!-- ══════ HABIT — окремий блок ══════ -->
+<!-- HABIT -->
 <section id="s-habit">
   <p class="eyebrow reveal" style="color:var(--gold)">Звичка дня</p>
   <h2 class="s-title reveal">Одна<br><em>звичка</em></h2>
   <p class="s-body reveal">Не десять правил. Одна. І вона змінює все.</p>
-
   <div class="habit-outer reveal">
     <span class="habit-badge-pill">🌱 Звичка · День 1</span>
     <span class="habit-icon">🍽️</span>
@@ -477,12 +469,11 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ══════ HOMEWORK ══════ -->
+<!-- HOMEWORK -->
 <section id="s5">
   <p class="eyebrow reveal">Практика дня</p>
   <h2 class="s-title reveal">Завдання<br><em>на сьогодні</em></h2>
 
-  <!-- Завдання 1 -->
   <div class="task-block reveal">
     <div class="task-num-row">
       <div class="task-num-circle">1</div>
@@ -494,7 +485,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     <textarea class="field-input" id="todayFood" placeholder="Наприклад: сніданок — вівсянка без білка, обід — курка з рисом, перекус — яблуко…" rows="4"></textarea>
   </div>
 
-  <!-- Завдання 2 -->
   <div class="task-block reveal">
     <div class="task-num-row">
       <div class="task-num-circle">2</div>
@@ -515,7 +505,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
       <button type="button" class="src-btn" data-v="Горіхи / насіння">🥜 Горіхи / насіння</button>
     </div>
     <p class="src-count" id="srcCount">Обрано: 0 / 3</p>
-    <!-- locked popup -->
     <div id="srcLockedPopup" style="display:none;margin-top:18px;background:rgba(212,168,67,.09);border:1px solid rgba(212,168,67,.35);border-radius:16px;padding:20px 22px;animation:pop-in .4s cubic-bezier(.34,1.56,.64,1);">
       <div style="font-size:22px;margin-bottom:8px;">🔒</div>
       <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold);margin-bottom:6px;" id="srcLockedNames"></div>
@@ -523,7 +512,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     </div>
   </div>
 
-  <!-- Завдання 3 -->
   <div class="task-block reveal">
     <div class="task-num-row">
       <div class="task-num-circle">3</div>
@@ -531,7 +519,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     </div>
     <div class="task-title">Склади план на завтра</div>
     <p class="task-desc">До кожного прийому їжі додаєш хоча б одне з твоїх трьох джерел:</p>
-    <!-- chosen sources appear here -->
     <div id="task3Sources" style="display:none;margin-bottom:18px;">
       <div id="task3SourceList" style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;"></div>
     </div>
@@ -540,11 +527,10 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ══════ ТРЕКЕР ДНЯ ══════ -->
+<!-- DAY TRACKER -->
 <section id="s-tracker">
   <p class="eyebrow reveal" style="color:rgba(155,127,212,.7)">Трекер дня</p>
   <h2 class="s-title reveal">Відмітьте що<br><em style="color:#B89FE8">виконали</em></h2>
-
   <div class="tracker-wrap">
     <div class="tracker-dark-card reveal">
       <span class="tracker-eyebrow">✅ Завдання дня</span>
@@ -585,11 +571,10 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ══════ ТРЕКЕР ВОДИ ══════ -->
+<!-- WATER TRACKER -->
 <section id="s-water">
   <p class="eyebrow reveal" style="color:rgba(78,143,163,.7)">Трекер води</p>
   <h2 class="s-title reveal">Стакани<br><em style="color:#6ecfdd">сьогодні</em></h2>
-
   <div class="water-dark-card reveal">
     <span class="water-eyebrow">💧 Вода дня</span>
     <p class="water-subtitle">Натискай склянку щоразу як випила</p>
@@ -608,15 +593,14 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
     </div>
     <div class="pbar-track"><div class="pbar-fill" id="waterPbar"></div></div>
     <div class="glasses-wrap" id="glassesWrap"></div>
-    <p class="water-msg" id="waterMsg" style="display:none;"></p>
+    <p class="water-msg" id="waterMsg"></p>
   </div>
 </section>
 
-<!-- ══════ РЕФЛЕКСІЯ ══════ -->
+<!-- REFLECTION -->
 <section id="s-refl">
   <p class="eyebrow reveal">Рефлексія дня</p>
   <h2 class="s-title reveal">Твої<br><em>відчуття</em></h2>
-
   <div class="refl-wrap">
     <div class="refl-card reveal">
       <div class="refl-title">📝 Запитання для рефлексії</div>
@@ -630,7 +614,6 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
         <textarea class="refl-textarea" id="refl3" placeholder="Наприклад: здивована скільки разів я їла без білка взагалі…" rows="3"></textarea>
       </div>
     </div>
-
     <div class="refl-privacy reveal">
       <span class="refl-privacy-icon">🔒</span>
       <p class="refl-privacy-text">
@@ -640,7 +623,12 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
   </div>
 </section>
 
-<!-- ══════ ФІНАЛ ══════ -->
+<!-- SUBMIT BUTTON -->
+<div class="submit-section" id="submitSection">
+  <button class="submit-btn" id="submitBtn" onclick="submitForm()">День 1 завершено ✓</button>
+</div>
+
+<!-- FINAL — hidden until submit -->
 <section id="s6">
   <span class="final-icon-big reveal">🏠</span>
   <h2 class="final-title reveal">День 1 —<br><em>виконано!</em></h2>
@@ -654,18 +642,27 @@ table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
 </section>
 
 <script>
-// progress bar
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
 
-// reveal
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');}})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// table pick + popup
-const animalPhrases=[
+// ─────────────────────────────────────────────
+// Table pick + popup
+// ─────────────────────────────────────────────
+const animalPhrases = [
   'Натискай на рядки — відмічай своє 💜',
   'Один продукт — вже початок! 💜',
   'Два — ти вже знаєш своє 💜',
@@ -674,7 +671,7 @@ const animalPhrases=[
   'П\'ять — ти знаєш своє харчування! 💜',
   'Шість і більше — ти справжній знавець білка! 💜'
 ];
-const plantPhrases=[
+const plantPhrases = [
   'Натискай на рядки — відмічай своє 🌿',
   'Один продукт — рослинний початок! 🌿',
   'Два — твоя рослинна база 🌿',
@@ -684,98 +681,113 @@ const plantPhrases=[
   'Шість і більше — ти зелена зірка! 🌿'
 ];
 
-function setupTable(tableId, popupId, countId, phraseId, phrases) {
+function setupTable(tableId, popupId, countId, phraseId, phrases, stateKey) {
   const table = document.getElementById(tableId);
   const popup = document.getElementById(popupId);
   const countEl = document.getElementById(countId);
   const phraseEl = document.getElementById(phraseId);
-  let count = 0;
 
-  table.querySelectorAll('tbody tr').forEach(tr => {
+  function updatePopup() {
+    const count = table.querySelectorAll('tbody tr.picked').length;
+    const noun = count === 1 ? 'продукт' : (count >= 2 && count <= 4 ? 'продукти' : 'продуктів');
+    countEl.textContent = count + ' ' + noun;
+    phraseEl.textContent = phrases[Math.min(count, phrases.length - 1)];
+    if (count > 0) popup.classList.add('visible');
+    else popup.classList.remove('visible');
+  }
+
+  table.querySelectorAll('tbody tr').forEach((tr, idx) => {
     tr.addEventListener('click', () => {
       tr.classList.toggle('picked');
-      count = table.querySelectorAll('tbody tr.picked').length;
-      const noun = count === 1 ? 'продукт' : (count >= 2 && count <= 4 ? 'продукти' : 'продуктів');
-      countEl.textContent = count + ' ' + noun;
-      phraseEl.textContent = phrases[Math.min(count, phrases.length - 1)];
-      if (count > 0) {
-        popup.classList.add('visible');
-      } else {
-        popup.classList.remove('visible');
-      }
+      updatePopup();
+      saveState();
     });
   });
+
+  return updatePopup;
 }
 
-setupTable('animalTable','animalPopup','animalCount','animalPhrase', animalPhrases);
-setupTable('plantTable','plantPopup','plantCount','plantPhrase', plantPhrases);
+const updateAnimalPopup = setupTable('animalTable', 'animalPopup', 'animalCount', 'animalPhrase', animalPhrases);
+const updatePlantPopup  = setupTable('plantTable',  'plantPopup',  'plantCount',  'plantPhrase',  plantPhrases);
 
-// sources (max 3, lock after 3)
+// ─────────────────────────────────────────────
+// Sources (max 3, lock after 3)
+// ─────────────────────────────────────────────
 const MAX_SRC = 3;
 let selectedSrc = [];
 let srcLocked = false;
 
+function applySourcesUI() {
+  document.getElementById('srcCount').textContent = 'Обрано: ' + selectedSrc.length + ' / 3';
+  document.querySelectorAll('.src-btn').forEach(btn => {
+    btn.classList.toggle('sel', selectedSrc.includes(btn.dataset.v));
+  });
+
+  if (selectedSrc.length === MAX_SRC) {
+    srcLocked = true;
+    document.querySelectorAll('.src-btn:not(.sel)').forEach(b => {
+      b.style.opacity = '0.35';
+      b.style.cursor = 'default';
+    });
+    document.getElementById('srcLockedNames').textContent = selectedSrc.join('  ·  ');
+    document.getElementById('srcLockedPopup').style.display = 'block';
+
+    const t3 = document.getElementById('task3Sources');
+    const t3list = document.getElementById('task3SourceList');
+    t3list.innerHTML = '';
+    selectedSrc.forEach(s => {
+      const tag = document.createElement('span');
+      tag.textContent = s;
+      tag.style.cssText = 'background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--gold);';
+      t3list.appendChild(tag);
+    });
+    t3.style.display = 'block';
+    if (selectedSrc.length === 3) {
+      document.getElementById('tomorrowPlan').placeholder =
+        'Наприклад: сніданок — ' + selectedSrc[0] + ', обід — ' + selectedSrc[1] + ', вечеря — ' + selectedSrc[2] + '…';
+    }
+  } else {
+    srcLocked = false;
+    document.getElementById('srcLockedPopup').style.display = 'none';
+    document.querySelectorAll('.src-btn').forEach(b => {
+      b.style.opacity = '';
+      b.style.cursor = '';
+    });
+    document.getElementById('task3Sources').style.display = 'none';
+  }
+}
+
 document.querySelectorAll('.src-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    if (srcLocked) return;
+    if (srcLocked && !btn.classList.contains('sel')) return;
     const v = btn.dataset.v;
-    if (btn.classList.contains('sel')) {
-      btn.classList.remove('sel');
+    if (selectedSrc.includes(v)) {
       selectedSrc = selectedSrc.filter(x => x !== v);
     } else {
       if (selectedSrc.length >= MAX_SRC) return;
-      btn.classList.add('sel');
       selectedSrc.push(v);
     }
-    document.getElementById('srcCount').textContent = 'Обрано: ' + selectedSrc.length + ' / 3';
-
-    if (selectedSrc.length === MAX_SRC) {
-      srcLocked = true;
-      // dim unselected buttons
-      document.querySelectorAll('.src-btn:not(.sel)').forEach(b => {
-        b.style.opacity = '0.35';
-        b.style.cursor = 'default';
-      });
-      // show locked popup
-      const popup = document.getElementById('srcLockedPopup');
-      document.getElementById('srcLockedNames').textContent = selectedSrc.join('  ·  ');
-      popup.style.display = 'block';
-      // show in task 3
-      const t3 = document.getElementById('task3Sources');
-      const t3list = document.getElementById('task3SourceList');
-      t3list.innerHTML = '';
-      selectedSrc.forEach(s => {
-        const tag = document.createElement('span');
-        tag.textContent = s;
-        tag.style.cssText = 'background:rgba(212,168,67,.1);border:1px solid rgba(212,168,67,.3);border-radius:20px;padding:5px 14px;font-size:13px;color:var(--gold);';
-        t3list.appendChild(tag);
-      });
-      t3.style.display = 'block';
-      document.getElementById('tomorrowPlan').placeholder = 'Наприклад: сніданок — ' + selectedSrc[0] + ', обід — ' + selectedSrc[1] + ', вечеря — ' + selectedSrc[2] + '…';
-    } else {
-      document.getElementById('srcLockedPopup').style.display = 'none';
-      srcLocked = false;
-      document.querySelectorAll('.src-btn').forEach(b => {
-        b.style.opacity = '';
-        b.style.cursor = '';
-      });
-      document.getElementById('task3Sources').style.display = 'none';
-    }
+    applySourcesUI();
+    saveState();
   });
 });
 
-// day tracker checklist
+// ─────────────────────────────────────────────
+// Day tracker checklist
+// ─────────────────────────────────────────────
 function toggleCheck(el) {
   el.classList.toggle('done');
   el.textContent = el.classList.contains('done') ? '✓' : '';
   const all = document.querySelectorAll('#dayChecklist .check-btn');
   const done = document.querySelectorAll('#dayChecklist .check-btn.done');
   document.getElementById('trackerDone').style.display = (all.length === done.length) ? 'block' : 'none';
+  saveState();
 }
 
-// water tracker
+// ─────────────────────────────────────────────
+// Water tracker
+// ─────────────────────────────────────────────
 const ML_PER_GLASS = 250;
-const waterMsgs = ['','','','','','','','','','',''];
 let gc = 0;
 const gw = document.getElementById('glassesWrap');
 
@@ -784,7 +796,6 @@ function updateWater() {
   document.getElementById('mlTotal').textContent = ml;
   document.getElementById('glassCountVal').textContent = gc + ' / 10';
   document.getElementById('waterPbar').style.width = (gc / 10 * 100) + '%';
-  document.getElementById('waterMsg').textContent = waterMsgs[gc];
   document.querySelectorAll('.glass-btn').forEach((b, j) => {
     b.classList.toggle('filled', j < gc);
   });
@@ -800,9 +811,149 @@ for (let i = 0; i < 10; i++) {
   b.addEventListener('click', () => {
     gc = b.classList.contains('filled') ? i : i + 1;
     updateWater();
+    saveState();
   });
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Auto-save textareas
+// ─────────────────────────────────────────────
+['todayFood', 'tomorrowPlan', 'refl2', 'refl3'].forEach(id => {
+  document.getElementById(id).addEventListener('input', saveState);
+});
+
+// ─────────────────────────────────────────────
+// Submit — reveal final section
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitSection').style.display = 'none';
+  const s6 = document.getElementById('s6');
+  s6.classList.add('visible-section');
+  // trigger reveal animations inside s6
+  requestAnimationFrame(() => {
+    s6.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  });
+  s6.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'protein_hw_day1_state';
+
+function getPickedRows(tableId) {
+  return Array.from(document.querySelectorAll('#' + tableId + ' tbody tr'))
+    .map(tr => tr.classList.contains('picked'));
+}
+
+function getCheckStates() {
+  return Array.from(document.querySelectorAll('#dayChecklist .check-btn'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function saveState() {
+  const state = {
+    animalPicked  : getPickedRows('animalTable'),
+    plantPicked   : getPickedRows('plantTable'),
+    selectedSrc   : selectedSrc,
+    todayFood     : document.getElementById('todayFood').value,
+    tomorrowPlan  : document.getElementById('tomorrowPlan').value,
+    checkDone     : getCheckStates(),
+    glassCount    : gc,
+    refl2         : document.getElementById('refl2').value,
+    refl3         : document.getElementById('refl3').value,
+    submitted     : document.getElementById('s6').classList.contains('visible-section'),
+  };
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+  }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try {
+    raw = localStorage.getItem(STORAGE_KEY);
+  } catch (e) {
+    console.warn('localStorage not available:', e);
+    return;
+  }
+  if (!raw) return;
+
+  let state;
+  try {
+    state = JSON.parse(raw);
+  } catch (e) {
+    console.warn('Corrupted localStorage data, skipping restore.', e);
+    return;
+  }
+
+  // — Animal table rows —
+  if (Array.isArray(state.animalPicked)) {
+    const rows = document.querySelectorAll('#animalTable tbody tr');
+    rows.forEach((tr, i) => {
+      if (state.animalPicked[i]) tr.classList.add('picked');
+    });
+    updateAnimalPopup();
+  }
+
+  // — Plant table rows —
+  if (Array.isArray(state.plantPicked)) {
+    const rows = document.querySelectorAll('#plantTable tbody tr');
+    rows.forEach((tr, i) => {
+      if (state.plantPicked[i]) tr.classList.add('picked');
+    });
+    updatePlantPopup();
+  }
+
+  // — Sources —
+  if (Array.isArray(state.selectedSrc)) {
+    selectedSrc = state.selectedSrc;
+    applySourcesUI();
+  }
+
+  // — Text fields —
+  if (state.todayFood)    document.getElementById('todayFood').value    = state.todayFood;
+  if (state.tomorrowPlan) document.getElementById('tomorrowPlan').value = state.tomorrowPlan;
+  if (state.refl2)        document.getElementById('refl2').value        = state.refl2;
+  if (state.refl3)        document.getElementById('refl3').value        = state.refl3;
+
+  // — Day checklist —
+  if (Array.isArray(state.checkDone)) {
+    const btns = document.querySelectorAll('#dayChecklist .check-btn');
+    btns.forEach((btn, i) => {
+      if (state.checkDone[i]) {
+        btn.classList.add('done');
+        btn.textContent = '✓';
+      }
+    });
+    const all = btns.length;
+    const done = document.querySelectorAll('#dayChecklist .check-btn.done').length;
+    if (all === done) document.getElementById('trackerDone').style.display = 'block';
+  }
+
+  // — Water tracker —
+  if (typeof state.glassCount === 'number') {
+    gc = state.glassCount;
+    updateWater();
+  }
+
+  // — Submitted state —
+  if (state.submitted) {
+    document.getElementById('submitSection').style.display = 'none';
+    const s6 = document.getElementById('s6');
+    s6.classList.add('visible-section');
+    s6.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
