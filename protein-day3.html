@@ -19,7 +19,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 section{width:100%;}
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--green2),var(--gold));z-index:100;transition:width .15s;}
 
-/* HERO */
 #s1{min-height:100vh;background:radial-gradient(ellipse 65% 55% at 50% 28%,#063A22 0%,#021A0A 55%,#020E08 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 28px 100px;position:relative;overflow:hidden;color:#E8F8EE;}
 .glow-ring{position:absolute;border-radius:50%;border:1px solid rgba(100,200,130,0.1);animation:ring-out 8s ease-out infinite;}
 .glow-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
@@ -43,14 +42,12 @@ section{width:100%;}
 .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-/* shared */
 .sec-c{text-align:center;}
 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center;}
 .s-title{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,46px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:16px;}
 .s-title em{font-style:italic;color:var(--rose-light);}
 .s-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--muted);line-height:1.75;max-width:360px;margin:0 auto 36px;text-align:center;}
 
-/* BALANCE VISUAL */
 #s-balance{background:radial-gradient(ellipse 68% 52% at 50% 28%,#0A1E3C 0%,#050812 60%,#030510 100%);padding:90px 28px;}
 .balance-visual{max-width:440px;margin:0 auto 20px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .bal-half{border-radius:20px;padding:24px 16px;text-align:center;}
@@ -66,7 +63,6 @@ section{width:100%;}
 .bp-row:last-child{border-bottom:none;}
 .bp-dot{color:var(--green2);font-style:normal;flex-shrink:0;margin-top:2px;}
 
-/* MENU ACCORDION */
 #s-menu{background:radial-gradient(ellipse 70% 52% at 20% 35%,#2C1006 0%,#180804 55%,#0E0502 100%);padding:90px 28px;}
 .menu-list{display:flex;flex-direction:column;gap:10px;max-width:440px;margin:0 auto;}
 .menu-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;transition:border-color .3s;}
@@ -90,7 +86,6 @@ section{width:100%;}
 .subtotal-pill.a{background:rgba(212,168,67,.1);color:var(--gold);}
 .subtotal-pill.p{background:rgba(100,200,130,.1);color:var(--green2);}
 
-/* HABIT */
 #s-habit{background:radial-gradient(ellipse 80% 60% at 50% 50%,#220A1C 0%,#100810 70%);padding:90px 28px;}
 .habit-outer{max-width:440px;margin:0 auto;background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.25);border-radius:24px;padding:36px 28px;text-align:center;}
 .habit-badge-pill{display:inline-block;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.32);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
@@ -101,7 +96,6 @@ section{width:100%;}
 .habit-title-h{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:12px;line-height:1.35;}
 .habit-desc-h{font-size:13px;color:var(--muted);line-height:1.7;}
 
-/* TASKS */
 #s-tasks{background:radial-gradient(ellipse 80% 60% at 60% 30%,#2E1608 0%,#180C04 65%);padding:90px 28px;}
 .task-block{max-width:440px;margin:0 auto 24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:24px 22px;}
 .task-num-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:13px;}
@@ -110,7 +104,6 @@ section{width:100%;}
 .task-title-t{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:9px;line-height:1.35;}
 .task-desc-t{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:14px;}
 
-/* source buttons grid (max 2 or 4) */
 .src-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:10px;}
 .src-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:11px 13px;font-size:13px;color:var(--muted);cursor:pointer;text-align:left;font-family:'Inter',sans-serif;transition:all .2s;line-height:1.4;}
 .src-btn:hover{background:rgba(255,255,255,.09);color:var(--text);}
@@ -118,7 +111,6 @@ section{width:100%;}
 .src-btn.plant-sel{background:rgba(100,200,130,.12);border-color:rgba(100,200,130,.5);color:var(--green2);}
 .src-count{font-size:11px;color:var(--muted2);text-align:right;font-style:italic;margin-bottom:4px;}
 
-/* locked popup */
 .lock-popup{display:none;margin-top:14px;border-radius:14px;padding:16px 18px;}
 .lock-popup.visible{display:block;animation:pop-in .4s cubic-bezier(.34,1.56,.64,1);}
 @keyframes pop-in{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
@@ -130,7 +122,6 @@ section{width:100%;}
 .lock-popup.plant-lock .lock-names{color:var(--green2);}
 .lock-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--muted);line-height:1.55;}
 
-/* Task 3 — plan display */
 .plan-preview{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:16px 18px;margin-bottom:12px;display:none;}
 .plan-preview.visible{display:block;}
 .plan-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block;}
@@ -140,7 +131,6 @@ section{width:100%;}
 .plan-tag.p{background:rgba(100,200,130,.12);border:1px solid rgba(100,200,130,.28);color:var(--green2);}
 .plan-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted);line-height:1.6;margin-top:12px;}
 
-/* TRACKER */
 #s-tracker{background:radial-gradient(ellipse 80% 60% at 40% 70%,#1C0A20 0%,#0C0610 70%);padding:90px 28px;}
 .tracker-wrap{max-width:440px;margin:0 auto;}
 .tracker-dark-card{background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(155,127,212,.18);margin-bottom:12px;}
@@ -159,7 +149,6 @@ section{width:100%;}
 .td-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--green);margin-bottom:5px;}
 .td-desc{font-size:13px;color:rgba(107,191,138,.7);line-height:1.6;}
 
-/* WATER */
 #s-water{background:radial-gradient(ellipse 80% 60% at 60% 30%,#081C28 0%,#040E18 70%);padding:90px 28px;}
 .water-dark-card{max-width:440px;margin:0 auto;background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(78,143,163,.22);}
 .water-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(110,207,221,.55);margin-bottom:6px;display:block;}
@@ -171,7 +160,6 @@ section{width:100%;}
 .glass-btn{width:42px;height:42px;border-radius:12px;border:1.5px solid rgba(78,143,163,.25);background:rgba(78,143,163,.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);}
 .glass-btn.filled{background:rgba(78,143,163,.3);border-color:rgba(110,207,221,.7);transform:scale(1.08);}
 
-/* REFLECTION */
 #s-refl{background:radial-gradient(ellipse 80% 60% at 30% 60%,#201408 0%,#100A04 70%);padding:90px 28px;}
 .refl-wrap{max-width:440px;margin:0 auto;}
 .refl-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 22px;margin-bottom:14px;}
@@ -188,7 +176,6 @@ section{width:100%;}
 .refl-privacy-text{font-size:12px;color:var(--muted2);line-height:1.65;}
 .refl-privacy-text strong{color:var(--muted);}
 
-/* TIPS */
 #s-tips{background:radial-gradient(ellipse 70% 52% at 50% 30%,#320810 0%,#1C0408 60%,#110203 100%);padding:90px 28px;}
 .rec-list{display:flex;flex-direction:column;gap:12px;max-width:440px;margin:0 auto 24px;}
 .rec-item{display:flex;gap:16px;align-items:flex-start;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px;transition:border-color .3s;}
@@ -198,7 +185,6 @@ section{width:100%;}
 .rec-title{font-size:14px;font-weight:500;margin-bottom:4px;line-height:1.4;}
 .rec-desc{font-size:12px;color:var(--muted);line-height:1.6;}
 
-/* TELEGRAM */
 #s-tg{background:radial-gradient(ellipse 80% 60% at 40% 50%,#06141E 0%,#030A12 70%);padding:90px 28px;}
 .tg-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(78,143,200,.22);border-radius:24px;padding:30px 24px;text-align:center;}
 .tg-icon-big{font-size:46px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;}
@@ -208,7 +194,6 @@ section{width:100%;}
 .tg-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1A7AB8,#0E5A8A);color:#fff;border:none;border-radius:50px;padding:15px 36px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:.5px;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 8px 28px rgba(26,122,184,.35);}
 .tg-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(26,122,184,.45);}
 
-/* RECIPE */
 #s-recipe{background:radial-gradient(ellipse 80% 60% at 50% 40%,#F5ECD8 0%,#EAD9BE 70%,#E0CFA8 100%);padding:90px 28px;color:#2C1A0A;}
 .recipe-book-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.75);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:28px 24px;text-align:center;}
 .recipe-fruits-big{font-size:52px;display:block;margin-bottom:18px;animation:sway 4s ease-in-out infinite;}
@@ -216,8 +201,13 @@ section{width:100%;}
 .recipe-desc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#4A2A10;line-height:1.7;margin-bottom:20px;opacity:.85;}
 .recipe-badge{display:inline-block;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.35);border-radius:20px;padding:5px 16px;font-size:11px;letter-spacing:1.5px;color:#8B5E1A;text-transform:uppercase;}
 
-/* FINAL */
-#s-final{background:radial-gradient(ellipse 80% 70% at 50% 60%,#062A16 0%,#031408 65%);padding:90px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;}
+/* Submit */
+.submit-section{background:radial-gradient(ellipse 80% 60% at 50% 80%,#061A08 0%,#030E04 70%);padding:40px 28px 60px;display:flex;justify-content:center;}
+.submit-btn{max-width:440px;width:100%;background:linear-gradient(135deg,#3A8A38,#286828);color:#fff;border:none;border-radius:16px;padding:18px 24px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.5px;box-shadow:0 8px 28px rgba(58,138,56,.3);}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(58,138,56,.4);}
+
+#s-final{background:radial-gradient(ellipse 80% 70% at 50% 60%,#062A16 0%,#031408 65%);padding:90px 28px;text-align:center;display:none;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;}
+#s-final.visible-section{display:flex;}
 .final-icon-big{font-size:56px;display:block;margin-bottom:20px;animation:sway 4s ease-in-out infinite;}
 .final-badge-done{display:inline-block;background:rgba(100,200,130,.12);border:1px solid rgba(100,200,130,.28);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--green2);text-transform:uppercase;margin-bottom:22px;}
 .final-title{font-family:'Playfair Display',serif;font-size:clamp(28px,8vw,44px);font-weight:700;line-height:1.2;margin-bottom:14px;}
@@ -262,21 +252,13 @@ section{width:100%;}
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
-<!-- БАЛАНС 50/50 -->
+<!-- BALANCE -->
 <section id="s-balance" class="sec-c">
   <p class="eyebrow reveal" style="color:#A0C4FF">Секрет молодості</p>
   <h2 class="s-title reveal">50 / 50 —<br><em style="color:#C0D8FF">це ідеально</em></h2>
   <div class="balance-visual reveal">
-    <div class="bal-half animal">
-      <div class="bal-pct">50%</div>
-      <div class="bal-label">🥩 Тваринний</div>
-      <div class="bal-sub">М'ясо, риба,<br>яйця, молочне</div>
-    </div>
-    <div class="bal-half plant">
-      <div class="bal-pct">50%</div>
-      <div class="bal-label">🌿 Рослинний</div>
-      <div class="bal-sub">Бобові, горіхи,<br>зерна, насіння</div>
-    </div>
+    <div class="bal-half animal"><div class="bal-pct">50%</div><div class="bal-label">🥩 Тваринний</div><div class="bal-sub">М'ясо, риба,<br>яйця, молочне</div></div>
+    <div class="bal-half plant"><div class="bal-pct">50%</div><div class="bal-label">🌿 Рослинний</div><div class="bal-sub">Бобові, горіхи,<br>зерна, насіння</div></div>
   </div>
   <div class="balance-points reveal">
     <div class="bp-row"><span class="bp-dot">🔹</span><span>Разом вони дають <strong style="color:var(--text)">повноцінний білок</strong></span></div>
@@ -285,7 +267,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- МЕНЮ 50/50 -->
+<!-- MENU -->
 <section id="s-menu" class="sec-c">
   <p class="eyebrow reveal" style="color:var(--gold)">Практика</p>
   <h2 class="s-title reveal">Меню дня<br><em>на 50 / 50</em></h2>
@@ -344,7 +326,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- ЗВИЧКА -->
+<!-- HABIT -->
 <section id="s-habit" class="sec-c">
   <p class="eyebrow reveal" style="color:var(--gold)">Звичка дня</p>
   <h2 class="s-title reveal">Одна<br><em>звичка</em></h2>
@@ -359,12 +341,11 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- ЗАВДАННЯ -->
+<!-- TASKS -->
 <section id="s-tasks">
   <p class="eyebrow reveal">Практика дня</p>
   <h2 class="s-title reveal">Завдання<br><em>на сьогодні</em></h2>
 
-  <!-- Завдання 1 — 2–3 тваринних -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">1</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Обери 2 або 3 тваринних джерела білка</div>
@@ -386,7 +367,6 @@ section{width:100%;}
     </div>
   </div>
 
-  <!-- Завдання 2 — 4–6 рослинних -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">2</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Обери 4 або 6 рослинних джерел білка</div>
@@ -414,7 +394,6 @@ section{width:100%;}
     </div>
   </div>
 
-  <!-- Завдання 3 — план балансу -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">3</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Завтра — створи баланс з цих продуктів</div>
@@ -428,7 +407,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- ТРЕКЕР ДНЯ -->
+<!-- DAY TRACKER -->
 <section id="s-tracker">
   <p class="eyebrow reveal" style="color:rgba(155,127,212,.7)">Трекер дня</p>
   <h2 class="s-title reveal">Відмітьте що<br><em style="color:#B89FE8">виконали</em></h2>
@@ -452,7 +431,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- ВОДА -->
+<!-- WATER -->
 <section id="s-water">
   <p class="eyebrow reveal" style="color:rgba(110,207,221,.65)">Трекер води</p>
   <h2 class="s-title reveal">Стакани<br><em style="color:#6ecfdd">сьогодні</em></h2>
@@ -477,7 +456,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- РЕФЛЕКСІЯ -->
+<!-- REFLECTION -->
 <section id="s-refl">
   <p class="eyebrow reveal">Рефлексія дня</p>
   <h2 class="s-title reveal">Твої<br><em>відчуття</em></h2>
@@ -501,7 +480,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- ПОРАДИ -->
+<!-- TIPS -->
 <section id="s-tips" class="sec-c">
   <p class="eyebrow reveal" style="color:var(--rose-light)">Від нутриціолога</p>
   <h2 class="s-title reveal">Поради<br><em style="color:#F0C0B0">для тебе</em></h2>
@@ -523,13 +502,11 @@ section{width:100%;}
     <span class="tg-icon-big">💬</span>
     <div class="tg-title">Є питання або<br><em>хочеш поділитись?</em></div>
     <p class="tg-desc">Я читаю кожне повідомлення. Пиши про свої результати, питання або просто як пройшов день — я завжди поруч 🤍</p>
-    <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener">
-      <span>✈️</span> Написати в Telegram
-    </a>
+    <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener"><span>✈️</span> Написати в Telegram</a>
   </div>
 </section>
 
-<!-- КНИГА РЕЦЕПТІВ -->
+<!-- RECIPE -->
 <section id="s-recipe" class="sec-c">
   <p class="eyebrow reveal" style="color:#8B5E3C">Подарунок</p>
   <h2 class="s-title reveal" style="color:#1C0E06">Збірка<br><em style="color:var(--rose)">рецептів</em></h2>
@@ -542,7 +519,12 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- ФІНАЛ -->
+<!-- SUBMIT -->
+<div class="submit-section" id="submitSection">
+  <button class="submit-btn" onclick="submitForm()">День 3 завершено ✓</button>
+</div>
+
+<!-- FINAL — hidden until submit -->
 <section id="s-final">
   <span class="final-icon-big reveal">⚖️</span>
   <div class="final-badge-done reveal">День 3 · Виконано</div>
@@ -560,93 +542,258 @@ section{width:100%;}
 </section>
 
 <script>
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* menu accordion */
-function toggleMenu(id){
-  const c=document.getElementById(id),open=c.classList.contains('open');
-  document.querySelectorAll('.menu-card').forEach(x=>x.classList.remove('open'));
-  if(!open)c.classList.add('open');
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─────────────────────────────────────────────
+// Menu accordion
+// ─────────────────────────────────────────────
+function toggleMenu(id) {
+  const c = document.getElementById(id), open = c.classList.contains('open');
+  document.querySelectorAll('.menu-card').forEach(x => x.classList.remove('open'));
+  if (!open) c.classList.add('open');
 }
 
-/* source selection */
-const ANIMAL_MIN=2,ANIMAL_MAX=3,PLANT_MIN=4,PLANT_MAX=6;
-let selAnimal=[],selPlant=[],animalLocked=false,plantLocked=false;
+// ─────────────────────────────────────────────
+// Source selection
+// ─────────────────────────────────────────────
+const ANIMAL_MIN = 2, ANIMAL_MAX = 3, PLANT_MIN = 4, PLANT_MAX = 6;
+let selAnimal = [], selPlant = [], animalLocked = false, plantLocked = false;
 
-function setupSources(gridId,countId,popupId,namesId,fixBtnId,selArr,min,max,cls,getLocker,setLocker){
-  document.querySelectorAll('#'+gridId+' .src-btn').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      if(getLocker())return;
-      const v=btn.dataset.v;
-      if(btn.classList.contains(cls)){
-        btn.classList.remove(cls);
-        selArr.splice(selArr.indexOf(v),1);
-      } else {
-        if(selArr.length>=max)return;
-        btn.classList.add(cls);
-        selArr.push(v);
-      }
-      const n=selArr.length;
-      document.getElementById(countId).textContent='Обрано: '+n+(n>=min?' — готово або обери ще':'');
-      const fixBtn=document.getElementById(fixBtnId);
-      if(n>=min&&n<=max){fixBtn.style.display='block';}
-      else{fixBtn.style.display='none';}
-      document.getElementById(popupId).classList.remove('visible');
-      updatePlanPreview();
-    });
+function applyAnimalUI() {
+  document.querySelectorAll('#animalGrid .src-btn').forEach(btn => {
+    btn.classList.toggle('animal-sel', selAnimal.includes(btn.dataset.v));
+    btn.style.opacity = animalLocked && !selAnimal.includes(btn.dataset.v) ? '.3' : '';
+    btn.style.cursor  = animalLocked && !selAnimal.includes(btn.dataset.v) ? 'default' : '';
   });
-  document.getElementById(fixBtnId).addEventListener('click',()=>{
-    if(selArr.length<min)return;
-    setLocker(true);
-    document.querySelectorAll('#'+gridId+' .src-btn:not(.'+cls+')').forEach(b=>{b.style.opacity='.3';b.style.cursor='default';});
-    document.getElementById(fixBtnId).style.display='none';
-    document.getElementById(namesId).textContent=selArr.join('  ·  ');
-    document.getElementById(popupId).classList.add('visible');
-    document.getElementById(countId).textContent='Обрано: '+selArr.length+' ✓';
+  const n = selAnimal.length;
+  document.getElementById('animalCount').textContent = 'Обрано: ' + n + (n >= ANIMAL_MIN ? ' — готово або обери ще' : '');
+  const fixBtn = document.getElementById('animalFixBtn');
+  fixBtn.style.display = (!animalLocked && n >= ANIMAL_MIN && n <= ANIMAL_MAX) ? 'block' : 'none';
+  if (animalLocked) {
+    document.getElementById('animalLockNames').textContent = selAnimal.join('  ·  ');
+    document.getElementById('animalLockPopup').classList.add('visible');
+    document.getElementById('animalCount').textContent = 'Обрано: ' + n + ' ✓';
+  } else {
+    document.getElementById('animalLockPopup').classList.remove('visible');
+  }
+}
+
+function applyPlantUI() {
+  document.querySelectorAll('#plantGrid .src-btn').forEach(btn => {
+    btn.classList.toggle('plant-sel', selPlant.includes(btn.dataset.v));
+    btn.style.opacity = plantLocked && !selPlant.includes(btn.dataset.v) ? '.3' : '';
+    btn.style.cursor  = plantLocked && !selPlant.includes(btn.dataset.v) ? 'default' : '';
+  });
+  const n = selPlant.length;
+  document.getElementById('plantCount').textContent = 'Обрано: ' + n + (n >= PLANT_MIN ? ' — готово або обери ще' : '');
+  const fixBtn = document.getElementById('plantFixBtn');
+  fixBtn.style.display = (!plantLocked && n >= PLANT_MIN && n <= PLANT_MAX) ? 'block' : 'none';
+  if (plantLocked) {
+    document.getElementById('plantLockNames').textContent = selPlant.join('  ·  ');
+    document.getElementById('plantLockPopup').classList.add('visible');
+    document.getElementById('plantCount').textContent = 'Обрано: ' + n + ' ✓';
+  } else {
+    document.getElementById('plantLockPopup').classList.remove('visible');
+  }
+}
+
+// Animal clicks
+document.querySelectorAll('#animalGrid .src-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (animalLocked) return;
+    const v = btn.dataset.v;
+    if (selAnimal.includes(v)) selAnimal = selAnimal.filter(x => x !== v);
+    else { if (selAnimal.length >= ANIMAL_MAX) return; selAnimal.push(v); }
+    applyAnimalUI();
     updatePlanPreview();
+    saveState();
   });
-}
+});
 
-setupSources('animalGrid','animalCount','animalLockPopup','animalLockNames','animalFixBtn',selAnimal,ANIMAL_MIN,ANIMAL_MAX,'animal-sel',()=>animalLocked,(v)=>{animalLocked=v;});
-setupSources('plantGrid','plantCount','plantLockPopup','plantLockNames','plantFixBtn',selPlant,PLANT_MIN,PLANT_MAX,'plant-sel',()=>plantLocked,(v)=>{plantLocked=v;});
+document.getElementById('animalFixBtn').addEventListener('click', () => {
+  if (selAnimal.length < ANIMAL_MIN) return;
+  animalLocked = true;
+  applyAnimalUI();
+  updatePlanPreview();
+  saveState();
+});
 
-function updatePlanPreview(){
-  const preview=document.getElementById('planPreview');
-  const tags=document.getElementById('planTags');
-  if(selAnimal.length===0&&selPlant.length===0){preview.classList.remove('visible');return;}
-  tags.innerHTML='';
-  selAnimal.forEach(s=>{const t=document.createElement('span');t.className='plan-tag a';t.textContent='🟡 '+s;tags.appendChild(t);});
-  selPlant.forEach(s=>{const t=document.createElement('span');t.className='plan-tag p';t.textContent='🟢 '+s;tags.appendChild(t);});
+// Plant clicks
+document.querySelectorAll('#plantGrid .src-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (plantLocked) return;
+    const v = btn.dataset.v;
+    if (selPlant.includes(v)) selPlant = selPlant.filter(x => x !== v);
+    else { if (selPlant.length >= PLANT_MAX) return; selPlant.push(v); }
+    applyPlantUI();
+    updatePlanPreview();
+    saveState();
+  });
+});
+
+document.getElementById('plantFixBtn').addEventListener('click', () => {
+  if (selPlant.length < PLANT_MIN) return;
+  plantLocked = true;
+  applyPlantUI();
+  updatePlanPreview();
+  saveState();
+});
+
+function updatePlanPreview() {
+  const preview = document.getElementById('planPreview');
+  const tags = document.getElementById('planTags');
+  if (selAnimal.length === 0 && selPlant.length === 0) { preview.classList.remove('visible'); return; }
+  tags.innerHTML = '';
+  selAnimal.forEach(s => { const t = document.createElement('span'); t.className = 'plan-tag a'; t.textContent = '🟡 ' + s; tags.appendChild(t); });
+  selPlant.forEach(s  => { const t = document.createElement('span'); t.className = 'plan-tag p'; t.textContent = '🟢 ' + s; tags.appendChild(t); });
   preview.classList.add('visible');
 }
 
-/* tracker */
-function toggleCheck(el){
-  el.classList.toggle('done');el.textContent=el.classList.contains('done')?'✓':'';
-  const all=document.querySelectorAll('#dayChecklist .check-btn'),done=document.querySelectorAll('#dayChecklist .check-btn.done');
-  document.getElementById('trackerDone').style.display=(all.length===done.length)?'block':'none';
+// ─────────────────────────────────────────────
+// Day tracker checklist
+// ─────────────────────────────────────────────
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  const all = document.querySelectorAll('#dayChecklist .check-btn');
+  const done = document.querySelectorAll('#dayChecklist .check-btn.done');
+  document.getElementById('trackerDone').style.display = (all.length === done.length) ? 'block' : 'none';
+  saveState();
 }
 
-/* water */
-const ML=250;let gc=0;
-const gw=document.getElementById('glassesWrap');
-function updW(){
-  document.getElementById('mlTotal').textContent=gc*ML;
-  document.getElementById('glassCountVal').textContent=gc+' / 10';
-  document.getElementById('waterPbar').style.width=(gc/10*100)+'%';
-  document.querySelectorAll('.glass-btn').forEach((b,j)=>b.classList.toggle('filled',j<gc));
+// ─────────────────────────────────────────────
+// Water tracker
+// ─────────────────────────────────────────────
+const ML = 250;
+let gc = 0;
+const gw = document.getElementById('glassesWrap');
+
+function updW() {
+  document.getElementById('mlTotal').textContent = gc * ML;
+  document.getElementById('glassCountVal').textContent = gc + ' / 10';
+  document.getElementById('waterPbar').style.width = (gc / 10 * 100) + '%';
+  document.querySelectorAll('.glass-btn').forEach((b, j) => b.classList.toggle('filled', j < gc));
 }
-for(let i=0;i<10;i++){
-  const b=document.createElement('button');
-  b.type='button';b.className='glass-btn';b.textContent='🥛';b.dataset.i=i;
-  b.addEventListener('click',()=>{gc=b.classList.contains('filled')?i:i+1;updW();});
+
+for (let i = 0; i < 10; i++) {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'glass-btn'; b.textContent = '🥛'; b.dataset.i = i;
+  b.addEventListener('click', () => { gc = b.classList.contains('filled') ? i : i + 1; updW(); saveState(); });
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Auto-save textareas
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+document.getElementById('refl2').addEventListener('input', saveState);
+
+// ─────────────────────────────────────────────
+// Submit — reveal final section
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitSection').style.display = 'none';
+  const sf = document.getElementById('s-final');
+  sf.classList.add('visible-section');
+  requestAnimationFrame(() => sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')));
+  sf.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'protein_hw_day3_state';
+
+function getCheckStates() {
+  return Array.from(document.querySelectorAll('#dayChecklist .check-btn'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function saveState() {
+  const state = {
+    selAnimal    : selAnimal,
+    animalLocked : animalLocked,
+    selPlant     : selPlant,
+    plantLocked  : plantLocked,
+    checkDone    : getCheckStates(),
+    glassCount   : gc,
+    refl1        : document.getElementById('refl1').value,
+    refl2        : document.getElementById('refl2').value,
+    submitted    : document.getElementById('s-final').classList.contains('visible-section'),
+  };
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { console.warn('localStorage not available:', e); }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return; }
+  if (!raw) return;
+
+  let state;
+  try { state = JSON.parse(raw); } catch (e) { return; }
+
+  // — Animal sources —
+  if (Array.isArray(state.selAnimal)) {
+    selAnimal = state.selAnimal;
+    animalLocked = !!state.animalLocked;
+    applyAnimalUI();
+  }
+
+  // — Plant sources —
+  if (Array.isArray(state.selPlant)) {
+    selPlant = state.selPlant;
+    plantLocked = !!state.plantLocked;
+    applyPlantUI();
+  }
+
+  updatePlanPreview();
+
+  // — Checklist —
+  if (Array.isArray(state.checkDone)) {
+    const btns = document.querySelectorAll('#dayChecklist .check-btn');
+    btns.forEach((btn, i) => {
+      if (state.checkDone[i]) { btn.classList.add('done'); btn.textContent = '✓'; }
+    });
+    const all = btns.length, done = document.querySelectorAll('#dayChecklist .check-btn.done').length;
+    if (all === done) document.getElementById('trackerDone').style.display = 'block';
+  }
+
+  // — Water —
+  if (typeof state.glassCount === 'number') { gc = state.glassCount; updW(); }
+
+  // — Reflection —
+  if (state.refl1) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2) document.getElementById('refl2').value = state.refl2;
+
+  // — Submitted —
+  if (state.submitted) {
+    document.getElementById('submitSection').style.display = 'none';
+    const sf = document.getElementById('s-final');
+    sf.classList.add('visible-section');
+    sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
