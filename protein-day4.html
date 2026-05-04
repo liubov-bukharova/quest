@@ -19,7 +19,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;op
 section{width:100%;}
 .progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--warm),var(--gold));z-index:100;transition:width .15s;}
 
-/* HERO */
 #s1{min-height:100vh;background:radial-gradient(ellipse 65% 55% at 50% 25%,#2A1A04 0%,#140C02 55%,#0A0601 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 28px 100px;position:relative;overflow:hidden;color:#FFF0E0;}
 .glow-ring{position:absolute;border-radius:50%;border:1px solid rgba(200,125,62,0.1);animation:ring-out 8s ease-out infinite;}
 .glow-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
@@ -43,14 +42,12 @@ section{width:100%;}
 .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
 
-/* shared */
 .sec-c{text-align:center;}
 .eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center;}
 .s-title{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,46px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:16px;}
 .s-title em{font-style:italic;color:var(--rose-light);}
 .s-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--muted);line-height:1.75;max-width:360px;margin:0 auto 36px;text-align:center;}
 
-/* INTRO */
 #s-intro{background:radial-gradient(ellipse 70% 55% at 50% 30%,#2A1404 0%,#140A02 55%,#0A0601 100%);padding:90px 28px;}
 .intro-card-d4{max-width:440px;margin:0 auto;background:rgba(200,125,62,.07);border:1px solid rgba(200,125,62,.22);border-radius:22px;padding:28px 24px;}
 .intro-q{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--text);line-height:1.55;margin-bottom:14px;}
@@ -58,21 +55,6 @@ section{width:100%;}
 .intro-body strong{color:var(--warm2);}
 .intro-divider{width:30px;height:1px;background:rgba(200,125,62,.3);margin:18px auto;}
 
-/* THEORY */
-#s-theory{background:radial-gradient(ellipse 70% 55% at 30% 40%,#1A0E04 0%,#0E0602 65%,#080401 100%);padding:90px 28px;}
-.theory-block{max-width:440px;margin:0 auto 20px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 22px;}
-.theory-num-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:14px;}
-.theory-num-circle{width:28px;height:28px;border-radius:50%;background:var(--warm);color:#fff;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.theory-num-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--warm2);}
-.theory-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.35;}
-.theory-body{font-size:13px;color:var(--muted);line-height:1.75;}
-.theory-body strong{color:var(--text);}
-.alert-box{background:rgba(200,125,62,.08);border-left:3px solid var(--warm);border-radius:0 12px 12px 0;padding:14px 16px;margin-top:14px;font-size:13px;color:rgba(232,168,112,.9);line-height:1.7;}
-.alert-box strong{color:var(--warm2);}
-.micro-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
-.micro-chip{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--muted);}
-
-/* TABLE — мобільний compact */
 #s-table{background:radial-gradient(ellipse 80% 60% at 50% 40%,#F5ECD8 0%,#EAD9BE 70%,#E0CFA8 100%);padding:90px 24px;color:#2C1A0A;}
 .table-card{max-width:440px;margin:0 auto;background:rgba(255,255,255,.85);border:1px solid rgba(180,140,80,.2);border-radius:20px;padding:22px 18px;}
 .table-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#8B5E1A;margin-bottom:8px;display:block;}
@@ -90,7 +72,6 @@ section{width:100%;}
 .helper-desc{font-size:11px;color:#888;line-height:1.45;}
 .table-tip{background:rgba(180,140,80,.08);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:12px;color:#5A3A10;line-height:1.65;}
 
-/* COMBOS */
 #s-combos{background:radial-gradient(ellipse 80% 60% at 30% 60%,#0A1808 0%,#050C04 70%);padding:90px 28px;}
 .combo-list{max-width:440px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
 .combo-row{display:flex;align-items:center;gap:12px;padding:14px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(107,191,138,.18);border-radius:14px;border-left:3px solid var(--green2);}
@@ -98,7 +79,6 @@ section{width:100%;}
 .combo-plus{font-size:14px;color:var(--muted2);}
 .combo-side{font-size:13px;color:var(--muted);}
 
-/* HABIT */
 #s-habit{background:radial-gradient(ellipse 80% 60% at 50% 50%,#220A1C 0%,#100810 70%);padding:90px 28px;}
 .habit-outer{max-width:440px;margin:0 auto;background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.25);border-radius:24px;padding:36px 28px;text-align:center;}
 .habit-badge-pill{display:inline-block;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.32);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
@@ -107,7 +87,6 @@ section{width:100%;}
 .habit-desc-h{font-size:13px;color:var(--muted);line-height:1.75;}
 .habit-desc-h strong{color:var(--text);}
 
-/* TASKS */
 #s-tasks{background:radial-gradient(ellipse 80% 60% at 60% 30%,#2E1608 0%,#180C04 65%);padding:90px 28px;}
 .task-block{max-width:440px;margin:0 auto 22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:24px 22px;}
 .task-num-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:13px;}
@@ -117,7 +96,6 @@ section{width:100%;}
 .task-body-t{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
 .task-body-t strong{color:var(--text);}
 
-/* BREATHING TIMER */
 .breath-timer{background:rgba(255,255,255,.04);border:1px solid rgba(200,125,62,.2);border-radius:16px;padding:20px;text-align:center;}
 .breath-circle{width:120px;height:120px;border-radius:50%;border:3px solid rgba(200,125,62,.3);margin:0 auto 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all 1s ease;position:relative;}
 .breath-circle.inhale{border-color:var(--warm2);background:rgba(200,125,62,.12);transform:scale(1.1);}
@@ -134,7 +112,6 @@ section{width:100%;}
 .breath-btn:hover{background:#A86530;transform:translateY(-1px);}
 .breath-rounds{font-size:12px;color:var(--muted2);margin-top:10px;}
 
-/* GREENS CHECKLIST for task 2 */
 .greens-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;}
 .green-item{display:flex;align-items:center;gap:9px;padding:10px 12px;border-radius:11px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);cursor:pointer;transition:all .2s;user-select:none;}
 .green-item.sel{background:rgba(107,191,138,.1);border-color:rgba(107,191,138,.4);}
@@ -144,13 +121,11 @@ section{width:100%;}
 .green-item.sel .green-label{color:var(--green2);}
 .greens-count{font-size:11px;color:var(--muted2);text-align:right;margin-top:8px;font-style:italic;}
 
-/* CHEWING hint for task 3 */
 .chew-box{background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.2);border-radius:14px;padding:16px 18px;margin-top:8px;}
 .chew-icon{font-size:32px;display:block;margin-bottom:10px;text-align:center;animation:sway 3s ease-in-out infinite;}
 .chew-rule{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--gold2);text-align:center;margin-bottom:8px;}
 .chew-desc{font-size:13px;color:var(--muted);line-height:1.7;text-align:center;}
 
-/* TRACKER */
 #s-tracker{background:radial-gradient(ellipse 80% 60% at 40% 70%,#1C0A20 0%,#0C0610 70%);padding:90px 28px;}
 .tracker-wrap{max-width:440px;margin:0 auto;}
 .tracker-dark-card{background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(155,127,212,.18);margin-bottom:12px;}
@@ -169,7 +144,6 @@ section{width:100%;}
 .td-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--green);margin-bottom:5px;}
 .td-desc{font-size:13px;color:rgba(107,191,138,.7);line-height:1.6;}
 
-/* WATER */
 #s-water{background:radial-gradient(ellipse 80% 60% at 60% 30%,#081C28 0%,#040E18 70%);padding:90px 28px;}
 .water-dark-card{max-width:440px;margin:0 auto;background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(78,143,163,.22);}
 .water-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(110,207,221,.55);margin-bottom:6px;display:block;}
@@ -181,7 +155,6 @@ section{width:100%;}
 .glass-btn{width:42px;height:42px;border-radius:12px;border:1.5px solid rgba(78,143,163,.25);background:rgba(78,143,163,.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);}
 .glass-btn.filled{background:rgba(78,143,163,.3);border-color:rgba(110,207,221,.7);transform:scale(1.08);}
 
-/* REFLECTION */
 #s-refl{background:radial-gradient(ellipse 80% 60% at 30% 60%,#201408 0%,#100A04 70%);padding:90px 28px;}
 .refl-wrap{max-width:440px;margin:0 auto;}
 .refl-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 22px;margin-bottom:14px;}
@@ -198,7 +171,6 @@ section{width:100%;}
 .refl-privacy-text{font-size:12px;color:var(--muted2);line-height:1.65;}
 .refl-privacy-text strong{color:var(--muted);}
 
-/* NUTRI NOTE */
 #s-nutri{background:radial-gradient(ellipse 80% 60% at 50% 40%,#180A2E 0%,#0C0618 70%);padding:90px 28px;}
 .nutri-card{max-width:440px;margin:0 auto;background:rgba(155,127,212,.07);border:1px solid rgba(155,127,212,.22);border-radius:22px;padding:28px 24px;text-align:center;}
 .nutri-icon{font-size:44px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;}
@@ -207,14 +179,12 @@ section{width:100%;}
 .nutri-body strong{color:var(--text);}
 .nutri-sign{margin-top:18px;font-size:12px;color:rgba(155,127,212,.7);font-style:italic;}
 
-/* TELEGRAM з акордеоном */
 #s-tg{background:radial-gradient(ellipse 80% 60% at 40% 50%,#06141E 0%,#030A12 70%);padding:90px 28px;}
 .tg-card{max-width:440px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(78,143,200,.22);border-radius:24px;padding:30px 24px;text-align:center;}
 .tg-icon-big{font-size:46px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;}
 .tg-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3;}
 .tg-title em{font-style:italic;color:#6ecfdd;}
 .tg-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
-/* accordion всередині tg-card */
 .tg-accordion{border:1px solid rgba(196,115,106,.25);border-radius:14px;overflow:hidden;margin-bottom:20px;text-align:left;}
 .tg-acc-trigger{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;cursor:pointer;user-select:none;background:rgba(196,115,106,.07);font-size:13px;color:var(--rose-light);transition:background .15s;}
 .tg-acc-trigger:hover{background:rgba(196,115,106,.12);}
@@ -230,7 +200,6 @@ section{width:100%;}
 .tg-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1A7AB8,#0E5A8A);color:#fff;border:none;border-radius:50px;padding:15px 36px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:.5px;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 8px 28px rgba(26,122,184,.35);}
 .tg-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(26,122,184,.45);}
 
-/* RECIPE */
 #s-recipe{background:radial-gradient(ellipse 80% 60% at 50% 40%,#F5ECD8 0%,#EAD9BE 70%,#E0CFA8 100%);padding:90px 28px;color:#2C1A0A;}
 .recipe-book-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.75);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:28px 24px;text-align:center;}
 .recipe-fruits-big{font-size:52px;display:block;margin-bottom:18px;animation:sway 4s ease-in-out infinite;}
@@ -238,8 +207,13 @@ section{width:100%;}
 .recipe-desc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#4A2A10;line-height:1.7;margin-bottom:20px;opacity:.85;}
 .recipe-badge{display:inline-block;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.35);border-radius:20px;padding:5px 16px;font-size:11px;letter-spacing:1.5px;color:#8B5E1A;text-transform:uppercase;}
 
-/* FINAL */
-#s-final{background:radial-gradient(ellipse 80% 70% at 50% 60%,#1E1004 0%,#0E0802 65%);padding:90px 28px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;}
+/* Submit */
+.submit-section{background:radial-gradient(ellipse 80% 60% at 50% 80%,#1a0f06 0%,#0c0806 70%);padding:40px 28px 60px;display:flex;justify-content:center;}
+.submit-btn{max-width:440px;width:100%;background:linear-gradient(135deg,var(--warm),#a06030);color:#fff;border:none;border-radius:16px;padding:18px 24px;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.5px;box-shadow:0 8px 28px rgba(200,125,62,.3);}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(200,125,62,.4);}
+
+#s-final{background:radial-gradient(ellipse 80% 70% at 50% 60%,#1E1004 0%,#0E0802 65%);padding:90px 28px;text-align:center;display:none;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;}
+#s-final.visible-section{display:flex;}
 .final-icon-big{font-size:56px;display:block;margin-bottom:20px;animation:sway 4s ease-in-out infinite;}
 .final-badge-done{display:inline-block;background:rgba(200,125,62,.12);border:1px solid rgba(200,125,62,.28);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--warm2);text-transform:uppercase;margin-bottom:22px;}
 .final-title{font-family:'Playfair Display',serif;font-size:clamp(30px,9vw,48px);font-weight:700;line-height:1.2;margin-bottom:14px;}
@@ -294,7 +268,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- TABLE — компактна мобільна версія -->
+<!-- TABLE -->
 <section id="s-table" class="sec-c">
   <p class="eyebrow reveal" style="color:#8B5E1A">Шпаргалка</p>
   <h2 class="s-title reveal" style="color:#1C0E06">Що допомагає<br><em style="color:var(--rose)">засвоїти білок</em></h2>
@@ -302,34 +276,10 @@ section{width:100%;}
     <span class="table-eyebrow">🌿 Продукти-помічники</span>
     <div class="table-title-d4">Додай до кожного білкового прийому</div>
     <div class="helper-cards">
-      <div class="helper-row">
-        <span class="helper-badge green">🌿 Зелень</span>
-        <div class="helper-right">
-          <div class="helper-products">Рукола, кріп, петрушка, шпинат, салати, зелень</div>
-          <div class="helper-desc">Стимулюють травлення, містять ферменти й хлорофіл</div>
-        </div>
-      </div>
-      <div class="helper-row">
-        <span class="helper-badge acid">🍋 Кислинка</span>
-        <div class="helper-right">
-          <div class="helper-products">Квашена капуста, лимон, помідор, редиска</div>
-          <div class="helper-desc">Підсилюють вироблення шлункового соку</div>
-        </div>
-      </div>
-      <div class="helper-row">
-        <span class="helper-badge spice">🫚 Спеції</span>
-        <div class="helper-right">
-          <div class="helper-products">Імбир, куркума, кмин, фенхель</div>
-          <div class="helper-desc">Активують ферменти, зменшують газоутворення</div>
-        </div>
-      </div>
-      <div class="helper-row">
-        <span class="helper-badge green">🥦 Овочі</span>
-        <div class="helper-right">
-          <div class="helper-products">Броколі, кабачок</div>
-          <div class="helper-desc">Клітковина підтримує мікробіом і засвоєння білка</div>
-        </div>
-      </div>
+      <div class="helper-row"><span class="helper-badge green">🌿 Зелень</span><div class="helper-right"><div class="helper-products">Рукола, кріп, петрушка, шпинат, салати, зелень</div><div class="helper-desc">Стимулюють травлення, містять ферменти й хлорофіл</div></div></div>
+      <div class="helper-row"><span class="helper-badge acid">🍋 Кислинка</span><div class="helper-right"><div class="helper-products">Квашена капуста, лимон, помідор, редиска</div><div class="helper-desc">Підсилюють вироблення шлункового соку</div></div></div>
+      <div class="helper-row"><span class="helper-badge spice">🫚 Спеції</span><div class="helper-right"><div class="helper-products">Імбир, куркума, кмин, фенхель</div><div class="helper-desc">Активують ферменти, зменшують газоутворення</div></div></div>
+      <div class="helper-row"><span class="helper-badge green">🥦 Овочі</span><div class="helper-right"><div class="helper-products">Броколі, кабачок</div><div class="helper-desc">Клітковина підтримує мікробіом і засвоєння білка</div></div></div>
     </div>
     <div class="table-tip">📌 Якщо відчуваєш важкість після їжі — спробуй ферментні комплекси (лише за рекомендацією спеціаліста).</div>
   </div>
@@ -365,7 +315,6 @@ section{width:100%;}
   <p class="eyebrow reveal">Практика дня</p>
   <h2 class="s-title reveal">Завдання<br><em>на сьогодні</em></h2>
 
-  <!-- Завдання 1 — таймер дихання -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">1</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Три глибоких вдихи перед їжею</div>
@@ -386,7 +335,6 @@ section{width:100%;}
     </div>
   </div>
 
-  <!-- Завдання 2 — відміч що додаси -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">2</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">До кожного білкового блюда — зелень або кислинка</div>
@@ -406,7 +354,6 @@ section{width:100%;}
     <p class="greens-count" id="greensCount">Обрано: 0 продуктів</p>
   </div>
 
-  <!-- Завдання 3 — ретельне жування -->
   <div class="task-block reveal">
     <div class="task-num-row"><div class="task-num-circle">3</div><span class="task-num-label">Завдання</span></div>
     <div class="task-title-t">Тверду їжу роби рідкою жуванням</div>
@@ -478,15 +425,15 @@ section{width:100%;}
       <p class="refl-sub">Запиши спостереження — вони знадобляться наприкінці тижня 🌿</p>
       <div class="refl-q">
         <label class="refl-q-label">Чи вдалося поїсти в спокої, без поспіху?</label>
-        <textarea class="refl-textarea" placeholder="Що заважало або допомагало залишатися спокійною…" rows="3"></textarea>
+        <textarea class="refl-textarea" id="refl1" placeholder="Що заважало або допомагало залишатися спокійною…" rows="3"></textarea>
       </div>
       <div class="refl-q">
         <label class="refl-q-label">Які продукти-помічники ти додала сьогодні?</label>
-        <textarea class="refl-textarea" placeholder="Рукола, лимон, квашена капуста, куркума…" rows="3"></textarea>
+        <textarea class="refl-textarea" id="refl2" placeholder="Рукола, лимон, квашена капуста, куркума…" rows="3"></textarea>
       </div>
       <div class="refl-q">
         <label class="refl-q-label">Чи відчула різницю після усвідомленого жування?</label>
-        <textarea class="refl-textarea" placeholder="Менше важкості, більше енергії, краща ситість…" rows="3"></textarea>
+        <textarea class="refl-textarea" id="refl3" placeholder="Менше важкості, більше енергії, краща ситість…" rows="3"></textarea>
       </div>
     </div>
     <div class="refl-privacy reveal">
@@ -496,7 +443,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- NUTRI NOTE — лише спокій за столом -->
+<!-- NUTRI NOTE -->
 <section id="s-nutri" class="sec-c">
   <p class="eyebrow reveal" style="color:rgba(155,127,212,.7)">Від нутриціолога</p>
   <h2 class="s-title reveal">Нагадування<br><em style="color:#C8A8F8">для тебе</em></h2>
@@ -508,7 +455,7 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- TELEGRAM з акордеоном -->
+<!-- TELEGRAM -->
 <section id="s-tg">
   <p class="eyebrow reveal" style="color:rgba(110,207,221,.65)">Особисто від мене</p>
   <h2 class="s-title reveal">Написати<br><em style="color:#6ecfdd">Любові</em></h2>
@@ -532,15 +479,13 @@ section{width:100%;}
         <div class="tg-acc-cta">👉 <strong>Напиши мені</strong> — і я дам тобі персональні рекомендації саме під твою ситуацію. Антипаразитарна програма під наглядом спеціаліста — це проста і ефективна профілактика 💬</div>
       </div>
     </div>
-    <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener">
-      <span>📲</span> Написати в Telegram
-    </a>
+    <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener"><span>📲</span> Написати в Telegram</a>
   </div>
 </section>
 
 <!-- RECIPE -->
 <section id="s-recipe" class="sec-c">
-  <p class="eyebrow reveal" style="color:#8B5E3C"> 📖</p>
+  <p class="eyebrow reveal" style="color:#8B5E3C">📖</p>
   <h2 class="s-title reveal" style="color:#1C0E06">Збірка<br><em style="color:var(--rose)">рецептів</em></h2>
   <p class="s-body reveal" style="color:rgba(44,26,10,.6)">Швидкі рецепти — їжа, що лікує, живить і працює на твоє тіло</p>
   <div class="recipe-book-card reveal">
@@ -551,7 +496,12 @@ section{width:100%;}
   </div>
 </section>
 
-<!-- FINAL -->
+<!-- SUBMIT -->
+<div class="submit-section" id="submitSection">
+  <button class="submit-btn" onclick="submitForm()">День 4 завершено ✓</button>
+</div>
+
+<!-- FINAL — hidden until submit -->
 <section id="s-final">
   <span class="final-icon-big reveal">🌿</span>
   <div class="final-badge-done reveal">День 4 · Виконано</div>
@@ -568,129 +518,264 @@ section{width:100%;}
 </section>
 
 <script>
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
 });
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');})},{threshold:0.08});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* TG accordion */
-function toggleTgAcc(trigger){
-  const body=trigger.nextElementSibling;
-  const arrow=trigger.querySelector('.tg-acc-arrow');
-  const open=body.classList.toggle('open');
-  arrow.style.transform=open?'rotate(180deg)':'rotate(0deg)';
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// ─────────────────────────────────────────────
+// TG accordion
+// ─────────────────────────────────────────────
+function toggleTgAcc(trigger) {
+  const body = trigger.nextElementSibling;
+  const arrow = trigger.querySelector('.tg-acc-arrow');
+  const open = body.classList.toggle('open');
+  arrow.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
 }
 
-/* Tracker */
-function toggleCheck(el){
-  el.classList.toggle('done');el.textContent=el.classList.contains('done')?'✓':'';
-  const all=document.querySelectorAll('#dayChecklist .check-btn'),done=document.querySelectorAll('#dayChecklist .check-btn.done');
-  document.getElementById('trackerDone').style.display=(all.length===done.length)?'block':'none';
+// ─────────────────────────────────────────────
+// Day tracker checklist
+// ─────────────────────────────────────────────
+function toggleCheck(el) {
+  el.classList.toggle('done');
+  el.textContent = el.classList.contains('done') ? '✓' : '';
+  const all = document.querySelectorAll('#dayChecklist .check-btn');
+  const done = document.querySelectorAll('#dayChecklist .check-btn.done');
+  document.getElementById('trackerDone').style.display = (all.length === done.length) ? 'block' : 'none';
+  saveState();
 }
 
-/* Greens checklist */
-function toggleGreen(item){
+// ─────────────────────────────────────────────
+// Greens checklist (Task 2)
+// ─────────────────────────────────────────────
+function toggleGreen(item) {
   item.classList.toggle('sel');
-  const cnt=document.querySelectorAll('#greensGrid .green-item.sel').length;
-  document.getElementById('greensCount').textContent='Обрано: '+cnt+' продукт'+(cnt===1?'':'ів');
+  const cnt = document.querySelectorAll('#greensGrid .green-item.sel').length;
+  document.getElementById('greensCount').textContent = 'Обрано: ' + cnt + ' продукт' + (cnt === 1 ? '' : 'ів');
+  saveState();
 }
 
-/* Breathing timer */
-let breathRunning=false,breathTimer=null;
-const PHASES=[
-  {label:'ВДИХ',cls:'inhale',sec:3},
-  {label:'ЗАТРИМКА',cls:'hold',sec:3},
-  {label:'ВИДИХ',cls:'exhale',sec:3}
+// ─────────────────────────────────────────────
+// Breathing timer (Task 1)
+// ─────────────────────────────────────────────
+let breathRunning = false, breathTimer = null;
+const PHASES = [
+  { label: 'ВДИХ',     cls: 'inhale', sec: 3 },
+  { label: 'ЗАТРИМКА', cls: 'hold',   sec: 3 },
+  { label: 'ВИДИХ',    cls: 'exhale', sec: 3 }
 ];
-const CYCLES=3;
-let curCycle=0,curPhase=0,curSec=3;
+const CYCLES = 3;
+let curCycle = 0, curPhase = 0, curSec = 3;
+let breathDone = false;
 
-function startBreath(){
-  if(breathRunning){
+function startBreath() {
+  if (breathRunning) {
     clearTimeout(breathTimer);
-    breathRunning=false;
+    breathRunning = false;
     resetBreath();
     return;
   }
-  breathRunning=true;
-  curCycle=0;curPhase=0;curSec=PHASES[0].sec;
-  document.getElementById('breathBtn').textContent='Зупинити';
+  breathRunning = true;
+  breathDone = false;
+  curCycle = 0; curPhase = 0; curSec = PHASES[0].sec;
+  document.getElementById('breathBtn').textContent = 'Зупинити';
   runBreath();
 }
 
-function runBreath(){
-  if(!breathRunning)return;
-  const p=PHASES[curPhase];
-  const circle=document.getElementById('breathCircle');
-  circle.className='breath-circle '+p.cls;
-  document.getElementById('breathPhase').textContent=p.label;
-  document.getElementById('breathCount').textContent=curSec;
-  document.getElementById('breathLabel').textContent=
-    p.cls==='inhale'?'Повільно вдихай через ніс…':
-    p.cls==='hold'?'Затримай дихання…':'Повільно видихай через рот…';
-  // steps
-  for(let i=0;i<3;i++){
-    const s=document.getElementById('bstep'+i);
-    s.className='breath-step'+(i<curCycle?' done':i===curCycle?' active':'');
+function runBreath() {
+  if (!breathRunning) return;
+  const p = PHASES[curPhase];
+  const circle = document.getElementById('breathCircle');
+  circle.className = 'breath-circle ' + p.cls;
+  document.getElementById('breathPhase').textContent = p.label;
+  document.getElementById('breathCount').textContent = curSec;
+  document.getElementById('breathLabel').textContent =
+    p.cls === 'inhale' ? 'Повільно вдихай через ніс…' :
+    p.cls === 'hold'   ? 'Затримай дихання…' : 'Повільно видихай через рот…';
+  for (let i = 0; i < 3; i++) {
+    const st = document.getElementById('bstep' + i);
+    st.className = 'breath-step' + (i < curCycle ? ' done' : i === curCycle ? ' active' : '');
   }
-  document.getElementById('breathRounds').textContent='Цикл '+(curCycle+1)+' з '+CYCLES;
-
-  if(curSec>0){
+  document.getElementById('breathRounds').textContent = 'Цикл ' + (curCycle + 1) + ' з ' + CYCLES;
+  if (curSec > 0) {
     curSec--;
-    breathTimer=setTimeout(runBreath,1000);
+    breathTimer = setTimeout(runBreath, 1000);
   } else {
     curPhase++;
-    if(curPhase>=PHASES.length){
-      curPhase=0;curCycle++;
-      if(curCycle>=CYCLES){
-        finishBreath();return;
-      }
+    if (curPhase >= PHASES.length) {
+      curPhase = 0; curCycle++;
+      if (curCycle >= CYCLES) { finishBreath(); return; }
     }
-    curSec=PHASES[curPhase].sec;
-    breathTimer=setTimeout(runBreath,1000);
+    curSec = PHASES[curPhase].sec;
+    breathTimer = setTimeout(runBreath, 1000);
   }
 }
 
-function finishBreath(){
-  breathRunning=false;
-  const circle=document.getElementById('breathCircle');
-  circle.className='breath-circle';
-  document.getElementById('breathPhase').textContent='ГОТОВО';
-  document.getElementById('breathCount').textContent='✓';
-  document.getElementById('breathLabel').textContent='3 цикли виконано! Тіло готове до їжі 🌿';
-  document.getElementById('breathBtn').textContent='Повторити';
-  for(let i=0;i<3;i++) document.getElementById('bstep'+i).className='breath-step done';
-  document.getElementById('breathRounds').textContent='Чудово! Ти готова до усвідомленого прийому їжі';
+function finishBreath() {
+  breathRunning = false;
+  breathDone = true;
+  const circle = document.getElementById('breathCircle');
+  circle.className = 'breath-circle';
+  document.getElementById('breathPhase').textContent = 'ГОТОВО';
+  document.getElementById('breathCount').textContent = '✓';
+  document.getElementById('breathLabel').textContent = '3 цикли виконано! Тіло готове до їжі 🌿';
+  document.getElementById('breathBtn').textContent = 'Повторити';
+  for (let i = 0; i < 3; i++) document.getElementById('bstep' + i).className = 'breath-step done';
+  document.getElementById('breathRounds').textContent = 'Чудово! Ти готова до усвідомленого прийому їжі';
+  saveState();
 }
 
-function resetBreath(){
-  const circle=document.getElementById('breathCircle');
-  circle.className='breath-circle';
-  document.getElementById('breathPhase').textContent='ГОТОВО';
-  document.getElementById('breathCount').textContent='3';
-  document.getElementById('breathLabel').textContent='Натисни щоб почати';
-  document.getElementById('breathBtn').textContent='Почати дихання';
-  for(let i=0;i<3;i++) document.getElementById('bstep'+i).className='breath-step';
-  document.getElementById('breathRounds').textContent='3 цикли · вдих 3 · затримка 3 · видих 3';
+function resetBreath() {
+  breathDone = false;
+  const circle = document.getElementById('breathCircle');
+  circle.className = 'breath-circle';
+  document.getElementById('breathPhase').textContent = 'ГОТОВО';
+  document.getElementById('breathCount').textContent = '3';
+  document.getElementById('breathLabel').textContent = 'Натисни щоб почати';
+  document.getElementById('breathBtn').textContent = 'Почати дихання';
+  for (let i = 0; i < 3; i++) document.getElementById('bstep' + i).className = 'breath-step';
+  document.getElementById('breathRounds').textContent = '3 цикли · вдих 3 · затримка 3 · видих 3';
 }
 
-/* Water */
-const ML=250;let gc=0;
-const gw=document.getElementById('glassesWrap');
-function updW(){
-  document.getElementById('mlTotal').textContent=gc*ML;
-  document.getElementById('glassCountVal').textContent=gc+' / 10';
-  document.getElementById('waterPbar').style.width=(gc/10*100)+'%';
-  document.querySelectorAll('.glass-btn').forEach((b,j)=>b.classList.toggle('filled',j<gc));
+// ─────────────────────────────────────────────
+// Water tracker
+// ─────────────────────────────────────────────
+const ML = 250;
+let gc = 0;
+const gw = document.getElementById('glassesWrap');
+
+function updW() {
+  document.getElementById('mlTotal').textContent = gc * ML;
+  document.getElementById('glassCountVal').textContent = gc + ' / 10';
+  document.getElementById('waterPbar').style.width = (gc / 10 * 100) + '%';
+  document.querySelectorAll('.glass-btn').forEach((b, j) => b.classList.toggle('filled', j < gc));
 }
-for(let i=0;i<10;i++){
-  const b=document.createElement('button');
-  b.type='button';b.className='glass-btn';b.textContent='🥛';b.dataset.i=i;
-  b.addEventListener('click',()=>{gc=b.classList.contains('filled')?i:i+1;updW();});
+
+for (let i = 0; i < 10; i++) {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'glass-btn'; b.textContent = '🥛'; b.dataset.i = i;
+  b.addEventListener('click', () => { gc = b.classList.contains('filled') ? i : i + 1; updW(); saveState(); });
   gw.appendChild(b);
 }
+
+// ─────────────────────────────────────────────
+// Auto-save textareas
+// ─────────────────────────────────────────────
+['refl1', 'refl2', 'refl3'].forEach(id => {
+  document.getElementById(id).addEventListener('input', saveState);
+});
+
+// ─────────────────────────────────────────────
+// Submit
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitSection').style.display = 'none';
+  const sf = document.getElementById('s-final');
+  sf.classList.add('visible-section');
+  requestAnimationFrame(() => sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')));
+  sf.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  saveState();
+}
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'protein_hw_day4_state';
+
+function getCheckStates() {
+  return Array.from(document.querySelectorAll('#dayChecklist .check-btn'))
+    .map(btn => btn.classList.contains('done'));
+}
+
+function getGreensStates() {
+  return Array.from(document.querySelectorAll('#greensGrid .green-item'))
+    .map(item => item.classList.contains('sel'));
+}
+
+function saveState() {
+  const state = {
+    checkDone  : getCheckStates(),
+    greensSel  : getGreensStates(),
+    breathDone : breathDone,
+    glassCount : gc,
+    refl1      : document.getElementById('refl1').value,
+    refl2      : document.getElementById('refl2').value,
+    refl3      : document.getElementById('refl3').value,
+    submitted  : document.getElementById('s-final').classList.contains('visible-section'),
+  };
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { console.warn('localStorage not available:', e); }
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return; }
+  if (!raw) return;
+
+  let state;
+  try { state = JSON.parse(raw); } catch (e) { return; }
+
+  // — Checklist —
+  if (Array.isArray(state.checkDone)) {
+    const btns = document.querySelectorAll('#dayChecklist .check-btn');
+    btns.forEach((btn, i) => {
+      if (state.checkDone[i]) { btn.classList.add('done'); btn.textContent = '✓'; }
+    });
+    const all = btns.length, done = document.querySelectorAll('#dayChecklist .check-btn.done').length;
+    if (all === done) document.getElementById('trackerDone').style.display = 'block';
+  }
+
+  // — Greens —
+  if (Array.isArray(state.greensSel)) {
+    const items = document.querySelectorAll('#greensGrid .green-item');
+    items.forEach((item, i) => { if (state.greensSel[i]) item.classList.add('sel'); });
+    const cnt = document.querySelectorAll('#greensGrid .green-item.sel').length;
+    document.getElementById('greensCount').textContent = 'Обрано: ' + cnt + ' продукт' + (cnt === 1 ? '' : 'ів');
+  }
+
+  // — Breath done state —
+  if (state.breathDone) {
+    breathDone = true;
+    document.getElementById('breathPhase').textContent = 'ГОТОВО';
+    document.getElementById('breathCount').textContent = '✓';
+    document.getElementById('breathLabel').textContent = '3 цикли виконано! Тіло готове до їжі 🌿';
+    document.getElementById('breathBtn').textContent = 'Повторити';
+    for (let i = 0; i < 3; i++) document.getElementById('bstep' + i).className = 'breath-step done';
+    document.getElementById('breathRounds').textContent = 'Чудово! Ти готова до усвідомленого прийому їжі';
+  }
+
+  // — Water —
+  if (typeof state.glassCount === 'number') { gc = state.glassCount; updW(); }
+
+  // — Reflection —
+  if (state.refl1) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2) document.getElementById('refl2').value = state.refl2;
+  if (state.refl3) document.getElementById('refl3').value = state.refl3;
+
+  // — Submitted —
+  if (state.submitted) {
+    document.getElementById('submitSection').style.display = 'none';
+    const sf = document.getElementById('s-final');
+    sf.classList.add('visible-section');
+    sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
