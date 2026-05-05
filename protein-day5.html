@@ -3,706 +3,699 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>День 2 · Білок — енергія і молодість</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<title>День 5 · Підсумок білкового тижня · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 :root{
-  --gold:#D4A843;--gold2:#F0C96A;--rose:#C4785A;--rose-light:#E8A090;
-  --green:#6BBF8A;--purple:#9B7FD4;--text:#F5EDE8;
-  --muted:rgba(245,237,232,0.55);--muted2:rgba(245,237,232,0.25);
-  --border:rgba(255,255,255,0.09);
+  --gold:#D4A843;--gold2:#F0C96A;--gold-deep:#8A6010;
+  --bg1:#080400;--bg2:#0E0802;--bg3:#1E1204;--bg4:#2A1A04;
+  --card:rgba(255,255,255,0.05);--card2:rgba(255,255,255,0.08);
+  --border:rgba(255,255,255,0.09);--border-gold:rgba(212,168,67,0.22);
+  --text:#F5EDE8;--muted:rgba(245,237,232,0.55);--muted2:rgba(245,237,232,0.28);
+  --green:#64C882;--green2:rgba(100,200,130,0.15);--sage:#6BBF8A;
+  --rose:#C4785A;
 }
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;color:var(--text);overflow-x:hidden;}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");}
-section{width:100%;}
-.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold));z-index:100;transition:width .15s;}
+body{font-family:'DM Sans',sans-serif;color:var(--text);overflow-x:hidden;background:var(--bg1);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
+.progress-bar{position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--rose),var(--gold),var(--green));
+  z-index:200;transition:width .15s;box-shadow:0 0 8px rgba(212,168,67,.35);}
 
-/* HERO */
-#s1{min-height:100vh;background:radial-gradient(ellipse 60% 55% at 50% 25%,#3A1A04 0%,#1E0A02 55%,#0E0501 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 28px 100px;position:relative;overflow:hidden;color:#FFF0E0;}
-.glow-ring{position:absolute;border-radius:50%;border:1px solid rgba(212,168,67,0.1);animation:ring-out 8s ease-out infinite;}
-.glow-ring:nth-child(1){width:200px;height:200px;animation-delay:0s}
-.glow-ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
-.glow-ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
-.glow-ring:nth-child(4){width:960px;height:960px;animation-delay:6s}
-@keyframes ring-out{0%{transform:scale(.3);opacity:.5}100%{transform:scale(1.3);opacity:0}}
-.author-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:40px;padding:8px 18px 8px 8px;margin-bottom:40px;backdrop-filter:blur(12px);position:relative;z-index:1;}
-.author-avatar{width:38px;height:38px;border-radius:50%;background:var(--rose);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
-.author-name{font-size:13px;font-weight:500;line-height:1.2;}
-.author-role{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
-.quest-badge{display:inline-block;border:1px solid rgba(212,168,67,.45);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;margin-bottom:36px;position:relative;z-index:1;}
-.hero-icon{font-size:72px;display:block;margin-bottom:22px;animation:sway 4s ease-in-out infinite;position:relative;z-index:1;}
-@keyframes sway{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(2deg)}}
-.hero-day{font-family:'Playfair Display',serif;font-size:clamp(13px,3.5vw,18px);font-style:italic;color:rgba(255,200,100,.55);display:block;margin-bottom:4px;letter-spacing:1px;position:relative;z-index:1;}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(52px,14vw,82px);font-weight:900;line-height:1;letter-spacing:-2px;position:relative;z-index:1;}
-.hero-em{font-family:'Playfair Display',serif;font-size:clamp(40px,11vw,66px);font-style:italic;font-weight:700;display:block;line-height:1.1;color:var(--gold2);position:relative;z-index:1;}
-.hero-em2{font-family:'Playfair Display',serif;font-size:clamp(36px,10vw,58px);font-style:italic;font-weight:700;display:block;line-height:1.1;color:var(--rose-light);position:relative;z-index:1;}
-.hero-div{width:38px;height:1px;background:rgba(255,255,255,.2);margin:20px auto;position:relative;z-index:1;}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--muted);line-height:1.7;max-width:300px;position:relative;z-index:1;}
-.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1;}
-@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+/* ═══ HERO ═══ */
+#s-hero{min-height:100vh;
+  background:radial-gradient(ellipse 70% 60% at 50% 20%,#2A1A04 0%,#140C02 50%,#080400 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:64px 24px 110px;position:relative;overflow:hidden;}
+.star-field{position:absolute;inset:0;z-index:0;pointer-events:none;}
+.star{position:absolute;border-radius:50%;background:rgba(212,168,74,.9);animation:twinkle var(--d) ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:.07;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
+.gold-ring{position:absolute;border-radius:50%;border:1px solid rgba(212,168,74,.13);animation:ring-out 9s ease-out infinite;}
+.gold-ring:nth-child(1){width:180px;height:180px;animation-delay:0s}
+.gold-ring:nth-child(2){width:400px;height:400px;animation-delay:2.2s}
+.gold-ring:nth-child(3){width:680px;height:680px;animation-delay:4.5s}
+.gold-ring:nth-child(4){width:980px;height:980px;animation-delay:6.8s}
+@keyframes ring-out{0%{transform:scale(.2);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 45% at 50% 18%,rgba(212,168,74,.15),transparent);pointer-events:none;}
+.author-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:40px;padding:8px 18px 8px 8px;margin-bottom:36px;backdrop-filter:blur(12px);position:relative;z-index:1;}
+.author-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.author-name{font-size:13px;font-weight:500;color:rgba(255,255,255,.85);line-height:1.2;}
+.author-role{font-size:10px;letter-spacing:2px;color:var(--muted2);text-transform:uppercase;}
+.week-badge{display:inline-block;border:1px solid var(--border-gold);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--gold2);text-transform:uppercase;margin-bottom:34px;position:relative;z-index:1;background:rgba(212,168,67,.09);}
+.hero-trophy{font-size:78px;display:block;margin-bottom:20px;animation:trophy-float 4s ease-in-out infinite;position:relative;z-index:1;}
+@keyframes trophy-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(1.5deg)}}
+.hero-eyebrow{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(14px,3.5vw,18px);color:rgba(212,168,74,.55);display:block;margin-bottom:5px;position:relative;z-index:1;}
+.hero-h1{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(44px,12vw,76px);line-height:1.05;color:#fff;position:relative;z-index:1;}
+.hero-h1 em{font-style:italic;color:var(--gold2);}
+.hero-div{width:36px;height:1px;background:rgba(255,255,255,.15);margin:18px auto;position:relative;z-index:1;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--muted2);line-height:1.7;max-width:320px;position:relative;z-index:1;}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite;z-index:1;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
 
-/* shared */
-.sec-c{text-align:center;}
-.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center;}
-.s-title{font-family:'Playfair Display',serif;font-size:clamp(30px,8vw,46px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:16px;}
-.s-title em{font-style:italic;color:var(--rose-light);}
-.s-body{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--muted);line-height:1.75;max-width:360px;margin:0 auto 36px;text-align:center;}
+/* ═══ SHARED ═══ */
+.wrap{max-width:500px;margin:0 auto;}
+section{padding:64px 24px;}
+section:nth-child(odd){background:radial-gradient(ellipse 80% 60% at 50% 40%,#1E1204 0%,#0E0802 70%);}
+section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1A1004 0%,#0A0602 70%);}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;text-align:center;display:block;}
+.s-title{font-family:'Playfair Display',serif;font-size:clamp(26px,6vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:#fff;}
+.s-title em{font-style:italic;color:var(--gold2);}
+.s-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--muted2);text-align:center;margin-bottom:26px;line-height:1.65;}
+.card{background:var(--card);border:1px solid var(--border-gold);border-radius:20px;padding:22px 20px;}
+.card-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,168,74,.5);margin-bottom:14px;display:block;}
 
-/* WHY */
-#s-why{background:radial-gradient(ellipse 72% 55% at 18% 35%,#0A3020 0%,#041808 55%,#020C05 100%);padding:90px 28px;}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:440px;margin:0 auto;}
-.why-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);border-radius:16px;padding:20px 16px;text-align:left;transition:border-color .3s,transform .3s;}
-.why-card:hover{transform:translateY(-3px);border-color:rgba(107,191,138,.4);}
-.w-icon{font-size:26px;margin-bottom:10px;display:block;}
-.w-title{font-size:13px;font-weight:500;margin-bottom:4px;}
-.w-desc{font-size:11px;color:var(--muted);line-height:1.5;}
+/* ═══ УСВІДОМЛЕННЯ ═══ */
+.aware-box{background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.2);border-radius:20px;padding:28px 24px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden;}
+.aware-box::before{content:'\275D';position:absolute;top:-8px;left:12px;font-size:90px;color:rgba(212,168,74,.05);font-family:'Playfair Display',serif;line-height:1;}
+.aware-ey{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,168,74,.5);margin-bottom:14px;display:block;}
+.aware-q{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(17px,4.5vw,22px);font-weight:700;color:#fff;line-height:1.45;position:relative;z-index:1;}
+.aware-q em{color:var(--gold2);}
+.aware-q-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted2);line-height:1.7;margin-top:12px;position:relative;z-index:1;}
+.aware-div{display:flex;align-items:center;gap:10px;margin:12px auto;max-width:160px;}
+.aware-div-line{flex:1;height:1px;background:rgba(255,255,255,.07);}
+.aware-div-dot{width:5px;height:5px;border-radius:50%;background:rgba(212,168,74,.3);}
+.aware-box2{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 22px;text-align:center;}
+.aware-q2{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,4vw,19px);font-weight:700;color:var(--muted);line-height:1.5;}
+.aware-q2 strong{color:rgba(255,255,255,.85);}
 
-/* CHEAT SHEET — LIGHT */
-#s-cheat{background:radial-gradient(ellipse 80% 60% at 30% 40%,#FDF6EC 0%,#F0E8D8 100%);padding:90px 24px;}
-.cheat-grid{display:grid;grid-template-columns:1fr;gap:10px;max-width:440px;margin:0 auto;}
-.cheat-card{background:rgba(255,255,255,.82);border:1px solid rgba(180,140,80,.2);border-radius:16px;padding:15px 18px;display:flex;align-items:center;gap:14px;position:relative;overflow:hidden;transition:transform .22s;}
-.cheat-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);border-radius:3px 0 0 3px;}
-.cheat-card:hover{transform:translateX(4px);}
-.cheat-rank{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:rgba(0,0,0,.1);flex-shrink:0;width:18px;text-align:center;}
-.cheat-emoji{font-size:28px;flex-shrink:0;}
-.cheat-info{flex:1;}
-.cheat-name{font-size:15px;font-weight:500;color:#2A1A08;line-height:1.2;}
-.cheat-example{font-size:11px;color:rgba(42,26,8,.45);margin-top:3px;line-height:1.4;}
-.cheat-right{text-align:right;flex-shrink:0;}
-.cheat-grams{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--accent);line-height:1;}
-.cheat-per{font-size:10px;color:rgba(42,26,8,.4);margin-top:2px;}
+/* ═══ ДОСЯГНЕННЯ ═══ */
+.achieve-frame{background:var(--card);border:1px solid var(--border-gold);border-radius:20px;padding:20px 18px;}
+.achieve-list{display:flex;flex-direction:column;}
+.achieve-row{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.achieve-row:last-child{border-bottom:none;padding-bottom:0;}
+.achieve-row:first-child{padding-top:0;}
+.ach-icon{width:34px;height:34px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.95rem;margin-top:1px;}
+.ach-icon.c1{background:rgba(196,120,90,.2);}.ach-icon.c2{background:rgba(80,120,180,.2);}.ach-icon.c3{background:rgba(80,160,100,.2);}.ach-icon.c4{background:rgba(212,168,67,.2);}.ach-icon.c5{background:rgba(107,143,113,.2);}
+.ach-text{font-size:13px;color:var(--muted);line-height:1.5;flex:1;padding-top:6px;}
 
-/* ANIMAL / PLANT TABLES */
-#s-animal{background:radial-gradient(ellipse 80% 60% at 80% 40%,#221040 0%,#100D1A 65%);padding:90px 24px;}
-#s-plant{background:radial-gradient(ellipse 80% 60% at 20% 60%,#0F3020 0%,#0A1A10 65%);padding:90px 24px;}
-.table-wrap{max-width:460px;margin:0 auto;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-table.ptable{width:100%;border-collapse:collapse;}
-table.ptable thead tr{border-bottom:1px solid;}
-table.ptable.animal thead tr{border-color:rgba(155,127,212,.4);}
-table.ptable.plant thead tr{border-color:rgba(107,191,138,.4);}
-table.ptable thead th{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;padding:0 0 14px;font-weight:500;text-align:left;white-space:nowrap;}
-table.ptable.animal thead th{color:var(--purple);}
-table.ptable.plant thead th{color:var(--green);}
-table.ptable thead th:last-child{text-align:right;}
-table.ptable tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .2s;}
-table.ptable tbody tr:hover{background:rgba(255,255,255,.04);}
-table.ptable.animal tbody tr.picked{background:rgba(155,127,212,.12);}
-table.ptable.plant tbody tr.picked{background:rgba(107,191,138,.12);}
-table.ptable tbody td{padding:13px 0;font-size:14px;color:var(--text);vertical-align:middle;}
-table.ptable tbody td:nth-child(2){color:var(--muted);font-size:12px;padding:13px 10px;white-space:nowrap;}
-table.ptable tbody td:last-child{text-align:right;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;white-space:nowrap;}
-table.ptable.animal tbody td:last-child{color:var(--purple);}
-table.ptable.plant tbody td:last-child{color:var(--green);}
-table.ptable.animal tbody tr.picked td:first-child{color:var(--purple);}
-table.ptable.plant tbody tr.picked td:first-child{color:var(--green);}
-.table-note{font-size:11px;color:var(--muted2);text-align:center;font-style:italic;margin-top:14px;max-width:400px;margin-left:auto;margin-right:auto;line-height:1.6;}
-.pick-popup{max-width:400px;margin:18px auto 0;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.28);border-radius:16px;padding:16px 20px;display:none;}
-@keyframes pop-in{0%{transform:scale(.9);opacity:0}100%{transform:scale(1);opacity:1}}
-.pick-popup.visible{display:block;animation:pop-in .4s cubic-bezier(.34,1.56,.64,1);}
-.pick-count{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold);margin-bottom:4px;}
-.pick-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted);line-height:1.6;}
+/* ═══ ЗВИЧКИ ═══ */
+.habits-list{display:flex;flex-direction:column;gap:8px;}
+.habit-row{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1.5px solid var(--border-gold);border-radius:14px;padding:14px 15px;cursor:pointer;transition:all .2s;user-select:none;}
+.habit-row:hover{background:rgba(212,168,67,.08);}
+.habit-row.checked{background:rgba(212,168,67,.14);border-color:rgba(212,168,74,.5);}
+.h-num{width:26px;height:26px;border-radius:50%;background:rgba(212,168,74,.12);border:1px solid rgba(212,168,74,.3);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:12px;color:var(--gold);flex-shrink:0;margin-top:1px;transition:all .2s;}
+.habit-row.checked .h-num{background:rgba(212,168,74,.8);border-color:var(--gold2);color:#1C1008;font-weight:700;}
+.h-text{font-size:13px;color:var(--muted);line-height:1.5;flex:1;}
+.h-text strong{color:rgba(255,255,255,.9);}
+.h-tick{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;margin-top:2px;transition:all .2s;}
+.habit-row.checked .h-tick{background:var(--gold);border-color:var(--gold2);color:#1C1008;}
+.habits-bar-wrap{margin-top:12px;background:rgba(0,0,0,.25);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:12px;}
+.hb-track{flex:1;height:4px;background:rgba(255,255,255,.07);border-radius:2px;overflow:hidden;}
+.hb-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .4s cubic-bezier(.34,1.2,.64,1);}
+.hb-count{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold2);min-width:32px;text-align:right;}
 
-/* HABIT */
-#s-habit{background:radial-gradient(ellipse 80% 60% at 50% 50%,#220A1C 0%,#100810 70%);padding:90px 28px;}
-.habit-outer{max-width:400px;margin:0 auto;background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.25);border-radius:24px;padding:36px 28px;text-align:center;}
-.habit-badge-pill{display:inline-block;background:rgba(212,168,67,.12);border:1px solid rgba(212,168,67,.32);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2.5px;color:var(--gold);text-transform:uppercase;margin-bottom:20px;}
-.habit-icon-big{font-size:48px;display:block;margin-bottom:18px;animation:sway 4s ease-in-out infinite;}
-.habit-title-h{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--gold2);line-height:1.3;margin-bottom:12px;}
-.habit-desc-h{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--muted);line-height:1.7;}
+/* ═══ QUIZ + СИТІСТЬ ═══ */
+.quiz-section{display:flex;flex-direction:column;gap:18px;}
+.quiz-q-block{display:flex;flex-direction:column;gap:9px;}
+.quiz-q-label{font-size:14px;color:var(--text);line-height:1.4;}
+.quiz-opts{display:flex;gap:7px;flex-wrap:wrap;}
+.quiz-opt{flex:1;min-width:80px;padding:11px 8px;border-radius:12px;border:1.5px solid var(--border-gold);background:var(--card);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);cursor:pointer;text-align:center;transition:all .18s;line-height:1.35;}
+.quiz-opt:hover{border-color:var(--gold);color:var(--text);}
+.quiz-opt.sel{border-color:var(--gold);background:rgba(212,168,67,.18);color:var(--gold2);font-weight:500;}
+.sat-section{margin-top:20px;padding-top:20px;border-top:1px solid var(--border);}
+.sat-row{display:flex;gap:7px;margin-top:12px;}
+.sat-btn{flex:1;height:52px;border-radius:12px;border:1.5px solid var(--border);background:var(--card);font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.sat-btn:hover{border-color:var(--gold);transform:translateY(-2px);}
+.sat-btn.sel{border-color:var(--gold);background:rgba(212,168,67,.18);transform:scale(1.07);}
+.sat-marks{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--muted2);}
+.sat-feedback{margin-top:10px;font-size:13px;color:rgba(212,168,74,.7);font-style:italic;min-height:20px;transition:all .3s;text-align:center;}
 
-/* TASKS */
-#s-tasks{background:radial-gradient(ellipse 80% 60% at 60% 30%,#2E1608 0%,#180C04 65%);padding:90px 28px;}
-.task-block{max-width:440px;margin:0 auto 24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);border-radius:20px;padding:24px 22px;}
-.task-num-row{display:inline-flex;align-items:center;gap:10px;margin-bottom:13px;}
-.task-num-circle{width:28px;height:28px;border-radius:50%;background:var(--rose);color:#fff;font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.task-num-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--rose-light);}
-.task-title-t{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:9px;line-height:1.35;}
-.task-desc-t{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:16px;}
+/* ═══ ЗМІНИ — КАРТОЧКИ ═══ */
+.changes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:360px){.changes-grid{grid-template-columns:1fr;}}
+.change-card{background:var(--card);border:1.5px solid rgba(255,255,255,.09);border-radius:18px;padding:18px 16px;cursor:pointer;transition:all .2s;user-select:none;display:flex;flex-direction:column;}
+.change-card:hover{border-color:rgba(100,200,130,.4);background:rgba(100,200,130,.07);}
+.change-card.sel{border-color:var(--green);background:rgba(100,200,130,.12);}
+.cc-icon{font-size:1.7rem;display:block;margin-bottom:10px;opacity:.45;transition:opacity .2s;}
+.change-card.sel .cc-icon{opacity:1;}
+.cc-title{font-size:13px;color:var(--muted2);line-height:1.4;transition:color .2s;flex:1;}
+.change-card.sel .cc-title{color:#fff;}
+.cc-dot{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:8px;color:transparent;margin-top:10px;transition:all .2s;flex-shrink:0;}
+.change-card.sel .cc-dot{background:var(--green);border-color:var(--green);color:#fff;}
 
-/* Калькулятор в завданні 1 */
-.calc-inner{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:18px;}
-.calc-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;display:block;}
-.calc-row{display:flex;gap:10px;margin-bottom:14px;align-items:flex-end;}
-.calc-input{flex:1;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:18px;font-weight:500;outline:none;transition:border-color .25s;text-align:center;-moz-appearance:textfield;}
-.calc-input::-webkit-outer-spin-button,.calc-input::-webkit-inner-spin-button{-webkit-appearance:none;}
-.calc-input:focus{border-color:rgba(155,100,230,.5);}
-.calc-unit{font-size:13px;color:var(--muted);padding-bottom:12px;white-space:nowrap;}
-.activity-btns{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:14px;}
-.act-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 9px;cursor:pointer;transition:all .25s;color:var(--text);font-family:'Inter',sans-serif;text-align:left;}
-.act-btn:hover{border-color:rgba(155,100,230,.4);background:rgba(155,100,230,.08);}
-.act-btn.selected{border-color:#9B64E6;background:rgba(155,100,230,.15);}
-.act-btn-title{font-size:11px;font-weight:500;margin-bottom:2px;}
-.act-btn-sub{font-size:10px;color:var(--muted);line-height:1.3;}
-.act-btn-mult{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#C8A8F8;display:block;margin-bottom:3px;}
-.calc-result-box{background:rgba(155,100,230,.1);border:1px solid rgba(155,100,230,.3);border-radius:12px;padding:16px;text-align:center;min-height:66px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .4s;}
-.result-num{font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:#C8A8F8;line-height:1;}
-.result-label{font-size:11px;color:var(--muted);margin-top:4px;}
-.result-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.5;}
+/* ═══ СЛАЙДЕРИ ═══ */
+.slider-card{background:var(--card);border:1px solid var(--border-gold);border-radius:18px;padding:22px 20px;}
+.slider-item{margin-bottom:22px;}
+.slider-item:last-of-type{margin-bottom:0;}
+.slider-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+.slider-qlabel{font-size:13px;color:var(--muted);line-height:1.4;flex:1;}
+.slider-val{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;color:var(--gold2);min-width:52px;text-align:right;}
+.slider-val.green{color:var(--green);}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:rgba(255,255,255,.1);outline:none;cursor:pointer;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));cursor:pointer;box-shadow:0 2px 10px rgba(212,168,67,.5);transition:transform .15s;}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15);}
+input[type=range].green-thumb::-webkit-slider-thumb{background:linear-gradient(135deg,#4AAA68,var(--green));}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));}
+.slider-marks{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.2);margin-top:5px;}
+.delta-pill{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:50px;font-size:13px;font-weight:500;border:1px solid rgba(100,200,130,.3);color:var(--green);background:rgba(100,200,130,.1);transition:all .3s;margin-top:14px;width:100%;justify-content:center;}
+.delta-pill.neutral{border-color:rgba(212,168,67,.3);color:var(--gold2);background:rgba(212,168,67,.1);}
+.delta-pill.down{border-color:rgba(196,120,90,.3);color:#E8A090;background:rgba(196,120,90,.1);}
 
-/* Таблиця підрахунку у завданні 2 */
-.food-log{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;overflow:hidden;margin-bottom:12px;}
-.food-log-head{display:grid;grid-template-columns:1fr auto auto;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);}
-.food-log-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--border);transition:background .2s;}
-.food-log-row:last-child{border-bottom:none;}
-.food-log-row:hover{background:rgba(255,255,255,.03);}
-.food-log-name{font-size:13px;color:var(--text);}
-.food-log-g-input{width:56px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 8px;color:var(--text);font-family:'Inter',sans-serif;font-size:13px;outline:none;text-align:center;-moz-appearance:textfield;}
-.food-log-g-input::-webkit-outer-spin-button,.food-log-g-input::-webkit-inner-spin-button{-webkit-appearance:none;}
-.food-log-g-input:focus{border-color:rgba(107,191,138,.5);}
-.food-log-prot{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--green);text-align:right;min-width:38px;}
-.food-log-total{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:rgba(107,191,138,.07);border-top:1px solid rgba(107,191,138,.2);}
-.food-log-total-label{font-size:12px;color:var(--muted);}
-.food-log-total-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--green);}
+/* ═══ ТРЕКЕР ПРИЙОМІВ ═══ */
+.meal-list{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
+.meal-row{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--border-gold);border-radius:13px;padding:13px 15px;cursor:pointer;transition:all .2s;user-select:none;}
+.meal-row:hover{background:rgba(212,168,67,.08);}
+.meal-row.checked{background:rgba(100,200,130,.1);border-color:rgba(100,200,130,.4);}
+.meal-emoji{font-size:1.25rem;flex-shrink:0;}
+.meal-name{font-size:14px;color:var(--muted);flex:1;}
+.meal-row.checked .meal-name{color:#fff;}
+.meal-tick{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;flex-shrink:0;transition:all .2s;}
+.meal-row.checked .meal-tick{background:var(--sage);border-color:var(--green);color:#fff;}
+.meal-result{padding:12px 15px;background:rgba(212,168,67,.08);border-radius:10px;border:1px solid var(--border-gold);display:none;}
+.meal-result.show{display:block;}
+.meal-result p{font-size:13px;color:var(--gold2);line-height:1.6;}
+.meal-result strong{font-family:'Playfair Display',serif;font-size:17px;}
 
-/* Блок порівняння у завданні 3 */
-.compare-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:18px;}
-.compare-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.compare-label{font-size:13px;color:var(--muted);}
-.compare-val{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;}
-.compare-divider{height:1px;background:var(--border);margin:12px 0;}
-.compare-pbar-wrap{margin-top:8px;}
-.compare-pbar-track{height:10px;border-radius:5px;background:rgba(255,255,255,.07);overflow:hidden;margin:8px 0 6px;}
-.compare-pbar-fill{height:100%;border-radius:5px;background:linear-gradient(to right,#7A3AB0,#C8A8F8);width:0%;transition:width .7s cubic-bezier(.34,1.2,.64,1);}
-.compare-pct{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:#C8A8F8;text-align:center;display:block;}
-.compare-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--muted);line-height:1.6;text-align:center;margin-top:8px;min-height:22px;}
+/* ═══ ПОДІЛИСЯ ═══ */
+.chat-cta{background:rgba(212,168,67,.07);border:1px solid var(--border-gold);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
+.chat-cta-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
+.chat-cta-text{font-size:13px;color:var(--muted);line-height:1.6;}
+.chat-cta-text strong{color:var(--text);}
+.tg-btn{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1A7AB8,#0E5A8A);border-radius:14px;padding:15px 18px;text-decoration:none;transition:all .2s;width:100%;}
+.tg-btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(26,122,184,.3);}
+.tg-btn-icon{font-size:1.4rem;flex-shrink:0;}
+.tg-btn-text{display:flex;flex-direction:column;gap:2px;flex:1;}
+.tg-btn-label{font-size:14px;font-weight:500;color:white;}
+.tg-btn-sub{font-size:12px;color:rgba(255,255,255,.6);}
+.tg-btn-arrow{font-size:1rem;color:rgba(255,255,255,.4);flex-shrink:0;}
 
-/* TRACKER */
-#s-tracker{background:radial-gradient(ellipse 80% 60% at 40% 70%,#1C0A20 0%,#0C0610 70%);padding:90px 28px;}
-.tracker-wrap{max-width:440px;margin:0 auto;}
-.tracker-dark-card{background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(155,127,212,.18);}
-.tracker-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(155,127,212,.6);margin-bottom:6px;display:block;}
-.tracker-subtitle{font-size:12px;color:var(--muted2);margin-bottom:20px;}
-.checklist{display:flex;flex-direction:column;}
-.check-row{display:flex;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);}
-.check-row:last-child{border-bottom:none;}
-.check-dot{width:7px;height:7px;border-radius:50%;background:rgba(155,127,212,.35);flex-shrink:0;}
-.check-text{font-size:14px;color:var(--muted);flex:1;line-height:1.45;}
-.check-btn{width:24px;height:24px;border-radius:8px;border:1.5px solid rgba(255,255,255,.18);cursor:pointer;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s;font-size:12px;color:transparent;background:none;-webkit-appearance:none;appearance:none;}
-.check-btn:hover{border-color:var(--rose);}
-.check-btn.done{background:var(--rose);border-color:var(--rose);color:#fff;}
-.tracker-done-msg{margin-top:18px;background:rgba(107,191,138,.08);border:1px solid rgba(107,191,138,.22);border-radius:16px;padding:18px 20px;text-align:center;display:none;}
-.td-icon{font-size:26px;margin-bottom:7px;display:block;}
-.td-title{font-family:'Playfair Display',serif;font-size:17px;color:var(--green);margin-bottom:5px;}
-.td-desc{font-size:13px;color:rgba(107,191,138,.7);line-height:1.6;}
+/* ═══ РЕФЛЕКСІЯ ═══ */
+.refl-card{background:var(--card);border:1px solid var(--border-gold);border-radius:18px;padding:22px 20px;margin-bottom:12px;}
+.refl-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;}
+.refl-sub{font-size:12px;color:var(--muted2);margin-bottom:18px;line-height:1.5;}
+.refl-qs{display:flex;flex-direction:column;gap:14px;}
+.rq-label{font-size:13px;color:var(--muted);margin-bottom:7px;display:block;line-height:1.4;}
+.rq-ta{width:100%;background:rgba(255,255,255,.05);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#fff;outline:none;resize:none;line-height:1.65;transition:border-color .15s;}
+.rq-ta:focus{border-color:rgba(212,168,74,.5);background:rgba(212,168,74,.06);}
+.rq-ta::placeholder{color:var(--muted2);font-style:italic;}
+.stars-row{display:flex;gap:9px;margin-top:4px;}
+.star-btn{font-size:28px;cursor:pointer;opacity:.22;transition:all .2s;user-select:none;}
+.star-btn.lit{opacity:1;transform:scale(1.08);}
+.star-msg{margin-top:8px;font-size:13px;color:rgba(212,168,74,.7);font-style:italic;min-height:20px;transition:all .3s;}
 
-/* WATER */
-#s-water{background:radial-gradient(ellipse 80% 60% at 60% 30%,#081C28 0%,#040E18 70%);padding:90px 28px;}
-.water-dark-card{max-width:440px;margin:0 auto;background:rgba(255,255,255,.05);border-radius:20px;padding:24px 22px;border:1px solid rgba(78,143,163,.22);}
-.water-eyebrow{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(110,207,221,.55);margin-bottom:6px;display:block;}
-.water-subtitle{font-size:12px;color:var(--muted2);margin-bottom:18px;}
-.water-stats-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px;}
-.pbar-track-w{height:6px;border-radius:3px;background:rgba(255,255,255,.07);overflow:hidden;margin-bottom:18px;}
-.pbar-fill-w{height:100%;border-radius:3px;background:linear-gradient(to right,#1a6e7a,#6ecfdd);width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1);}
-.glasses-wrap{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;}
-.glass-btn{width:42px;height:42px;border-radius:12px;border:1.5px solid rgba(78,143,163,.25);background:rgba(78,143,163,.06);cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.56,.64,1);}
-.glass-btn.filled{background:rgba(78,143,163,.3);border-color:rgba(110,207,221,.7);transform:scale(1.08);}
+/* Рефлексія опції */
+.refl-opts{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.refl-opt{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid var(--border-gold);background:var(--card);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);cursor:pointer;text-align:left;transition:all .18s;line-height:1.4;}
+.refl-opt:hover{border-color:var(--gold);color:var(--text);background:rgba(212,168,67,.08);}
+.refl-opt.sel{border-color:var(--gold);background:rgba(212,168,67,.18);color:var(--gold2);font-weight:500;}
+.refl-opt-msg{margin-top:8px;font-size:13px;color:rgba(212,168,74,.65);font-style:italic;min-height:18px;transition:all .3s;line-height:1.5;}
+.privacy-row{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 14px;}
+.privacy-txt{font-size:12px;color:var(--muted2);line-height:1.6;}
+.privacy-txt strong{color:var(--muted);}
 
-/* REFLECTION */
-#s-refl{background:radial-gradient(ellipse 80% 60% at 30% 60%,#201408 0%,#100A04 70%);padding:90px 28px;}
-.refl-wrap{max-width:440px;margin:0 auto;}
-.refl-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 22px;margin-bottom:14px;}
-.refl-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:6px;}
-.refl-sub{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.55;}
-.refl-q{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
-.refl-q:last-child{margin-bottom:0;}
-.refl-q-label{font-size:13px;color:var(--muted);font-weight:500;}
-.refl-textarea{width:100%;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:10px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);outline:none;transition:border-color .15s;resize:none;min-height:70px;line-height:1.6;}
-.refl-textarea:focus{border-color:rgba(212,168,67,.45);}
-.refl-textarea::placeholder{color:var(--muted2);font-style:italic;}
-.refl-privacy{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
-.refl-privacy-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
-.refl-privacy-text{font-size:12px;color:var(--muted2);line-height:1.65;}
-.refl-privacy-text strong{color:var(--muted);}
+/* ═══ ПІДТРИМКА ═══ */
+.support-card{background:rgba(212,168,67,.07);border:1px solid var(--border-gold);border-radius:18px;padding:24px 20px;}
+.support-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:10px;}
+.support-body{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:6px;}
+.support-body strong{color:var(--gold2);}
+.support-sign{font-size:12px;color:rgba(212,168,74,.5);font-style:italic;margin-top:4px;margin-bottom:16px;}
+.support-next{background:var(--card);border-radius:12px;padding:15px 16px;border:1px solid var(--border);display:flex;gap:12px;align-items:flex-start;}
+.sn-icon{font-size:1.4rem;flex-shrink:0;}
+.sn-text{font-size:13px;color:var(--muted);line-height:1.65;}
+.sn-text strong{color:var(--text);}
 
-/* TELEGRAM */
-#s-tg{background:radial-gradient(ellipse 80% 60% at 40% 50%,#06141E 0%,#030A12 70%);padding:90px 28px;}
-.tg-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.06);border:1px solid rgba(78,143,200,.22);border-radius:24px;padding:30px 24px;text-align:center;}
-.tg-icon-big{font-size:46px;display:block;margin-bottom:16px;animation:sway 4s ease-in-out infinite;}
-.tg-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3;}
-.tg-title em{font-style:italic;color:#6ecfdd;}
-.tg-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:22px;}
-.tg-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1A7AB8,#0E5A8A);color:#fff;border:none;border-radius:50px;padding:15px 36px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;letter-spacing:.5px;cursor:pointer;transition:all .3s;text-decoration:none;box-shadow:0 8px 28px rgba(26,122,184,.35);}
-.tg-btn:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(26,122,184,.45);}
-
-/* RECIPE */
-#s-recipe{background:radial-gradient(ellipse 80% 60% at 50% 40%,#F5ECD8 0%,#EAD9BE 70%,#E0CFA8 100%);padding:90px 28px;color:#2C1A0A;}
-.recipe-book-card{max-width:400px;margin:0 auto;background:rgba(255,255,255,.75);border:1px solid rgba(212,168,67,.2);border-radius:24px;padding:28px 24px;text-align:center;}
-.recipe-fruits-big{font-size:52px;display:block;margin-bottom:18px;animation:sway 4s ease-in-out infinite;}
-.recipe-main-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(22px,6vw,30px);font-weight:700;color:#1C0E06;line-height:1.2;margin-bottom:10px;}
-.recipe-desc-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:#4A2A10;line-height:1.7;margin-bottom:20px;opacity:.85;}
-.recipe-badge{display:inline-block;background:rgba(212,168,67,.15);border:1px solid rgba(212,168,67,.35);border-radius:20px;padding:5px 16px;font-size:11px;letter-spacing:1.5px;color:#8B5E1A;text-transform:uppercase;}
-
-/* FINAL */
-#s-final{background:radial-gradient(ellipse 75% 62% at 50% 62%,#061628 0%,#030E18 60%,#020508 100%);padding:90px 28px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;text-align:center;}
-.final-icon-big{font-size:56px;display:block;margin-bottom:20px;animation:sway 4s ease-in-out infinite;}
-.final-badge-done{display:inline-block;background:rgba(107,191,138,.12);border:1px solid rgba(107,191,138,.28);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:22px;}
-.final-title{font-family:'Playfair Display',serif;font-size:clamp(30px,9vw,48px);font-weight:700;line-height:1.2;margin-bottom:14px;}
+/* ═══ ФІНАЛ ═══ */
+#s-final{background:radial-gradient(ellipse 80% 70% at 50% 50%,#2A1A04 0%,#140C02 55%,#080400 100%) !important;
+  padding:80px 24px 64px;text-align:center;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;min-height:100vh;}
+.final-badge{display:inline-block;background:rgba(212,168,67,.1);border:1px solid var(--border-gold);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--gold2);text-transform:uppercase;margin-bottom:26px;}
+.final-trophy{font-size:68px;display:block;margin-bottom:20px;animation:trophy-float 4s ease-in-out infinite;}
+.final-title{font-family:'Playfair Display',serif;font-size:clamp(32px,9vw,50px);font-weight:900;line-height:1.1;margin-bottom:14px;}
 .final-title em{font-style:italic;color:var(--gold2);}
-.final-line{width:36px;height:1px;background:rgba(255,255,255,.15);margin:0 auto 18px;}
-.final-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--gold2);line-height:1.6;max-width:320px;margin:0 auto 20px;}
-.final-sub{font-size:14px;color:var(--muted);line-height:1.7;max-width:300px;margin:0 auto 36px;}
-.day-dots{display:flex;align-items:center;justify-content:center;gap:8px;}
-.d-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.15);}
-.d-dot.done{background:rgba(212,168,67,.6);}
-.d-dot.active{background:var(--gold2);width:22px;border-radius:3px;}
+.final-line{width:34px;height:1px;background:rgba(255,255,255,.15);margin:0 auto 18px;}
+.final-quote{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(16px,4vw,22px);font-weight:700;color:var(--gold2);line-height:1.45;max-width:300px;margin:0 auto 18px;}
+.final-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--muted2);line-height:1.7;max-width:290px;margin:0 auto 24px;}
+.final-author{font-size:11px;color:rgba(212,168,74,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:40px;}
+.final-dots{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:52px;}
+.fd-dot{width:6px;height:6px;border-radius:50%;background:rgba(212,168,74,.35);}
+.fd-dot.active{background:var(--gold2);width:22px;border-radius:4px;}
+/* Тизер */
+.teaser-card{background:rgba(255,255,255,.04);border:1px solid rgba(180,210,140,.15);border-radius:22px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;max-width:400px;width:100%;}
+.teaser-card::before{content:'🥑';position:absolute;right:10px;bottom:-8px;font-size:90px;opacity:.07;pointer-events:none;}
+.teaser-week-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(180,210,140,.5);margin-bottom:14px;display:block;}
+.teaser-icon{font-size:44px;margin-bottom:12px;display:block;animation:trophy-float 4s ease-in-out infinite;}
+.teaser-title{font-family:'Playfair Display',serif;font-size:clamp(20px,5.5vw,28px);font-weight:700;color:#fff;margin-bottom:10px;line-height:1.25;}
+.teaser-title em{color:#b4d28c;font-style:italic;}
+.teaser-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;max-width:300px;margin:0 auto;}
 
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease;}
+/* ═══ INLINE DONE ═══ */
+.inline-done{margin-top:14px;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.22);border-radius:14px;padding:14px 18px;text-align:center;display:none;}
+.inline-done.show{display:block;}
+.inline-done p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--gold2);line-height:1.55;}
+
+/* ═══ POPUP ═══ */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s;}
+.popup-overlay.show{opacity:1;pointer-events:all;}
+.popup-box{background:linear-gradient(160deg,#1E1204,#3A2810);border:1px solid rgba(212,168,74,.4);border-radius:24px;padding:32px 28px;max-width:340px;width:100%;text-align:center;position:relative;transform:scale(.85) translateY(20px);transition:transform .35s cubic-bezier(.34,1.4,.64,1);}
+.popup-overlay.show .popup-box{transform:scale(1) translateY(0);}
+.popup-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:24px;}
+.conf-dot{position:absolute;width:6px;height:6px;border-radius:50%;animation:conf-fall 1.8s ease-in forwards;}
+@keyframes conf-fall{0%{transform:translateY(-10px) rotate(0deg);opacity:1}100%{transform:translateY(300px) rotate(720deg);opacity:0}}
+.popup-emoji{font-size:52px;display:block;margin-bottom:14px;animation:trophy-float 3s ease-in-out infinite;}
+.popup-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3;}
+.popup-text{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--muted);line-height:1.7;margin-bottom:22px;}
+.popup-close{background:var(--gold);color:#1C1008;border:none;border-radius:50px;padding:12px 32px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;}
+.popup-close:hover{background:var(--gold2);transform:scale(1.03);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
 .reveal.visible{opacity:1;transform:none;}
 </style>
 </head>
 <body>
-
 <div class="progress-bar" id="progress"></div>
 
-<!-- HERO -->
-<section id="s1">
-  <div class="glow-ring"></div><div class="glow-ring"></div>
-  <div class="glow-ring"></div><div class="glow-ring"></div>
-  <div class="author-pill reveal">
-    <div class="author-avatar">ЛБ</div>
-    <div style="text-align:left">
-      <div class="author-name">Любов Бухарова</div>
-      <div class="author-role">Нутриціолог</div>
-    </div>
+<!-- POPUP -->
+<div class="popup-overlay" id="popup" onclick="closePopup(event)">
+  <div class="popup-box">
+    <div class="popup-confetti" id="confetti"></div>
+    <span class="popup-emoji" id="popupEmoji">🏆</span>
+    <div class="popup-title" id="popupTitle"></div>
+    <p class="popup-text" id="popupText"></p>
+    <button class="popup-close" onclick="hidePopup()">Дякую! 💛</button>
   </div>
-  <div class="quest-badge reveal">Тиждень білків · День 2</div>
-  <span class="hero-icon reveal">🏗️</span>
+</div>
+
+<!-- ══ 1. HERO ══ -->
+<section id="s-hero">
+  <div class="star-field" id="starField"></div>
+  <div class="gold-ring"></div><div class="gold-ring"></div><div class="gold-ring"></div><div class="gold-ring"></div>
+  <div class="hero-glow"></div>
+  <div class="author-pill reveal">
+    <div class="author-av">ЛБ</div>
+    <div style="text-align:left"><div class="author-name">Любов Бухарова</div><div class="author-role">Нутриціолог</div></div>
+  </div>
+  <div class="week-badge reveal">Відео-квест · День 5 · Фінал білкового тижня</div>
+  <span class="hero-trophy reveal">🏆</span>
   <h1 class="reveal">
-    <span class="hero-day">🌿 День другий</span>
-    <span class="hero-title">Білок —</span>
-    <em class="hero-em">твоя енергія</em>
-    <em class="hero-em2">і молодість</em>
+    <span class="hero-eyebrow">✦ День п'ятий</span>
+    <span class="hero-h1">Підсумки<br>білкового<br><em>тижня</em></span>
   </h1>
   <div class="hero-div reveal"></div>
-  <p class="hero-sub reveal">Сьогодні рахуємо свою<br>особисту норму білка 🧮</p>
+  <p class="hero-sub reveal">Ти пройшов(ла) шлях від питання «що таке білок?»<br>до власної системи харчування 🏗️</p>
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
-<!-- ЧОМУ БІЛОК ВАЖЛИВИЙ -->
-<section id="s-why" class="sec-c">
-  <p class="eyebrow reveal" style="color:#64C882">Основи</p>
-  <h2 class="s-title reveal">Чому білок<br><em style="color:#88E8A4">такий важливий</em></h2>
-  <p class="s-body reveal">Будівельний матеріал для клітин, м'язів, шкіри та волосся. Потреба у кожного різна.</p>
-  <div class="why-grid reveal">
-    <div class="why-card"><span class="w-icon">🏗️</span><div class="w-title">Будує клітини</div><div class="w-desc">М'язи, шкіра, волосся — все це білок</div></div>
-    <div class="why-card"><span class="w-icon">⚡</span><div class="w-title">Дає енергію</div><div class="w-desc">Стабільний рівень без різких перепадів</div></div>
-    <div class="why-card"><span class="w-icon">🧬</span><div class="w-title">Гормони</div><div class="w-desc">Синтез гормонів і антитіл потребує білка</div></div>
-    <div class="why-card"><span class="w-icon">✨</span><div class="w-title">Сяюча шкіра</div><div class="w-desc">Колаген і еластин — це чистий білок</div></div>
-  </div>
-</section>
-
-<!-- ШПАРГАЛКА -->
-<section id="s-cheat" class="sec-c">
-  <p class="eyebrow reveal" style="color:#8B5E1A">Швидко запам'ятай</p>
-  <h2 class="s-title reveal" style="color:#2A1A08">Шпаргалка<br><em style="color:var(--rose)">білок на 100 г</em></h2>
-  <p class="s-body reveal" style="color:rgba(42,26,8,.55)">Приблизна кількість білка у різних групах продуктів ✦</p>
-  <div class="cheat-grid reveal">
-    <div class="cheat-card" style="--accent:#C4603A"><div class="cheat-rank">1</div><span class="cheat-emoji">🥩</span><div class="cheat-info"><div class="cheat-name">М'ясо</div><div class="cheat-example">Курка, яловичина, індичка, свинина</div></div><div class="cheat-right"><div class="cheat-grams" style="color:#C4603A">25–30 г</div><div class="cheat-per">на 100 г</div></div></div>
-    <div class="cheat-card" style="--accent:#1A7AAA"><div class="cheat-rank">2</div><span class="cheat-emoji">🐟</span><div class="cheat-info"><div class="cheat-name">Риба</div><div class="cheat-example">Лосось, тріска, тунець, скумбрія</div></div><div class="cheat-right"><div class="cheat-grams" style="color:#1A7AAA">20–25 г</div><div class="cheat-per">на 100 г</div></div></div>
-    <div class="cheat-card" style="--accent:#9A6E10"><div class="cheat-rank">3</div><span class="cheat-emoji">🥣</span><div class="cheat-info"><div class="cheat-name">Творог</div><div class="cheat-example">5%, 9% жирності</div></div><div class="cheat-right"><div class="cheat-grams" style="color:#9A6E10">~16 г</div><div class="cheat-per">на 100 г</div></div></div>
-    <div class="cheat-card" style="--accent:#3A8A38"><div class="cheat-rank">4</div><span class="cheat-emoji">🫘</span><div class="cheat-info"><div class="cheat-name">Бобові</div><div class="cheat-example">Сочевиця, нут, квасоля, горох</div></div><div class="cheat-right"><div class="cheat-grams" style="color:#3A8A38">~8 г</div><div class="cheat-per">на 100 г</div></div></div>
-    <div class="cheat-card" style="--accent:#7058A8"><div class="cheat-rank">5</div><span class="cheat-emoji">🌾</span><div class="cheat-info"><div class="cheat-name">Каші</div><div class="cheat-example">Гречка, вівсянка, кіноа</div></div><div class="cheat-right"><div class="cheat-grams" style="color:#7058A8">~5 г</div><div class="cheat-per">на 100 г</div></div></div>
-    <div class="cheat-card" style="--accent:#2A8860"><div class="cheat-rank">6</div><span class="cheat-emoji">🥦</span><div class="cheat-info"><div class="cheat-name">Овочі</div><div class="cheat-example">Броколі, шпинат, петрушка</div></div><div class="cheat-right"><div class="cheat-grams" style="color:#2A8860">2–3 г</div><div class="cheat-per">на 100 г</div></div></div>
-  </div>
-</section>
-
-<!-- ТВАРИННИЙ БІЛОК -->
-<section id="s-animal" class="sec-c">
-  <p class="eyebrow reveal" style="color:var(--purple)">Таблиця · Тваринний білок</p>
-  <h2 class="s-title reveal">Тваринні<br><em style="color:#B89FE8">джерела білка</em></h2>
-  <p class="s-body reveal" style="margin-bottom:26px;">Натискай на рядки — відміч що їси найчастіше</p>
-  <div class="table-wrap reveal">
-    <table class="ptable animal" id="animalTable">
-      <thead><tr><th>Продукт</th><th>Порція</th><th>Білок</th></tr></thead>
-      <tbody>
-        <tr><td>🧀 Пармезан</td><td>100 г</td><td>32–36 г</td></tr>
-        <tr><td>🥩 Яловичина (пісна, варена)</td><td>100 г</td><td>26 г</td></tr>
-        <tr><td>🍗 Куряче філе (варене)</td><td>100 г</td><td>25 г</td></tr>
-        <tr><td>🐷 Свинина (пісна, варена)</td><td>100 г</td><td>25 г</td></tr>
-        <tr><td>🦃 Індичка (філе, варене)</td><td>100 г</td><td>24 г</td></tr>
-        <tr><td>🧀 Сир твердий (едам)</td><td>100 г</td><td>24–27 г</td></tr>
-        <tr><td>🐟 Риба (лосось, тріска)</td><td>100 г</td><td>20–25 г</td></tr>
-        <tr><td>🥣 Творог (5–9%)</td><td>100 г</td><td>16–18 г</td></tr>
-        <tr><td>🥚 Яйце куряче</td><td>1 шт</td><td>6 г</td></tr>
-        <tr><td>🫙 Йогурт натуральний</td><td>100 г</td><td>3,5–5 г</td></tr>
-        <tr><td>🥛 Молоко (2,5%)</td><td>100 г</td><td>3 г</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="pick-popup" id="animalPopup">
-    <div class="pick-count" id="animalCount">0 продуктів</div>
-    <div class="pick-phrase" id="animalPhrase">Натискай на рядки — відмічай своє 💜</div>
-  </div>
-  <p class="table-note reveal">✦ Значення можуть варіюватися залежно від жирності та способу приготування</p>
-</section>
-
-<!-- РОСЛИННИЙ БІЛОК -->
-<section id="s-plant" class="sec-c">
-  <p class="eyebrow reveal" style="color:var(--green)">Таблиця · Рослинний білок</p>
-  <h2 class="s-title reveal">Рослинні<br><em style="color:var(--green)">джерела білка</em></h2>
-  <p class="s-body reveal" style="margin-bottom:26px;">Натискай на рядки — відміч що їси найчастіше</p>
-  <div class="table-wrap reveal">
-    <table class="ptable plant" id="plantTable">
-      <thead><tr><th>Продукт</th><th>Порція</th><th>Білок</th></tr></thead>
-      <tbody>
-        <tr><td>🌿 Насіння коноплі</td><td>100 г</td><td>31–33 г</td></tr>
-        <tr><td>🎃 Насіння гарбуза</td><td>100 г</td><td>25 г</td></tr>
-        <tr><td>🌻 Насіння соняшника</td><td>100 г</td><td>23 г</td></tr>
-        <tr><td>🫘 Нут</td><td>100 г</td><td>20–21 г</td></tr>
-        <tr><td>🫘 Квасоля червона</td><td>100 г</td><td>21–23 г</td></tr>
-        <tr><td>🟡 Горох (сухий)</td><td>100 г</td><td>21–23 г</td></tr>
-        <tr><td>🌿 Темпе</td><td>100 г</td><td>19–21 г</td></tr>
-        <tr><td>🥜 Мигдаль</td><td>100 г</td><td>18–21 г</td></tr>
-        <tr><td>⚫ Чіа</td><td>100 г</td><td>16–17 г</td></tr>
-        <tr><td>🌱 Тофу (твердий)</td><td>100 г</td><td>15–17 г</td></tr>
-        <tr><td>🌰 Волоські горіхи</td><td>100 г</td><td>15–16 г</td></tr>
-        <tr><td>🟤 Кіноа (суха)</td><td>100 г</td><td>14–16 г</td></tr>
-        <tr><td>🌑 Гречка (суха)</td><td>100 г</td><td>12–14 г</td></tr>
-        <tr><td>🥣 Вівсянка</td><td>100 г</td><td>11–13 г</td></tr>
-        <tr><td>🍞 Хліб цільнозерновий</td><td>100 г</td><td>8–9 г</td></tr>
-        <tr><td>🌾 Сочевиця</td><td>100 г</td><td>9 г</td></tr>
-        <tr><td>🥦 Броколі (варене)</td><td>100 г</td><td>2,5–3,5 г</td></tr>
-        <tr><td>🌿 Шпинат (варений)</td><td>100 г</td><td>2,9 г</td></tr>
-        <tr><td>🥑 Авокадо</td><td>100 г</td><td>~2 г</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="pick-popup" id="plantPopup">
-    <div class="pick-count" id="plantCount">0 продуктів</div>
-    <div class="pick-phrase" id="plantPhrase">Натискай на рядки — відмічай своє 🌿</div>
-  </div>
-  <p class="table-note reveal">✦ Суха вага дає більше білка — після приготування значення зменшується</p>
-</section>
-
-<!-- ЗВИЧКА -->
-<section id="s-habit" class="sec-c">
-  <p class="eyebrow reveal" style="color:var(--gold)">Звичка дня</p>
-  <h2 class="s-title reveal">Одна<br><em>звичка</em></h2>
-  <p class="s-body reveal">З цього дня будуємо звички одну за одною ✦</p>
-  <div class="habit-outer reveal">
-    <span class="habit-badge-pill">🌱 Звичка · День 2</span>
-    <span class="habit-icon-big">🍽️</span>
-    <div class="habit-title-h">Білок у кожному прийомі їжі</div>
-    <p class="habit-desc-h">Сніданок, обід, перекус і вечеря — кожен прийом містить джерело білка. Щодня. Без винятків.</p>
-  </div>
-</section>
-
-<!-- ЗАВДАННЯ -->
-<section id="s-tasks">
-  <p class="eyebrow reveal">Практика дня</p>
-  <h2 class="s-title reveal">Завдання<br><em>на сьогодні</em></h2>
-
-  <!-- Завдання 1 — підрахуй норму -->
-  <div class="task-block reveal">
-    <div class="task-num-row"><div class="task-num-circle">1</div><span class="task-num-label">Завдання</span></div>
-    <div class="task-title-t">Підрахуй свою норму білка</div>
-    <p class="task-desc-t">Введи свою вагу та рівень активності — калькулятор порахує твою особисту норму.</p>
-    <div class="calc-inner">
-      <span class="calc-label">Твоя вага</span>
-      <div class="calc-row">
-        <input class="calc-input" id="weightInput" type="number" min="30" max="200" placeholder="60" oninput="calcNorm()">
-        <span class="calc-unit">кг</span>
-      </div>
-      <span class="calc-label">Рівень активності</span>
-      <div class="activity-btns">
-        <button class="act-btn" data-mult="1.1" onclick="selectActivity(this)"><span class="act-btn-mult">×1,1</span><div class="act-btn-title">🧘 Без спорту</div><div class="act-btn-sub">Малорухливий спосіб</div></button>
-        <button class="act-btn" data-mult="1.3" onclick="selectActivity(this)"><span class="act-btn-mult">×1,3</span><div class="act-btn-title">🚶 1–2 рази/тиж</div><div class="act-btn-sub">Легка активність</div></button>
-        <button class="act-btn" data-mult="1.5" onclick="selectActivity(this)"><span class="act-btn-mult">×1,5</span><div class="act-btn-title">🏃 3–4 рази/тиж</div><div class="act-btn-sub">Середня активність</div></button>
-        <button class="act-btn" data-mult="1.8" onclick="selectActivity(this)"><span class="act-btn-mult">×1,8</span><div class="act-btn-title">🏋️ 5–6 разів/тиж</div><div class="act-btn-sub">Інтенсивні тренування</div></button>
-      </div>
-      <div class="calc-result-box" id="resultBox">
-        <div class="result-num" id="resultNum">—</div>
-        <div class="result-label">грамів білка на день</div>
-        <div class="result-hint" id="resultHint">Введи вагу та обери активність ✦</div>
-      </div>
+<!-- ══ 2. УСВІДОМЛЕННЯ ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Усвідомлення тижня</span>
+    <h2 class="s-title reveal">Головне,<br><em>що ти дізналась</em></h2>
+    <div class="aware-box reveal">
+      <span class="aware-ey">💡 Усвідомлення #1</span>
+      <p class="aware-q">Білок — це <em>будівельний матеріал</em>,<br>з якого будується твоє тіло</p>
+      <p class="aware-q-sub">М'язи, шкіра, волосся, гормони, антитіла — все це білок. Не просто їжа — сировина для відновлення кожної клітини.</p>
+    </div>
+    <div class="aware-div reveal"><div class="aware-div-line"></div><div class="aware-div-dot"></div><div class="aware-div-line"></div></div>
+    <div class="aware-box2 reveal">
+      <span class="aware-ey" style="color:rgba(255,255,255,.2)">💡 Усвідомлення #2</span>
+      <p class="aware-q2">Якщо білка недостатньо —<br>тіло не будується.<br><strong>Воно виживає.</strong></p>
     </div>
   </div>
+</section>
 
-  <!-- Завдання 2 — підрахуй реальний білок -->
-  <div class="task-block reveal">
-    <div class="task-num-row"><div class="task-num-circle">2</div><span class="task-num-label">Завдання</span></div>
-    <div class="task-title-t">Підрахуй скільки білка з'їла реально сьогодні</div>
-    <p class="task-desc-t">Введи кількість грамів кожного продукту — таблиця підрахує білок автоматично.</p>
-    <div class="food-log">
-      <div class="food-log-head"><span>Продукт</span><span>Грам</span><span>Білок</span></div>
-      <div class="food-log-row"><span class="food-log-name">🍗 М'ясо / птиця</span><input class="food-log-g-input" type="number" min="0" max="500" placeholder="0" data-prot="0.265" oninput="calcFood()"><span class="food-log-prot" id="fl0">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🐟 Риба</span><input class="food-log-g-input" type="number" min="0" max="500" placeholder="0" data-prot="0.22" oninput="calcFood()"><span class="food-log-prot" id="fl1">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🥚 Яйця</span><input class="food-log-g-input" type="number" min="0" max="20" placeholder="0" data-prot="6" data-unit="шт" oninput="calcFood()"><span class="food-log-prot" id="fl2">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🥣 Творог</span><input class="food-log-g-input" type="number" min="0" max="500" placeholder="0" data-prot="0.17" oninput="calcFood()"><span class="food-log-prot" id="fl3">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🧀 Сир</span><input class="food-log-g-input" type="number" min="0" max="300" placeholder="0" data-prot="0.26" oninput="calcFood()"><span class="food-log-prot" id="fl4">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🫙 Йогурт</span><input class="food-log-g-input" type="number" min="0" max="500" placeholder="0" data-prot="0.045" oninput="calcFood()"><span class="food-log-prot" id="fl5">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🫘 Бобові (варені)</span><input class="food-log-g-input" type="number" min="0" max="500" placeholder="0" data-prot="0.08" oninput="calcFood()"><span class="food-log-prot" id="fl6">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🌾 Крупи (варені)</span><input class="food-log-g-input" type="number" min="0" max="500" placeholder="0" data-prot="0.05" oninput="calcFood()"><span class="food-log-prot" id="fl7">0 г</span></div>
-      <div class="food-log-row"><span class="food-log-name">🥜 Горіхи / насіння</span><input class="food-log-g-input" type="number" min="0" max="200" placeholder="0" data-prot="0.2" oninput="calcFood()"><span class="food-log-prot" id="fl8">0 г</span></div>
-      <div class="food-log-total">
-        <span class="food-log-total-label">Всього білка за день</span>
-        <span class="food-log-total-val" id="foodTotal">0 г</span>
-      </div>
-    </div>
-    <p style="font-size:11px;color:var(--muted2);font-style:italic;text-align:center;line-height:1.6;">✦ Приблизний підрахунок — значення усереднені по групах продуктів</p>
-  </div>
-
-  <!-- Завдання 3 — порівняй з нормою -->
-  <div class="task-block reveal">
-    <div class="task-num-row"><div class="task-num-circle">3</div><span class="task-num-label">Завдання</span></div>
-    <div class="task-title-t">Перевір чи вистачає білка твоєму тілу</div>
-    <p class="task-desc-t">Порівняємо скільки ти з'їла з твоєю нормою — і побачимо картину дня.</p>
-    <div class="compare-box">
-      <div class="compare-row">
-        <span class="compare-label">Твоя норма</span>
-        <span class="compare-val" id="cmpNorm" style="color:#C8A8F8">— г</span>
-      </div>
-      <div class="compare-row">
-        <span class="compare-label">З'їла сьогодні</span>
-        <span class="compare-val" id="cmpEaten" style="color:var(--green)">— г</span>
-      </div>
-      <div class="compare-divider"></div>
-      <div class="compare-pbar-wrap">
-        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--muted2);margin-bottom:4px;"><span>0</span><span id="cmpGoalLabel">норма</span></div>
-        <div class="compare-pbar-track"><div class="compare-pbar-fill" id="cmpFill"></div></div>
-        <span class="compare-pct" id="cmpPct">—</span>
-        <p class="compare-msg" id="cmpMsg">Заповни завдання 1 і 2 — результат з'явиться тут ✦</p>
+<!-- ══ 3. ДОСЯГНЕННЯ ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">📊 Що ти досягла за цей тиждень</span>
+    <div class="achieve-frame reveal">
+      <div class="achieve-list">
+        <div class="achieve-row"><div class="ach-icon c1">💪</div><div class="ach-text">Дізналася, що білок — будівельний матеріал для клітин, м'язів, гормонів і імунітету</div></div>
+        <div class="achieve-row"><div class="ach-icon c2">🔢</div><div class="ach-text">Навчилася розраховувати свою індивідуальну норму білка (1–2 г/кг ваги)</div></div>
+        <div class="achieve-row"><div class="ach-icon c3">⚖️</div><div class="ach-text">Зрозуміла різницю між тваринним і рослинним білком</div></div>
+        <div class="achieve-row"><div class="ach-icon c4">✨</div><div class="ach-text">Відкрила формулу молодості — баланс 50/50</div></div>
+        <div class="achieve-row"><div class="ach-icon c5">🌿</div><div class="ach-text">Усвідомила, що засвоєння білка залежить від спокою, ферментів і мікробіому</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ТРЕКЕР ДНЯ -->
-<section id="s-tracker">
-  <p class="eyebrow reveal" style="color:rgba(155,127,212,.7)">Трекер дня</p>
-  <h2 class="s-title reveal">Відмітьте що<br><em style="color:#B89FE8">виконали</em></h2>
-  <div class="tracker-wrap">
-    <div class="tracker-dark-card reveal">
-      <span class="tracker-eyebrow">✅ Завдання дня</span>
-      <p class="tracker-subtitle">Натискайте ✓ щоразу як виконали</p>
-      <div class="checklist" id="dayChecklist">
-        <div class="check-row"><div class="check-dot"></div><span class="check-text">Переглянула таблиці та шпаргалку</span><button class="check-btn" onclick="toggleCheck(this)"></button></div>
-        <div class="check-row"><div class="check-dot"></div><span class="check-text">Підрахувала свою норму білка (Завдання 1)</span><button class="check-btn" onclick="toggleCheck(this)"></button></div>
-        <div class="check-row"><div class="check-dot"></div><span class="check-text">Ввела що їла сьогодні (Завдання 2)</span><button class="check-btn" onclick="toggleCheck(this)"></button></div>
-        <div class="check-row"><div class="check-dot"></div><span class="check-text">Перевірила чи вистачає білка (Завдання 3)</span><button class="check-btn" onclick="toggleCheck(this)"></button></div>
-        <div class="check-row"><div class="check-dot"></div><span class="check-text">Поставила звичку — білок у кожному прийомі</span><button class="check-btn" onclick="toggleCheck(this)"></button></div>
-      </div>
-      <div class="tracker-done-msg" id="trackerDone">
-        <span class="td-icon">💖</span>
-        <div class="td-title">День 2 виконано!</div>
-        <div class="td-desc">Тепер ти знаєш свою норму і бачиш реальну картину свого раціону. Це і є початок змін 🌱</div>
-      </div>
+<!-- ══ 4. ЗВИЧКИ НАЗАВЖДИ ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">🏋️ Звички · Назавжди</span>
+    <h2 class="s-title reveal">Білок — <em>основа</em><br>твого харчування</h2>
+    <p class="s-sub reveal">Відміть кожну звичку, яку береш із собою назавжди 👇</p>
+    <div class="habits-list reveal" id="habitsList">
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-num">1</div><div class="h-text">Запитую себе: <strong>«Де тут білок?»</strong> — перед кожним прийомом їжі</div><div class="h-tick">✓</div></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-num">2</div><div class="h-text">Білок у <strong>кожному прийомі їжі</strong> — сніданок, обід, вечеря, перекус</div><div class="h-tick">✓</div></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-num">3</div><div class="h-text">Балансую за формулою <strong>1 тваринний : 2 рослинних</strong></div><div class="h-tick">✓</div></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-num">4</div><div class="h-text">До кожного блюда додаю <strong>зелень або кислинку</strong></div><div class="h-tick">✓</div></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-num">5</div><div class="h-text">Їм <strong>в спокої, без поспіху</strong> — ретельно жуючи</div><div class="h-tick">✓</div></div>
+      <div class="habit-row" onclick="toggleHabit(this)"><div class="h-num">6</div><div class="h-text">Три глибоких вдихи перед їжею — <strong>готую тіло до травлення</strong></div><div class="h-tick">✓</div></div>
+    </div>
+    <div class="habits-bar-wrap reveal">
+      <div class="hb-track"><div class="hb-fill" id="habitBar" style="width:0%"></div></div>
+      <div class="hb-count" id="habitCount">0/6</div>
+    </div>
+    <div class="inline-done" id="habitsDone">
+      <p>🏆 Всі 6 звичок відмічено! Білок — це тепер твоя система назавжди 💛</p>
     </div>
   </div>
 </section>
 
-<!-- ВОДА -->
-<section id="s-water">
-  <p class="eyebrow reveal" style="color:rgba(110,207,221,.65)">Трекер води</p>
-  <h2 class="s-title reveal">Стакани<br><em style="color:#6ecfdd">сьогодні</em></h2>
-  <div class="water-dark-card reveal">
-    <span class="water-eyebrow">💧 Вода дня</span>
-    <p class="water-subtitle">Натискай склянку щоразу як випила</p>
-    <div class="water-stats-row">
-      <div>
-        <div style="font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Випито сьогодні</div>
-        <div style="display:flex;align-items:baseline;gap:4px;">
-          <span id="mlTotal" style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#6ecfdd;line-height:1;">0</span>
-          <span style="font-size:13px;color:var(--muted2);">мл</span>
+<!-- ══ 5. ЩО ПОМІТИЛА — QUIZ + СИТІСТЬ ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal" style="color:var(--green)">Зміни тижня</span>
+    <h2 class="s-title reveal">Що ти<br><em style="color:var(--green)">вже помітив(ла)?</em></h2>
+    <p class="s-sub reveal">Чесна відповідь на кожне питання — це твій особистий звіт тижня</p>
+    <div class="card reveal">
+      <div class="quiz-section">
+        <div class="quiz-q-block">
+          <span class="quiz-q-label">🥚 Чи вдалося досягти норми білка щодня?</span>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="pickQ(this,'q1')">Так, щодня</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q1')">Більшість днів</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q1')">Ще працюю</button>
+          </div>
+        </div>
+        <div class="quiz-q-block">
+          <span class="quiz-q-label">⚡ Чи змінився рівень енергії?</span>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="pickQ(this,'q2')">Стало більше</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q2')">Без змін</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q2')">Ще спостерігаю</button>
+          </div>
+        </div>
+        <div class="quiz-q-block">
+          <span class="quiz-q-label">🪞 Чи помітив(ла) зміни шкіри / волосся?</span>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="pickQ(this,'q3')">Так, помітно</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q3')">Трохи</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q3')">Поки ні</button>
+          </div>
+        </div>
+        <div class="quiz-q-block">
+          <span class="quiz-q-label">💪 Чи легше в тілі, більше сил?</span>
+          <div class="quiz-opts">
+            <button class="quiz-opt" onclick="pickQ(this,'q4')">Так, відчутно</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q4')">Трохи</button>
+            <button class="quiz-opt" onclick="pickQ(this,'q4')">Поки ні</button>
+          </div>
+        </div>
+        <div class="sat-section">
+          <span class="card-label">🍽 Ситість між прийомами їжі</span>
+          <div class="sat-row">
+            <button class="sat-btn" onclick="pickSat(this,1)">😫</button>
+            <button class="sat-btn" onclick="pickSat(this,2)">😕</button>
+            <button class="sat-btn" onclick="pickSat(this,3)">😐</button>
+            <button class="sat-btn" onclick="pickSat(this,4)">🙂</button>
+            <button class="sat-btn" onclick="pickSat(this,5)">😊</button>
+          </div>
+          <div class="sat-marks"><span>Постійно голодний(а)</span><span>Ситий(а) довше</span></div>
+          <div class="sat-feedback" id="satFeedback"></div>
         </div>
       </div>
-      <div style="text-align:right;">
-        <div style="font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Склянок</div>
-        <div id="glassCountVal" style="font-family:'Playfair Display',serif;font-size:22px;color:rgba(255,255,255,.3);">0 / 10</div>
+      <div class="inline-done" id="quizDone">
+        <p>✨ Чудово — ти відповів(ла) на всі питання! Кожна відповідь — це крок до кращого розуміння свого тіла 🌿</p>
       </div>
     </div>
-    <div class="pbar-track-w"><div class="pbar-fill-w" id="waterPbar"></div></div>
-    <div class="glasses-wrap" id="glassesWrap"></div>
   </div>
 </section>
 
-<!-- РЕФЛЕКСІЯ -->
-<section id="s-refl">
-  <p class="eyebrow reveal">Рефлексія дня</p>
-  <h2 class="s-title reveal">Твої<br><em>відчуття</em></h2>
-  <div class="refl-wrap">
+<!-- ══ 6. ЗМІНИ — КАРТОЧКИ (з Дня 7) ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal" style="color:var(--green)">Відміч свої зміни</span>
+    <h2 class="s-title reveal">Що ти вже<br><em style="color:var(--green)">відчув(ла)?</em></h2>
+    <p class="s-sub reveal">Відміч все що помітив(ла) — навіть якщо зовсім трохи 🌿</p>
+    <div class="changes-grid reveal" id="changesGrid">
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">⚡</span><div class="cc-title">Більше енергії протягом дня</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">🍽️</span><div class="cc-title">Більше ситості після їжі</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">✨</span><div class="cc-title">Шкіра краща — сяяння, пружність</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">👀</span><div class="cc-title">Менше набряків</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">🧠</span><div class="cc-title">Легше концентруватись</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">😴</span><div class="cc-title">Кращий сон</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">⚖️</span><div class="cc-title">Стабільніша вага</div><div class="cc-dot">✓</div></div>
+      <div class="change-card" onclick="toggleChange(this)"><span class="cc-icon">🍬</span><div class="cc-title">Менше тяги до солодкого</div><div class="cc-dot">✓</div></div>
+    </div>
+    <div class="inline-done" id="changesDone">
+      <p id="changesDoneText">🌟 Ти вже бачиш зміни!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 7. ТРЕКЕР + СЛАЙДЕРИ ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">🍽️ Трекер білка</span>
+    <h2 class="s-title reveal">Білок у <em>кожному прийомі</em></h2>
+    <p class="s-sub reveal">Відміть де сьогодні був білок — порівняй з першим днем</p>
+
+    <div class="meal-list reveal" id="mealList">
+      <div class="meal-row" onclick="toggleMeal(this)"><span class="meal-emoji">🌅</span><span class="meal-name">Сніданок</span><div class="meal-tick">✓</div></div>
+      <div class="meal-row" onclick="toggleMeal(this)"><span class="meal-emoji">🍎</span><span class="meal-name">Перекус</span><div class="meal-tick">✓</div></div>
+      <div class="meal-row" onclick="toggleMeal(this)"><span class="meal-emoji">🍽️</span><span class="meal-name">Обід</span><div class="meal-tick">✓</div></div>
+      <div class="meal-row" onclick="toggleMeal(this)"><span class="meal-emoji">🌙</span><span class="meal-name">Вечеря</span><div class="meal-tick">✓</div></div>
+    </div>
+    <div class="meal-result" id="mealResult" style="margin-bottom:16px">
+      <p><strong id="mealCount">0</strong> з 4 прийомів із білком — <span id="mealMsg"></span></p>
+    </div>
+
+    <!-- Слайдери (з першої версії) -->
+    <div class="slider-card reveal">
+      <span class="card-label">📈 Білок у грамах — до і після тижня</span>
+      <div class="slider-item">
+        <div class="slider-top">
+          <span class="slider-qlabel">🕰 На початку тижня — г/день</span>
+          <span class="slider-val"><span id="vBefore">50</span>г</span>
+        </div>
+        <input type="range" id="sBefore" min="20" max="200" value="50" step="5" oninput="updateSliders()">
+        <div class="slider-marks"><span>20г</span><span>100г</span><span>200г</span></div>
+      </div>
+      <div class="slider-item">
+        <div class="slider-top">
+          <span class="slider-qlabel">✨ Зараз, після тижня — г/день</span>
+          <span class="slider-val green"><span id="vAfter">90</span>г</span>
+        </div>
+        <input type="range" id="sAfter" min="20" max="200" value="90" step="5" class="green-thumb" oninput="updateSliders()">
+        <div class="slider-marks"><span>20г</span><span>100г</span><span>200г</span></div>
+      </div>
+      <div id="deltaPill" class="delta-pill">🎉 Зріст на +40г — чудовий прогрес!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 8. ПОДІЛИСЯ ══ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal" style="color:#6ecfdd">Поділися</span>
+    <h2 class="s-title reveal">Поділися<br><em style="color:#6ecfdd">своїм відгуком</em></h2>
+    <p class="s-sub reveal">Що змінилося за цей тиждень — розкажи:</p>
+    <div class="reveal">
+      <div class="chat-cta">
+        <span class="chat-cta-icon">💬</span>
+        <p class="chat-cta-text">Напиши <strong>у чат</strong> — голосовим або текстом. Твій відгук надихне інших учасниць 🌿</p>
+      </div>
+    </div>
+    <div class="reveal" style="margin-top:10px">
+      <a href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener" class="tg-btn">
+        <span class="tg-btn-icon">✈️</span>
+        <div class="tg-btn-text"><span class="tg-btn-label">Написати Любові особисто</span><span class="tg-btn-sub">Буду рада почути твій відгук 💚</span></div>
+        <span class="tg-btn-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 9. РЕФЛЕКСІЯ ══ -->
+<section>
+  <div class="wrap">
     <div class="refl-card reveal">
-      <div class="refl-title">📝 Запитання для рефлексії</div>
-      <p class="refl-sub">Запиши спостереження — вони знадобляться наприкінці тижня 🌿</p>
-      <div class="refl-q">
-        <label class="refl-q-label" for="refl1">Чи вдалося досягти своєї норми? Де не вистачало?</label>
-        <textarea class="refl-textarea" id="refl1" placeholder="Наприклад: моя норма 72 г, набрала приблизно 65 г. Перекус був без білка…" rows="3"></textarea>
-      </div>
-      <div class="refl-q">
-        <label class="refl-q-label" for="refl2">Як ти почуваєшся після другого дня?</label>
-        <textarea class="refl-textarea" id="refl2" placeholder="Наприклад: помітила що менше хочеться солодкого після обіду з курятиною…" rows="3"></textarea>
+      <div class="refl-title">📝 Рефлексія тижня</div>
+      <p class="refl-sub">Два питання — чесно і від серця 🌿</p>
+      <div class="refl-qs">
+
+        <div>
+          <span class="rq-label">💫 Що змінилося у відчуттях?</span>
+          <textarea class="rq-ta" rows="4" placeholder="Наприклад: тіло стало легшим, менше втоми після їжі, краще сплю, менше хочу солодкого, більше енергії вранці…"></textarea>
+        </div>
+
+        <div>
+          <span class="rq-label">🏆 Яка білкова звичка залишиться на все життя?</span>
+          <textarea class="rq-ta" rows="4" placeholder="Наприклад: завжди запитуватиму себе «де тут білок?», додаватиму зелень до кожного прийому їжі…"></textarea>
+        </div>
+
+        <div>
+          <span class="rq-label">⭐ Оціни тиждень загалом</span>
+          <div class="stars-row" id="starsRow">
+            <span class="star-btn" onclick="rateStar(1)">⭐</span>
+            <span class="star-btn" onclick="rateStar(2)">⭐</span>
+            <span class="star-btn" onclick="rateStar(3)">⭐</span>
+            <span class="star-btn" onclick="rateStar(4)">⭐</span>
+            <span class="star-btn" onclick="rateStar(5)">⭐</span>
+          </div>
+          <div class="star-msg" id="starMsg"></div>
+        </div>
+
       </div>
     </div>
-    <div class="refl-privacy reveal">
-      <span class="refl-privacy-icon">🔒</span>
-      <p class="refl-privacy-text"><strong>Це твій особистий простір.</strong> Всі нотатки залишаються лише на твоєму пристрої — нікуди не відправляються і ніхто їх не бачить. Пиши чесно і для себе 💛</p>
+    <div class="privacy-row reveal">
+      <span style="font-size:14px;flex-shrink:0">📓</span>
+      <p class="privacy-txt">Це твій особистий простір для нотаток — <strong>нікуди відправляти не треба.</strong></p>
     </div>
   </div>
 </section>
 
-<!-- TELEGRAM -->
-<section id="s-tg">
-  <p class="eyebrow reveal" style="color:rgba(110,207,221,.65)">Особисто від мене</p>
-  <h2 class="s-title reveal">Написати<br><em style="color:#6ecfdd">Любові</em></h2>
-  <div class="tg-card reveal">
-    <span class="tg-icon-big">💬</span>
-    <div class="tg-title">Є питання або<br><em>хочеш поділитись?</em></div>
-    <p class="tg-desc">Я читаю кожне повідомлення. Пиши про свої результати, питання або просто як пройшов день — я завжди поруч 🤍</p>
-    <a class="tg-btn" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener">
-      <span>✈️</span> Написати в Telegram
-    </a>
+<!-- ══ 10. ПІДТРИМКА ══ -->
+<section>
+  <div class="wrap">
+    <div class="support-card reveal">
+      <div class="support-title">💚 Підтримка від нутриціолога</div>
+      <p class="support-body">Білок — це не просто нутрієнт. Це фундамент усього: м'язів, гормонів, імунітету, шкіри, енергії. Тепер, коли ти навчив(ла)ся давати тілу те, що йому потрібно — ти побудував(ла) <strong>справжню систему</strong>.</p>
+      <p class="support-body">Білкова звичка залишається з тобою назавжди 🏗️💚</p>
+      <p class="support-sign">— Любов Бухарова, нутриціолог</p>
+      <div class="support-next">
+        <span class="sn-icon">🌿</span>
+        <div class="sn-text"><strong>Наступного тижня</strong> ми продовжимо будувати твою систему харчування — крок за кроком, звичка за звичкою. Готуйся до нових відкриттів 🌱</div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- КНИГА РЕЦЕПТІВ -->
-<section id="s-recipe" class="sec-c">
-  <p class="eyebrow reveal" style="color:#8B5E3C">Ділюся з вами</p>
-  <h2 class="s-title reveal" style="color:#1C0E06">Збірка<br><em style="color:var(--rose)">рецептів</em></h2>
-  <p class="s-body reveal" style="color:rgba(44,26,10,.6)">Рецепти від нутриціолога — їжа, що лікує, живить і працює на твоє тіло</p>
-  <div class="recipe-book-card reveal">
-    <span class="recipe-fruits-big">🍊🫑🥭🍋</span>
-    <div class="recipe-main-title">«Їжа, що лікує,<br>живить і працює<br>на твоє тіло»</div>
-    <p class="recipe-desc-text">рецепти, які легко приготувати вдома. Кожна страва — смачно, корисно і зрозуміло.</p>
-    <span class="recipe-badge">✦ Від нутриціолога Любові Бухарової</span>
-  </div>
-</section>
-
-<!-- ФІНАЛ -->
+<!-- ══ 11. ФІНАЛ + ТИЗЕР ══ -->
 <section id="s-final">
-  <span class="final-icon-big reveal">🏗️</span>
-  <div class="final-badge-done reveal">День 2 · Виконано</div>
-  <h2 class="final-title reveal">День 2 —<br><em>виконано!</em></h2>
+  <div class="final-badge reveal">🏆 Білковий тиждень · Завершено</div>
+  <span class="final-trophy reveal">🏆</span>
+  <h2 class="final-title reveal">Білковий тиждень —<br><em>завершено!</em></h2>
   <div class="final-line reveal"></div>
-  <p class="final-quote reveal">«Великі справи робляться маленькими кроками»</p>
-  <p class="final-sub reveal">Тепер ти знаєш свою норму. Завтра — ще один крок до здоров'я зсередини 🌿</p>
-  <div class="day-dots reveal">
-    <div class="d-dot done"></div>
-    <div class="d-dot active"></div>
-    <div class="d-dot"></div><div class="d-dot"></div>
-    <div class="d-dot"></div><div class="d-dot"></div><div class="d-dot"></div>
+  <p class="final-quote reveal">«Через кожен прийом їжі — ти будуєш себе»</p>
+  <p class="final-sub reveal">Ти зробив(ла) це! 5 днів нових звичок — і твоє тіло вже будується по-новому 🏗️✨</p>
+  <p class="final-author reveal">— Любов Бухарова, нутриціолог</p>
+  <div class="final-dots reveal">
+    <div class="fd-dot"></div><div class="fd-dot"></div><div class="fd-dot"></div><div class="fd-dot"></div>
+    <div class="fd-dot active"></div>
+  </div>
+  <div class="teaser-card reveal">
+    <span class="teaser-week-label">Наступний тиждень</span>
+    <div class="teaser-icon">🥑</div>
+    <div class="teaser-title">Починаємо<br><em>тиждень жирів</em></div>
+    <p class="teaser-desc">Продовжуй пити воду 💧 і додавати білок до кожної тарілки 💪 — і готуйся до нових відкриттів про корисні жири!</p>
   </div>
 </section>
 
 <script>
-window.addEventListener('scroll',()=>{
-  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById('progress').style.width=(s/h*100)+'%';
-});
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');})},{threshold:0.08});
+// Progress
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('progress').style.width=(s/h*100)+'%';});
+
+// Stars background
+const sf=document.getElementById('starField');
+for(let i=0;i<55;i++){const el=document.createElement('div');el.className='star';const sz=Math.random()*3+1.2;el.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4.5}s;animation-delay:${Math.random()*6}s;`;sf.appendChild(el);}
+
+// Reveal on scroll
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.07});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-/* table pick */
-const animalPhrases=['Натискай на рядки — відмічай своє 💜','Один — вже початок! 💜','Два — ти вже знаєш своє 💜','Три — відмінно! 💜','Чотири — уважна! 💜','П\'ять — знаєш своє харчування! 💜','Шість і більше — знавець! 💜'];
-const plantPhrases=['Натискай на рядки — відмічай своє 🌿','Один — рослинний початок! 🌿','Два — твоя база 🌿','Три — чудово! 🌿','Чотири — любиш рослинне! 🌿','П\'ять — справжній рослинний раціон! 🌿','Шість і більше — зелена зірка! 🌿'];
-function setupTable(tid,pid,cid,fid,phrases){
-  const t=document.getElementById(tid),p=document.getElementById(pid);
-  let cnt=0;
-  t.querySelectorAll('tbody tr').forEach(tr=>{
-    tr.addEventListener('click',()=>{
-      tr.classList.toggle('picked');
-      cnt=t.querySelectorAll('tbody tr.picked').length;
-      const n=cnt===1?'продукт':(cnt>=2&&cnt<=4?'продукти':'продуктів');
-      document.getElementById(cid).textContent=cnt+' '+n;
-      document.getElementById(fid).textContent=phrases[Math.min(cnt,phrases.length-1)];
-      p.classList.toggle('visible',cnt>0);
-    });
+// Popup
+function showPopup(emoji,title,text){
+  document.getElementById('popupEmoji').textContent=emoji;
+  document.getElementById('popupTitle').textContent=title;
+  document.getElementById('popupText').textContent=text;
+  const c=document.getElementById('confetti');c.innerHTML='';
+  ['#D4A843','#F0C96A','#64C882','#C4785A','#fff'].forEach(col=>{
+    for(let i=0;i<4;i++){const d=document.createElement('div');d.className='conf-dot';d.style.cssText=`left:${Math.random()*100}%;top:${-10+Math.random()*20}px;background:${col};animation-delay:${Math.random()*.7}s;animation-duration:${1.4+Math.random()*.8}s;`;c.appendChild(d);}
   });
+  document.getElementById('popup').classList.add('show');
+  document.body.style.overflow='hidden';
 }
-setupTable('animalTable','animalPopup','animalCount','animalPhrase',animalPhrases);
-setupTable('plantTable','plantPopup','plantCount','plantPhrase',plantPhrases);
+function hidePopup(){document.getElementById('popup').classList.remove('show');document.body.style.overflow='';}
+function closePopup(e){if(e.target===document.getElementById('popup'))hidePopup();}
 
-/* calculator */
-let selectedMult=null;
-function selectActivity(btn){
-  document.querySelectorAll('.act-btn').forEach(b=>b.classList.remove('selected'));
-  btn.classList.add('selected');
-  selectedMult=parseFloat(btn.dataset.mult);
-  calcNorm();updateCompare();
-}
-function calcNorm(){
-  const w=parseFloat(document.getElementById('weightInput').value);
-  const num=document.getElementById('resultNum'),hint=document.getElementById('resultHint'),box=document.getElementById('resultBox');
-  if(!w||!selectedMult){num.textContent='—';hint.textContent='Введи вагу та обери активність ✦';return;}
-  const r=Math.round(w*selectedMult);
-  num.textContent=r;
-  hint.textContent=w+' кг × '+selectedMult+' = '+r+' г білка на день';
-  box.style.borderColor='rgba(155,100,230,.5)';box.style.background='rgba(155,100,230,.14)';
-  updateCompare();
-}
-function getGoal(){
-  const w=parseFloat(document.getElementById('weightInput').value);
-  if(!w||!selectedMult)return null;
-  return Math.round(w*selectedMult);
-}
-
-/* food log */
-let foodTotal=0;
-function calcFood(){
-  const inputs=document.querySelectorAll('.food-log-g-input');
-  foodTotal=0;
-  inputs.forEach((inp,i)=>{
-    const v=parseFloat(inp.value)||0;
-    const prot=parseFloat(inp.dataset.prot)||0;
-    const isShts=inp.dataset.unit==='шт';
-    const protG=isShts?Math.round(v*prot):Math.round(v*prot);
-    document.getElementById('fl'+i).textContent=protG+' г';
-    foodTotal+=protG;
-  });
-  document.getElementById('foodTotal').textContent=foodTotal+' г';
-  updateCompare();
-}
-
-/* compare */
-function updateCompare(){
-  const goal=getGoal();
-  document.getElementById('cmpNorm').textContent=goal?goal+' г':'— г';
-  document.getElementById('cmpEaten').textContent=foodTotal>0?foodTotal+' г':'— г';
-  if(!goal||foodTotal===0){
-    document.getElementById('cmpFill').style.width='0%';
-    document.getElementById('cmpPct').textContent='—';
-    document.getElementById('cmpMsg').textContent='Заповни завдання 1 і 2 — результат з\'явиться тут ✦';
-    document.getElementById('cmpGoalLabel').textContent='норма';
-    return;
+// ── Звички — popup тільки коли всі 6 ──
+function toggleHabit(el){
+  el.classList.toggle('checked');
+  const done=document.querySelectorAll('#habitsList .habit-row.checked').length;
+  const total=document.querySelectorAll('#habitsList .habit-row').length;
+  document.getElementById('habitBar').style.width=(done/total*100)+'%';
+  document.getElementById('habitCount').textContent=done+'/'+total;
+  if(done===total){
+    document.getElementById('habitsDone').classList.add('show');
+    setTimeout(()=>showPopup('🏆','Всі 6 звичок відмічено!','Неймовірно! Білок — це тепер твоя система назавжди. Ти побудував(ла) фундамент здоров\'я, молодості й енергії 💛'),400);
+  } else {
+    document.getElementById('habitsDone').classList.remove('show');
   }
-  const pct=Math.min(Math.round(foodTotal/goal*100),120);
-  document.getElementById('cmpFill').style.width=Math.min(pct,100)+'%';
-  document.getElementById('cmpPct').textContent=pct+'%';
-  document.getElementById('cmpGoalLabel').textContent=goal+' г';
-  const msgs={
-    0:'Починаємо! Додай більше білка до раціону 💪',
-    25:'Добрий початок — але є куди рости 🌱',
-    50:'Половина шляху — продовжуй! ✨',
-    75:'Майже норма — чудово! 🎉',
-    100:'Норма виконана! Ти дбаєш про себе 💖',
-    105:'Норма виконана з запасом — молодець! ✦'
-  };
-  const key=pct>=105?105:pct>=100?100:pct>=75?75:pct>=50?50:pct>=25?25:0;
-  document.getElementById('cmpMsg').textContent=msgs[key];
 }
 
-/* tracker */
-function toggleCheck(el){
-  el.classList.toggle('done');el.textContent=el.classList.contains('done')?'✓':'';
-  const all=document.querySelectorAll('#dayChecklist .check-btn'),done=document.querySelectorAll('#dayChecklist .check-btn.done');
-  document.getElementById('trackerDone').style.display=(all.length===done.length)?'block':'none';
+// ── Quiz — popup тільки коли всі 4 + ситість ──
+const quizAnswered={q1:false,q2:false,q3:false,q4:false,sat:false};
+function checkQuizDone(){
+  if(Object.values(quizAnswered).every(Boolean)){
+    document.getElementById('quizDone').classList.add('show');
+    setTimeout(()=>showPopup('✨','Молодець — ти відповів(ла) на все!','Усвідомленість — перший крок до змін. Ти побачив(ла) де вже є прогрес і де ще є простір для росту 🌿'),400);
+  }
+}
+function pickQ(btn,group){
+  btn.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  quizAnswered[group]=true;
+  checkQuizDone();
+}
+const satTexts=['','😫 Ще попрацюємо — більше білка щодня!','😕 Вже краще — білок у кожен прийом!','😐 Непогано! Продовжуй далі','🙂 Відмінно — білок працює на ситість!','😊 Фантастично! Тіло отримало все потрібне 💛'];
+function pickSat(btn,val){
+  document.querySelectorAll('.sat-btn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  document.getElementById('satFeedback').textContent=satTexts[val];
+  quizAnswered['sat']=true;
+  checkQuizDone();
 }
 
-/* water */
-const ML=250;let gc=0;
-const gw=document.getElementById('glassesWrap');
-function updW(){
-  document.getElementById('mlTotal').textContent=gc*ML;
-  document.getElementById('glassCountVal').textContent=gc+' / 10';
-  document.getElementById('waterPbar').style.width=(gc/10*100)+'%';
-  document.querySelectorAll('.glass-btn').forEach((b,j)=>b.classList.toggle('filled',j<gc));
+// ── Карточки змін — показує inline msg одразу при першій відмітці ──
+const changeMsgs=['','Маленький крок — великий результат! 🌱','Вже відчуваєш різницю 💪','Три зміни — білок справді працює 🌟','Чотири зміни! Тіло відповідає ✨','П\'ять змін — ти будуєш нову себе 🏗️','Шість! Білок змінює тіло зсередини 💛','Сім змін — неймовірно!','Вісім! Тиждень спрацював на 100% 🏆'];
+function toggleChange(card){
+  card.classList.toggle('sel');
+  const done=document.querySelectorAll('#changesGrid .change-card.sel').length;
+  const doneEl=document.getElementById('changesDone');
+  if(done>0){
+    doneEl.classList.add('show');
+    document.getElementById('changesDoneText').textContent=changeMsgs[Math.min(done,changeMsgs.length-1)];
+  } else {
+    doneEl.classList.remove('show');
+  }
 }
-for(let i=0;i<10;i++){
-  const b=document.createElement('button');
-  b.type='button';b.className='glass-btn';b.textContent='🥛';b.dataset.i=i;
-  b.addEventListener('click',()=>{gc=b.classList.contains('filled')?i:i+1;updW();});
-  gw.appendChild(b);
+
+// ── Трекер їжі ──
+const mealMsgs=['','Перший крок! 🌱','Вже краще 💫','Добре — більше половини 🌿','Ідеально — білок у всіх прийомах! 🏆'];
+function toggleMeal(el){
+  el.classList.toggle('checked');
+  const done=document.querySelectorAll('#mealList .meal-row.checked').length;
+  document.getElementById('mealCount').textContent=done;
+  document.getElementById('mealMsg').textContent=mealMsgs[Math.min(done,mealMsgs.length-1)];
+  document.getElementById('mealResult').classList.toggle('show',done>0);
+}
+
+// ── Слайдери (з першої версії) ──
+function updateSliders(){
+  const b=+document.getElementById('sBefore').value;
+  const a=+document.getElementById('sAfter').value;
+  document.getElementById('vBefore').textContent=b;
+  document.getElementById('vAfter').textContent=a;
+  const diff=a-b;
+  const pill=document.getElementById('deltaPill');
+  if(diff>0){pill.textContent='🎉 Зріст на +'+diff+'г — чудовий прогрес!';pill.className='delta-pill';}
+  else if(diff<0){pill.textContent='💡 -'+Math.abs(diff)+'г — ще є куди рости!';pill.className='delta-pill down';}
+  else{pill.textContent='🔄 Стабільно — закріплюй звичку!';pill.className='delta-pill neutral';}
+}
+updateSliders();
+
+// ── Рефлексія — чи стало білка більше ──
+const pmMsgs={
+  '✅ Так, помітно більше':'Чудово! Більше білка = більше будівельного матеріалу для клітин. Тіло вже працює по-новому 🏗️',
+  '📈 Трохи більше':'Трохи більше — вже результат! Кожен грам білка будує тебе зсередини. Продовжуй нарощувати 💪',
+  '🔄 Приблизно так само':'Головне — ти тепер усвідомлюєш. Наступний тиждень зосередься на одному прийомі де білка бракує 🌱',
+  '🌱 Ще працюю над цим':'Усвідомленість — це вже половина шляху. Починай з малого: один прийом їжі з білком щодня 🤍'
+};
+function pickRefl(btn,group){
+  btn.closest('.refl-opts').querySelectorAll('.refl-opt').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  const msg=pmMsgs[btn.textContent.trim()]||'';
+  document.getElementById(group+'Msg').textContent=msg;
+}
+const starMsgs=['','😔 Важкий тиждень — але ти не здав(ла)ся!','🌱 Добрий початок — є куди рости!','🌟 Непоганий тиждень — ти молодець!','💪 Відмінний тиждень — відчуваєш прогрес!','🏆 Ідеальний тиждень — ти зробив(ла) це!'];
+function rateStar(n){
+  document.querySelectorAll('#starsRow .star-btn').forEach((s,i)=>s.classList.toggle('lit',i<n));
+  document.getElementById('starMsg').textContent=starMsgs[n];
 }
 </script>
 </body>
