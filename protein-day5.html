@@ -18,17 +18,10 @@
 }
 html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;color:var(--text);overflow-x:hidden;background:var(--bg1);}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.12;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
-.progress-bar{position:fixed;top:0;left:0;height:3px;
-  background:linear-gradient(90deg,var(--rose),var(--gold),var(--green));
-  z-index:200;transition:width .15s;box-shadow:0 0 8px rgba(212,168,67,.35);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");}
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--gold),var(--green));z-index:200;transition:width .15s;box-shadow:0 0 8px rgba(212,168,67,.35);}
 
-/* ═══ HERO ═══ */
-#s-hero{min-height:100vh;
-  background:radial-gradient(ellipse 70% 60% at 50% 20%,#2A1A04 0%,#140C02 50%,#080400 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:64px 24px 110px;position:relative;overflow:hidden;}
+#s-hero{min-height:100vh;background:radial-gradient(ellipse 70% 60% at 50% 20%,#2A1A04 0%,#140C02 50%,#080400 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 110px;position:relative;overflow:hidden;}
 .star-field{position:absolute;inset:0;z-index:0;pointer-events:none;}
 .star{position:absolute;border-radius:50%;background:rgba(212,168,74,.9);animation:twinkle var(--d) ease-in-out infinite;}
 @keyframes twinkle{0%,100%{opacity:.07;transform:scale(.5)}50%{opacity:1;transform:scale(1.3)}}
@@ -54,7 +47,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite;z-index:1;}
 @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
 
-/* ═══ SHARED ═══ */
 .wrap{max-width:500px;margin:0 auto;}
 section{padding:64px 24px;}
 section:nth-child(odd){background:radial-gradient(ellipse 80% 60% at 50% 40%,#1E1204 0%,#0E0802 70%);}
@@ -66,7 +58,6 @@ section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1
 .card{background:var(--card);border:1px solid var(--border-gold);border-radius:20px;padding:22px 20px;}
 .card-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,168,74,.5);margin-bottom:14px;display:block;}
 
-/* ═══ УСВІДОМЛЕННЯ ═══ */
 .aware-box{background:rgba(212,168,67,.07);border:1px solid rgba(212,168,67,.2);border-radius:20px;padding:28px 24px;margin-bottom:14px;text-align:center;position:relative;overflow:hidden;}
 .aware-box::before{content:'\275D';position:absolute;top:-8px;left:12px;font-size:90px;color:rgba(212,168,74,.05);font-family:'Playfair Display',serif;line-height:1;}
 .aware-ey{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(212,168,74,.5);margin-bottom:14px;display:block;}
@@ -80,7 +71,6 @@ section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1
 .aware-q2{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(15px,4vw,19px);font-weight:700;color:var(--muted);line-height:1.5;}
 .aware-q2 strong{color:rgba(255,255,255,.85);}
 
-/* ═══ ДОСЯГНЕННЯ ═══ */
 .achieve-frame{background:var(--card);border:1px solid var(--border-gold);border-radius:20px;padding:20px 18px;}
 .achieve-list{display:flex;flex-direction:column;}
 .achieve-row{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);}
@@ -90,7 +80,6 @@ section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1
 .ach-icon.c1{background:rgba(196,120,90,.2);}.ach-icon.c2{background:rgba(80,120,180,.2);}.ach-icon.c3{background:rgba(80,160,100,.2);}.ach-icon.c4{background:rgba(212,168,67,.2);}.ach-icon.c5{background:rgba(107,143,113,.2);}
 .ach-text{font-size:13px;color:var(--muted);line-height:1.5;flex:1;padding-top:6px;}
 
-/* ═══ ЗВИЧКИ ═══ */
 .habits-list{display:flex;flex-direction:column;gap:8px;}
 .habit-row{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1.5px solid var(--border-gold);border-radius:14px;padding:14px 15px;cursor:pointer;transition:all .2s;user-select:none;}
 .habit-row:hover{background:rgba(212,168,67,.08);}
@@ -106,7 +95,6 @@ section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1
 .hb-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;transition:width .4s cubic-bezier(.34,1.2,.64,1);}
 .hb-count{font-family:'Playfair Display',serif;font-size:18px;color:var(--gold2);min-width:32px;text-align:right;}
 
-/* ═══ QUIZ + СИТІСТЬ ═══ */
 .quiz-section{display:flex;flex-direction:column;gap:18px;}
 .quiz-q-block{display:flex;flex-direction:column;gap:9px;}
 .quiz-q-label{font-size:14px;color:var(--text);line-height:1.4;}
@@ -122,7 +110,6 @@ section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1
 .sat-marks{display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--muted2);}
 .sat-feedback{margin-top:10px;font-size:13px;color:rgba(212,168,74,.7);font-style:italic;min-height:20px;transition:all .3s;text-align:center;}
 
-/* ═══ ЗМІНИ — КАРТОЧКИ ═══ */
 .changes-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 @media(max-width:360px){.changes-grid{grid-template-columns:1fr;}}
 .change-card{background:var(--card);border:1.5px solid rgba(255,255,255,.09);border-radius:18px;padding:18px 16px;cursor:pointer;transition:all .2s;user-select:none;display:flex;flex-direction:column;}
@@ -135,7 +122,6 @@ section:nth-child(even){background:radial-gradient(ellipse 80% 60% at 60% 50%,#1
 .cc-dot{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:8px;color:transparent;margin-top:10px;transition:all .2s;flex-shrink:0;}
 .change-card.sel .cc-dot{background:var(--green);border-color:var(--green);color:#fff;}
 
-/* ═══ СЛАЙДЕРИ ═══ */
 .slider-card{background:var(--card);border:1px solid var(--border-gold);border-radius:18px;padding:22px 20px;}
 .slider-item{margin-bottom:22px;}
 .slider-item:last-of-type{margin-bottom:0;}
@@ -153,7 +139,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .delta-pill.neutral{border-color:rgba(212,168,67,.3);color:var(--gold2);background:rgba(212,168,67,.1);}
 .delta-pill.down{border-color:rgba(196,120,90,.3);color:#E8A090;background:rgba(196,120,90,.1);}
 
-/* ═══ ТРЕКЕР ПРИЙОМІВ ═══ */
 .meal-list{display:flex;flex-direction:column;gap:8px;margin-bottom:8px;}
 .meal-row{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--border-gold);border-radius:13px;padding:13px 15px;cursor:pointer;transition:all .2s;user-select:none;}
 .meal-row:hover{background:rgba(212,168,67,.08);}
@@ -168,7 +153,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .meal-result p{font-size:13px;color:var(--gold2);line-height:1.6;}
 .meal-result strong{font-family:'Playfair Display',serif;font-size:17px;}
 
-/* ═══ ПОДІЛИСЯ ═══ */
 .chat-cta{background:rgba(212,168,67,.07);border:1px solid var(--border-gold);border-radius:14px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;}
 .chat-cta-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px;}
 .chat-cta-text{font-size:13px;color:var(--muted);line-height:1.6;}
@@ -181,7 +165,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .tg-btn-sub{font-size:12px;color:rgba(255,255,255,.6);}
 .tg-btn-arrow{font-size:1rem;color:rgba(255,255,255,.4);flex-shrink:0;}
 
-/* ═══ РЕФЛЕКСІЯ ═══ */
 .refl-card{background:var(--card);border:1px solid var(--border-gold);border-radius:18px;padding:22px 20px;margin-bottom:12px;}
 .refl-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:4px;}
 .refl-sub{font-size:12px;color:var(--muted2);margin-bottom:18px;line-height:1.5;}
@@ -194,18 +177,10 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .star-btn{font-size:28px;cursor:pointer;opacity:.22;transition:all .2s;user-select:none;}
 .star-btn.lit{opacity:1;transform:scale(1.08);}
 .star-msg{margin-top:8px;font-size:13px;color:rgba(212,168,74,.7);font-style:italic;min-height:20px;transition:all .3s;}
-
-/* Рефлексія опції */
-.refl-opts{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
-.refl-opt{width:100%;padding:12px 16px;border-radius:12px;border:1.5px solid var(--border-gold);background:var(--card);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--muted);cursor:pointer;text-align:left;transition:all .18s;line-height:1.4;}
-.refl-opt:hover{border-color:var(--gold);color:var(--text);background:rgba(212,168,67,.08);}
-.refl-opt.sel{border-color:var(--gold);background:rgba(212,168,67,.18);color:var(--gold2);font-weight:500;}
-.refl-opt-msg{margin-top:8px;font-size:13px;color:rgba(212,168,74,.65);font-style:italic;min-height:18px;transition:all .3s;line-height:1.5;}
 .privacy-row{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:13px 14px;}
 .privacy-txt{font-size:12px;color:var(--muted2);line-height:1.6;}
 .privacy-txt strong{color:var(--muted);}
 
-/* ═══ ПІДТРИМКА ═══ */
 .support-card{background:rgba(212,168,67,.07);border:1px solid var(--border-gold);border-radius:18px;padding:24px 20px;}
 .support-title{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:10px;}
 .support-body{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:6px;}
@@ -216,10 +191,13 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .sn-text{font-size:13px;color:var(--muted);line-height:1.65;}
 .sn-text strong{color:var(--text);}
 
-/* ═══ ФІНАЛ ═══ */
-#s-final{background:radial-gradient(ellipse 80% 70% at 50% 50%,#2A1A04 0%,#140C02 55%,#080400 100%) !important;
-  padding:80px 24px 64px;text-align:center;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;min-height:100vh;}
+/* Submit */
+.submit-section{background:radial-gradient(ellipse 80% 60% at 50% 80%,#1a0f06 0%,#0c0806 70%);padding:40px 24px 60px;display:flex;justify-content:center;}
+.submit-btn{max-width:500px;width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));color:#1C1008;border:none;border-radius:16px;padding:18px 24px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;letter-spacing:.5px;box-shadow:0 8px 28px rgba(212,168,67,.3);}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 14px 40px rgba(212,168,67,.4);}
+
+#s-final{background:radial-gradient(ellipse 80% 70% at 50% 50%,#2A1A04 0%,#140C02 55%,#080400 100%) !important;padding:80px 24px 64px;text-align:center;display:none;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;}
+#s-final.visible-section{display:flex;}
 .final-badge{display:inline-block;background:rgba(212,168,67,.1);border:1px solid var(--border-gold);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--gold2);text-transform:uppercase;margin-bottom:26px;}
 .final-trophy{font-size:68px;display:block;margin-bottom:20px;animation:trophy-float 4s ease-in-out infinite;}
 .final-title{font-family:'Playfair Display',serif;font-size:clamp(32px,9vw,50px);font-weight:900;line-height:1.1;margin-bottom:14px;}
@@ -231,7 +209,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .final-dots{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:52px;}
 .fd-dot{width:6px;height:6px;border-radius:50%;background:rgba(212,168,74,.35);}
 .fd-dot.active{background:var(--gold2);width:22px;border-radius:4px;}
-/* Тизер */
 .teaser-card{background:rgba(255,255,255,.04);border:1px solid rgba(180,210,140,.15);border-radius:22px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;max-width:400px;width:100%;}
 .teaser-card::before{content:'🥑';position:absolute;right:10px;bottom:-8px;font-size:90px;opacity:.07;pointer-events:none;}
 .teaser-week-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(180,210,140,.5);margin-bottom:14px;display:block;}
@@ -240,12 +217,10 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 .teaser-title em{color:#b4d28c;font-style:italic;}
 .teaser-desc{font-size:13px;color:rgba(255,255,255,.4);line-height:1.75;max-width:300px;margin:0 auto;}
 
-/* ═══ INLINE DONE ═══ */
 .inline-done{margin-top:14px;background:rgba(212,168,67,.08);border:1px solid rgba(212,168,67,.22);border-radius:14px;padding:14px 18px;text-align:center;display:none;}
 .inline-done.show{display:block;}
 .inline-done p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--gold2);line-height:1.55;}
 
-/* ═══ POPUP ═══ */
 .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .3s;}
 .popup-overlay.show{opacity:1;pointer-events:all;}
 .popup-box{background:linear-gradient(160deg,#1E1204,#3A2810);border:1px solid rgba(212,168,74,.4);border-radius:24px;padding:32px 28px;max-width:340px;width:100%;text-align:center;position:relative;transform:scale(.85) translateY(20px);transition:transform .35s cubic-bezier(.34,1.4,.64,1);}
@@ -277,7 +252,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </div>
 
-<!-- ══ 1. HERO ══ -->
+<!-- 1. HERO -->
 <section id="s-hero">
   <div class="star-field" id="starField"></div>
   <div class="gold-ring"></div><div class="gold-ring"></div><div class="gold-ring"></div><div class="gold-ring"></div>
@@ -297,7 +272,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   <div class="hero-scroll">↓ гортай</div>
 </section>
 
-<!-- ══ 2. УСВІДОМЛЕННЯ ══ -->
+<!-- 2. УСВІДОМЛЕННЯ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal">Усвідомлення тижня</span>
@@ -315,7 +290,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 3. ДОСЯГНЕННЯ ══ -->
+<!-- 3. ДОСЯГНЕННЯ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal">📊 Що ти досягла за цей тиждень</span>
@@ -331,7 +306,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 4. ЗВИЧКИ НАЗАВЖДИ ══ -->
+<!-- 4. ЗВИЧКИ НАЗАВЖДИ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal">🏋️ Звички · Назавжди</span>
@@ -355,7 +330,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 5. ЩО ПОМІТИЛА — QUIZ + СИТІСТЬ ══ -->
+<!-- 5. QUIZ + СИТІСТЬ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal" style="color:var(--green)">Зміни тижня</span>
@@ -415,7 +390,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 6. ЗМІНИ — КАРТОЧКИ (з Дня 7) ══ -->
+<!-- 6. ЗМІНИ — КАРТОЧКИ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal" style="color:var(--green)">Відміч свої зміни</span>
@@ -437,13 +412,12 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 7. ТРЕКЕР + СЛАЙДЕРИ ══ -->
+<!-- 7. ТРЕКЕР + СЛАЙДЕРИ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal">🍽️ Трекер білка</span>
     <h2 class="s-title reveal">Білок у <em>кожному прийомі</em></h2>
     <p class="s-sub reveal">Відміть де сьогодні був білок — порівняй з першим днем</p>
-
     <div class="meal-list reveal" id="mealList">
       <div class="meal-row" onclick="toggleMeal(this)"><span class="meal-emoji">🌅</span><span class="meal-name">Сніданок</span><div class="meal-tick">✓</div></div>
       <div class="meal-row" onclick="toggleMeal(this)"><span class="meal-emoji">🍎</span><span class="meal-name">Перекус</span><div class="meal-tick">✓</div></div>
@@ -453,8 +427,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
     <div class="meal-result" id="mealResult" style="margin-bottom:16px">
       <p><strong id="mealCount">0</strong> з 4 прийомів із білком — <span id="mealMsg"></span></p>
     </div>
-
-    <!-- Слайдери (з першої версії) -->
     <div class="slider-card reveal">
       <span class="card-label">📈 Білок у грамах — до і після тижня</span>
       <div class="slider-item">
@@ -462,7 +434,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
           <span class="slider-qlabel">🕰 На початку тижня — г/день</span>
           <span class="slider-val"><span id="vBefore">50</span>г</span>
         </div>
-        <input type="range" id="sBefore" min="20" max="200" value="50" step="5" oninput="updateSliders()">
+        <input type="range" id="sBefore" min="20" max="200" value="50" step="5" oninput="updateSliders(); saveState();">
         <div class="slider-marks"><span>20г</span><span>100г</span><span>200г</span></div>
       </div>
       <div class="slider-item">
@@ -470,7 +442,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
           <span class="slider-qlabel">✨ Зараз, після тижня — г/день</span>
           <span class="slider-val green"><span id="vAfter">90</span>г</span>
         </div>
-        <input type="range" id="sAfter" min="20" max="200" value="90" step="5" class="green-thumb" oninput="updateSliders()">
+        <input type="range" id="sAfter" min="20" max="200" value="90" step="5" class="green-thumb" oninput="updateSliders(); saveState();">
         <div class="slider-marks"><span>20г</span><span>100г</span><span>200г</span></div>
       </div>
       <div id="deltaPill" class="delta-pill">🎉 Зріст на +40г — чудовий прогрес!</div>
@@ -478,7 +450,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 8. ПОДІЛИСЯ ══ -->
+<!-- 8. ПОДІЛИСЯ -->
 <section>
   <div class="wrap">
     <span class="eyebrow reveal" style="color:#6ecfdd">Поділися</span>
@@ -500,24 +472,21 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 9. РЕФЛЕКСІЯ ══ -->
+<!-- 9. РЕФЛЕКСІЯ -->
 <section>
   <div class="wrap">
     <div class="refl-card reveal">
       <div class="refl-title">📝 Рефлексія тижня</div>
       <p class="refl-sub">Два питання — чесно і від серця 🌿</p>
       <div class="refl-qs">
-
         <div>
           <span class="rq-label">💫 Що змінилося у відчуттях?</span>
-          <textarea class="rq-ta" rows="4" placeholder="Наприклад: тіло стало легшим, менше втоми після їжі, краще сплю, менше хочу солодкого, більше енергії вранці…"></textarea>
+          <textarea class="rq-ta" id="refl1" rows="4" placeholder="Наприклад: тіло стало легшим, менше втоми після їжі, краще сплю, менше хочу солодкого, більше енергії вранці…"></textarea>
         </div>
-
         <div>
           <span class="rq-label">🏆 Яка білкова звичка залишиться на все життя?</span>
-          <textarea class="rq-ta" rows="4" placeholder="Наприклад: завжди запитуватиму себе «де тут білок?», додаватиму зелень до кожного прийому їжі…"></textarea>
+          <textarea class="rq-ta" id="refl2" rows="4" placeholder="Наприклад: завжди запитуватиму себе «де тут білок?», додаватиму зелень до кожного прийому їжі…"></textarea>
         </div>
-
         <div>
           <span class="rq-label">⭐ Оціни тиждень загалом</span>
           <div class="stars-row" id="starsRow">
@@ -529,7 +498,6 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
           </div>
           <div class="star-msg" id="starMsg"></div>
         </div>
-
       </div>
     </div>
     <div class="privacy-row reveal">
@@ -539,7 +507,7 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 10. ПІДТРИМКА ══ -->
+<!-- 10. ПІДТРИМКА -->
 <section>
   <div class="wrap">
     <div class="support-card reveal">
@@ -555,7 +523,12 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
   </div>
 </section>
 
-<!-- ══ 11. ФІНАЛ + ТИЗЕР ══ -->
+<!-- SUBMIT BUTTON -->
+<div class="submit-section" id="submitSection">
+  <button class="submit-btn" onclick="submitForm()">🏆 Білковий тиждень завершено ✓</button>
+</div>
+
+<!-- FINAL — hidden until submit -->
 <section id="s-final">
   <div class="final-badge reveal">🏆 Білковий тиждень · Завершено</div>
   <span class="final-trophy reveal">🏆</span>
@@ -577,126 +550,301 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border:none;border-ra
 </section>
 
 <script>
-// Progress
-window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('progress').style.width=(s/h*100)+'%';});
+// ─────────────────────────────────────────────
+// Progress bar
+// ─────────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
+});
 
+// ─────────────────────────────────────────────
 // Stars background
-const sf=document.getElementById('starField');
-for(let i=0;i<55;i++){const el=document.createElement('div');el.className='star';const sz=Math.random()*3+1.2;el.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4.5}s;animation-delay:${Math.random()*6}s;`;sf.appendChild(el);}
+// ─────────────────────────────────────────────
+const sf = document.getElementById('starField');
+for (let i = 0; i < 55; i++) {
+  const el = document.createElement('div'); el.className = 'star';
+  const sz = Math.random() * 3 + 1.2;
+  el.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--d:${2+Math.random()*4.5}s;animation-delay:${Math.random()*6}s;`;
+  sf.appendChild(el);
+}
 
-// Reveal on scroll
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.07});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+// ─────────────────────────────────────────────
+// Scroll reveal
+// ─────────────────────────────────────────────
+const obs = new IntersectionObserver(e => {
+  e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
+// ─────────────────────────────────────────────
 // Popup
-function showPopup(emoji,title,text){
-  document.getElementById('popupEmoji').textContent=emoji;
-  document.getElementById('popupTitle').textContent=title;
-  document.getElementById('popupText').textContent=text;
-  const c=document.getElementById('confetti');c.innerHTML='';
-  ['#D4A843','#F0C96A','#64C882','#C4785A','#fff'].forEach(col=>{
-    for(let i=0;i<4;i++){const d=document.createElement('div');d.className='conf-dot';d.style.cssText=`left:${Math.random()*100}%;top:${-10+Math.random()*20}px;background:${col};animation-delay:${Math.random()*.7}s;animation-duration:${1.4+Math.random()*.8}s;`;c.appendChild(d);}
+// ─────────────────────────────────────────────
+function showPopup(emoji, title, text) {
+  document.getElementById('popupEmoji').textContent = emoji;
+  document.getElementById('popupTitle').textContent = title;
+  document.getElementById('popupText').textContent = text;
+  const c = document.getElementById('confetti'); c.innerHTML = '';
+  ['#D4A843','#F0C96A','#64C882','#C4785A','#fff'].forEach(col => {
+    for (let i = 0; i < 4; i++) {
+      const d = document.createElement('div'); d.className = 'conf-dot';
+      d.style.cssText = `left:${Math.random()*100}%;top:${-10+Math.random()*20}px;background:${col};animation-delay:${Math.random()*.7}s;animation-duration:${1.4+Math.random()*.8}s;`;
+      c.appendChild(d);
+    }
   });
   document.getElementById('popup').classList.add('show');
-  document.body.style.overflow='hidden';
+  document.body.style.overflow = 'hidden';
 }
-function hidePopup(){document.getElementById('popup').classList.remove('show');document.body.style.overflow='';}
-function closePopup(e){if(e.target===document.getElementById('popup'))hidePopup();}
+function hidePopup() { document.getElementById('popup').classList.remove('show'); document.body.style.overflow = ''; }
+function closePopup(e) { if (e.target === document.getElementById('popup')) hidePopup(); }
 
-// ── Звички — popup тільки коли всі 6 ──
-function toggleHabit(el){
+// ─────────────────────────────────────────────
+// Habits
+// ─────────────────────────────────────────────
+function toggleHabit(el) {
   el.classList.toggle('checked');
-  const done=document.querySelectorAll('#habitsList .habit-row.checked').length;
-  const total=document.querySelectorAll('#habitsList .habit-row').length;
-  document.getElementById('habitBar').style.width=(done/total*100)+'%';
-  document.getElementById('habitCount').textContent=done+'/'+total;
-  if(done===total){
+  const done = document.querySelectorAll('#habitsList .habit-row.checked').length;
+  const total = document.querySelectorAll('#habitsList .habit-row').length;
+  document.getElementById('habitBar').style.width = (done / total * 100) + '%';
+  document.getElementById('habitCount').textContent = done + '/' + total;
+  if (done === total) {
     document.getElementById('habitsDone').classList.add('show');
-    setTimeout(()=>showPopup('🏆','Всі 6 звичок відмічено!','Неймовірно! Білок — це тепер твоя система назавжди. Ти побудував(ла) фундамент здоров\'я, молодості й енергії 💛'),400);
+    setTimeout(() => showPopup('🏆', 'Всі 6 звичок відмічено!', 'Неймовірно! Білок — це тепер твоя система назавжди. Ти побудував(ла) фундамент здоров\'я, молодості й енергії 💛'), 400);
   } else {
     document.getElementById('habitsDone').classList.remove('show');
   }
+  saveState();
 }
 
-// ── Quiz — popup тільки коли всі 4 + ситість ──
-const quizAnswered={q1:false,q2:false,q3:false,q4:false,sat:false};
-function checkQuizDone(){
-  if(Object.values(quizAnswered).every(Boolean)){
+// ─────────────────────────────────────────────
+// Quiz
+// ─────────────────────────────────────────────
+const quizAnswered = { q1: false, q2: false, q3: false, q4: false, sat: false };
+function checkQuizDone() {
+  if (Object.values(quizAnswered).every(Boolean)) {
     document.getElementById('quizDone').classList.add('show');
-    setTimeout(()=>showPopup('✨','Молодець — ти відповів(ла) на все!','Усвідомленість — перший крок до змін. Ти побачив(ла) де вже є прогрес і де ще є простір для росту 🌿'),400);
+    setTimeout(() => showPopup('✨', 'Молодець — ти відповів(ла) на все!', 'Усвідомленість — перший крок до змін. Ти побачив(ла) де вже є прогрес і де ще є простір для росту 🌿'), 400);
   }
 }
-function pickQ(btn,group){
-  btn.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(b=>b.classList.remove('sel'));
+function pickQ(btn, group) {
+  btn.closest('.quiz-opts').querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
-  quizAnswered[group]=true;
+  quizAnswered[group] = true;
   checkQuizDone();
+  saveState();
 }
-const satTexts=['','😫 Ще попрацюємо — більше білка щодня!','😕 Вже краще — білок у кожен прийом!','😐 Непогано! Продовжуй далі','🙂 Відмінно — білок працює на ситість!','😊 Фантастично! Тіло отримало все потрібне 💛'];
-function pickSat(btn,val){
-  document.querySelectorAll('.sat-btn').forEach(b=>b.classList.remove('sel'));
+const satTexts = ['','😫 Ще попрацюємо — більше білка щодня!','😕 Вже краще — білок у кожен прийом!','😐 Непогано! Продовжуй далі','🙂 Відмінно — білок працює на ситість!','😊 Фантастично! Тіло отримало все потрібне 💛'];
+function pickSat(btn, val) {
+  document.querySelectorAll('.sat-btn').forEach(b => b.classList.remove('sel'));
   btn.classList.add('sel');
-  document.getElementById('satFeedback').textContent=satTexts[val];
-  quizAnswered['sat']=true;
+  document.getElementById('satFeedback').textContent = satTexts[val];
+  quizAnswered['sat'] = true;
   checkQuizDone();
+  saveState();
 }
 
-// ── Карточки змін — показує inline msg одразу при першій відмітці ──
-const changeMsgs=['','Маленький крок — великий результат! 🌱','Вже відчуваєш різницю 💪','Три зміни — білок справді працює 🌟','Чотири зміни! Тіло відповідає ✨','П\'ять змін — ти будуєш нову себе 🏗️','Шість! Білок змінює тіло зсередини 💛','Сім змін — неймовірно!','Вісім! Тиждень спрацював на 100% 🏆'];
-function toggleChange(card){
+// ─────────────────────────────────────────────
+// Changes cards
+// ─────────────────────────────────────────────
+const changeMsgs = ['','Маленький крок — великий результат! 🌱','Вже відчуваєш різницю 💪','Три зміни — білок справді працює 🌟','Чотири зміни! Тіло відповідає ✨','П\'ять змін — ти будуєш нову себе 🏗️','Шість! Білок змінює тіло зсередини 💛','Сім змін — неймовірно!','Вісім! Тиждень спрацював на 100% 🏆'];
+function toggleChange(card) {
   card.classList.toggle('sel');
-  const done=document.querySelectorAll('#changesGrid .change-card.sel').length;
-  const doneEl=document.getElementById('changesDone');
-  if(done>0){
+  const done = document.querySelectorAll('#changesGrid .change-card.sel').length;
+  const doneEl = document.getElementById('changesDone');
+  if (done > 0) {
     doneEl.classList.add('show');
-    document.getElementById('changesDoneText').textContent=changeMsgs[Math.min(done,changeMsgs.length-1)];
+    document.getElementById('changesDoneText').textContent = changeMsgs[Math.min(done, changeMsgs.length - 1)];
   } else {
     doneEl.classList.remove('show');
   }
+  saveState();
 }
 
-// ── Трекер їжі ──
-const mealMsgs=['','Перший крок! 🌱','Вже краще 💫','Добре — більше половини 🌿','Ідеально — білок у всіх прийомах! 🏆'];
-function toggleMeal(el){
+// ─────────────────────────────────────────────
+// Meal tracker
+// ─────────────────────────────────────────────
+const mealMsgs = ['','Перший крок! 🌱','Вже краще 💫','Добре — більше половини 🌿','Ідеально — білок у всіх прийомах! 🏆'];
+function toggleMeal(el) {
   el.classList.toggle('checked');
-  const done=document.querySelectorAll('#mealList .meal-row.checked').length;
-  document.getElementById('mealCount').textContent=done;
-  document.getElementById('mealMsg').textContent=mealMsgs[Math.min(done,mealMsgs.length-1)];
-  document.getElementById('mealResult').classList.toggle('show',done>0);
+  const done = document.querySelectorAll('#mealList .meal-row.checked').length;
+  document.getElementById('mealCount').textContent = done;
+  document.getElementById('mealMsg').textContent = mealMsgs[Math.min(done, mealMsgs.length - 1)];
+  document.getElementById('mealResult').classList.toggle('show', done > 0);
+  saveState();
 }
 
-// ── Слайдери (з першої версії) ──
-function updateSliders(){
-  const b=+document.getElementById('sBefore').value;
-  const a=+document.getElementById('sAfter').value;
-  document.getElementById('vBefore').textContent=b;
-  document.getElementById('vAfter').textContent=a;
-  const diff=a-b;
-  const pill=document.getElementById('deltaPill');
-  if(diff>0){pill.textContent='🎉 Зріст на +'+diff+'г — чудовий прогрес!';pill.className='delta-pill';}
-  else if(diff<0){pill.textContent='💡 -'+Math.abs(diff)+'г — ще є куди рости!';pill.className='delta-pill down';}
-  else{pill.textContent='🔄 Стабільно — закріплюй звичку!';pill.className='delta-pill neutral';}
+// ─────────────────────────────────────────────
+// Sliders
+// ─────────────────────────────────────────────
+function updateSliders() {
+  const b = +document.getElementById('sBefore').value;
+  const a = +document.getElementById('sAfter').value;
+  document.getElementById('vBefore').textContent = b;
+  document.getElementById('vAfter').textContent = a;
+  const diff = a - b;
+  const pill = document.getElementById('deltaPill');
+  if (diff > 0) { pill.textContent = '🎉 Зріст на +' + diff + 'г — чудовий прогрес!'; pill.className = 'delta-pill'; }
+  else if (diff < 0) { pill.textContent = '💡 -' + Math.abs(diff) + 'г — ще є куди рости!'; pill.className = 'delta-pill down'; }
+  else { pill.textContent = '🔄 Стабільно — закріплюй звичку!'; pill.className = 'delta-pill neutral'; }
 }
 updateSliders();
 
-// ── Рефлексія — чи стало білка більше ──
-const pmMsgs={
-  '✅ Так, помітно більше':'Чудово! Більше білка = більше будівельного матеріалу для клітин. Тіло вже працює по-новому 🏗️',
-  '📈 Трохи більше':'Трохи більше — вже результат! Кожен грам білка будує тебе зсередини. Продовжуй нарощувати 💪',
-  '🔄 Приблизно так само':'Головне — ти тепер усвідомлюєш. Наступний тиждень зосередься на одному прийомі де білка бракує 🌱',
-  '🌱 Ще працюю над цим':'Усвідомленість — це вже половина шляху. Починай з малого: один прийом їжі з білком щодня 🤍'
-};
-function pickRefl(btn,group){
-  btn.closest('.refl-opts').querySelectorAll('.refl-opt').forEach(b=>b.classList.remove('sel'));
-  btn.classList.add('sel');
-  const msg=pmMsgs[btn.textContent.trim()]||'';
-  document.getElementById(group+'Msg').textContent=msg;
+// ─────────────────────────────────────────────
+// Star rating
+// ─────────────────────────────────────────────
+const starMsgs = ['','😔 Важкий тиждень — але ти не здав(ла)ся!','🌱 Добрий початок — є куди рости!','🌟 Непоганий тиждень — ти молодець!','💪 Відмінний тиждень — відчуваєш прогрес!','🏆 Ідеальний тиждень — ти зробив(ла) це!'];
+let starRating = 0;
+function rateStar(n) {
+  starRating = n;
+  document.querySelectorAll('#starsRow .star-btn').forEach((s, i) => s.classList.toggle('lit', i < n));
+  document.getElementById('starMsg').textContent = starMsgs[n];
+  saveState();
 }
-const starMsgs=['','😔 Важкий тиждень — але ти не здав(ла)ся!','🌱 Добрий початок — є куди рости!','🌟 Непоганий тиждень — ти молодець!','💪 Відмінний тиждень — відчуваєш прогрес!','🏆 Ідеальний тиждень — ти зробив(ла) це!'];
-function rateStar(n){
-  document.querySelectorAll('#starsRow .star-btn').forEach((s,i)=>s.classList.toggle('lit',i<n));
-  document.getElementById('starMsg').textContent=starMsgs[n];
+
+// ─────────────────────────────────────────────
+// Auto-save textareas
+// ─────────────────────────────────────────────
+document.getElementById('refl1').addEventListener('input', saveState);
+document.getElementById('refl2').addEventListener('input', saveState);
+
+// ─────────────────────────────────────────────
+// Submit — reveal final section
+// ─────────────────────────────────────────────
+function submitForm() {
+  document.getElementById('submitSection').style.display = 'none';
+  const sf = document.getElementById('s-final');
+  sf.classList.add('visible-section');
+  requestAnimationFrame(() => sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')));
+  sf.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  saveState();
 }
+
+// ─────────────────────────────────────────────
+// localStorage — SAVE
+// ─────────────────────────────────────────────
+const STORAGE_KEY = 'protein_hw_day5_state';
+
+function saveState() {
+  const state = {
+    habits      : Array.from(document.querySelectorAll('#habitsList .habit-row')).map(r => r.classList.contains('checked')),
+    quizQ1      : getSelectedOptIdx('.quiz-q-block:nth-child(1) .quiz-opts'),
+    quizQ2      : getSelectedOptIdx('.quiz-q-block:nth-child(2) .quiz-opts'),
+    quizQ3      : getSelectedOptIdx('.quiz-q-block:nth-child(3) .quiz-opts'),
+    quizQ4      : getSelectedOptIdx('.quiz-q-block:nth-child(4) .quiz-opts'),
+    satVal      : getSelectedSat(),
+    changes     : Array.from(document.querySelectorAll('#changesGrid .change-card')).map(c => c.classList.contains('sel')),
+    meals       : Array.from(document.querySelectorAll('#mealList .meal-row')).map(r => r.classList.contains('checked')),
+    sliderBefore: document.getElementById('sBefore').value,
+    sliderAfter : document.getElementById('sAfter').value,
+    refl1       : document.getElementById('refl1').value,
+    refl2       : document.getElementById('refl2').value,
+    starRating  : starRating,
+    submitted   : document.getElementById('s-final').classList.contains('visible-section'),
+  };
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { console.warn('localStorage not available:', e); }
+}
+
+function getSelectedOptIdx(selector) {
+  const opts = document.querySelectorAll(selector + ' .quiz-opt');
+  for (let i = 0; i < opts.length; i++) if (opts[i].classList.contains('sel')) return i;
+  return -1;
+}
+
+function getSelectedSat() {
+  const btns = document.querySelectorAll('.sat-btn');
+  for (let i = 0; i < btns.length; i++) if (btns[i].classList.contains('sel')) return i + 1;
+  return 0;
+}
+
+// ─────────────────────────────────────────────
+// localStorage — LOAD
+// ─────────────────────────────────────────────
+function loadState() {
+  let raw;
+  try { raw = localStorage.getItem(STORAGE_KEY); } catch (e) { return; }
+  if (!raw) return;
+  let state;
+  try { state = JSON.parse(raw); } catch (e) { return; }
+
+  // — Habits —
+  if (Array.isArray(state.habits)) {
+    const rows = document.querySelectorAll('#habitsList .habit-row');
+    state.habits.forEach((checked, i) => { if (rows[i] && checked) rows[i].classList.add('checked'); });
+    const done = document.querySelectorAll('#habitsList .habit-row.checked').length;
+    const total = rows.length;
+    document.getElementById('habitBar').style.width = (done / total * 100) + '%';
+    document.getElementById('habitCount').textContent = done + '/' + total;
+    if (done === total) document.getElementById('habitsDone').classList.add('show');
+  }
+
+  // — Quiz —
+  const quizBlocks = document.querySelectorAll('.quiz-q-block');
+  [state.quizQ1, state.quizQ2, state.quizQ3, state.quizQ4].forEach((idx, bi) => {
+    if (idx >= 0 && quizBlocks[bi]) {
+      const opts = quizBlocks[bi].querySelectorAll('.quiz-opt');
+      if (opts[idx]) { opts[idx].classList.add('sel'); quizAnswered['q' + (bi + 1)] = true; }
+    }
+  });
+
+  // — Sat —
+  if (state.satVal > 0) {
+    const btns = document.querySelectorAll('.sat-btn');
+    if (btns[state.satVal - 1]) {
+      btns[state.satVal - 1].classList.add('sel');
+      document.getElementById('satFeedback').textContent = satTexts[state.satVal];
+      quizAnswered['sat'] = true;
+    }
+  }
+  if (Object.values(quizAnswered).every(Boolean)) document.getElementById('quizDone').classList.add('show');
+
+  // — Changes —
+  if (Array.isArray(state.changes)) {
+    const cards = document.querySelectorAll('#changesGrid .change-card');
+    state.changes.forEach((sel, i) => { if (cards[i] && sel) cards[i].classList.add('sel'); });
+    const done = document.querySelectorAll('#changesGrid .change-card.sel').length;
+    if (done > 0) {
+      document.getElementById('changesDone').classList.add('show');
+      document.getElementById('changesDoneText').textContent = changeMsgs[Math.min(done, changeMsgs.length - 1)];
+    }
+  }
+
+  // — Meals —
+  if (Array.isArray(state.meals)) {
+    const rows = document.querySelectorAll('#mealList .meal-row');
+    state.meals.forEach((checked, i) => { if (rows[i] && checked) rows[i].classList.add('checked'); });
+    const done = document.querySelectorAll('#mealList .meal-row.checked').length;
+    document.getElementById('mealCount').textContent = done;
+    document.getElementById('mealMsg').textContent = mealMsgs[Math.min(done, mealMsgs.length - 1)];
+    if (done > 0) document.getElementById('mealResult').classList.add('show');
+  }
+
+  // — Sliders —
+  if (state.sliderBefore) { document.getElementById('sBefore').value = state.sliderBefore; }
+  if (state.sliderAfter)  { document.getElementById('sAfter').value  = state.sliderAfter;  }
+  updateSliders();
+
+  // — Reflection —
+  if (state.refl1) document.getElementById('refl1').value = state.refl1;
+  if (state.refl2) document.getElementById('refl2').value = state.refl2;
+
+  // — Star rating —
+  if (state.starRating > 0) {
+    starRating = state.starRating;
+    document.querySelectorAll('#starsRow .star-btn').forEach((s, i) => s.classList.toggle('lit', i < starRating));
+    document.getElementById('starMsg').textContent = starMsgs[starRating];
+  }
+
+  // — Submitted —
+  if (state.submitted) {
+    document.getElementById('submitSection').style.display = 'none';
+    const sf = document.getElementById('s-final');
+    sf.classList.add('visible-section');
+    sf.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
 </script>
 </body>
 </html>
