@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Жири · День 1 · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+:root{
+  --cream:#FAF6EF;
+  --cream2:#F4EDE0;
+  --gold:#C8943A;
+  --gold2:#E0B060;
+  --gold-pale:#F5DFA8;
+  --gold-deep:#8A6020;
+  --ink:#2C1E08;
+  --ink2:#4A3518;
+  --muted:#8A7258;
+  --muted2:#B8A080;
+  --sage:#7A9A6A;
+  --border:rgba(200,148,58,0.18);
+  --border2:rgba(200,148,58,0.32);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);overflow-x:hidden;font-weight:300;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:500;opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));z-index:200;transition:width .12s;}
+
+/* HERO */
+#s-hero{min-height:100svh;background:radial-gradient(ellipse 110% 70% at 80% 110%,rgba(200,148,58,0.22) 0%,transparent 60%),radial-gradient(ellipse 80% 60% at 10% 0%,rgba(224,176,96,0.14) 0%,transparent 55%),linear-gradient(168deg,#FBF7F0 0%,#F2E8D4 55%,#EAD8BC 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:72px 28px 100px;position:relative;overflow:hidden;}
+.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(200,148,58,0.12);animation:ring-breathe 7s ease-in-out infinite;}
+.hero-ring:nth-child(1){width:220px;height:220px;animation-delay:0s;}
+.hero-ring:nth-child(2){width:460px;height:460px;animation-delay:1.8s;}
+.hero-ring:nth-child(3){width:720px;height:720px;animation-delay:3.6s;}
+@keyframes ring-breathe{0%,100%{transform:scale(.85);opacity:.5;}50%{transform:scale(1.1);opacity:.15;}}
+.hero-orb{position:absolute;bottom:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(224,176,96,0.28) 0%,transparent 70%);pointer-events:none;}
+.hero-orb2{position:absolute;top:-60px;left:-80px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(200,148,58,0.15) 0%,transparent 70%);pointer-events:none;}
+.author-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.7);border:1px solid var(--border2);border-radius:40px;padding:8px 20px 8px 8px;margin-bottom:40px;position:relative;z-index:1;backdrop-filter:blur(8px);box-shadow:0 2px 20px rgba(200,148,58,0.1);}
+.author-av{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-deep));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;color:#fff;flex-shrink:0;}
+.author-name{font-size:13px;font-weight:500;color:var(--ink2);line-height:1.2;}
+.author-role{font-size:10px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;}
+.week-badge{display:inline-block;background:rgba(200,148,58,0.1);border:1px solid var(--border2);border-radius:20px;padding:6px 20px;font-size:10px;letter-spacing:3px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:32px;position:relative;z-index:1;}
+.hero-icon{font-size:76px;display:block;margin-bottom:18px;animation:float-gentle 5s ease-in-out infinite;position:relative;z-index:1;}
+@keyframes float-gentle{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-14px) rotate(2deg);}}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,14vw,88px);font-weight:700;line-height:1;color:var(--ink);position:relative;z-index:1;letter-spacing:-1px;}
+.hero-title em{font-style:italic;color:var(--gold);display:block;font-size:clamp(38px,10vw,62px);line-height:1.15;}
+.hero-div{width:40px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto;position:relative;z-index:1;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--muted);line-height:1.7;max-width:300px;position:relative;z-index:1;}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:var(--muted2);font-size:10px;letter-spacing:3px;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite;z-index:1;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+
+/* SHARED */
+section{padding:64px 24px;}
+.wrap{max-width:500px;margin:0 auto;}
+.eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;text-align:center;display:block;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,40px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink);}
+.s-title em{font-style:italic;color:var(--gold);}
+.s-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--muted);text-align:center;margin-bottom:28px;line-height:1.65;}
+section:nth-child(odd){background:var(--cream);}
+section:nth-child(even){background:linear-gradient(160deg,#F7EFE0 0%,#F0E4CC 100%);}
+
+/* ДЖЕРЕЛА */
+.sources-grid{display:flex;flex-direction:column;gap:10px;}
+.source-card{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,0.7);border:1.5px solid var(--border);border-radius:16px;padding:16px 18px;backdrop-filter:blur(4px);transition:all .2s;}
+.source-card:hover{border-color:var(--border2);background:rgba(255,255,255,0.9);}
+.source-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px;}
+.source-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:3px;}
+.source-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+.source-tag{display:inline-block;background:rgba(200,148,58,0.1);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--gold-deep);margin-top:6px;}
+
+/* ЗВИЧКА */
+.habit-card{background:rgba(255,255,255,0.75);border:1.5px solid var(--border2);border-radius:24px;padding:32px 28px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(8px);box-shadow:0 4px 32px rgba(200,148,58,0.1);}
+.habit-card::before{content:'🥑';position:absolute;right:-10px;bottom:-15px;font-size:100px;opacity:.06;pointer-events:none;transform:rotate(-12deg);}
+.habit-pill{display:inline-block;background:rgba(200,148,58,0.1);border:1px solid var(--border2);border-radius:20px;padding:5px 16px;font-size:10px;letter-spacing:2.5px;color:var(--gold-deep);text-transform:uppercase;margin-bottom:20px;}
+.habit-icon-big{font-size:48px;display:block;margin-bottom:16px;animation:float-gentle 5s ease-in-out infinite;}
+.habit-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(19px,5vw,25px);line-height:1.5;color:var(--ink);margin-bottom:16px;}
+.habit-quote em{color:var(--gold);}
+.habit-divider{width:28px;height:1px;background:var(--gold-pale);margin:0 auto 16px;}
+.habit-desc{font-size:13px;color:var(--muted);line-height:1.75;}
+
+/* АУДИТ */
+.audit-grid{display:flex;flex-direction:column;gap:10px;}
+.audit-row{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,0.7);border:1.5px solid var(--border);border-radius:14px;padding:14px 16px;cursor:pointer;transition:all .2s;user-select:none;backdrop-filter:blur(4px);}
+.audit-row:hover{border-color:var(--gold);background:rgba(255,255,255,0.9);}
+.audit-row.yes{background:rgba(200,148,58,0.1);border-color:var(--border2);}
+.audit-emoji{font-size:1.4rem;flex-shrink:0;}
+.audit-label{font-size:14px;color:var(--ink2);line-height:1.4;}
+.audit-sublabel{font-size:11px;color:var(--muted);margin-top:2px;}
+.audit-tick{width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(200,148,58,0.3);display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;flex-shrink:0;transition:all .2s;}
+.audit-row.yes .audit-tick{background:var(--gold);border-color:var(--gold);color:#fff;}
+.audit-counter{margin-top:14px;background:rgba(200,148,58,0.07);border:1px solid var(--border);border-radius:14px;padding:16px 18px;display:none;}
+.audit-counter.show{display:block;}
+.audit-counter-top{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:10px;}
+.audit-big-num{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1;}
+.audit-big-of{font-size:16px;color:var(--muted2);margin-left:2px;}
+.audit-status{font-size:12px;color:var(--muted);text-align:right;line-height:1.5;}
+.audit-pbar{height:5px;border-radius:3px;background:rgba(200,148,58,0.12);overflow:hidden;margin-bottom:10px;}
+.audit-pbar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));transition:width .45s cubic-bezier(.34,1.2,.64,1);}
+.audit-phrase{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--gold-deep);line-height:1.6;}
+.audit-support{margin-top:12px;background:linear-gradient(135deg,rgba(255,255,255,0.85),rgba(250,246,239,0.95));border:1.5px solid var(--border2);border-radius:16px;padding:20px 22px;display:none;animation:pop-in .35s cubic-bezier(.34,1.56,.64,1);}
+.audit-support.show{display:block;}
+@keyframes pop-in{0%{transform:scale(.95);opacity:0;}100%{transform:scale(1);opacity:1;}}
+.audit-support-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.audit-support-body{font-size:13px;color:var(--muted);line-height:1.7;}
+.audit-support-body em{color:var(--gold-deep);font-style:italic;}
+
+/* РЕЦЕПТ — ГАРМОШКА */
+.recipe-accordion{border:1.5px solid var(--border2);border-radius:20px;overflow:hidden;background:rgba(255,255,255,0.75);backdrop-filter:blur(8px);box-shadow:0 4px 24px rgba(200,148,58,0.08);}
+.recipe-header{display:flex;align-items:center;gap:14px;padding:20px 22px;cursor:pointer;user-select:none;transition:background .2s;}
+.recipe-header:hover{background:rgba(255,255,255,0.95);}
+.recipe-header-icon{font-size:2rem;flex-shrink:0;}
+.recipe-header-text{flex:1;}
+.recipe-header-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.recipe-header-sub{font-size:12px;color:var(--muted);}
+.recipe-arrow{font-size:18px;color:var(--muted2);transition:transform .3s cubic-bezier(.34,1.2,.64,1);flex-shrink:0;}
+.recipe-accordion.open .recipe-arrow{transform:rotate(180deg);}
+.recipe-body{display:none;padding:0 22px 24px;}
+.recipe-accordion.open .recipe-body{display:block;}
+.recipe-divider{height:1px;background:var(--border);margin-bottom:20px;}
+.recipe-macro-row{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.macro-chip{flex:1;min-width:60px;background:rgba(200,148,58,0.08);border:1px solid var(--border);border-radius:12px;padding:10px 8px;text-align:center;}
+.macro-val{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--gold);display:block;line-height:1;}
+.macro-lbl{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-top:3px;display:block;}
+.recipe-section-title{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.recipe-ing-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.recipe-ing{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink2);line-height:1.4;}
+.recipe-ing::before{content:'·';color:var(--gold);font-size:1.2rem;flex-shrink:0;}
+.recipe-steps{display:flex;flex-direction:column;gap:10px;}
+.recipe-step{display:flex;gap:12px;align-items:flex-start;}
+.step-num{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-txt{font-size:13px;color:var(--ink2);line-height:1.65;padding-top:4px;}
+
+/* ТРЕКЕРИ */
+.water-card,.protein-card{background:rgba(255,255,255,0.65);border:1.5px solid var(--border);border-radius:20px;padding:24px 22px;backdrop-filter:blur(8px);}
+.water-card{margin-bottom:16px;}
+.tracker-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.tracker-sub{font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5;}
+.tracker-tip{font-size:12px;color:var(--gold-deep);background:rgba(200,148,58,0.08);border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin-bottom:16px;line-height:1.65;}
+
+/* WATER — CUPS MOBILE-FIRST */
+.water-summary{margin-bottom:16px;}
+.water-ml-big{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--gold);line-height:1;display:inline;}
+.water-ml-unit{font-size:14px;color:var(--muted2);margin-left:4px;}
+.water-today-label{font-size:13px;color:var(--muted);margin-top:4px;}
+.cups-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:12px;}
+.cup-btn{aspect-ratio:1;border-radius:14px;border:1.5px solid rgba(200,148,58,0.22);background:rgba(250,246,239,0.85);cursor:pointer;font-size:1.5rem;display:flex;align-items:center;justify-content:center;transition:all .25s cubic-bezier(.34,1.4,.64,1);position:relative;-webkit-tap-highlight-color:transparent;}
+.cup-btn:active{transform:scale(0.92);}
+.cup-btn.filled{background:rgba(200,148,58,0.15);border-color:var(--gold);box-shadow:0 2px 10px rgba(200,148,58,0.2);}
+.cup-btn.filled::after{content:'';position:absolute;inset:0;border-radius:12px;background:linear-gradient(160deg,rgba(255,255,255,0.25),transparent);pointer-events:none;}
+.water-cups-label{font-size:11px;color:var(--muted2);text-align:center;letter-spacing:1px;margin-bottom:8px;}
+.water-msg{font-size:13px;color:var(--gold-deep);font-style:italic;text-align:center;min-height:20px;font-family:'Cormorant Garamond',serif;}
+
+.meals-list{display:flex;flex-direction:column;gap:8px;margin-bottom:10px;}
+.meal-row{display:flex;align-items:center;gap:12px;background:rgba(250,246,239,0.8);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .2s;user-select:none;}
+.meal-row:hover{background:rgba(255,255,255,0.9);border-color:var(--border2);}
+.meal-row.checked{background:rgba(122,154,106,0.1);border-color:rgba(122,154,106,0.4);}
+.meal-ei{font-size:1.2rem;flex-shrink:0;}
+.meal-nm{font-size:14px;color:var(--ink2);flex:1;}
+.meal-row.checked .meal-nm{color:var(--ink);}
+.meal-tick{width:22px;height:22px;border-radius:50%;border:1.5px solid rgba(200,148,58,0.3);display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;flex-shrink:0;transition:all .2s;}
+.meal-row.checked .meal-tick{background:var(--sage);border-color:var(--sage);color:#fff;}
+.protein-result{padding:12px 14px;background:rgba(122,154,106,0.08);border-radius:10px;border:1px solid rgba(122,154,106,0.25);display:none;text-align:center;}
+.protein-result.show{display:block;}
+.protein-result p{font-size:13px;color:#4A7040;line-height:1.6;}
+.protein-result strong{font-family:'Cormorant Garamond',serif;font-size:17px;}
+
+/* РЕФЛЕКСІЯ */
+.refl-card{background:rgba(255,255,255,0.65);border:1.5px solid var(--border);border-radius:20px;padding:24px 22px;margin-bottom:12px;backdrop-filter:blur(8px);}
+.refl-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.refl-sub{font-size:12px;color:var(--muted);margin-bottom:18px;line-height:1.5;}
+.refl-qs{display:flex;flex-direction:column;gap:14px;}
+.rq-label{font-size:13px;color:var(--ink2);margin-bottom:7px;display:block;line-height:1.4;}
+.rq-ta{width:100%;background:rgba(250,246,239,0.8);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);outline:none;resize:none;min-height:70px;line-height:1.65;transition:border-color .15s;}
+.rq-ta:focus{border-color:var(--border2);}
+.rq-ta::placeholder{color:var(--muted2);font-style:italic;}
+.stars-row{display:flex;gap:8px;margin-top:4px;}
+.star-btn{font-size:26px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none;}
+.star-btn.lit{opacity:1;transform:scale(1.1);}
+.star-msg{margin-top:8px;font-size:13px;color:var(--gold-deep);font-style:italic;min-height:20px;}
+.privacy-row{display:flex;gap:10px;align-items:flex-start;background:rgba(255,255,255,0.5);border:1px solid var(--border);border-radius:12px;padding:13px 14px;}
+.privacy-txt{font-size:12px;color:var(--muted);line-height:1.6;}
+.privacy-txt strong{color:var(--ink2);}
+
+/* ПІДТРИМКА */
+.support-card{background:linear-gradient(135deg,rgba(255,255,255,0.8),rgba(250,246,239,0.9));border:1.5px solid var(--border2);border-radius:20px;padding:26px 22px;box-shadow:0 4px 28px rgba(200,148,58,0.1);}
+.support-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:10px;}
+.support-body{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:8px;}
+.support-body em{font-style:italic;color:var(--gold-deep);}
+.support-sign{font-size:12px;color:var(--muted2);font-style:italic;margin-top:6px;}
+
+/* КНОПКА ЗАВЕРШИТИ ДЕНЬ */
+.finish-btn-wrap{margin-top:32px;text-align:center;}
+.finish-btn{display:inline-flex;align-items:center;gap:12px;background:linear-gradient(135deg,var(--gold),var(--gold2));color:#fff;border:none;border-radius:50px;padding:18px 40px;font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;cursor:pointer;box-shadow:0 6px 28px rgba(200,148,58,0.35);transition:all .25s cubic-bezier(.34,1.2,.64,1);letter-spacing:0.3px;}
+.finish-btn:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(200,148,58,0.4);}
+.finish-btn:active{transform:scale(0.97);}
+.finish-btn-icon{font-size:1.3rem;}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#F0E4CC 0%,#E8D4B0 50%,#DEC890 100%) !important;padding:80px 24px 72px;text-align:center;min-height:80vh;display:flex;align-items:center;justify-content:center;}
+#finalBefore{display:flex;flex-direction:column;align-items:center;text-align:center;}
+#finalAfter{display:none;flex-direction:column;align-items:center;text-align:center;width:100%;}
+.final-icon{font-size:60px;display:block;margin-bottom:18px;animation:float-gentle 5s ease-in-out infinite;}
+.final-title{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,8vw,46px);font-weight:700;line-height:1.15;margin-bottom:12px;color:var(--ink);}
+.final-title em{font-style:italic;color:var(--gold-deep);}
+.final-line{width:36px;height:1px;background:var(--gold);margin:0 auto 16px;}
+.final-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--ink2);line-height:1.7;max-width:290px;margin:0 auto 32px;}
+.day-dots{display:flex;align-items:center;justify-content:center;gap:8px;}
+.d-dot{width:7px;height:7px;border-radius:50%;background:rgba(44,30,8,0.15);}
+.d-dot.active{background:var(--gold);width:22px;border-radius:4px;}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progress"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="hero-ring"></div><div class="hero-ring"></div><div class="hero-ring"></div>
+  <div class="hero-orb"></div><div class="hero-orb2"></div>
+  <div class="author-pill reveal">
+    <div class="author-av">ЛБ</div>
+    <div style="text-align:left">
+      <div class="author-name">Любов Бухарова</div>
+      <div class="author-role">Нутриціолог</div>
+    </div>
+  </div>
+  <div class="week-badge reveal">Тиждень жирів · День 1</div>
+  <span class="hero-icon reveal">🥑</span>
+  <h1 class="hero-title reveal">Жири —<em>це паливо</em></h1>
+  <div class="hero-div reveal"></div>
+  <p class="hero-sub reveal">Не ворог. Не причина зайвої ваги.<br>Справжнє пальне для твого тіла 💚</p>
+  <div class="hero-scroll">↓ гортай</div>
+</section>
+
+<!-- ДЕ ЗНАЙТИ ЖИРИ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Де знайти корисні жири</span>
+    <h2 class="s-title reveal">Твої нові<br><em>союзники</em></h2>
+    <p class="s-sub reveal">Звичайні продукти, які варто мати вдома щодня</p>
+    <div class="sources-grid reveal">
+      <div class="source-card">
+        <span class="source-icon">🥑</span>
+        <div>
+          <div class="source-name">Авокадо</div>
+          <div class="source-desc">До тосту, в салат, як перекус — паливо для серця й мозку</div>
+          <span class="source-tag">Серце · Мозок · Шкіра</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🌰</span>
+        <div>
+          <div class="source-name">Горіхи — мигдаль, волоські, кеш'ю та інші</div>
+          <div class="source-desc">Жменя як перекус або в кашу — для нервів та гормонів</div>
+          <span class="source-tag">Нерви · Гормони · Мозок</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">⚫</span>
+        <div>
+          <div class="source-name">Насіння — льон, гарбуз, чіа та інші</div>
+          <div class="source-desc">В йогурт, кашу, смузі — найбагатші на омега-3, 6, 9</div>
+          <span class="source-tag">Омега-3 · Травлення</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🫒</span>
+        <div>
+          <div class="source-name">Олія - оливкова, льняна та інші</div>
+          <div class="source-desc">В салат або до страв — захищає серце та клітини</div>
+          <span class="source-tag">Серце · Клітини · Антиоксиданти</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🐟</span>
+        <div>
+          <div class="source-name">Жирна риба — лосось, скумбрія, сардини ті інші</div>
+          <div class="source-desc">2–3 рази на тиждень — найпотужніше джерело омега-3</div>
+          <span class="source-tag">Омега-3 · Мозок · Серце</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🧈</span>
+        <div>
+          <div class="source-name">Масло вершкове</div>
+          <div class="source-desc">Натуральний тваринний жир — джерело жиророзчинних вітамінів</div>
+          <span class="source-tag">Вітаміни A · D · E · K</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🧀</span>
+        <div>
+          <div class="source-name">Сир твердий</div>
+          <div class="source-desc">Поєднання корисних жирів і білка — ідеально для перекусу або до страви</div>
+          <span class="source-tag">Кальцій · Білок · Жири</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🥛</span>
+        <div>
+          <div class="source-name">Сметана</div>
+          <div class="source-desc">Натуральний молочний жир — додай до супу, салату або як соус</div>
+          <span class="source-tag">Вітамін A · Жири · Кишківник</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🥩</span>
+        <div>
+          <div class="source-name">Сало</div>
+          <div class="source-desc">Традиційний тваринний жир із арахідоновою кислотою — корисний у помірній кількості</div>
+          <span class="source-tag">Вітамін D · Селен · Енергія</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🥚</span>
+        <div>
+          <div class="source-name">Яйця</div>
+          <div class="source-desc">Жовток — концентроване джерело корисних жирів, холіну та вітаміну D</div>
+          <span class="source-tag">Мозок · Гормони · Вітамін D</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🦃</span>
+        <div>
+          <div class="source-name">Паштет (печінковий, м'ясний)</div>
+          <div class="source-desc">Зручний перекус із природними тваринними жирами та залізом</div>
+          <span class="source-tag">Залізо · Вітамін A · Жири</span>
+        </div>
+      </div>
+      <div class="source-card">
+        <span class="source-icon">🍫</span>
+        <div>
+          <div class="source-name">Чорний шоколад 70%+</div>
+          <div class="source-desc">Какао-масло — корисний жир плюс магній і антиоксиданти. 2–3 шматочки на день</div>
+          <span class="source-tag">Магній · Антиоксиданти · Настрій</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЗВИЧКА -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Звичка тижня</span>
+    <h2 class="s-title reveal">Одна звичка —<br><em>на весь тиждень</em></h2>
+    <div class="habit-card reveal">
+      <span class="habit-pill">🌱 Звичка · День 1</span>
+      <span class="habit-icon-big">🧠</span>
+      <p class="habit-quote">«Жири —<br><em>мої союзники,</em><br>не вороги»</p>
+      <div class="habit-divider"></div>
+      <p class="habit-desc">Сьогодні не додаємо нову їжу — змінюємо думку.<br>Щоразу коли бачиш авокадо, горіхи або олію — замість страху скажи собі:<br><strong>«це паливо для мого тіла» 💛</strong><br><br>Одна думка — і ставлення до їжі починає змінюватися зсередини.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАВДАННЯ 1 — АУДИТ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Завдання 1</span>
+    <h2 class="s-title reveal">Аудит:<br><em>що зараз є?</em></h2>
+    <p class="s-sub reveal">Відміч усі джерела корисних жирів, які вже є у твоєму раціоні — чесно і без осуду</p>
+    <div class="audit-grid reveal" id="auditGrid">
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🥑</span>
+        <div style="flex:1"><div class="audit-label">Авокадо</div><div class="audit-sublabel">Серце, мозок, шкіра</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🌰</span>
+        <div style="flex:1"><div class="audit-label">Горіхи — мигдаль, волоські, кеш'ю…</div><div class="audit-sublabel">Нерви, гормони, мозок</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">⚫</span>
+        <div style="flex:1"><div class="audit-label">Насіння — льон, гарбуз, чіа…</div><div class="audit-sublabel">Омега-3, травлення</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🫒</span>
+        <div style="flex:1"><div class="audit-label">Оливкова або льняна олія</div><div class="audit-sublabel">Серце, клітини, антиоксиданти</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🐟</span>
+        <div style="flex:1"><div class="audit-label">Жирна риба — лосось, скумбрія, сардини</div><div class="audit-sublabel">Омега-3, мозок, серце</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🥚</span>
+        <div style="flex:1"><div class="audit-label">Яйця</div><div class="audit-sublabel">Мозок, гормони, вітамін D</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🧀</span>
+        <div style="flex:1"><div class="audit-label">Сир твердий</div><div class="audit-sublabel">Кальцій, білок, жири</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🥛</span>
+        <div style="flex:1"><div class="audit-label">Сметана</div><div class="audit-sublabel">Вітамін A, жири, кишківник</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🧈</span>
+        <div style="flex:1"><div class="audit-label">Масло вершкове</div><div class="audit-sublabel">Вітаміни A, D, E, K</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🥩</span>
+        <div style="flex:1"><div class="audit-label">Сало</div><div class="audit-sublabel">Вітамін D, селен, енергія</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🦃</span>
+        <div style="flex:1"><div class="audit-label">Паштет</div><div class="audit-sublabel">Залізо, вітамін A, жири</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+      <div class="audit-row" onclick="toggleAudit(this)">
+        <span class="audit-emoji">🍫</span>
+        <div style="flex:1"><div class="audit-label">Чорний шоколад 70%+</div><div class="audit-sublabel">Магній, антиоксиданти, настрій</div></div>
+        <div class="audit-tick">✓</div>
+      </div>
+    </div>
+
+    <div class="audit-counter" id="auditCounter">
+      <div class="audit-counter-top">
+        <div>
+          <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Джерел жирів у раціоні</div>
+          <div><span class="audit-big-num" id="auditNum">0</span><span class="audit-big-of"> з 12</span></div>
+        </div>
+        <div class="audit-status" id="auditStatus"></div>
+      </div>
+      <div class="audit-pbar"><div class="audit-pbar-fill" id="auditPbar"></div></div>
+      <div class="audit-phrase" id="auditPhrase"></div>
+    </div>
+
+    <div class="audit-support" id="auditSupport">
+      <div class="audit-support-title" id="auditSupportTitle"></div>
+      <div class="audit-support-body" id="auditSupportBody"></div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕЦЕПТ КУРЯЧОГО ПАШТЕТУ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Швидкий рецепт</span>
+    <h2 class="s-title reveal">Курячий<br><em>паштет 🌿</em></h2>
+    <p class="s-sub reveal">Просто, смачно і корисно — готується майже без участі</p>
+
+    <div class="recipe-accordion reveal" id="recipeAccordion">
+      <div class="recipe-header" onclick="toggleRecipe()">
+        <span class="recipe-header-icon">🫙</span>
+        <div class="recipe-header-text">
+          <div class="recipe-header-title">Курячий паштет</div>
+          <div class="recipe-header-sub">5 інгредієнтів · 40 хв · На 100г: Б&nbsp;20г · Ж&nbsp;10г · В&nbsp;4г</div>
+        </div>
+        <span class="recipe-arrow">▾</span>
+      </div>
+
+      <div class="recipe-body">
+        <div class="recipe-divider"></div>
+
+        <div class="recipe-macro-row">
+          <div class="macro-chip">
+            <span class="macro-val">20г</span>
+            <span class="macro-lbl">Білок</span>
+          </div>
+          <div class="macro-chip">
+            <span class="macro-val">10г</span>
+            <span class="macro-lbl">Жири</span>
+          </div>
+          <div class="macro-chip">
+            <span class="macro-val">4г</span>
+            <span class="macro-lbl">Вуглев.</span>
+          </div>
+          <div class="macro-chip">
+            <span class="macro-val">на&nbsp;100г</span>
+            <span class="macro-lbl">Порція</span>
+          </div>
+        </div>
+
+        <div class="recipe-section-title">Інгредієнти</div>
+        <div class="recipe-ing-list">
+          <div class="recipe-ing">Куряча печінка — 500 г</div>
+          <div class="recipe-ing">Морква — 1–2 шт</div>
+          <div class="recipe-ing">Цибуля — 1 шт</div>
+          <div class="recipe-ing">Оливкова олія — 2–3 ст. л.</div>
+          <div class="recipe-ing">Сіль — за смаком</div>
+        </div>
+
+        <div class="recipe-section-title">Приготування</div>
+        <div class="recipe-steps">
+          <div class="recipe-step">
+            <div class="step-num">1</div>
+            <div class="step-txt">На сковорідку налий оливкову олію і розігрій на середньому вогні.</div>
+          </div>
+          <div class="recipe-step">
+            <div class="step-num">2</div>
+            <div class="step-txt">Моркву і цибулю розріж на 4 частини — не дрібни, просто великими шматками.</div>
+          </div>
+          <div class="recipe-step">
+            <div class="step-num">3</div>
+            <div class="step-txt">Додай очищену курячу печінку до овочів на сковорідку.</div>
+          </div>
+          <div class="recipe-step">
+            <div class="step-num">4</div>
+            <div class="step-txt">Накрий кришкою і туши на малому вогні 35–40 хвилин. Перемішай та  нехай готується спокійно.</div>
+          </div>
+          <div class="recipe-step">
+            <div class="step-num">5</div>
+            <div class="step-txt">Перебий усе в блендері до однорідної маси (при необхідності додай води). Посоли за смаком. Готово! 🌿</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ТРЕКЕРИ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Трекери дня</span>
+    <h2 class="s-title reveal">Вода і<br><em>білок на тарілці</em></h2>
+
+    <!-- Вода -->
+    <div class="water-card reveal">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+        <span style="font-size:1.4rem">💧</span>
+        <div class="tracker-title">Вода сьогодні</div>
+      </div>
+      <div class="tracker-tip">Продовжуємо пити воду 💧Якщо ти не дійшла до своєї норми, додай цьому тижні ще 200мл води. Відмічай кожну склянку — і дивись скільки вже випила сьогодні 🌿</div>
+
+      <div class="water-summary">
+        <div>
+          <span class="water-ml-big" id="waterMl">0</span><span class="water-ml-unit">мл</span>
+        </div>
+        <div class="water-today-label" id="waterTodayLabel">Починай відмічати склянки 👇</div>
+      </div>
+
+      <div class="water-cups-label">Натисни на склянку, щоб відмітити</div>
+      <div class="cups-grid" id="cupsRow"></div>
+      <div class="water-msg" id="waterMsg"></div>
+    </div>
+
+    <!-- Білок -->
+    <div class="protein-card reveal">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+        <span style="font-size:1.4rem">💪</span>
+        <div class="tracker-title">Білок на тарілці</div>
+      </div>
+      <div class="tracker-sub">Продовжуй їсти білок у кожному прийомі їжі:</div>
+      <div class="tracker-tip">Цим ти будуєш себе 🏗️ Кожен прийом їжі з білком — цеглинка твого тіла. Не забувай про це навіть тепер, коли ми вивчаємо жири 💛</div>
+      <div class="meals-list" id="mealsList">
+        <div class="meal-row" onclick="toggleMeal(this)">
+          <span class="meal-ei">🌅</span><span class="meal-nm">Сніданок</span><div class="meal-tick">✓</div>
+        </div>
+        <div class="meal-row" onclick="toggleMeal(this)">
+          <span class="meal-ei">🍎</span><span class="meal-nm">Перекус</span><div class="meal-tick">✓</div>
+        </div>
+        <div class="meal-row" onclick="toggleMeal(this)">
+          <span class="meal-ei">🍽️</span><span class="meal-nm">Обід</span><div class="meal-tick">✓</div>
+        </div>
+        <div class="meal-row" onclick="toggleMeal(this)">
+          <span class="meal-ei">🌙</span><span class="meal-nm">Вечеря</span><div class="meal-tick">✓</div>
+        </div>
+      </div>
+      <div class="protein-result" id="proteinResult">
+        <p><strong id="proteinCount">0</strong> з 4 прийомів із білком — <span id="proteinMsg"></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- РЕФЛЕКСІЯ -->
+<section>
+  <div class="wrap">
+    <span class="eyebrow reveal">Рефлексія</span>
+    <h2 class="s-title reveal">Твої<br><em>відчуття дня</em></h2>
+    <div class="refl-card reveal">
+      <div class="refl-title">📝 Запитання для рефлексії</div>
+      <p class="refl-sub">Запиши чесно — це лише для тебе 🌿</p>
+      <div class="refl-qs">
+        <div>
+          <label class="rq-label">🥑 Що вдалося додати сьогодні з корисних жирів?</label>
+          <textarea class="rq-ta" rows="3" placeholder="Наприклад: жменю мигдалю до сніданку, ложку олії в салат…"></textarea>
+        </div>
+        <div>
+          <label class="rq-label">💭 Що відчуваєш до слова «жири»? Змінилося щось після відео?</label>
+          <textarea class="rq-ta" rows="3" placeholder="Наприклад: раніше боялася, тепер розумію що це потрібно…"></textarea>
+        </div>
+        <div>
+          <label class="rq-label">⭐ Як пройшов День 1?</label>
+          <div class="stars-row" id="starsRow">
+            <span class="star-btn" onclick="rateStar(1)">⭐</span>
+            <span class="star-btn" onclick="rateStar(2)">⭐</span>
+            <span class="star-btn" onclick="rateStar(3)">⭐</span>
+            <span class="star-btn" onclick="rateStar(4)">⭐</span>
+            <span class="star-btn" onclick="rateStar(5)">⭐</span>
+          </div>
+          <div class="star-msg" id="starMsg"></div>
+        </div>
+      </div>
+    </div>
+    <div class="privacy-row reveal">
+      <span style="font-size:14px;flex-shrink:0">🔒</span>
+      <p class="privacy-txt"><strong>Це твій особистий простір.</strong> Всі нотатки залишаються лише на твоєму пристрої — нікуди не відправляються 💛</p>
+    </div>
+  </div>
+</section>
+
+<!-- ПІДТРИМКА -->
+<section>
+  <div class="wrap">
+    <div class="support-card reveal">
+      <div class="support-title">💚 Слово від мене</div>
+      <p class="support-body">Ти вже зробила перший крок — побачила, яку роль жири відіграють у твоєму тілі. <em>Це і є початок справжніх змін.</em></p>
+      <p class="support-body">Не треба бути ідеальною — треба бути уважною до себе 🤍</p>
+      <p class="support-sign">— Любов Бухарова, нутриціолог</p>
+    </div>
+  </div>
+</section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+
+  <!-- ДО: тільки кнопка -->
+  <div id="finalBefore">
+    <span style="font-size:56px;display:block;margin-bottom:18px;animation:float-gentle 5s ease-in-out infinite;">🥑</span>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink2);line-height:1.7;margin-bottom:32px;max-width:280px;">Готова завершити День 1?<br>Натисни коли все зроблено 💚</p>
+    <button class="finish-btn" onclick="finishDay()">
+      <span class="finish-btn-icon">✅</span>
+      Завершити День 1
+    </button>
+  </div>
+
+  <!-- ПІСЛЯ: з'являється після натискання -->
+  <div id="finalAfter">
+    <span class="final-icon">🥑</span>
+    <h2 class="final-title">День 1 —<br><em>виконано!</em></h2>
+    <div class="final-line"></div>
+    <p class="final-sub">Ти зробила перший і найважливіший крок —<br>змінила ставлення до жирів 💚</p>
+    <div class="day-dots" style="margin-bottom:36px;">
+      <div class="d-dot active"></div>
+      <div class="d-dot"></div><div class="d-dot"></div><div class="d-dot"></div><div class="d-dot"></div>
+    </div>
+    <div style="max-width:360px;width:100%;background:rgba(255,255,255,0.55);border:1.5px solid var(--border2);border-radius:22px;padding:28px 24px;text-align:center;backdrop-filter:blur(8px);">
+      <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;">Завтра · День 2</div>
+      <div style="font-size:2.2rem;margin-bottom:12px;">☠️</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(17px,5vw,22px);font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:10px;">Жири бувають<br><em style="color:var(--gold);">добрими і злими</em></div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.7;">Деякі з них — справжні вороги твого здоров'я, які ховаються в найнесподіваніших місцях. Ти здивуєшся де саме 👀</div>
+    </div>
+  </div>
+
+</section>
+
+<script>
+// Progress
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('progress').style.width=(s/h*100)+'%';
+});
+
+// Reveal
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible');});},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── Рецепт гармошка ──
+function toggleRecipe(){
+  document.getElementById('recipeAccordion').classList.toggle('open');
+}
+
+// ── Аудит ──
+function getAuditData(n){
+  if(n===0) return {
+    status:'Починаємо\nз нуля 🌱',
+    phrase:'Нуль — і це нормально! Тепер знаєш де є прогалини.',
+    title:'🌱 Нуль — це теж результат',
+    body:'Не засмучуйся — ти щойно побачила де є прогалини. <em>Саме для цього і є цей тиждень.</em> Один маленький крок сьогодні — і все зміниться 💛'
+  };
+  if(n<=3) return {
+    status:`Маленький\nпочаток 🌿`,
+    phrase:`${n} з 12 — є початок! Додай ще один продукт сьогодні.`,
+    title:'🌿 Є перші союзники!',
+    body:'У тебе вже є кілька джерел корисних жирів. Цей тиждень допоможе розширити список і зробити це звичкою 🌿'
+  };
+  if(n<=6) return {
+    status:`Є база 💛`,
+    phrase:`${n} з 12 — непогана база! Є ще куди рости.`,
+    title:'💛 Є база — розвиваємо!',
+    body:'Половина списку вже є у твоєму раціоні. <em>Це вже усвідомлений вибір.</em> Цей тиждень зробить основу ще міцнішою 💛'
+  };
+  if(n<=9) return {
+    status:`Добре 🥑`,
+    phrase:`${n} з 12 — ти вже добре знаєш корисні жири!`,
+    title:'🥑 Ти вже знаєш своє!',
+    body:'Більше половини джерел вже є у раціоні — це справді добре. Подивись що ще немає і спробуй додати одне нове цього тижня 🥑'
+  };
+  if(n<12) return {
+    status:`Майже все 🌟`,
+    phrase:`${n} з 12 — майже ідеально! Ти дуже уважна до харчування.`,
+    title:'🌟 Майже повний список!',
+    body:'У тебе вже майже всі джерела корисних жирів. <em>Ти справді уважна до свого харчування.</em> Цей тиждень — щоб закріпити і систематизувати 🌟'
+  };
+  return {
+    status:`Ідеально 🏆`,
+    phrase:`12 з 12 — всі джерела вже у раціоні! Цей тиждень закріпить звичку.`,
+    title:'🏆 Ти вже на правильному шляху!',
+    body:'Всі джерела корисних жирів вже є у твоєму раціоні — це неймовірно! Цей тиждень допоможе зробити це <em>стабільною звичкою назавжди</em> 🏆'
+  };
+}
+
+function toggleAudit(el){
+  el.classList.toggle('yes');
+  const n=document.querySelectorAll('#auditGrid .audit-row.yes').length;
+  const d=getAuditData(n);
+  document.getElementById('auditNum').textContent=n;
+  document.getElementById('auditPbar').style.width=(n/12*100)+'%';
+  document.getElementById('auditStatus').textContent=d.status;
+  document.getElementById('auditPhrase').textContent=d.phrase;
+  document.getElementById('auditCounter').classList.add('show');
+  document.getElementById('auditSupportTitle').textContent=d.title;
+  document.getElementById('auditSupportBody').innerHTML=d.body;
+  document.getElementById('auditSupport').classList.add('show');
+}
+
+// ── Вода — вільний трекер ──
+const ML_PER_CUP = 200;
+let waterCount = 0;
+const totalCups = 10;
+
+const wMsgs = [
+  '',
+  'Сьогодні ти випила 200 мл 💧 Гарний початок!',
+  'Сьогодні ти випила 400 мл 💧 Продовжуй!',
+  'Сьогодні ти випила 600 мл 🌿',
+  'Сьогодні ти випила 800 мл 💧 Вже краще!',
+  'Сьогодні ти випила 1000 мл — половина літра 🌿',
+  'Сьогодні ти випила 1200 мл 💧',
+  'Сьогодні ти випила 1400 мл — майже норма! 🌟',
+  'Сьогодні ти випила 1600 мл 💧 Відмінно!',
+  'Сьогодні ти випила 1800 мл — ти молодець 💚',
+  'Сьогодні ти випила 2000 мл 🏆 Так тримати!'
+];
+
+const cr = document.getElementById('cupsRow');
+for(let i = 0; i < totalCups; i++){
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.className = 'cup-btn';
+  b.setAttribute('aria-label', `Склянка ${i+1}`);
+  b.innerHTML = '🥛';
+  b.addEventListener('click', () => {
+    const newCount = b.classList.contains('filled') ? i : i + 1;
+    waterCount = newCount;
+    document.querySelectorAll('.cup-btn').forEach((c, j) => c.classList.toggle('filled', j < waterCount));
+    const ml = waterCount * ML_PER_CUP;
+    document.getElementById('waterMl').textContent = ml;
+    const lbl = document.getElementById('waterTodayLabel');
+    if(waterCount === 0){
+      lbl.textContent = 'Починай відмічати склянки 👇';
+    } else {
+      lbl.textContent = `Сьогодні ти випила ${ml} мл 💧`;
+    }
+    document.getElementById('waterMsg').textContent = wMsgs[waterCount] || '';
+  });
+  cr.appendChild(b);
+}
+
+// ── Білок ──
+const pMsgs=['','Перший прийом із білком — починаємо будувати! 🌱','Два — вже краще 💛','Три — відмінно! 💪','Ідеально — білок у всіх прийомах! 🏆'];
+function toggleMeal(el){
+  el.classList.toggle('checked');
+  const d=document.querySelectorAll('#mealsList .meal-row.checked').length;
+  document.getElementById('proteinCount').textContent=d;
+  document.getElementById('proteinMsg').textContent=pMsgs[Math.min(d,pMsgs.length-1)];
+  document.getElementById('proteinResult').classList.toggle('show',d>0);
+}
+
+// ── Зірки ──
+const sMsgs=['','😔 Важкий початок — але ти вже тут!','🌱 Є куди рости!','🌟 Непоганий день!','💪 Відмінний день!','🏆 Ідеальний перший день! 🥑'];
+function rateStar(n){
+  document.querySelectorAll('#starsRow .star-btn').forEach((s,i)=>s.classList.toggle('lit',i<n));
+  document.getElementById('starMsg').textContent=sMsgs[n];
+}
+
+// ── Завершити день ──
+function finishDay(){
+  document.getElementById('finalBefore').style.display = 'none';
+  const after = document.getElementById('finalAfter');
+  after.style.display = 'flex';
+  after.style.animation = 'pop-in .7s cubic-bezier(.34,1.4,.64,1)';
+  // Плавно прокручуємо до фінального блоку
+  setTimeout(() => after.scrollIntoView({behavior:'smooth', block:'start'}), 80);
+}
+</script>
+</body>
+</html>
