@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Генотип</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+:root{
+  --bg:#f7f3ed;--warm:#fffdf9;--ink:#18130e;--muted:#8a7d70;
+  --gold:#c9a84c;--gold2:#e8d08a;--border:#ddd5c5;--green:#2a5236;
+  --red:#7a3030;--sh:0 2px 16px rgba(24,19,14,.07);
+  --c-hunter:#2a5236;--c-gatherer:#7a3030;--c-teacher:#1e3d5a;
+  --c-explorer:#4a2d6a;--c-warrior:#6b3d10;--c-nomad:#135050;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);font-size:14px;min-height:100vh;}
+.app-header{background:var(--ink);color:#f7f3ed;padding:26px 20px 20px;text-align:center;}
+.app-header .tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.app-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,5vw,36px);font-weight:300;line-height:1.2;}
+.app-header h1 em{font-style:italic;color:var(--gold2);}
+.stage-nav{display:flex;background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:30;}
+.snav-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:10px 4px;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;gap:2px;}
+.snav-item .snum{width:22px;height:22px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;transition:all .2s;}
+.snav-item .slbl{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);text-align:center;}
+.snav-item.active{border-bottom-color:var(--gold);}
+.snav-item.active .snum{background:var(--gold);color:#fff;}
+.snav-item.active .slbl{color:var(--ink);}
+.snav-item.done .snum{background:var(--green);color:#fff;}
+.stage{display:none;max-width:680px;margin:0 auto;padding:20px 16px 100px;}
+.stage.active{display:block;}
+.scard{background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:16px;overflow:hidden;box-shadow:var(--sh);}
+.scard-head{padding:14px 18px;display:flex;align-items:center;gap:10px;}
+.scard-icon{width:32px;height:32px;border-radius:50%;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.scard-title{font-size:14px;font-weight:500;flex:1;}
+.scard-sub{font-size:11px;color:var(--muted);margin-top:1px;}
+.scard-body{padding:16px 18px;border-top:1px solid var(--border);}
+.field-row{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap;}
+.field-label{font-size:13px;min-width:155px;color:var(--ink);}
+.num-input{width:90px;height:38px;border:1.5px solid var(--border);border-radius:3px;padding:0 10px;font-family:'Jost',sans-serif;font-size:15px;font-weight:500;outline:none;background:#fff;transition:border-color .2s;}
+.num-input:focus{border-color:var(--gold);}
+.field-unit{font-size:12px;color:var(--muted);}
+.result-strip{background:var(--ink);color:#f7f3ed;border-radius:3px;padding:9px 14px;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.rs-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.rs-val{font-family:'Cormorant Garamond',serif;font-size:21px;}
+.rs-val.dim{opacity:.3;font-size:13px;font-style:italic;}
+.choices{display:flex;flex-direction:column;gap:7px;margin:10px 0;}
+.ch{border:1.5px solid var(--border);border-radius:3px;padding:10px 14px;cursor:pointer;display:flex;align-items:center;gap:10px;background:#fff;transition:all .15s;font-size:13px;line-height:1.4;}
+.ch:hover{border-color:var(--gold);}
+.ch.sel{border-color:var(--gold);background:#fdf6e4;}
+.ch-dot{width:16px;height:16px;border:1.5px solid var(--border);border-radius:50%;flex-shrink:0;transition:all .15s;}
+.ch.sel .ch-dot{background:var(--gold);border-color:var(--gold);}
+.yn-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--border);}
+.yn-row:last-child{border-bottom:none;}
+.yn-q{flex:1;font-size:13px;line-height:1.5;}
+.yn-btns{display:flex;gap:6px;flex-shrink:0;}
+.yn-btn{width:44px;height:30px;border:1.5px solid var(--border);border-radius:3px;background:#fff;font-family:'Jost',sans-serif;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s;}
+.yn-btn.yes.active{background:var(--green);border-color:var(--green);color:#fff;}
+.yn-btn.no.active{background:var(--red);border-color:var(--red);color:#fff;}
+.live-result{position:sticky;bottom:0;background:var(--ink);border-top:1px solid rgba(201,168,76,.3);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;z-index:20;flex-wrap:wrap;}
+.lr-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.lr-chips{display:flex;gap:5px;flex-wrap:wrap;}
+.chip{padding:4px 9px;border-radius:20px;font-size:11px;font-weight:500;color:#fff;opacity:.3;transition:all .3s;}
+.chip.active{opacity:1;}
+.chip.winner{box-shadow:0 0 0 2px var(--gold);opacity:1;}
+.lr-next{background:var(--gold);color:var(--ink);border:none;padding:8px 16px;border-radius:2px;font-family:'Jost',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.lr-next:hover{background:var(--gold2);}
+.gcard{border-radius:4px;overflow:hidden;margin-bottom:12px;box-shadow:var(--sh);}
+.gcard-head{padding:12px 16px;display:flex;align-items:center;gap:10px;cursor:pointer;}
+.g-icon{font-size:18px;flex-shrink:0;}
+.g-info{flex:1;}
+.g-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:#fff;}
+.g-score-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);}
+.g-score{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold2);}
+.g-chev{font-size:10px;color:rgba(255,255,255,.4);transition:transform .3s;}
+.gcard-head.open .g-chev{transform:rotate(180deg);}
+.gcard-body{display:none;background:#fff;}
+.gcard-body.open{display:block;}
+.q-row{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s;}
+.q-row:last-child{border-bottom:none;}
+.q-row:hover{background:#fdf6e4;}
+.q-chk{width:18px;height:18px;border:1.5px solid var(--border);border-radius:3px;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all .2s;background:#fff;}
+.q-row.on .q-chk{background:var(--gold);border-color:var(--gold);}
+.q-row.on .q-chk::after{content:'✓';color:#fff;font-size:10px;font-weight:700;}
+.q-row.auto .q-chk{background:var(--gold2);border-color:var(--gold);}
+.q-row.auto .q-chk::after{content:'✓';color:var(--ink);font-size:10px;font-weight:700;}
+.q-row.auto{background:#fffae8;}
+.q-text{flex:1;font-size:12.5px;line-height:1.55;font-weight:300;}
+.q-row.on .q-text,.q-row.auto .q-text{color:#6b3d10;}
+.q-pts{font-size:11px;font-weight:600;color:var(--muted);min-width:18px;text-align:right;margin-top:2px;}
+.q-row.on .q-pts,.q-row.auto .q-pts{color:var(--gold);}
+.final-card{background:var(--ink);color:#f7f3ed;border-radius:4px;padding:28px 22px;box-shadow:0 8px 40px rgba(24,19,14,.18);}
+.fc-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.fc-winner{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;margin-bottom:4px;}
+.fc-score{font-size:13px;color:rgba(247,243,237,.4);margin-bottom:22px;}
+.fc-sec{margin-bottom:18px;}
+.fc-sec-title{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.bar-row{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.bar-name{font-size:13px;flex:1;}
+.bar-track{flex:2;height:4px;background:rgba(255,255,255,.1);border-radius:2px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:2px;background:rgba(255,255,255,.2);transition:width .8s cubic-bezier(.4,0,.2,1);width:0;}
+.bar-fill.gold{background:var(--gold);}
+.bar-val{font-family:'Cormorant Garamond',serif;font-size:16px;min-width:24px;text-align:right;color:var(--gold2);}
+.det-row{display:flex;gap:12px;font-size:12px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.det-row:last-child{border-bottom:none;}
+.det-k{color:rgba(247,243,237,.45);flex:1;}
+.det-v{font-weight:500;color:var(--gold2);text-align:right;}
+.instr{background:#f0ece3;border-left:3px solid var(--gold);padding:10px 13px;border-radius:0 3px 3px 0;font-size:12.5px;line-height:1.65;margin-bottom:12px;}
+.note{font-size:11.5px;color:var(--muted);font-style:italic;margin:5px 0 9px;}
+.sec-info{background:linear-gradient(135deg,#1a1510,#2a1f14);border:1px solid rgba(201,168,76,.25);border-radius:3px;padding:14px 16px;margin-bottom:12px;color:#f7f3ed;}
+.sec-info h4{font-family:'Cormorant Garamond',serif;font-size:15px;color:var(--gold2);margin-bottom:6px;}
+.sec-info p,.sec-info li{font-size:12px;line-height:1.7;color:rgba(247,243,237,.7);}
+.sec-info ul{padding-left:14px;margin-top:5px;}
+@media(max-width:500px){.field-label{min-width:unset;width:100%;}.scard-body,.scard-head{padding-left:14px;padding-right:14px;}}
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="tag">Харчування за Генотипом</div>
+  <h1>Визнач свій <em>генотип</em></h1>
+</div>
+
+<div class="stage-nav">
+  <div class="snav-item active" id="snav0" onclick="goStage(0)"><div class="snum">1</div><div class="slbl">Заміри</div></div>
+  <div class="snav-item" id="snav1" onclick="goStage(1)"><div class="snum">2</div><div class="slbl">Кров</div></div>
+  <div class="snav-item" id="snav2" onclick="goStage(2)"><div class="snum">3</div><div class="slbl">Тест</div></div>
+  <div class="snav-item" id="snav3" onclick="goStage(3)"><div class="snum">4</div><div class="slbl">Секретор</div></div>
+  <div class="snav-item" id="snav4" onclick="goStage(4)"><div class="snum">5</div><div class="slbl">Результат</div></div>
+</div>
+
+<!-- STAGE 1 -->
+<div class="stage active" id="stage0">
+  <div class="scard">
+    <div class="scard-head"><div class="scard-icon">📏</div><div><div class="scard-title">Зріст стоячи та сидячи</div><div class="scard-sub">Потрібна допомога іншої людини</div></div></div>
+    <div class="scard-body">
+      <div class="instr"><b>1.</b> Зніміть взуття, станьте біля стіни. Книга на голові — помічник відмічає рівень → вимірюйте від підлоги = <b>Зріст стоячи</b><br><b>2.</b> Сядьте на стілець: спина до стіни, ноги під 90°. Книга на голові → <b>Зріст сидячи</b><br><b>3.</b> Виміряйте <b>висоту сидіння</b> стільця від підлоги.</div>
+      <div class="field-row"><label class="field-label">Зріст стоячи</label><input class="num-input" id="hStand" type="number" placeholder="170" step="0.1" oninput="calcHeights()"><span class="field-unit">см</span></div>
+      <div class="field-row"><label class="field-label">Зріст сидячи</label><input class="num-input" id="hSit" type="number" placeholder="87" step="0.1" oninput="calcHeights()"><span class="field-unit">см</span></div>
+      <div class="field-row"><label class="field-label">Висота стільця</label><input class="num-input" id="hChair" type="number" placeholder="46" step="0.1" oninput="calcHeights()"><span class="field-unit">см</span></div>
+      <div class="result-strip"><span class="rs-label">Тулуб</span><span class="rs-val dim" id="cv-torso">введіть дані</span></div>
+      <div class="result-strip"><span class="rs-label">Ноги</span><span class="rs-val dim" id="cv-legs">введіть дані</span></div>
+      <div class="note">Тулуб = Зріст сидячи − Висота стільця &nbsp;|&nbsp; Ноги = Зріст стоячи − Тулуб. Якщо рівно — тулуб вважається довшим.</div>
+      <div style="font-size:12px;font-weight:600;margin-bottom:6px;">Що довше?</div>
+      <div class="choices" id="ch-torso">
+        <div class="ch" onclick="pick('torsoLonger','torso',this,'ch-torso')"><div class="ch-dot"></div>Тулуб довший або однаково</div>
+        <div class="ch" onclick="pick('torsoLonger','legs',this,'ch-torso')"><div class="ch-dot"></div>Ноги довші</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scard">
+    <div class="scard-head"><div class="scard-icon">🦵</div><div><div class="scard-title">Гомілка vs Стегно + Пальці</div><div class="scard-sub">Виміряйте та порівняйте</div></div></div>
+    <div class="scard-body">
+      <div class="instr"><b>Гомілка:</b> від виступу щиколотки до середини коліна (внутрішня сторона).<br><b>Стегно:</b> від виступу стегна на рівні коліна до великого вертлюга (зовнішня сторона, сидячи).<br><span style="font-size:11px;color:var(--muted);">Якщо рівно — гомілка вважається довшою.</span></div>
+      <div class="field-row"><label class="field-label">Гомілка</label><input class="num-input" id="hShin" type="number" placeholder="0" step="0.1" oninput="calcShinThigh()"><span class="field-unit">см</span></div>
+      <div class="field-row"><label class="field-label">Стегно</label><input class="num-input" id="hThigh" type="number" placeholder="0" step="0.1" oninput="calcShinThigh()"><span class="field-unit">см</span></div>
+      <div id="shin-auto-result" style="font-size:12px;color:var(--muted);font-style:italic;margin:4px 0 8px;min-height:16px;"></div>
+      <div class="choices" id="ch-shin">
+        <div class="ch" onclick="pick('shinLonger','shin',this,'ch-shin')"><div class="ch-dot"></div>Гомілка довша або однаково</div>
+        <div class="ch" onclick="pick('shinLonger','thigh',this,'ch-shin')"><div class="ch-dot"></div>Стегно довше</div>
+      </div>
+      <div style="border-top:1px solid var(--border);margin:12px 0;"></div>
+      <div class="instr"><b>Пальці D2 vs D4:</b> вимірюйте від основи до кінчика. D2 = вказівний, D4 = безіменний. Вказівний міряйте з боку середнього пальця. Якщо рівно — D2 довший.</div>
+      <div class="field-row">
+        <label class="field-label">Права рука</label>
+        <select id="fRight" onchange="updateFingers()" style="border:1.5px solid var(--border);border-radius:3px;padding:7px 10px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:#fff;cursor:pointer;flex:1;max-width:280px;">
+          <option value="">— оберіть —</option>
+          <option value="index">D2 вказівний довший (або рівні)</option>
+          <option value="ring">D4 безіменний довший</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <label class="field-label">Ліва рука</label>
+        <select id="fLeft" onchange="updateFingers()" style="border:1.5px solid var(--border);border-radius:3px;padding:7px 10px;font-family:'Jost',sans-serif;font-size:13px;outline:none;background:#fff;cursor:pointer;flex:1;max-width:280px;">
+          <option value="">— оберіть —</option>
+          <option value="index">D2 вказівний довший (або рівні)</option>
+          <option value="ring">D4 безіменний довший</option>
+        </select>
+      </div>
+      <div id="finger-result" style="font-size:12px;color:var(--muted);font-style:italic;margin-top:4px;min-height:18px;"></div>
+    </div>
+  </div>
+
+  <div class="live-result">
+    <div><div class="lr-label">Кандидати — Етап 1</div><div class="lr-chips" id="lrchips1">
+      <span class="chip" style="background:var(--c-hunter)" data-id="hunter">🏹 Мисл.</span>
+      <span class="chip" style="background:var(--c-gatherer)" data-id="gatherer">🌾 Збир.</span>
+      <span class="chip" style="background:var(--c-teacher)" data-id="teacher">📚 Вчит.</span>
+      <span class="chip" style="background:var(--c-explorer)" data-id="explorer">🔬 Досл.</span>
+      <span class="chip" style="background:var(--c-warrior)" data-id="warrior">⚔️ Воїн</span>
+      <span class="chip" style="background:var(--c-nomad)" data-id="nomad">🌍 Ном.</span>
+    </div></div>
+    <button class="lr-next" onclick="goStage(1)">Далі →</button>
+  </div>
+</div>
+
+<!-- STAGE 2 — ТІЛЬКИ КРОВ -->
+<div class="stage" id="stage1">
+  <div class="scard">
+    <div class="scard-head"><div class="scard-icon">🩸</div><div><div class="scard-title">Група крові</div><div class="scard-sub">Звужує коло кандидатів</div></div></div>
+    <div class="scard-body">
+      <div class="choices" id="ch-blood">
+        <div class="ch" onclick="pick('bloodGroup','O',this,'ch-blood')"><div class="ch-dot"></div>O — I група</div>
+        <div class="ch" onclick="pick('bloodGroup','A',this,'ch-blood')"><div class="ch-dot"></div>A — II група</div>
+        <div class="ch" onclick="pick('bloodGroup','B',this,'ch-blood')"><div class="ch-dot"></div>B — III група</div>
+        <div class="ch" onclick="pick('bloodGroup','AB',this,'ch-blood')"><div class="ch-dot"></div>AB — IV група</div>
+        <div class="ch" onclick="pick('bloodGroup',null,this,'ch-blood')"><div class="ch-dot"></div>Не знаю</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="live-result">
+    <div><div class="lr-label">Кандидати — Етап 2</div><div class="lr-chips" id="lrchips2">
+      <span class="chip" style="background:var(--c-hunter)" data-id="hunter">🏹 Мисл.</span>
+      <span class="chip" style="background:var(--c-gatherer)" data-id="gatherer">🌾 Збир.</span>
+      <span class="chip" style="background:var(--c-teacher)" data-id="teacher">📚 Вчит.</span>
+      <span class="chip" style="background:var(--c-explorer)" data-id="explorer">🔬 Досл.</span>
+      <span class="chip" style="background:var(--c-warrior)" data-id="warrior">⚔️ Воїн</span>
+      <span class="chip" style="background:var(--c-nomad)" data-id="nomad">🌍 Ном.</span>
+    </div></div>
+    <button class="lr-next" onclick="goStage(2)">До тесту →</button>
+  </div>
+</div>
+
+<!-- STAGE 3 -->
+<div class="stage" id="stage2">
+  <div style="background:#fff;border:1px solid var(--border);border-radius:4px;padding:14px 18px;margin-bottom:16px;box-shadow:var(--sh);">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+      <span style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);">Прогрес кроків</span>
+      <span style="font-size:12px;font-weight:600;color:var(--ink);" id="s3-progress-text">0 / 13</span>
+    </div>
+    <div style="height:4px;background:var(--border);border-radius:2px;overflow:hidden;">
+      <div id="s3-progress-bar" style="height:100%;background:var(--gold);border-radius:2px;width:0%;transition:width 0.4s ease;"></div>
+    </div>
+  </div>
+  <div id="accordion-steps"></div>
+  <div id="geno-cards"></div>
+  <div class="live-result">
+    <div><div class="lr-label">Тест відповідності</div><div class="lr-chips" id="lrchips3">
+      <span class="chip" style="background:var(--c-hunter)" data-id="hunter">🏹 Мисл.</span>
+      <span class="chip" style="background:var(--c-gatherer)" data-id="gatherer">🌾 Збир.</span>
+      <span class="chip" style="background:var(--c-teacher)" data-id="teacher">📚 Вчит.</span>
+      <span class="chip" style="background:var(--c-explorer)" data-id="explorer">🔬 Досл.</span>
+      <span class="chip" style="background:var(--c-warrior)" data-id="warrior">⚔️ Воїн</span>
+      <span class="chip" style="background:var(--c-nomad)" data-id="nomad">🌍 Ном.</span>
+    </div></div>
+    <button class="lr-next" onclick="goStage(3)">До секретора →</button>
+  </div>
+</div>
+
+<!-- STAGE 4 — СЕКРЕТОР + РЕЗУС + СТАТЬ -->
+<div class="stage" id="stage3">
+  <div class="scard">
+    <div class="scard-head"><div class="scard-icon">🧬</div><div><div class="scard-title">Резус-фактор</div><div class="scard-sub">Уточнює результат</div></div></div>
+    <div class="scard-body">
+      <div class="choices" id="ch-rh">
+        <div class="ch" onclick="pick('rhesus','pos',this,'ch-rh')"><div class="ch-dot"></div>Rh+ позитивний</div>
+        <div class="ch" onclick="pick('rhesus','neg',this,'ch-rh')"><div class="ch-dot"></div>Rh− негативний</div>
+        <div class="ch" onclick="pick('rhesus',null,this,'ch-rh')"><div class="ch-dot"></div>Не знаю</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scard">
+    <div class="scard-head"><div class="scard-icon">🔬</div><div><div class="scard-title">Статус секретора</div><div class="scard-sub">Для найточнішого визначення генотипу</div></div></div>
+    <div class="scard-body">
+      <div class="sec-info">
+        <h4>Що таке статус секретора?</h4>
+        <p>~85% людей — <b style="color:var(--gold2)">секретори</b>: антигени групи крові виділяються в слину, піт, сперму. Решта 15% — <b style="color:var(--gold2)">несекретори</b>.</p>
+        <ul>
+          <li>Визначається спеціальним аналізом слини.</li>
+          <li>Якщо не знаєте — оберіть «Не знаю». Програма покаже обидва можливі варіанти.</li>
+        </ul>
+      </div>
+      <div class="choices" id="ch-sec">
+        <div class="ch" onclick="pick('secretor','sec',this,'ch-sec')"><div class="ch-dot"></div>✅ Секретор</div>
+        <div class="ch" onclick="pick('secretor','nonsec',this,'ch-sec')"><div class="ch-dot"></div>❌ Не-секретор</div>
+        <div class="ch" onclick="pick('secretor',null,this,'ch-sec')"><div class="ch-dot"></div>❓ Не знаю</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scard">
+    <div class="scard-head"><div class="scard-icon">👤</div><div><div class="scard-title">Стать</div><div class="scard-sub">Деякі результати різняться для чоловіків і жінок</div></div></div>
+    <div class="scard-body">
+      <div class="choices" id="ch-sex">
+        <div class="ch" onclick="pick('sex','m',this,'ch-sex')"><div class="ch-dot"></div>Чоловік (М)</div>
+        <div class="ch" onclick="pick('sex','f',this,'ch-sex')"><div class="ch-dot"></div>Жінка (Ж)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="live-result">
+    <div><div class="lr-label">Кандидати — Етап 4</div><div class="lr-chips" id="lrchips4">
+      <span class="chip" style="background:var(--c-hunter)" data-id="hunter">🏹 Мисл.</span>
+      <span class="chip" style="background:var(--c-gatherer)" data-id="gatherer">🌾 Збир.</span>
+      <span class="chip" style="background:var(--c-teacher)" data-id="teacher">📚 Вчит.</span>
+      <span class="chip" style="background:var(--c-explorer)" data-id="explorer">🔬 Досл.</span>
+      <span class="chip" style="background:var(--c-warrior)" data-id="warrior">⚔️ Воїн</span>
+      <span class="chip" style="background:var(--c-nomad)" data-id="nomad">🌍 Ном.</span>
+    </div></div>
+    <button class="lr-next" onclick="showFinal()">Результат →</button>
+  </div>
+</div>
+
+<!-- STAGE 5 -->
+<div class="stage" id="stage4">
+  <div class="final-card" id="final-content">
+    <p style="opacity:.35;font-size:13px;">Заповніть попередні етапи та натисніть «Результат»</p>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// СТАН
+// ═══════════════════════════════════════════════════
+const S={
+  torsoLonger:null, shinLonger:null, rightD:null, leftD:null,
+  bloodGroup:null, rhesus:null, secretor:null, sex:null,
+  sexAge:null, headShape:null, jawAngle:null, bodyType:null,
+  waistRatio:null, propStatus:null,
+  scores:{hunter:0,gatherer:0,teacher:0,explorer:0,warrior:0,nomad:0},
+  mKeys:new Set()
+};
+
+// ═══════════════════════════════════════════════════
+// БАЗОВА ТАБЛИЦЯ (Етап 1): тільки тіло + пальці
+// ═══════════════════════════════════════════════════
+const BASIC={
+  torso:{
+    thigh:{index_both:['gatherer','teacher','explorer','nomad'],ring_both:['hunter','teacher','explorer','nomad'],mixed:['gatherer','teacher','explorer','warrior']},
+    shin: {index_both:['gatherer','explorer','warrior','nomad'],ring_both:['hunter','teacher','explorer','nomad'],mixed:['gatherer','teacher','explorer','nomad']},
+  },
+  legs:{
+    thigh:{index_both:['gatherer','explorer','warrior','nomad'],ring_both:['hunter','explorer','warrior','nomad'],mixed:['hunter','gatherer','teacher','explorer']},
+    shin: {index_both:['gatherer','explorer','warrior','nomad'],ring_both:['hunter','teacher','warrior','nomad'],mixed:['hunter','teacher','warrior','nomad']},
+  },
+};
+
+// ═══════════════════════════════════════════════════
+// ПРОМІЖНА ТАБЛИЦЯ (Етап 2): тільки кров (без резусу)
+// — об'єднання всіх rh/sec комбінацій з COMP
+// ═══════════════════════════════════════════════════
+// Генерується динамічно з COMP нижче (функція buildBloodOnly)
+
+// ═══════════════════════════════════════════════════
+// ПОВНА ТАБЛИЦЯ (Етап 4): кров + резус + секретор + стать
+// Структура: COMP[torsoLegs_shinThigh][fingers][blood][rh][sec] = {m:[...], f:[...]}
+// rh: 'pos'|'neg'   sec: 'sec'|'nonsec'
+// ═══════════════════════════════════════════════════
+const COMP = {
+
+  // ── Таблиця 1 (стор.320–321): TRUP≥NOGE + NATKOLJENICA>POTKOLJENICA
+  torso_thigh: {
+    index_both: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['explorer'],f:['teacher']} },
+        neg: { sec:{m:['explorer'],f:['teacher']},  nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      AB: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['explorer'],f:['explorer']} },
+        neg: { sec:{m:['explorer'],f:['nomad']},    nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['nomad']} },
+        neg: { sec:{m:['explorer'],f:['nomad']},    nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['gatherer'],f:['gatherer']} },
+        neg: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['gatherer']} }
+      },
+    },
+    ring_both: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['explorer']} },
+        neg: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      AB: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['nomad']} },
+        neg: { sec:{m:['nomad'],f:['explorer']},    nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['nomad']} },
+        neg: { sec:{m:['nomad'],f:['explorer']},    nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['explorer']} },
+        neg: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['explorer']} }
+      },
+    },
+    mixed: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} },
+        neg: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['explorer'],f:['warrior']},  nonsec:{m:['explorer'],f:['warrior']} }
+      },
+      B: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['gatherer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['explorer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+    },
+  },
+
+  // ── Таблиця 2 (стор.322–323): TRUP≥NOGE + POTKOLJENICA≥NATKOLJENICA
+  torso_shin: {
+    index_both: {
+      A: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} },
+        neg: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['gatherer'],f:['gatherer']} },
+        neg: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['gatherer'],f:['gatherer']} }
+      },
+      O: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['gatherer'],f:['gatherer']} },
+        neg: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['gatherer']} }
+      },
+    },
+    ring_both: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} },
+        neg: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['explorer'],f:['explorer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['explorer']} },
+        neg: { sec:{m:['explorer'],f:['explorer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} },
+        neg: { sec:{m:['explorer'],f:['hunter']},   nonsec:{m:['explorer'],f:['hunter']} }
+      },
+    },
+    mixed: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} },
+        neg: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} }
+      },
+      AB: {
+        pos: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['teacher'],f:['teacher']} },
+        neg: { sec:{m:['teacher'],f:['teacher']},   nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['explorer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['explorer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['gatherer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+    },
+  },
+
+  // ── Таблиця 3 (стор.324–325): NOGE≥TRUP + NATKOLJENICA>POTKOLJENICA
+  legs_thigh: {
+    index_both: {
+      A: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['explorer'],f:['explorer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} },
+        neg: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} }
+      },
+      B: {
+        pos: { sec:{m:['gatherer'],f:['nomad']},    nonsec:{m:['gatherer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['nomad']},    nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['gatherer']} }
+      },
+    },
+    ring_both: {
+      A: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['explorer']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['explorer'],f:['warrior']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['nomad']} },
+        neg: { sec:{m:['explorer'],f:['nomad']},    nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} },
+        neg: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} }
+      },
+    },
+    mixed: {
+      A: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['explorer'],f:['warrior']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['nomad']} },
+        neg: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['nomad'],f:['nomad']} }
+      },
+      O: {
+        pos: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} },
+        neg: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['gatherer'],f:['hunter']} }
+      },
+    },
+  },
+
+  // ── Таблиця 4 (стор.326–327): NOGE>TRUP + POTKOLJENICA≥NATKOLJENICA
+  legs_shin: {
+    index_both: {
+      A: {
+        pos: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['explorer'],f:['warrior']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['gatherer'],f:['nomad']} },
+        neg: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['gatherer'],f:['gatherer']} }
+      },
+      O: {
+        pos: { sec:{m:['gatherer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['gatherer']} },
+        neg: { sec:{m:['explorer'],f:['gatherer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+    },
+    ring_both: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['warrior']},   nonsec:{m:['teacher'],f:['warrior']} },
+        neg: { sec:{m:['teacher'],f:['warrior']},   nonsec:{m:['explorer'],f:['warrior']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['explorer'],f:['nomad']} },
+        neg: { sec:{m:['explorer'],f:['nomad']},    nonsec:{m:['explorer'],f:['nomad']} }
+      },
+      O: {
+        pos: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} },
+        neg: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} }
+      },
+    },
+    mixed: {
+      A: {
+        pos: { sec:{m:['teacher'],f:['warrior']},   nonsec:{m:['teacher'],f:['warrior']} },
+        neg: { sec:{m:['teacher'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} }
+      },
+      AB: {
+        pos: { sec:{m:['warrior'],f:['nomad']},     nonsec:{m:['warrior'],f:['nomad']} },
+        neg: { sec:{m:['warrior'],f:['warrior']},   nonsec:{m:['warrior'],f:['warrior']} }
+      },
+      B: {
+        pos: { sec:{m:['nomad'],f:['nomad']},       nonsec:{m:['explorer'],f:['nomad']} },
+        neg: { sec:{m:['explorer'],f:['explorer']}, nonsec:{m:['explorer'],f:['explorer']} }
+      },
+      O: {
+        pos: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['hunter'],f:['hunter']} },
+        neg: { sec:{m:['hunter'],f:['hunter']},     nonsec:{m:['explorer'],f:['hunter']} }
+      },
+    },
+  },
+};
+
+// ═══════════════════════════════════════════════════
+// УТИЛІТИ
+// ═══════════════════════════════════════════════════
+function fingerSit(){
+  const r=S.rightD, l=S.leftD;
+  if(!r||!l) return null;
+  if(r==='index'&&l==='index') return 'index_both';
+  if(r==='ring' &&l==='ring')  return 'ring_both';
+  return 'mixed';
+}
+
+// Будує список кандидатів тільки за кров'ю (без резусу/секретора)
+function getBloodCandidates(basicIds){
+  if(!S.bloodGroup) return {ids:basicIds, level:'basic'};
+  const key = (S.torsoLonger||'torso')+'_'+(S.shinLonger||'thigh');
+  const fs = fingerSit();
+  if(!fs) return {ids:basicIds, level:'basic'};
+  const byF = COMP[key]?.[fs];
+  if(!byF) return {ids:basicIds, level:'basic'};
+  const byB = byF[S.bloodGroup];
+  if(!byB) return {ids:basicIds, level:'basic'};
+  // Об'єднуємо всі rh/sec комбінації
+  const all = new Set();
+  ['pos','neg'].forEach(rh=>{
+    ['sec','nonsec'].forEach(sc=>{
+      const cell = byB[rh]?.[sc];
+      if(cell){ cell.m.forEach(g=>all.add(g)); cell.f.forEach(g=>all.add(g)); }
+    });
+  });
+  return {ids:[...all], level:'blood'};
+}
+
+// Повний lookup з резусом + секретором + статтю
+function getCandidates(){
+  const tl=S.torsoLonger, st=S.shinLonger, fs=fingerSit();
+  if(!tl||!st||!fs) return {ids:[], level:'none'};
+
+  const basicIds = (BASIC[tl]?.[st]?.[fs]) || [];
+
+  // Етап 2: тільки кров
+  if(!S.bloodGroup) return {ids:basicIds, level:'basic'};
+  const {ids:bloodIds} = getBloodCandidates(basicIds);
+
+  // Етап 4: кров + резус + секретор + стать
+  if(!S.rhesus) return {ids:bloodIds, level:'blood'};
+
+  const key = tl+'_'+st;
+  const byF = COMP[key]?.[fs];
+  if(!byF) return {ids:bloodIds, level:'blood'};
+  const byB = byF[S.bloodGroup];
+  if(!byB) return {ids:bloodIds, level:'blood'};
+  const byR = byB[S.rhesus];
+  if(!byR) return {ids:bloodIds, level:'blood'};
+
+  // Секретор
+  const secKeys = S.secretor ? [S.secretor] : ['sec','nonsec'];
+  const allBySec = new Set();
+  secKeys.forEach(sc=>{
+    const cell = byR[sc];
+    if(cell){
+      // Стать
+      if(S.sex){
+        (cell[S.sex]||[]).forEach(g=>allBySec.add(g));
+      } else {
+        cell.m.forEach(g=>allBySec.add(g));
+        cell.f.forEach(g=>allBySec.add(g));
+      }
+    }
+  });
+
+  const level = S.secretor && S.sex ? 'full' : (S.secretor||S.sex) ? 'advanced' : 'rh';
+  return {ids:[...allBySec], level};
+}
+
+// ═══════════════════════════════════════════════════
+// ID_INFO
+// ═══════════════════════════════════════════════════
+const ID_INFO={
+  hunter:  {name:'Мисливець', icon:'🏹', color:'var(--c-hunter)'},
+  gatherer:{name:'Збирач',    icon:'🌾', color:'var(--c-gatherer)'},
+  teacher: {name:'Вчитель',   icon:'📚', color:'var(--c-teacher)'},
+  explorer:{name:'Дослідник', icon:'🔬', color:'var(--c-explorer)'},
+  warrior: {name:'Воїн',      icon:'⚔️', color:'var(--c-warrior)'},
+  nomad:   {name:'Номад',     icon:'🌍', color:'var(--c-nomad)'},
+};
+
+// ═══════════════════════════════════════════════════
+// ТЕСТИ ГЕНОТИПІВ
+// ═══════════════════════════════════════════════════
+const GENO_TESTS=[
+  {id:'hunter',qs:[{t:'На відбитках пальців присутні білі лінії.',p:5,ak:'white_lines'},{t:'Ви є «супер-пробувачем» пропілтіоурацилу.',p:5,ak:'prop_super'},{t:'Порівнюючи ліву і праву руку — збігаються ≥4 з 5 пар відбитків.',p:5,ak:'prints_match4'},{t:'Перший верхній різець з внутрішнього боку — форма лопатки.',p:3,ak:'shovel'},{t:'Ви стрункі (ектоморф).',p:3,ak:'body_ecto'},{t:'Між стегнами є великий проміжок.',p:3,ak:'gap_big'},{t:'Профіль нижньої щелепи квадратний.',p:3,ak:'jaw_square'},{t:'≥2 випадків аутоімунних захворювань серед близьких родичів.',p:3,ak:'autoimmune'}]},
+  {id:'gatherer',qs:[{t:'Порівнюючи ліву і праву руку — НЕ збігаються ≥3 з 5 пар відбитків.',p:5,ak:'prints_mismatch3'},{t:'Ви є «не-пробувачем» пропілтіоурацилу.',p:5,ak:'prop_non'},{t:'Ви виглядаєте повнішими навіть там, де немає жирової тканини.',p:5,ak:'looks_full'},{t:'Додатковий горбик на першому верхньому корінному зубі.',p:3,ak:'extra_cusp'},{t:'Профіль нижньої щелепи овальний — форма мигдалю.',p:3,ak:'jaw_oval'},{t:'Округла статура (ендоморф) або висока талія/стегна.',p:3,ak:'body_endo'},{t:'Між стегнами малий проміжок або коліна торкаються.',p:3,ak:'gap_small'},{t:'≥2 випадків діабету, інсульту або підвищеного тиску серед родичів.',p:3,ak:'diabetes_stroke'}]},
+  {id:'teacher',qs:[{t:'Відбитки ≥2 пальців мають форму завитка.',p:5,ak:'whorls2'},{t:'Видно сухожилля зап\'ястя.',p:5,ak:'tendons'},{t:'Ви є «пробувачем» пропілтіоурацилу.',p:5,ak:'prop_taster'},{t:'Додатковий горбик на першому верхньому корінному зубі.',p:3,ak:'extra_cusp'},{t:'Профіль нижньої щелепи квадратний.',p:3,ak:'jaw_square'},{t:'Струнка м\'язиста статура (мезоморф).',p:3,ak:'body_meso'},{t:'Між стегнами є великий проміжок.',p:3,ak:'gap_big'},{t:'≥2 випадків раку серед близьких родичів.',p:3,ak:'cancer'}]},
+  {id:'explorer',qs:[{t:'Негативний резус-фактор (Rh−).',p:5,ak:'rh_neg'},{t:'Ви є «супер-пробувачем» пропілтіоурацилу.',p:5,ak:'prop_super'},{t:'Чутливість до кофеїну — кава не дає спати вночі або викликає серцебиття.',p:5,ak:'caffeine'},{t:'Ви лівша.',p:3,ak:'lefthanded'},{t:'Профіль нижньої щелепи квадратний.',p:3,ak:'jaw_square'},{t:'М\'язиста статура (мезоморф).',p:3,ak:'body_meso'},{t:'Між стегнами малий проміжок або коліна торкаються.',p:3,ak:'gap_small'},{t:'Голова коротша та ширша — брахіцефал.',p:3,ak:'brachy'},{t:'Відбитки вказівних пальців різної форми.',p:3,ak:'index_diff'}]},
+  {id:'warrior',qs:[{t:'Голова витягнутої форми — доліхоцефал.',p:5,ak:'dolicho'},{t:'Ви є «не-пробувачем» пропілтіоурацилу.',p:5,ak:'prop_non'},{t:'≥2 відбитків пальців мають форму дуги.',p:5,ak:'arches2'},{t:'М\'язиста до округлої статура (мезо-ендоморф).',p:3,ak:'body_meso_endo'},{t:'Профіль нижньої щелепи овальний — форма мигдалю.',p:3,ak:'jaw_oval'},{t:'Додатковий горбик на першому верхньому корінному зубі.',p:3,ak:'extra_cusp'},{t:'Кофеїн не викликає дискомфорту.',p:3,ak:'caffeine_no'},{t:'≥2 випадків діабету, інсульту або хвороб серця серед родичів.',p:3,ak:'diabetes_stroke'}]},
+  {id:'nomad',qs:[{t:'На відбитках пальців присутні білі лінії.',p:5,ak:'white_lines'},{t:'≥8 відбитків пальців мають форму петлі.',p:5,ak:'loops8'},{t:'Ви є «пробувачем» пропілтіоурацилу.',p:5,ak:'prop_taster'},{t:'Порівнюючи ліву і праву руку — збігаються ≥4 з 5 пар відбитків.',p:3,ak:'prints_match4'},{t:'Голова коротша та ширша — брахіцефал.',p:3,ak:'brachy'},{t:'Перший верхній різець з внутрішнього боку — форма лопатки.',p:3,ak:'shovel'},{t:'Профіль нижньої щелепи овальний — форма мигдалю.',p:3,ak:'jaw_oval'},{t:'≥2 випадків депресії або хвороби Альцгеймера серед близьких родичів.',p:3,ak:'depression'}]},
+];
+
+// ═══════════════════════════════════════════════════
+// АКОРДЕОН КРОКІВ
+// ═══════════════════════════════════════════════════
+const FAMILY_QS=[
+  {id:'fq_auto',   text:'Аутоімунні захворювання (вовчак, ревматоїдний артрит, розсіяний склероз)', key:'autoimmune'},
+  {id:'fq_cancer', text:'Онкологічні захворювання (рак будь-якого типу)',                            key:'cancer'},
+  {id:'fq_dep',    text:'Депресія або когнітивні порушення (хвороба Альцгеймера)',                   key:'depression'},
+  {id:'fq_diab',   text:'Діабет, інсульт, підвищений тиск або хвороби серця',                       key:'diabetes_stroke'},
+];
+
+function buildAccordion(){
+  const wrap=document.getElementById('accordion-steps');
+  const STEPS=[
+    {id:'prints',icon:'🖐',title:'Відбитки пальців',sub:'Оберіть тип для кожного — решта автоматично',
+     instr:`<b>🔵 Дуга</b> — паралельні гребені у формі пагорба.<br><b>🔴 Петля</b> — виглядає як ласо, відкрита збоку.<br><b>🟣 Завиток</b> — концентричні кола або спіраль.`,
+     build(body){
+       body.innerHTML+=`<div id="finger-types-wrap"></div>
+         <div id="prints-counts" style="display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 6px;"></div>
+         <div id="prints-auto-result" style="font-size:12px;color:var(--muted);font-style:italic;min-height:16px;margin-bottom:12px;"></div>
+         <div style="border-top:1px solid var(--border);padding-top:12px;">
+           <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Чи є білі лінії на відбитках?</div>
+           <div style="font-size:11px;color:var(--muted);margin-bottom:8px;">Тонкі додаткові білі лінії поверх основних гребенів</div>
+           <div class="choices" id="ch-white-lines">
+             <div class="ch" onclick="pickWhiteLines('yes',this)"><div class="ch-dot"></div>Так — білі лінії є</div>
+             <div class="ch" onclick="pickWhiteLines('no',this)"><div class="ch-dot"></div>Ні — немає</div>
+           </div>
+         </div>`;
+       setTimeout(()=>buildFingerTypes(),0);
+     }},
+    {id:'rh',icon:'🧬',title:'Резус-фактор',sub:'Впливає на бали Дослідника — вкажіть першим',
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-rh-acc">
+         <div class="ch" onclick="pickRhAcc('pos',this)"><div class="ch-dot"></div>Rh+ позитивний</div>
+         <div class="ch" onclick="pickRhAcc('neg',this)"><div class="ch-dot"></div>Rh− негативний</div>
+         <div class="ch" onclick="pickRhAcc(null,this)"><div class="ch-dot"></div>Не знаю</div>
+       </div>`;
+     }},
+    {id:'gap',icon:'🦵',title:'Відстань між стегнами',sub:'Встаньте рівно та зведіть щиколотки разом',
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-gap">
+         <div class="ch" id="gap-small-btn" onclick="pickGap('small')"><div class="ch-dot"></div>Малий проміжок або коліна торкаються</div>
+         <div class="ch" id="gap-big-btn" onclick="pickGap('big')"><div class="ch-dot"></div>Великий проміжок між стегнами</div>
+         <div class="ch" id="gap-none-btn" onclick="pickGap('none')"><div class="ch-dot"></div>Пропустити</div>
+       </div>`;
+     }},
+    {id:'body',icon:'💪',title:'Тип статури',sub:"Тест з обхватом зап'ястя",
+     instr:`Охопіть зап'ястя <b>великим і середнім пальцем</b> іншої руки.`,
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-body">
+         <div class="ch" onclick="pickBody('ecto',this)"><div class="ch-dot"></div>Пальці <b>перехрещуються</b> → Ектоморф</div>
+         <div class="ch" onclick="pickBody('meso_ecto',this)"><div class="ch-dot"></div>Пальці <b>майже торкаються</b> → Мезо-ектоморф</div>
+         <div class="ch" onclick="pickBody('meso',this)"><div class="ch-dot"></div>Пальці <b>торкаються точно</b> → Мезоморф</div>
+         <div class="ch" onclick="pickBody('meso_endo',this)"><div class="ch-dot"></div>Пальці <b>майже не торкаються</b> → Мезо-ендоморф</div>
+         <div class="ch" onclick="pickBody('endo',this)"><div class="ch-dot"></div>Пальці <b>не торкаються</b> → Ендоморф</div>
+       </div>`;
+     }},
+    {id:'teeth',icon:'🦷',title:'Зуби',sub:'Огляньте верхні зуби у дзеркало',
+     instr:`<b>Різець-лопатка:</b> Перший верхній різець — чи загнуті краї всередину?<br><br><b>Горбик Карабеллі:</b> На першому верхньому корінному — чи є додатковий горбик?`,
+     build(body){
+       body.innerHTML+=`
+         <div style="margin-bottom:12px;">
+           <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Перший верхній різець:</div>
+           <div class="choices" id="ch-incisor">
+             <div class="ch" onclick="pickIncisor('shovel',this)"><div class="ch-dot"></div>🥄 Форма лопатки</div>
+             <div class="ch" onclick="pickIncisor('flat',this)"><div class="ch-dot"></div>Плаский</div>
+           </div>
+         </div>
+         <div>
+           <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Перший верхній корінний зуб:</div>
+           <div class="choices" id="ch-cusp">
+             <div class="ch" onclick="pickCusp('yes',this)"><div class="ch-dot"></div>✅ Є горбик Карабеллі</div>
+             <div class="ch" onclick="pickCusp('no',this)"><div class="ch-dot"></div>Немає</div>
+           </div>
+         </div>`;
+     }},
+    {id:'jaw',icon:'😶',title:'Кут нижньої щелепи',sub:'Квадратний чи овальний профіль',
+     instr:`≤ 125° = квадратний · > 125° = овальний (мигдаль)`,
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-jaw">
+         <div class="ch" onclick="pickJaw('square',this)"><div class="ch-dot"></div>⬛ Квадратний (≤ 125°)</div>
+         <div class="ch" onclick="pickJaw('oval',this)"><div class="ch-dot"></div>🥚 Овальний (> 125°)</div>
+       </div>`;
+     }},
+    {id:'waist',icon:'📐',title:'Талія та стегна',sub:'Обхват талії ÷ обхват стегон',
+     instr:`Виміряйте кравецькою стрічкою: <b>талія</b> — найвужче місце, <b>стегна</b> — найширше.`,
+     build(body){
+       body.innerHTML+=`
+         <div class="field-row"><label class="field-label">Обхват талії</label><input class="num-input" id="mWaist" type="number" placeholder="0" step="0.1" oninput="calcWaist()"><span class="field-unit">см</span></div>
+         <div class="field-row"><label class="field-label">Обхват стегон</label><input class="num-input" id="mHips" type="number" placeholder="0" step="0.1" oninput="calcWaist()"><span class="field-unit">см</span></div>
+         <div class="result-strip"><span class="rs-label">Індекс</span><span class="rs-val dim" id="cv-waist">введіть дані</span></div>
+         <div class="choices" id="ch-sexage" style="margin-top:10px;">
+           <div class="ch" onclick="pick('sexAge','m_u50',this,'ch-sexage')"><div class="ch-dot"></div>Чоловік до 50</div>
+           <div class="ch" onclick="pick('sexAge','m_50',this,'ch-sexage')"><div class="ch-dot"></div>Чоловік 50+</div>
+           <div class="ch" onclick="pick('sexAge','f_u50',this,'ch-sexage')"><div class="ch-dot"></div>Жінка до 50</div>
+           <div class="ch" onclick="pick('sexAge','f_50',this,'ch-sexage')"><div class="ch-dot"></div>Жінка 50+</div>
+         </div>
+         <div id="waist-result" style="display:none;padding:10px 13px;border-radius:3px;background:#f0ece3;border-left:3px solid var(--gold);font-size:13px;margin-top:8px;"></div>`;
+     }},
+    {id:'head',icon:'🧠',title:'Форма голови',sub:'Цефалічний індекс: Ширина ÷ Довжина × 100',
+     instr:`<b>Ширина</b> — між скронями. <b>Довжина</b> — від чола до потилиці.<br>< 75 = доліхоцефал · > 80 = брахіцефал · 75–80 = проміжне`,
+     build(body){
+       body.innerHTML+=`
+         <div class="field-row"><label class="field-label">Ширина голови</label><input class="num-input" id="mHeadW" type="number" placeholder="0" step="0.1" oninput="calcCephalic()"><span class="field-unit">см</span></div>
+         <div class="field-row"><label class="field-label">Довжина голови</label><input class="num-input" id="mHeadL" type="number" placeholder="0" step="0.1" oninput="calcCephalic()"><span class="field-unit">см</span></div>
+         <div class="result-strip"><span class="rs-label">Цефалічний індекс</span><span class="rs-val dim" id="cv-ceph">введіть дані</span></div>
+         <div id="head-auto-result" style="font-size:12px;color:var(--muted);font-style:italic;margin:6px 0 10px;min-height:16px;"></div>
+         <div class="choices" id="ch-head">
+           <div class="ch" onclick="pickHead('dolicho',this)"><div class="ch-dot"></div>🔵 Доліхоцефал (< 75)</div>
+           <div class="ch" onclick="pickHead('brachy',this)"><div class="ch-dot"></div>🔴 Брахіцефал (> 80)</div>
+           <div class="ch" onclick="pickHead('meso',this)"><div class="ch-dot"></div>⚪ Проміжне (75–80)</div>
+         </div>`;
+     }},
+    {id:'prop',icon:'👅',title:'PROP тест',sub:'Тест-смужка на гіркоту',
+     instr:`<ol style="padding-left:16px;margin-top:4px;"><li>Контрольна смужка — нейтральний смак.</li><li>Тест-смужка PROP — порівняйте.</li></ol>`,
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-prop">
+         <div class="ch" onclick="pickProp('non',this)"><div class="ch-dot"></div>Однаковий смак → Не-пробувач</div>
+         <div class="ch" onclick="pickProp('taster',this)"><div class="ch-dot"></div>Гіркий смак → Пробувач</div>
+         <div class="ch" onclick="pickProp('super',this)"><div class="ch-dot"></div>Дуже відразливий → Супер-пробувач</div>
+       </div>`;
+     }},
+    {id:'looks',icon:'👀',title:'Зовнішній вигляд',sub:'Два коротких питання',
+     build(body){
+       body.innerHTML+=`
+         <div style="margin-bottom:12px;">
+           <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Виглядаєте повнішими навіть без зайвого жиру?</div>
+           <div class="choices" id="ch-looks-full">
+             <div class="ch" onclick="pickLooksFull('yes',this)"><div class="ch-dot"></div>Так</div>
+             <div class="ch" onclick="pickLooksFull('no',this)"><div class="ch-dot"></div>Ні</div>
+           </div>
+         </div>
+         <div>
+           <div style="font-size:12px;font-weight:600;margin-bottom:8px;">Видно сухожилля на зап'ясті?</div>
+           <div class="choices" id="ch-tendons">
+             <div class="ch" onclick="pickTendons('yes',this)"><div class="ch-dot"></div>Так — чітко видно</div>
+             <div class="ch" onclick="pickTendons('no',this)"><div class="ch-dot"></div>Ні</div>
+           </div>
+         </div>`;
+     }},
+    {id:'caffeine',icon:'☕',title:'Чутливість до кофеїну',sub:'Як реагує організм на каву?',
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-caffeine">
+         <div class="ch" onclick="pickCaffeine('yes',this)"><div class="ch-dot"></div>Так — не дає спати або серцебиття</div>
+         <div class="ch" onclick="pickCaffeine('no',this)"><div class="ch-dot"></div>Ні — не викликає дискомфорту</div>
+       </div>`;
+     }},
+    {id:'hand',icon:'✋',title:'Домінуюча рука',sub:'Якою рукою пишете?',
+     build(body){
+       body.innerHTML+=`<div class="choices" id="ch-hand">
+         <div class="ch" onclick="pickHand('left',this)"><div class="ch-dot"></div>Лівша</div>
+         <div class="ch" onclick="pickHand('right',this)"><div class="ch-dot"></div>Правша або обидві руки</div>
+       </div>`;
+     }},
+    {id:'family',icon:'🫀',title:'Сімейна історія захворювань',sub:'Ви + батьки + дідусі/бабусі + брати/сестри',
+     instr:`Відповідайте «Так» якщо є <b>2 або більше випадків</b> серед вас та близьких родичів.`,
+     build(body){
+       body.innerHTML+=`<div id="family-questions"></div>`;
+       setTimeout(()=>buildFamilyQuestions(),0);
+     }},
+  ];
+
+  const TOTAL=STEPS.length;
+  STEPS.forEach((step,idx)=>{
+    const card=document.createElement('div');
+    card.style.cssText='background:#fff;border:1px solid var(--border);border-radius:4px;margin-bottom:10px;overflow:hidden;box-shadow:var(--sh);';
+    card.id=`acc-${step.id}`;
+    const head=document.createElement('div');
+    head.style.cssText='display:flex;align-items:center;gap:12px;padding:14px 18px;cursor:pointer;user-select:none;';
+    head.innerHTML=`
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;transition:all .2s;" id="acc-num-${step.id}">${idx+1}</div>
+      <div style="flex:1;"><div style="font-size:14px;font-weight:500;">${step.title}</div><div style="font-size:11px;color:var(--muted);margin-top:1px;">${step.sub}</div></div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span id="acc-done-${step.id}" style="display:none;font-size:11px;color:var(--green);font-weight:600;">✓ Заповнено</span>
+        <span style="font-size:11px;color:var(--muted);transition:transform .3s;" id="acc-chev-${step.id}">▼</span>
+      </div>`;
+    const body=document.createElement('div');
+    body.style.cssText='display:none;padding:16px 18px;border-top:1px solid var(--border);';
+    body.id=`acc-body-${step.id}`;
+    if(step.instr){
+      const instrWrap=document.createElement('div');
+      instrWrap.style.cssText='margin-bottom:12px;';
+      instrWrap.innerHTML=`
+        <div onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display==='none'?'block':'none';this.querySelector('.instr-arrow').textContent=this.nextElementSibling.style.display==='none'?'▶':'▼';"
+             style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;color:var(--muted);margin-bottom:6px;user-select:none;">
+          <span class="instr-arrow">▼</span> Інструкція
+        </div>
+        <div class="instr" style="margin-bottom:0;">${step.instr}</div>`;
+      body.appendChild(instrWrap);
+    }
+    step.build(body);
+    head.onclick=()=>{
+      const isOpen=body.style.display==='block';
+      body.style.display=isOpen?'none':'block';
+      document.getElementById(`acc-chev-${step.id}`).style.transform=isOpen?'':'rotate(180deg)';
+      head.style.background=isOpen?'':'#fffdf9';
+    };
+    card.appendChild(head);card.appendChild(body);wrap.appendChild(card);
+  });
+  document.getElementById('acc-body-prints').style.display='block';
+  document.getElementById('acc-chev-prints').style.transform='rotate(180deg)';
+  document.getElementById('acc-prints').querySelector('div').style.background='#fffdf9';
+}
+
+function markAccDone(id){
+  const num=document.getElementById(`acc-num-${id}`);
+  const done=document.getElementById(`acc-done-${id}`);
+  if(num){num.style.background='var(--green)';num.style.color='#fff';num.textContent='✓';}
+  if(done)done.style.display='inline';
+  const total=document.querySelectorAll('[id^="acc-done-"]').length;
+  const doneCount=[...document.querySelectorAll('[id^="acc-done-"]')].filter(el=>el.style.display!=='none').length;
+  const bar=document.getElementById('s3-progress-bar');
+  const txt=document.getElementById('s3-progress-text');
+  if(bar)bar.style.width=(doneCount/total*100)+'%';
+  if(txt)txt.textContent=`${doneCount} / ${total}`;
+}
+
+function buildFamilyQuestions(){
+  const wrap=document.getElementById('family-questions');
+  if(!wrap)return;
+  FAMILY_QS.forEach(q=>{
+    const row=document.createElement('div');
+    row.className='yn-row';
+    row.innerHTML=`<div class="yn-q">${q.text}</div>
+      <div class="yn-btns">
+        <button class="yn-btn yes" id="fyb-yes-${q.id}" onclick="answerFamily('${q.id}','${q.key}','yes')">Так</button>
+        <button class="yn-btn no"  id="fyb-no-${q.id}"  onclick="answerFamily('${q.id}','${q.key}','no')">Ні</button>
+      </div>`;
+    wrap.appendChild(row);
+  });
+}
+function answerFamily(qid,key,ans){
+  document.getElementById(`fyb-yes-${qid}`)?.classList.toggle('active',ans==='yes');
+  document.getElementById(`fyb-no-${qid}`)?.classList.toggle('active',ans==='no');
+  if(ans==='yes')S.mKeys.add(key);else S.mKeys.delete(key);
+  applyAutoKeys();updateLR();
+}
+
+// ═══════════════════════════════════════════════════
+// ВІДБИТКИ ПАЛЬЦІВ
+// ═══════════════════════════════════════════════════
+const FINGER_NAMES=['Лів. мізинець','Лів. безіменний','Лів. середній','Лів. вказівний','Лів. великий','Прав. великий','Прав. вказівний','Прав. середній','Прав. безіменний','Прав. мізинець'];
+const fingerTypes=Array(10).fill('');
+
+function buildFingerTypes(){
+  const wrap=document.getElementById('finger-types-wrap');
+  FINGER_NAMES.forEach((name,i)=>{
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;';
+    row.innerHTML=`<span style="font-size:12px;min-width:140px;color:var(--muted);">${name}</span>
+      <div style="display:flex;gap:6px;">
+        ${['arc','loop','whorl'].map(t=>`<button id="ftype-${i}-${t}" onclick="setFingerType(${i},'${t}')" style="padding:5px 10px;border:1.5px solid var(--border);border-radius:3px;background:#fff;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;transition:all .15s;">${t==='arc'?'🔵 Дуга':t==='loop'?'🔴 Петля':'🟣 Завиток'}</button>`).join('')}
+      </div>`;
+    wrap.appendChild(row);
+  });
+}
+
+function setFingerType(idx,type){
+  fingerTypes[idx]=type;
+  ['arc','loop','whorl'].forEach(t=>{
+    const btn=document.getElementById(`ftype-${idx}-${t}`);
+    if(btn){
+      btn.style.background=t===type?(t==='arc'?'#4a7a9b':t==='loop'?'var(--red)':'var(--c-explorer)'):'#fff';
+      btn.style.color=t===type?'#fff':'var(--ink)';
+      btn.style.borderColor=t===type?'transparent':'var(--border)';
+    }
+  });
+  updatePrintCounts();
+}
+
+function updatePrintCounts(){
+  const arcs=fingerTypes.filter(t=>t==='arc').length;
+  const loops=fingerTypes.filter(t=>t==='loop').length;
+  const whorls=fingerTypes.filter(t=>t==='whorl').length;
+  const filled=fingerTypes.filter(t=>t!=='').length;
+  const wrap=document.getElementById('prints-counts');
+  wrap.innerHTML=`
+    <span style="padding:5px 12px;border-radius:20px;background:#4a7a9b;color:#fff;font-size:12px;">🔵 Дуги: ${arcs}</span>
+    <span style="padding:5px 12px;border-radius:20px;background:var(--red);color:#fff;font-size:12px;">🔴 Петлі: ${loops}</span>
+    <span style="padding:5px 12px;border-radius:20px;background:var(--c-explorer);color:#fff;font-size:12px;">🟣 Завитки: ${whorls}</span>`;
+  if(arcs>=2)S.mKeys.add('arches2');else S.mKeys.delete('arches2');
+  if(whorls>=2)S.mKeys.add('whorls2');else S.mKeys.delete('whorls2');
+  if(loops>=8)S.mKeys.add('loops8');else S.mKeys.delete('loops8');
+  const pairs=[[0,9],[1,8],[2,7],[3,6],[4,5]];
+  let matchCount=0,mismatchCount=0,pairsChecked=0;
+  pairs.forEach(([a,b])=>{
+    if(fingerTypes[a]&&fingerTypes[b]){pairsChecked++;if(fingerTypes[a]===fingerTypes[b])matchCount++;else mismatchCount++;}
+  });
+  if(pairsChecked>=4){
+    if(matchCount>=4)S.mKeys.add('prints_match4');else S.mKeys.delete('prints_match4');
+    if(mismatchCount>=3)S.mKeys.add('prints_mismatch3');else S.mKeys.delete('prints_mismatch3');
+  }else{S.mKeys.delete('prints_match4');S.mKeys.delete('prints_mismatch3');}
+  const leftIdx=fingerTypes[3],rightIdx=fingerTypes[6];
+  if(leftIdx&&rightIdx){if(leftIdx!==rightIdx)S.mKeys.add('index_diff');else S.mKeys.delete('index_diff');}
+  else S.mKeys.delete('index_diff');
+  const res=document.getElementById('prints-auto-result');
+  if(res&&pairsChecked>=4){
+    const msgs=[];
+    if(matchCount>=4)msgs.push('✅ Збігаються ≥4 пари');
+    if(mismatchCount>=3)msgs.push('✅ Не збігаються ≥3 пари');
+    if(leftIdx&&rightIdx)msgs.push(leftIdx!==rightIdx?'✅ Вказівні різні':'— Вказівні однакові');
+    res.textContent=msgs.join(' · ');
+  }
+  applyAutoKeys();updateLR();
+}
+
+// ═══════════════════════════════════════════════════
+// AUTO-KEYS
+// ═══════════════════════════════════════════════════
+function applyAutoKeys(){
+  const active=new Set();
+  S.mKeys.forEach(k=>active.add(k));
+  if(S.rhesus==='neg')active.add('rh_neg');
+  if(fingerSit()==='mixed')active.add('index_diff');
+  if(fingerTypes[3]&&fingerTypes[6]&&fingerTypes[3]!==fingerTypes[6])active.add('index_diff');
+  GENO_TESTS.forEach(g=>{
+    g.qs.forEach((q,i)=>{
+      if(!q.ak)return;
+      const row=document.getElementById(`qrow-${g.id}-${i}`);
+      if(!row||row.dataset.manual==='1')return;
+      if(active.has(q.ak)){row.classList.add('auto');row.classList.remove('on');}
+      else row.classList.remove('auto');
+    });
+    recalcGeno(g.id);
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// ОБРОБНИКИ ВИБОРУ
+// ═══════════════════════════════════════════════════
+function pickWhiteLines(val,el){
+  document.getElementById('ch-white-lines').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='yes')S.mKeys.add('white_lines');else S.mKeys.delete('white_lines');
+  markAccDone('prints');applyAutoKeys();updateLR();
+}
+function pickRhAcc(val,el){
+  document.getElementById('ch-rh-acc').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  S.rhesus=val;
+  // Синхронізуємо з Етапом 4
+  const stage4rh=document.getElementById('ch-rh');
+  if(stage4rh){
+    stage4rh.querySelectorAll('.ch').forEach(c=>{
+      const isPos=c.textContent.includes('позитивний');
+      const isNeg=c.textContent.includes('негативний');
+      const isUnk=c.textContent.includes('знаю');
+      c.classList.toggle('sel',(val==='pos'&&isPos)||(val==='neg'&&isNeg)||(val===null&&isUnk));
+    });
+  }
+  markAccDone('rh');
+  applyAutoKeys();updateLR();
+}
+function pickGap(val){
+  ['small','big','none'].forEach(v=>document.getElementById(`gap-${v}-btn`)?.classList.toggle('sel',v===val));
+  S.mKeys.delete('gap_small');S.mKeys.delete('gap_big');
+  if(val==='small')S.mKeys.add('gap_small');
+  if(val==='big')S.mKeys.add('gap_big');
+  markAccDone('gap');applyAutoKeys();updateLR();
+}
+function pickBody(val,el){
+  document.getElementById('ch-body').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');S.bodyType=val;
+  ['body_ecto','body_meso','body_endo','body_meso_endo'].forEach(k=>S.mKeys.delete(k));
+  if(val==='ecto')S.mKeys.add('body_ecto');
+  else if(val==='meso_ecto'||val==='meso')S.mKeys.add('body_meso');
+  else if(val==='meso_endo')S.mKeys.add('body_meso_endo');
+  else if(val==='endo'){S.mKeys.add('body_endo');S.mKeys.add('body_meso_endo');}
+  markAccDone('body');applyAutoKeys();updateLR();
+}
+function pickIncisor(val,el){
+  document.getElementById('ch-incisor').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='shovel')S.mKeys.add('shovel');else S.mKeys.delete('shovel');
+  markAccDone('teeth');applyAutoKeys();updateLR();
+}
+function pickCusp(val,el){
+  document.getElementById('ch-cusp').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='yes')S.mKeys.add('extra_cusp');else S.mKeys.delete('extra_cusp');
+  markAccDone('teeth');applyAutoKeys();updateLR();
+}
+function pickJaw(val,el){
+  document.getElementById('ch-jaw').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');S.jawAngle=val;
+  if(val==='square'){S.mKeys.add('jaw_square');S.mKeys.delete('jaw_oval');}
+  else{S.mKeys.add('jaw_oval');S.mKeys.delete('jaw_square');}
+  markAccDone('jaw');applyAutoKeys();updateLR();
+}
+function calcWaist(){
+  const w=parseFloat(document.getElementById('mWaist').value)||0;
+  const h=parseFloat(document.getElementById('mHips').value)||0;
+  if(w>0&&h>0){
+    const ratio=w/h;
+    const el=document.getElementById('cv-waist');
+    el.textContent=ratio.toFixed(3);el.classList.remove('dim');
+    S.waistRatio=ratio;showWaistResult();
+  }
+}
+function showWaistResult(){
+  const r=S.waistRatio,g=S.sexAge;if(!r||!g)return;
+  const thr={m_u50:{ideal:0.91,mid:0.96},m_50:{ideal:0.93,mid:0.99},f_u50:{ideal:0.71,mid:0.79},f_50:{ideal:0.75,mid:0.84}};
+  const t=thr[g];if(!t)return;
+  let lbl,col;
+  if(r<t.ideal){lbl='✅ ІДЕАЛЬНЕ';col='var(--green)';}
+  else if(r<=t.mid){lbl='⚠️ СЕРЕДНЄ';col='#7a6010';}
+  else{lbl='🔴 ВИСОКЕ';col='var(--red)';}
+  const el=document.getElementById('waist-result');
+  el.style.display='block';el.style.borderColor=col;
+  el.innerHTML=`<b style="color:${col}">${lbl}</b> (${r.toFixed(3)})<br><span style="font-size:11px;color:var(--muted);">Ідеальне: < ${t.ideal} · Середнє: ${t.ideal}–${t.mid} · Високе: > ${t.mid}</span>`;
+}
+function calcCephalic(){
+  const w=parseFloat(document.getElementById('mHeadW').value)||0;
+  const l=parseFloat(document.getElementById('mHeadL').value)||0;
+  if(w>0&&l>0){
+    const idx=(w/l)*100;
+    const el=document.getElementById('cv-ceph');
+    el.textContent=idx.toFixed(1);el.classList.remove('dim');
+    const val=idx<75?'dolicho':idx>80?'brachy':'meso';
+    document.getElementById('ch-head').querySelectorAll('.ch').forEach(c=>{
+      if((val==='dolicho'&&c.textContent.includes('Доліхо'))||(val==='brachy'&&c.textContent.includes('Брахі'))||(val==='meso'&&c.textContent.includes('Проміжне')))c.classList.add('sel');
+      else c.classList.remove('sel');
+    });
+    pickHead(val,null);
+  }
+}
+function pickHead(val,el){
+  if(el){document.getElementById('ch-head').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));el.classList.add('sel');}
+  S.headShape=val;
+  if(val==='dolicho'){S.mKeys.add('dolicho');S.mKeys.delete('brachy');}
+  else if(val==='brachy'){S.mKeys.add('brachy');S.mKeys.delete('dolicho');}
+  else{S.mKeys.delete('dolicho');S.mKeys.delete('brachy');}
+  markAccDone('head');applyAutoKeys();updateLR();
+}
+function pickProp(val,el){
+  document.getElementById('ch-prop').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');S.propStatus=val;
+  S.mKeys.delete('prop_non');S.mKeys.delete('prop_taster');S.mKeys.delete('prop_super');
+  if(val==='non')S.mKeys.add('prop_non');
+  else if(val==='taster')S.mKeys.add('prop_taster');
+  else if(val==='super')S.mKeys.add('prop_super');
+  markAccDone('prop');applyAutoKeys();updateLR();
+}
+function pickCaffeine(val,el){
+  document.getElementById('ch-caffeine').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='yes'){S.mKeys.add('caffeine');S.mKeys.delete('caffeine_no');}
+  else{S.mKeys.add('caffeine_no');S.mKeys.delete('caffeine');}
+  markAccDone('caffeine');applyAutoKeys();updateLR();
+}
+function pickHand(val,el){
+  document.getElementById('ch-hand').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='left')S.mKeys.add('lefthanded');else S.mKeys.delete('lefthanded');
+  markAccDone('hand');applyAutoKeys();updateLR();
+}
+function pickTendons(val,el){
+  document.getElementById('ch-tendons').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='yes')S.mKeys.add('tendons');else S.mKeys.delete('tendons');
+  markAccDone('looks');applyAutoKeys();updateLR();
+}
+function pickLooksFull(val,el){
+  document.getElementById('ch-looks-full').querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');
+  if(val==='yes')S.mKeys.add('looks_full');else S.mKeys.delete('looks_full');
+  markAccDone('looks');applyAutoKeys();updateLR();
+}
+
+// ═══════════════════════════════════════════════════
+// ТЕСТИ КАРТОК
+// ═══════════════════════════════════════════════════
+function buildGenoCards(){
+  const wrap=document.getElementById('geno-cards');
+  GENO_TESTS.forEach(g=>{
+    const info=ID_INFO[g.id];
+    const card=document.createElement('div');card.className='gcard';card.id=`gcard-${g.id}`;
+    const head=document.createElement('div');head.className='gcard-head';head.id=`ghead-${g.id}`;
+    head.style.background=info.color;
+    head.innerHTML=`<span class="g-icon">${info.icon}</span><div class="g-info"><div class="g-name">${info.name}</div></div><div style="text-align:right"><div class="g-score-lbl">Бали</div><div class="g-score" id="gscore-${g.id}">0</div></div><span class="g-chev">▼</span>`;
+    head.onclick=()=>{const b=document.getElementById(`gbody-${g.id}`);const o=b.classList.toggle('open');head.classList.toggle('open',o);};
+    const body=document.createElement('div');body.className='gcard-body';body.id=`gbody-${g.id}`;
+    g.qs.forEach((q,i)=>{
+      const row=document.createElement('div');row.className='q-row';row.id=`qrow-${g.id}-${i}`;row.dataset.pts=q.p;
+      row.innerHTML=`<div class="q-chk"></div><div class="q-text">${q.t}</div><div class="q-pts">${q.p}</div>`;
+      row.onclick=()=>{
+        if(row.classList.contains('auto')){row.classList.remove('auto');row.classList.add('on');row.dataset.manual='1';}
+        else if(row.classList.contains('on')){row.classList.remove('on');delete row.dataset.manual;applyAutoKeys();return;}
+        else{row.classList.add('on');row.dataset.manual='1';}
+        recalcGeno(g.id);updateLR();
+      };
+      body.appendChild(row);
+    });
+    card.appendChild(head);card.appendChild(body);wrap.appendChild(card);
+  });
+}
+
+function recalcGeno(id){
+  let tot=0;
+  document.querySelectorAll(`#gbody-${id} .q-row`).forEach(r=>{if(r.classList.contains('on')||r.classList.contains('auto'))tot+=parseInt(r.dataset.pts);});
+  S.scores[id]=tot;
+  const el=document.getElementById(`gscore-${id}`);if(el)el.textContent=tot;
+}
+
+// ═══════════════════════════════════════════════════
+// LIVE RESULT
+// ═══════════════════════════════════════════════════
+function updateLR(){
+  const{ids}=getCandidates();
+  ['lrchips1','lrchips2','lrchips3','lrchips4'].forEach(cid=>{
+    const wrap=document.getElementById(cid);if(!wrap)return;
+    wrap.querySelectorAll('.chip').forEach(chip=>{
+      const gid=chip.dataset.id;
+      const isC=ids.length===0||ids.includes(gid);
+      chip.classList.toggle('active',isC);
+      chip.classList.remove('winner');
+    });
+  });
+}
+
+// ═══════════════════════════════════════════════════
+// PICK + CALC
+// ═══════════════════════════════════════════════════
+function pick(key,val,el,gid){
+  document.getElementById(gid).querySelectorAll('.ch').forEach(c=>c.classList.remove('sel'));
+  el.classList.add('sel');S[key]=val;
+  if(key==='rhesus'){
+    applyAutoKeys();
+    // Синхронізуємо з акордеоном Етапу 3
+    const accRh=document.getElementById('ch-rh-acc');
+    if(accRh){
+      accRh.querySelectorAll('.ch').forEach(c=>{
+        const isPos=c.textContent.includes('позитивний');
+        const isNeg=c.textContent.includes('негативний');
+        const isUnk=c.textContent.includes('знаю');
+        c.classList.toggle('sel',(val==='pos'&&isPos)||(val==='neg'&&isNeg)||(val===null&&isUnk));
+      });
+      if(val!==undefined) markAccDone('rh');
+    }
+  }
+  if(key==='sexAge')showWaistResult();
+  updateLR();
+}
+
+function calcHeights(){
+  const hs=parseFloat(document.getElementById('hStand').value)||0;
+  const hsi=parseFloat(document.getElementById('hSit').value)||0;
+  const ch=parseFloat(document.getElementById('hChair').value)||0;
+  const torso=hsi-ch,legs=hs-torso;
+  const t=document.getElementById('cv-torso'),l=document.getElementById('cv-legs');
+  if(torso>0){t.textContent=torso.toFixed(1)+' см';t.classList.remove('dim');}
+  if(legs>0&&torso>0){
+    l.textContent=legs.toFixed(1)+' см';l.classList.remove('dim');
+    const val=legs>torso?'legs':'torso';
+    S.torsoLonger=val;
+    document.getElementById('ch-torso').querySelectorAll('.ch').forEach(c=>{
+      const isTorso=c.textContent.includes('Тулуб');const isLegs=c.textContent.includes('Ноги');
+      c.classList.toggle('sel',(val==='torso'&&isTorso)||(val==='legs'&&isLegs));
+    });
+    updateLR();
+  }
+}
+
+function calcShinThigh(){
+  const shin=parseFloat(document.getElementById('hShin').value)||0;
+  const thigh=parseFloat(document.getElementById('hThigh').value)||0;
+  if(shin>0&&thigh>0){
+    const val=thigh>shin?'thigh':'shin';
+    S.shinLonger=val;
+    const label=val==='shin'?`Гомілка (${shin} см) ≥ Стегно (${thigh} см) → Гомілка довша`:`Стегно (${thigh} см) > Гомілка (${shin} см) → Стегно довше`;
+    const res=document.getElementById('shin-auto-result');
+    if(res)res.textContent='→ '+label;
+    document.getElementById('ch-shin').querySelectorAll('.ch').forEach(c=>{
+      const isShin=c.textContent.includes('Гомілка');const isThigh=c.textContent.includes('Стегно');
+      c.classList.toggle('sel',(val==='shin'&&isShin)||(val==='thigh'&&isThigh));
+    });
+    updateLR();
+  }
+}
+
+function updateFingers(){
+  const r=document.getElementById('fRight').value,l=document.getElementById('fLeft').value;
+  if(r)S.rightD=r;if(l)S.leftD=l;
+  const fs=fingerSit();
+  const lbl={index_both:'D2 вказівний — обидві руки',ring_both:'D4 безіменний — обидві руки',mixed:'Різні на різних руках'};
+  const el=document.getElementById('finger-result');if(el&&fs)el.textContent='→ '+lbl[fs];
+  applyAutoKeys();updateLR();
+}
+
+// ═══════════════════════════════════════════════════
+// НАВІГАЦІЯ
+// ═══════════════════════════════════════════════════
+function goStage(n){
+  document.querySelectorAll('.stage').forEach((s,i)=>s.classList.toggle('active',i===n));
+  document.querySelectorAll('.snav-item').forEach((s,i)=>{
+    s.classList.toggle('active',i===n);
+    if(i<n)s.classList.add('done');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════════════════
+// ФІНАЛ
+// ═══════════════════════════════════════════════════
+function showFinal(){
+  goStage(4);
+  const{ids,level}=getCandidates();
+  const pool=ids.length>0?ids:Object.keys(S.scores);
+  let winner=pool[0];pool.forEach(id=>{if((S.scores[id]||0)>(S.scores[winner]||0))winner=id;});
+  const info=ID_INFO[winner];
+  const lvlMap={none:'Не визначено',basic:'Базовий (тіло+пальці)',blood:'Середній (+ кров)',rh:'Розширений (+ резус)',advanced:'Розширений (+ секретор/стать)',full:'Повний (кров+резус+секретор+стать)'};
+  const sorted=Object.keys(S.scores).sort((a,b)=>S.scores[b]-S.scores[a]);
+  const maxQ=Math.max(...Object.values(S.scores),1);
+  const sexLbl=S.sex==='m'?'Чоловік':S.sex==='f'?'Жінка':'—';
+  const secLbl=S.secretor==='sec'?'Секретор':S.secretor==='nonsec'?'Не-секретор':'—';
+  const fc=document.getElementById('final-content');
+  fc.innerHTML=`<div class="fc-tag">Ваш генотип</div>
+    <div class="fc-winner">${info.icon} ${info.name}</div>
+    <div class="fc-score">Бали: ${S.scores[winner]||0} &nbsp;|&nbsp; Рівень: ${lvlMap[level]||level}</div>
+    ${ids.length>1?`<div class="fc-sec"><div class="fc-sec-title">Кандидати з таблиці</div>${ids.map(id=>{const inf=ID_INFO[id];const pct=((S.scores[id]||0)/maxQ)*100;return`<div class="bar-row"><span class="bar-name">${inf.icon} ${inf.name}</span><div class="bar-track"><div class="bar-fill ${id===winner?'gold':''}" data-pct="${pct}"></div></div><span class="bar-val">${S.scores[id]||0}</span></div>`;}).join('')}</div>`:''}
+    <div class="fc-sec"><div class="fc-sec-title">Всі бали тесту</div>${sorted.map(id=>{const inf=ID_INFO[id];const pct=((S.scores[id]||0)/maxQ)*100;return`<div class="bar-row"><span class="bar-name">${inf.icon} ${inf.name}</span><div class="bar-track"><div class="bar-fill ${id===winner?'gold':''}" data-pct="${pct}"></div></div><span class="bar-val">${S.scores[id]||0}</span></div>`;}).join('')}</div>
+    <div class="fc-sec"><div class="fc-sec-title">Параметри визначення</div>
+      <div class="det-row"><span class="det-k">Тулуб vs Ноги</span><span class="det-v">${S.torsoLonger==='torso'?'Тулуб довший':'Ноги довші'}</span></div>
+      <div class="det-row"><span class="det-k">Гомілка vs Стегно</span><span class="det-v">${S.shinLonger==='shin'?'Гомілка довша':'Стегно довше'}</span></div>
+      <div class="det-row"><span class="det-k">Пальці</span><span class="det-v">${{index_both:'D2 обидві руки',ring_both:'D4 обидві руки',mixed:'Різні'}[fingerSit()]||'—'}</span></div>
+      <div class="det-row"><span class="det-k">Кров</span><span class="det-v">${S.bloodGroup||'—'}</span></div>
+      <div class="det-row"><span class="det-k">Резус</span><span class="det-v">${S.rhesus==='pos'?'Rh+':S.rhesus==='neg'?'Rh−':'—'}</span></div>
+      <div class="det-row"><span class="det-k">Секретор</span><span class="det-v">${secLbl}</span></div>
+      <div class="det-row"><span class="det-k">Стать</span><span class="det-v">${sexLbl}</span></div>
+    </div>`;
+  setTimeout(()=>document.querySelectorAll('.bar-fill[data-pct]').forEach(b=>b.style.width=b.dataset.pct+'%'),120);
+}
+
+// ═══════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════
+buildAccordion();
+buildGenoCards();
+updateLR();
+</script>
+</body>
+</html>
