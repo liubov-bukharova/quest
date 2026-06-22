@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Довідник · ГІ та ІІ · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#F4F8F2;--cr2:#EDF5EB;
+  --g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--g4:#A8D8AC;--g5:#E8F5E9;
+  --ink:#1A2E1C;--ink2:#2E4A30;--mu:#5A7A5C;--mu2:#8AAA8C;
+  --bd:rgba(28,58,36,.14);--bd2:rgba(28,58,36,.26);
+  --warn:#B8600A;--warnp:#FDF3E7;--warnb:rgba(184,96,10,.2);
+  --red:#C0443A;--redp:rgba(192,68,58,.06);--redb:rgba(192,68,58,.18)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--g3),var(--g4));z-index:200;transition:width .12s}
+.w{max-width:480px;margin:0 auto}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.12}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes slide-down{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+
+/* ── HERO ── */
+#s-hero{min-height:55svh;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(90,170,104,.14),transparent 60%),#1C3A24;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:60px 24px 64px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);animation:rb 8s ease-in-out infinite}
+.ring:nth-child(1){width:220px;height:220px}
+.ring:nth-child(2){width:460px;height:460px;animation-delay:2.5s}
+.ring:nth-child(3){width:720px;height:720px;animation-delay:5s}
+.leaf{position:absolute;font-size:2rem;opacity:.07;animation:lf 6s ease-in-out infinite;pointer-events:none}
+.leaf:nth-child(4){top:10%;left:6%}.leaf:nth-child(5){top:18%;right:8%;animation-delay:1.5s}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:28px;position:relative;z-index:1;backdrop-filter:blur(12px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:#E8F5E9;line-height:1.2}
+.ar-tag{font-size:9px;letter-spacing:2px;color:rgba(200,230,200,.7);text-transform:uppercase}
+.hi{font-size:52px;display:block;margin-bottom:12px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(30px,8vw,48px);font-weight:700;line-height:1.05;color:#F0F7F0;position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:#8FCC9A;display:block;font-size:clamp(20px,5.5vw,36px);line-height:1.25}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,rgba(143,204,154,.5),transparent);margin:13px auto;position:relative;z-index:1}
+.hs{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:rgba(180,220,184,.85);line-height:1.7;max-width:300px;position:relative;z-index:1}
+
+section{padding:44px 20px}
+section:nth-child(odd){background:var(--cr)}
+section:nth-child(even){background:var(--cr2)}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;text-align:center;display:block}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,6.5vw,34px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g2)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--mu);text-align:center;margin-bottom:20px;line-height:1.6}
+
+/* ── НОРМА ── */
+.norm-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.norm-card{background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:12px 8px;text-align:center}
+.norm-card.g{border-color:rgba(46,107,58,.25);background:#E8F5E9}
+.norm-card.y{border-color:rgba(184,96,10,.2);background:#FDF3E7}
+.norm-card.r{border-color:rgba(192,68,58,.2);background:#FDF1F0}
+.norm-num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;line-height:1}
+.norm-card.g .norm-num{color:#2E6B3A}
+.norm-card.y .norm-num{color:#B8600A}
+.norm-card.r .norm-num{color:#C0443A}
+.norm-lbl{font-size:9.5px;color:var(--mu);margin-top:3px;line-height:1.4}
+.ii-note{background:var(--warnp);border:1px solid var(--warnb);border-radius:11px;padding:11px 14px;font-size:12px;color:var(--warn);line-height:1.7;margin-bottom:0}
+
+/* ── ПОШУК ── */
+.search-wrap{position:relative;margin-bottom:18px}
+.search-inp{width:100%;background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:12px 16px 12px 42px;font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .15s}
+.search-inp:focus{border-color:var(--g2)}
+.search-inp::placeholder{color:var(--mu2)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1rem;color:var(--mu2);pointer-events:none}
+.search-results{display:none;background:#fff;border:1.5px solid var(--bd);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,58,36,.1);margin-top:6px;position:absolute;width:100%;z-index:10}
+.search-results.show{display:block;animation:slide-down .2s ease}
+.sr-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(28,58,36,.06);cursor:pointer;transition:background .15s}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover{background:#F8FCF8}
+.sr-icon{font-size:1.1rem;flex-shrink:0}
+.sr-name{font-size:13px;color:var(--ink2);flex:1}
+.sr-cat{font-size:10px;color:var(--mu2);background:rgba(28,58,36,.06);padding:2px 7px;border-radius:10px;white-space:nowrap}
+.sr-gi-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.gi-green{background:rgba(46,107,58,.1);color:#2E6B3A}
+.gi-yellow{background:rgba(184,96,10,.1);color:#B8600A}
+.gi-red{background:rgba(192,68,58,.1);color:#C0443A}
+.gi-gray{background:rgba(28,58,36,.06);color:var(--mu)}
+
+/* ── СІТКА КАТЕГОРІЙ ── */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:20px}
+.cat-card{background:#fff;border:1.5px solid var(--bd);border-radius:14px;padding:14px 12px;cursor:pointer;transition:all .2s;user-select:none;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;position:relative;overflow:hidden}
+.cat-card:hover{border-color:var(--g2);background:var(--g5);transform:translateY(-2px)}
+.cat-card.active{background:var(--g5);border-color:var(--g2);border-width:2px;transform:translateY(-2px);box-shadow:0 4px 16px rgba(28,58,36,.12)}
+.cat-card-emoji{font-size:1.8rem;line-height:1}
+.cat-card-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink);line-height:1.2}
+.cat-card.active .cat-card-name{color:var(--g1)}
+.cat-card-count{font-size:10px;color:var(--mu);letter-spacing:.5px}
+.cat-card-arrow{position:absolute;bottom:8px;right:10px;font-size:.8rem;color:var(--mu2);transition:transform .2s}
+.cat-card.active .cat-card-arrow{transform:rotate(90deg);color:var(--g2)}
+
+/* ── ТАБЛИЦЯ ── */
+.table-panel{display:none;background:#fff;border:1.5px solid var(--g2);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(28,58,36,.1);margin-bottom:8px}
+.table-panel.open{display:block;animation:pp .35s cubic-bezier(.34,1.3,.64,1)}
+.table-panel-header{display:flex;align-items:center;gap:10px;padding:13px 16px;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff}
+.tph-icon{font-size:1.4rem;flex-shrink:0}
+.tph-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;flex:1}
+.tph-close{font-size:.9rem;opacity:.7;cursor:pointer;padding:4px;transition:opacity .15s}
+.tph-close:hover{opacity:1}
+.gt-head{display:grid;grid-template-columns:1fr 52px 52px 58px;padding:8px 12px;border-bottom:1.5px solid var(--bd);background:var(--g5)}
+.gt-th{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.gt-th.c{text-align:center}
+.gt-row{display:grid;grid-template-columns:1fr 52px 52px 58px;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(28,58,36,.05);cursor:pointer;transition:background .15s}
+.gt-row:last-child{border-bottom:none}
+.gt-row:hover{background:rgba(28,58,36,.02)}
+.gt-row.expanded{background:rgba(28,58,36,.02)}
+.gt-name-wrap{display:flex;align-items:center;gap:7px}
+.gt-icon{font-size:.95rem;flex-shrink:0}
+.gt-name{font-size:12px;color:var(--ink2);line-height:1.3}
+.gt-gi{font-size:11.5px;font-weight:500;text-align:center;padding:3px 5px;border-radius:7px}
+.gt-ii{font-size:11px;color:var(--mu);text-align:center}
+.gt-bar-wrap{display:flex;align-items:center}
+.gt-bar-bg{flex:1;height:5px;background:rgba(28,58,36,.08);border-radius:3px;overflow:hidden}
+.gt-bar-fill{height:100%;border-radius:3px;transition:width .5s ease}
+.gt-bar-fill.green{background:linear-gradient(90deg,#2E6B3A,#5AAA68)}
+.gt-bar-fill.yellow{background:linear-gradient(90deg,#B8600A,#D4905A)}
+.gt-bar-fill.red{background:linear-gradient(90deg,#C0443A,#E07070)}
+.gt-detail{display:none;padding:8px 12px 11px;background:rgba(28,58,36,.02);border-top:1px solid rgba(28,58,36,.05)}
+.gt-row.expanded+.gt-detail{display:block;animation:slide-down .2s ease}
+.gt-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:7px}
+.gt-detail-box{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:7px 10px}
+.gt-detail-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu2);margin-bottom:2px}
+.gt-detail-val{font-size:14px;font-weight:500;color:var(--ink2)}
+.gt-detail-tip{font-size:11.5px;color:var(--mu);line-height:1.65}
+
+/* ── TG ── */
+.tg-btn{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:13px;padding:14px 18px;text-decoration:none;cursor:pointer;transition:all .2s;width:100%;box-shadow:0 3px 12px rgba(28,58,36,.2);margin-top:16px}
+.tg-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(28,58,36,.3)}
+.tg-icon{font-size:1.3rem;flex-shrink:0}
+.tg-text{flex:1;text-align:left}
+.tg-main{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:#fff;line-height:1.2}
+.tg-sub{font-size:10px;color:rgba(200,235,200,.8)}
+.tg-arrow{color:rgba(200,235,200,.7);font-size:1rem}
+
+#s-final{background:linear-gradient(160deg,#1C3A24,#243F2A 60%,#1A3620)!important;padding:60px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:45vh}
+.fni{font-size:44px;display:block;margin-bottom:12px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,6vw,36px);font-weight:700;line-height:1.15;color:#F0F7F0}
+.fnt em{font-style:italic;color:#8FCC9A}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(180,220,184,.85);line-height:1.7;max-width:280px;margin:10px auto 0}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="leaf">🌿</div><div class="leaf">⚡</div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar-tag">Нутриціолог</div></div>
+  </div>
+  <span class="hi rv">📊</span>
+  <h1 class="ht rv">Довідник<em>ГІ та інсулінового індексу</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs rv">Понад 120 продуктів · 10 категорій · натисни на продукт щоб побачити деталі 🌿</p>
+</section>
+
+<!-- НОРМИ -->
+<section><div class="w">
+  <span class="ey rv">Що означають цифри</span>
+  <h2 class="tt rv">Норми<br><em>індексів</em></h2>
+
+  <p style="font-size:11px;font-weight:500;color:var(--ink2);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase" class="rv">Глікемічний індекс (ГІ)</p>
+  <div class="norm-grid rv">
+    <div class="norm-card g"><div class="norm-num">до 40</div><div class="norm-lbl">Низький ✅<br>Зелена зона</div></div>
+    <div class="norm-card y"><div class="norm-num">40–70</div><div class="norm-lbl">Середній ⚠️<br>Жовта зона</div></div>
+    <div class="norm-card r"><div class="norm-num">70+</div><div class="norm-lbl">Високий 🔴<br>Червона зона</div></div>
+  </div>
+
+  <p style="font-size:11px;font-weight:500;color:var(--ink2);margin-bottom:8px;margin-top:14px;letter-spacing:1px;text-transform:uppercase" class="rv">Інсуліновий індекс (ІІ)</p>
+  <div class="norm-grid rv" style="margin-bottom:14px">
+    <div class="norm-card g"><div class="norm-num">до 40</div><div class="norm-lbl">Низький ✅<br>Мінімальний відгук</div></div>
+    <div class="norm-card y"><div class="norm-num">40–70</div><div class="norm-lbl">Середній ⚠️<br>Помірний відгук</div></div>
+    <div class="norm-card r"><div class="norm-num">70+</div><div class="norm-lbl">Високий 🔴<br>Сильний відгук</div></div>
+  </div>
+
+  <div class="ii-note rv">
+    💡 <strong>ГІ</strong> — як швидко продукт підвищує цукор у крові.<br>
+    <strong>ІІ</strong> — скільки інсуліну виробляє підшлункова. Деякі продукти мають низький ГІ але <strong>високий ІІ</strong> — наприклад йогурт, кефір, сир. Тому важливо дивитись обидва показники.
+  </div>
+</div></section>
+
+<!-- ДОВІДНИК -->
+<section><div class="w">
+  <span class="ey rv">Довідник продуктів</span>
+  <h2 class="tt rv">Всі 10 категорій<br><em>одним поглядом</em></h2>
+  <p class="sb rv">Натисни на категорію — таблиця розкриється одразу під нею 🌿</p>
+
+  <!-- ПОШУК -->
+  <div class="search-wrap rv">
+    <span class="search-icon">🔍</span>
+    <input class="search-inp" type="text" placeholder="Знайти продукт…" id="searchInp" oninput="doSearch(this.value)" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <!-- СІТКА 2×5 -->
+  <div class="cat-grid rv" id="catGrid">
+    <div class="cat-card" onclick="toggleCat('veg',this)" id="card-veg">
+      <span class="cat-card-emoji">🥦</span>
+      <div class="cat-card-name">Овочі</div>
+      <div class="cat-card-count">24 продукти</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div class="cat-card" onclick="toggleCat('fruit',this)" id="card-fruit">
+      <span class="cat-card-emoji">🍎</span>
+      <div class="cat-card-name">Фрукти та ягоди</div>
+      <div class="cat-card-count">21 продукт</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <!-- Таблиця після першого рядка -->
+    <div id="panel-row-1" style="grid-column:1/-1"></div>
+
+    <div class="cat-card" onclick="toggleCat('grain',this)" id="card-grain">
+      <span class="cat-card-emoji">🌾</span>
+      <div class="cat-card-name">Крупи та хліб</div>
+      <div class="cat-card-count">16 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div class="cat-card" onclick="toggleCat('dairy',this)" id="card-dairy">
+      <span class="cat-card-emoji">🥛</span>
+      <div class="cat-card-name">Молочне</div>
+      <div class="cat-card-count">15 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div id="panel-row-2" style="grid-column:1/-1"></div>
+
+    <div class="cat-card" onclick="toggleCat('protein',this)" id="card-protein">
+      <span class="cat-card-emoji">🥚</span>
+      <div class="cat-card-name">Білки</div>
+      <div class="cat-card-count">8 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div class="cat-card" onclick="toggleCat('fat',this)" id="card-fat">
+      <span class="cat-card-emoji">🥑</span>
+      <div class="cat-card-name">Жири та олії</div>
+      <div class="cat-card-count">6 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div id="panel-row-3" style="grid-column:1/-1"></div>
+
+    <div class="cat-card" onclick="toggleCat('nuts',this)" id="card-nuts">
+      <span class="cat-card-emoji">🥜</span>
+      <div class="cat-card-name">Горіхи та насіння</div>
+      <div class="cat-card-count">10 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div class="cat-card" onclick="toggleCat('drinks',this)" id="card-drinks">
+      <span class="cat-card-emoji">☕</span>
+      <div class="cat-card-name">Напої</div>
+      <div class="cat-card-count">18 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div id="panel-row-4" style="grid-column:1/-1"></div>
+
+    <div class="cat-card" onclick="toggleCat('sweets',this)" id="card-sweets">
+      <span class="cat-card-emoji">🍫</span>
+      <div class="cat-card-name">Солодке та випічка</div>
+      <div class="cat-card-count">24 продукти</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div class="cat-card" onclick="toggleCat('sauces',this)" id="card-sauces">
+      <span class="cat-card-emoji">🌭</span>
+      <div class="cat-card-name">Соуси та фастфуд</div>
+      <div class="cat-card-count">11 продуктів</div>
+      <span class="cat-card-arrow">›</span>
+    </div>
+    <div id="panel-row-5" style="grid-column:1/-1"></div>
+  </div>
+
+</div></section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+  <span class="fni rv">🌿</span>
+  <h2 class="fnt rv">Збережи довідник —<br><em>він завжди під рукою</em></h2>
+  <p class="fns rv">Є питання по продуктах або хочеш розібрати своє меню — пиши 💛</p>
+  <div class="w" style="width:100%;max-width:480px">
+    <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tg-btn rv">
+      <span class="tg-icon">✈️</span>
+      <div class="tg-text"><div class="tg-main">Написати Любові</div><div class="tg-sub">@Lyubov_nutritionist · Telegram</div></div>
+      <span class="tg-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<script>
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%';});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// ── ДАНІ ──
+const DATA={
+  veg:{name:'Овочі та зелень',icon:'🥦',rows:[
+    ['🥬','Салат латук',10,null,10,null,'Їж скільки хочеш! Майже без вуглеводів.'],
+    ['🌿','Петрушка, кріп, кінза',10,null,10,null,'Зелень — нульовий вплив на цукор.'],
+    ['🧅','Цибуля зелена',10,null,10,null,'Антиоксиданти і нульовий вплив.'],
+    ['🍅','Помідори свіжі',10,null,10,null,'Лікопін + мінімум цукру.'],
+    ['🥒','Огірки свіжі',21,null,8,17,'Відмінно для гідрації та детоксу.'],
+    ['🥬','Капуста свіжа біла',15,null,10,null,'Клітковина і вітамін С. Їж сміливо.'],
+    ['🥬','Капуста квашена',10,null,15,null,'Пробіотики для кишківника!'],
+    ['🥬','Капуста червона',10,null,10,null,'Антоціани — сильні антиоксиданти.'],
+    ['🥦','Броколі свіжа і варена',10,null,10,null,'Сульфорафан — захист клітин. Один з найкорисніших овочів.'],
+    ['🥦','Брюссельська капуста',15,null,10,null,'Клітковина і рослинний білок.'],
+    ['🥕','Морква сира',35,null,25,null,'Сира морква значно краща ніж варена за ГІ.'],
+    ['🥕','Морква варена',39,null,85,null,'Варка сильно піднімає ІІ до 85! Краще сирою.'],
+    ['🧅','Цибуля ріпчаста свіжа',10,null,10,null,'Квертецин — протизапальний ефект.'],
+    ['🥔','Картопля сира',30,null,null,null,'Містить резистентний крохмаль.'],
+    ['🥔','Картопля відварна і пюре',87,null,118,121,'Дуже високий ГІ і ІІ! Охолоджена — краща.'],
+    ['🥔','Картопля запечена в шкірці',95,null,74,null,'Найвищий ГІ серед усіх форм картоплі.'],
+    ['🥔','Картопля смажена/фрі',74,95,74,null,'ГІ 74–95 залежно від способу смаження. Жир і висока температура максимально підвищують ГІ.'],
+    ['🫑','Баклажан свіжий',30,38,10,null,'Низький ГІ. Гарний замінник картоплі.'],
+    ['🥒','Кабачок свіжий',15,null,10,null,'Майже нульовий вплив на цукор.'],
+    ['🥒','Кабачок тушкований',54,null,70,null,'Термічна обробка суттєво піднімає ГІ.'],
+    ['🎃','Гарбуз запечений',75,null,75,85,'Солодкий гарбуз — помірно.'],
+    ['🍄','Гриби сирі',15,null,10,null,'Нульовий ГІ, вітаміни групи В.'],
+    ['🫚','Буряк сирий',30,null,38,null,'Сирий набагато краще ніж варений.'],
+    ['🫚','Буряк варений',65,null,65,null,'Варка піднімає ГІ з 30 до 65. Помірно.'],
+  ]},
+  fruit:{name:'Фрукти та ягоди',icon:'🍎',rows:[
+    ['🍒','Вишня свіжа',22,null,22,null,'Антоціани + дуже низький ГІ.'],
+    ['🍑','Абрикос свіжий',20,null,20,null,'Бета-каротин і мінімальний ГІ.'],
+    ['🍑','Персик свіжий',30,null,39,null,'Соковитий і низькоглікемічний.'],
+    ['🍎','Яблука свіжі',30,null,59,null,'Їж зі шкіркою — там пектин і клітковина.'],
+    ['🍐','Груші свіжі',20,49,45,null,'Залежно від сорту ГІ 20–49.'],
+    ['🍓','Полуниця свіжа',32,null,25,null,'Низький ГІ і багато вітаміну С.'],
+    ['🍇','Слива свіжа',35,null,25,null,'Клітковина і сорбіт для травлення.'],
+    ['🫐','Малина свіжа',30,null,25,null,'Рекордсмен за клітковиною серед ягід.'],
+    ['⚫','Чорна смородина',30,null,25,null,'Вітамін С і антиоксиданти.'],
+    ['🫐','Чорниця',42,null,40,null,'Антоціани і нейропротекторний ефект.'],
+    ['🍈','Агрус свіжий',40,null,40,null,'Клітковина і вітамін С.'],
+    ['🍊','Апельсини',42,null,60,null,'Їж цілим — сік має вищий ГІ без клітковини.'],
+    ['🍊','Мандарини',40,null,60,null,'Зручний перекус.'],
+    ['🍇','Виноград червоний/зелений',40,null,82,null,'ГІ середній, але ІІ помітний — 82! Помірно.'],
+    ['🥝','Авокадо',15,null,4,null,'Майже без цукру. Корисні жири.'],
+    ['🍌','Банани',51,null,81,null,'Їж з горіховою пастою або йогуртом.'],
+    ['🥭','Манго',50,null,112,null,'Багато цукру. ІІ дуже великий — помірно.'],
+    ['🍉','Кавун',72,null,84,null,'Високий ГІ — невеликими порціями.'],
+    ['🍈','Диня',62,70,127,null,'Дуже високий ІІ! Помірно і не окремо.'],
+    ['🌴','Фініки',42,null,110,null,'ГІ середній але ІІ дуже великий — 110!'],
+    ['🍍','Папайя',55,null,129,null,'Ензими для травлення, але ІІ рекордно високий.'],
+  ]},
+  grain:{name:'Крупи, хліб, каші',icon:'🌾',rows:[
+    ['🍞','Білий пшеничний хліб',100,null,100,null,'Еталон ГІ. Максимально швидкий цукор.'],
+    ['🫓','Житній хліб',50,null,96,null,'ГІ нижчий ніж білий, але ІІ залишається дуже великим.'],
+    ['🫓','Хліб житній на заквасці',50,null,70,null,'Ферментація знижує обидва індекси.'],
+    ['🍞','Цільнозерновий хліб',49,74,96,null,'Великий розкид! Справжній з цілими зернами — ГІ ~49. Комерційний з тонко змеленого борошна — ГІ до 74. Шукай цілі зерна у складі на першому місці.'],
+    ['🥣','Вівсяні висівки',40,null,32,null,'Бета-глюкан знижує холестерин.'],
+    ['🥣','Вівсяні пластівці',50,null,75,null,'Клітковина і ситість. ІІ помірний.'],
+    ['🥣','Вівсяна каша без цукру',55,null,40,null,'Варена вівсянка на воді — ГІ 55. Чим довша варка — тим вищий. Без цукру і молока — найкращий варіант.'],
+    ['🌾','Гречана каша без цукру',50,null,39,null,'Найкраща крупа! ГІ 50 — середній, але ІІ 39 — низький. Рутин, залізо, клітковина.'],
+    ['🌿','Макарони варені al dente',40,58,40,null,'Al dente (7–8 хв) — ГІ ~40. Розварені — ГІ до 58+. Охолоджені макарони ще нижчий ГІ через резистентний крохмаль.'],
+    ['🌾','Лапша з ц/з пшениці',68,null,40,null,'Краще ніж звичайна паста.'],
+    ['🍚','Білий рис',72,89,79,null,'ГІ 72–89 залежно від сорту і часу варки. Чим розваренішій — тим вищий. Заміни на гречку.'],
+    ['🍚','Коричневий рис',55,66,62,null,'Значно краще ніж білий рис. ГІ 55–66 залежно від сорту і способу готування.'],
+    ['🌽','Кукурудзяні пластівці',76,null,75,null,'Солодкі пластівці — майже цукор.'],
+    ['🥞','Млинці/оладки з білого борошна',69,null,112,null,'Дуже високий ІІ! Рідкісне задоволення.'],
+    ['🧇','Мюслі',40,80,46,null,'ГІ сильно залежить від складу: без цукру ~40, з цукром до 80. Завжди читай склад!'],
+    ['🍰','Сирники',60,75,100,110,'Сир підвищує ІІ. Без цукру — краще.'],
+  ]},
+  dairy:{name:'Молоко та молочне',icon:'🥛',rows:[
+    ['🥛','Молоко незбиране',31,null,34,null,'Невисокий ГІ але помірний ІІ.'],
+    ['🥛','Молоко топлене 4%',32,null,90,null,'Низький ГІ, але ІІ дуже великий — 90!'],
+    ['🥛','Соєве молоко',30,null,10,null,'Найнижчий ІІ серед молочних альтернатив.'],
+    ['🥛','Сухе молоко',23,null,95,null,'Дуже великий ІІ попри низький ГІ.'],
+    ['🧀','Сир (творог)',30,null,90,120,'Низький ГІ але ДУЖЕ великий ІІ — 90–120!'],
+    ['🧀','Зернений сир Cottage',30,null,54,null,'Краще ніж творог за ІІ.'],
+    ['🧀','Сир твердий будь-який',55,null,45,null,'Помірний ГІ і ІІ.'],
+    ['🧀','Вершковий сир Cream cheese',10,null,18,null,'Дуже низький ГІ і ІІ.'],
+    ['🥄','Сметана 20%',56,null,98,null,'Помірний ГІ але дуже великий ІІ — 98!'],
+    ['🥛','Кефір 3.2%',25,null,98,null,'Низький ГІ, але ІІ дуже великий — 98!'],
+    ['🥛','Ацидофілін 3.2%',25,null,90,null,'Пробіотики але великий ІІ.'],
+    ['🥛','Ряжанка',30,null,98,null,'Аналогічно кефіру.'],
+    ['🥣','Йогурт грецький 10%, без цукру',11,14,46,null,'Найкращий вибір! Низький ГІ і ІІ.'],
+    ['🥣','Йогурт нежирний з фруктами',31,null,84,null,'Добавки піднімають ГІ і ІІ.'],
+    ['🥛','Згущене молоко',80,null,90,null,'Багато цукру. Дуже рідко.'],
+  ]},
+  protein:{name:'Білки',icon:'🥚',rows:[
+    ['🥚','Яйця варені',0,null,31,null,'Нульовий ГІ. Повноцінний амінокислотний профіль.'],
+    ['🥩','Червоне м\'ясо без жиру',0,null,19,51,'ГІ нульовий. ІІ залежить від приготування.'],
+    ['🍗','М\'ясо птиці: курка, індичка',0,null,17,23,'Чистий білок. Краще варене або запечене.'],
+    ['🐟','Риба',0,28,26,59,'ГІ і ІІ залежать від виду і способу готування.'],
+    ['🦞','М\'ясо омара, краба',5,null,null,null,'Майже нульовий ГІ. Чистий білок.'],
+    ['🦐','Креветки',50,null,null,null,'Помірний ГІ, але дуже низька калорійність.'],
+    ['🫘','Квасоля тушкована',40,null,88,null,'Клітковина і білок, але ІІ помітний — 88.'],
+    ['🫘','Сочевиця варена',25,null,58,null,'Чемпіон серед бобових. Клітковина + білок.'],
+  ]},
+  fat:{name:'Жири та олії',icon:'🥑',rows:[
+    ['🧈','Вершкове масло',0,null,2,null,'Нульовий ГІ. Насичені жири — помірно.'],
+    ['🥩','Сало',0,null,0,null,'Нульовий ГІ і ІІ. Чисті жири.'],
+    ['🥓','Свинина бекон',0,null,9,null,'Низький ІІ, але слідкуй за якістю.'],
+    ['🫒','Оливкова олія холодного віджиму',0,null,3,null,'Ідеальний вибір! Омега-9 і антиоксиданти.'],
+    ['🌻','Рослинна олія',0,null,3,null,'Нульовий ГІ і ІІ.'],
+    ['🥩','Свинина жирна',0,null,19,null,'Нульовий ГІ. Насичені жири помірно.'],
+  ]},
+  nuts:{name:'Горіхи та насіння',icon:'🥜',rows:[
+    ['🌰','Волоський горіх',20,null,7,null,'Рекордно низький ІІ — 7! Омега-3.'],
+    ['🥜','Пекан',10,null,10,null,'Один з найнижчих ГІ серед горіхів.'],
+    ['🌰','Фундук',15,null,15,null,'Магній і вітамін Е.'],
+    ['🌰','Бразильський горіх',15,null,15,null,'Один горіх покриває добову норму селену!'],
+    ['🫘','Фісташки',15,null,15,null,'Найбільше клітковини серед горіхів.'],
+    ['🥜','Арахіс сирий',20,null,20,null,'Технічно бобовий, але поводиться як горіх.'],
+    ['🌰','Мигдаль',25,null,20,null,'Вітамін Е і кальцій.'],
+    ['🫘','Кеш\'ю сирий',22,null,20,null,'Вищий ГІ ніж інші горіхи — помірно.'],
+    ['🌻','Насіння соняшнику',15,35,8,25,'Вітамін Е і корисні жири.'],
+    ['🎃','Насіння гарбуза',15,null,25,null,'Цинк і магній. Ідеальний перекус.'],
+  ]},
+  drinks:{name:'Напої',icon:'☕',rows:[
+    ['☕','Чорна кава без цукру',0,30,0,null,'Нульовий ІІ але може стимулювати кортизол.'],
+    ['🍵','Чай зелений/чорний без цукру',0,null,0,null,'Нульовий вплив. Антиоксиданти.'],
+    ['☕','Кава з молоком і цукром',52,null,50,null,'Цукор і молоко підвищують обидва індекси.'],
+    ['🍵','Чай із цукром',60,null,50,null,'Цукор піднімає ГІ і ІІ.'],
+    ['🍫','Какао з молоком',51,null,50,null,'Помірний ГІ і ІІ.'],
+    ['🍊','Сік мандариновий свіжий',40,null,60,null,'Свіжовіджатий — краще ніж пакетований.'],
+    ['🍎','Сік яблучний',43,null,60,null,'Без клітковини — ГІ вищий ніж у яблука.'],
+    ['🍷','Гранатовий сік',35,null,35,null,'Антиоксиданти і помірний ГІ.'],
+    ['🍑','Сік абрикосовий',34,null,null,null,'Відносно низький ГІ для соку.'],
+    ['🍅','Сік томатний',31,null,25,null,'Один з найкращих соків за ГІ.'],
+    ['🍷','Вино біле сухе',36,44,3,null,'Низький ГІ і дуже низький ІІ.'],
+    ['🍷','Вино червоне сухе',36,44,null,null,'Аналогічно білому.'],
+    ['🍾','Шампанське',50,60,null,null,'Цукор підвищує ГІ.'],
+    ['🍺','Пиво світле чи темне',45,100,110,120,'ГІ варіюється. ІІ дуже великий — 110–120!'],
+    ['🥃','Горілка, віскі, коньяк',0,null,0,null,'Нульовий ГІ і ІІ, але токсичний вплив.'],
+    ['🥤','Кока-кола, Фанта, Спрайт',70,null,60,null,'Дуже великий ГІ. Порожні калорії.'],
+    ['🫙','Квас хлібний',45,60,null,null,'Помірний ГІ. Є доданий цукор.'],
+    ['☕','Гарячий шоколад',51,null,null,null,'Помірний ГІ.'],
+  ]},
+  sweets:{name:'Солодке та випічка',icon:'🍫',rows:[
+    ['🍫','Шоколад темний 70–85% какао',25,null,22,null,'Найкращий вибір! Низький ГІ і ІІ.'],
+    ['🍫','Шоколад молочний',70,null,120,null,'Цукор і молоко — дуже великий ІІ.'],
+    ['⬜','Шоколад білий',70,null,120,null,'Без какао — чистий цукор і жир.'],
+    ['🍫','Snickers',70,null,122,null,'Рекордно великий ІІ — 122!'],
+    ['🍫','Mars',70,null,122,null,'Аналогічно Snickers.'],
+    ['🍰','Шоколадний торт',41,null,82,null,'ГІ нижчий ніж очікуєш, але ІІ великий.'],
+    ['🧁','Кекс шоколадний Мафін',80,null,120,null,'Борошно + цукор + жир = максимум ІІ.'],
+    ['🧁','Кекс Мафін',74,null,69,null,'Дуже великий ГІ.'],
+    ['🍮','Чізкейк',50,60,null,null,'Помірний ГІ — сир знижує.'],
+    ['🍩','Пончики',88,null,74,null,'Дуже великий ГІ.'],
+    ['🥐','Круасан',67,null,79,null,'Великий ГІ і ІІ.'],
+    ['🍪','Печиво бісквітне',60,null,48,null,'Помірний ІІ але великий ГІ.'],
+    ['🍪','Печиво з шоколадною крихтою',60,null,92,null,'Дуже великий ІІ — 92!'],
+    ['🍪','Печиво вівсяне',60,null,48,null,'Не плутай з вівсянкою — це печиво.'],
+    ['🧇','Вафлі',70,null,61,null,'Великий ГІ.'],
+    ['🍬','Жувальні цукерки',80,null,160,null,'Рекордний ІІ — 160! Найгірший вибір.'],
+    ['🍬','Карамель',80,null,160,null,'Аналогічно жувальним цукеркам.'],
+    ['🟠','Мармелад апельсиновий',48,null,80,null,'Помірний ГІ але великий ІІ.'],
+    ['🟢','Мармелад із цукром',65,null,83,null,'Вищий ГІ ніж апельсиновий.'],
+    ['🍦','Морозиво без глазурі',70,null,89,null,'Цукор + молоко = великий ІІ.'],
+    ['🍧','Шоколадне морозиво',70,null,74,null,'Помірніший ІІ ніж молочне.'],
+    ['🍯','Конфітюр',51,null,85,null,'Великий ІІ — цукор і фрукти разом.'],
+    ['🍯','Мед',50,70,62,null,'Ефективніший за цукор але не \"здоровий\" у великих кількостях.'],
+    ['⬜','Цукор пісок',65,80,82,null,'Еталон \"поганих\" вуглеводів.'],
+  ]},
+  sauces:{name:'Соуси та фастфуд',icon:'🌭',rows:[
+    ['🧂','Соєвий соус',15,null,null,null,'Низький ГІ. Але багато солі.'],
+    ['🌭','Гірчиця столова',32,null,null,null,'Низький ГІ. Хороша приправа.'],
+    ['🥫','Кетчуп',50,60,41,null,'Помірний ГІ і ІІ. Є доданий цукор.'],
+    ['🍅','Томатний соус',31,null,41,null,'Значно краще ніж кетчуп.'],
+    ['🥗','Майонез 74%',40,50,40,60,'Помірний ГІ і ІІ. Але калорійний.'],
+    ['🟤','Цукор коричневий',70,null,82,null,'Не корисніший за білий цукор!'],
+    ['🌿','Стевія',0,null,0,null,'Нульовий ГІ і ІІ. Натуральний цукрозамінник.'],
+    ['⬜','Еритритол',1,null,2,null,'Майже нульовий вплив. Найкращий цукрозамінник.'],
+    ['🍔','Гамбургер (Макдональдс)',66,null,80,null,'Хліб + соуси = великий ГІ і ІІ.'],
+    ['🍔','Чізбургер (Макдональдс)',90,null,80,null,'Дуже великий ГІ!'],
+    ['🌭','Хот-дог',90,null,80,null,'Серед найгіршого фастфуду за ГІ.'],
+  ]}
+};
+
+// Маппінг карток до рядків сітки
+const CARD_ROW={'veg':1,'fruit':1,'grain':2,'dairy':2,'protein':3,'fat':3,'nuts':4,'drinks':4,'sweets':5,'sauces':5};
+let activePanel=null;
+const ALL=[];
+
+function giClass(v){if(v===null)return 'gi-gray';const n=parseFloat(v);if(n<40)return 'gi-green';if(n<=70)return 'gi-yellow';return 'gi-red';}
+function barCls(v){if(v===null)return 'green';const n=parseFloat(v);if(n<40)return 'green';if(n<=70)return 'yellow';return 'red';}
+function fmt(a,b){if(a===null)return '—';return b===null?String(a):a+'–'+b;}
+function bw(a,b){const v=b?((a+b)/2):a;return v===null?0:Math.min(100,Math.round(v/130*100));}
+
+function buildTable(catId){
+  const cat=DATA[catId];
+  let h=`<div class="gt-head"><div class="gt-th">Продукт</div><div class="gt-th c">ГІ</div><div class="gt-th c">ІІ</div><div class="gt-th">Рівень</div></div>`;
+  cat.rows.forEach((r,i)=>{
+    const [ic,nm,gi1,gi2,ii1,ii2,tip]=r;
+    const giV=fmt(gi1,gi2),iiV=fmt(ii1,ii2),gc=giClass(gi1),bc=barCls(gi1),bwv=bw(gi1,gi2);
+    const rid=catId+'-'+i;
+    h+=`<div class="gt-row" id="r-${rid}" onclick="toggleRow('${rid}')">
+      <div class="gt-name-wrap"><span class="gt-icon">${ic}</span><span class="gt-name">${nm}</span></div>
+      <div class="gt-gi ${gc}">${giV}</div>
+      <div class="gt-ii">${iiV}</div>
+      <div class="gt-bar-wrap"><div class="gt-bar-bg"><div class="gt-bar-fill ${bc}" style="width:${bwv}%"></div></div></div>
+    </div>
+    <div class="gt-detail" id="d-${rid}">
+      <div class="gt-detail-grid">
+        <div class="gt-detail-box"><div class="gt-detail-lbl">Глікемічний індекс</div><div class="gt-detail-val ${gc}">${giV}</div></div>
+        <div class="gt-detail-box"><div class="gt-detail-lbl">Інсуліновий індекс</div><div class="gt-detail-val">${iiV}</div></div>
+      </div>
+      <div class="gt-detail-tip">${tip}</div>
+    </div>`;
+    // Для пошуку
+    if(!ALL.find(x=>x.rid===rid))ALL.push({ic,nm,giV,gc,cat:catId,catName:cat.name,rid,tip});
+  });
+  return h;
+}
+
+function toggleCat(id,cardEl){
+  const rowNum=CARD_ROW[id];
+  const panelContainer=document.getElementById('panel-row-'+rowNum);
+  // Якщо вже відкрита та сама — закрити
+  if(activePanel===id){
+    panelContainer.innerHTML='';
+    cardEl.classList.remove('active');
+    activePanel=null;
+    return;
+  }
+  // Закрити попередню в тому ж рядку або в іншому
+  if(activePanel){
+    const prevRow=CARD_ROW[activePanel];
+    document.getElementById('panel-row-'+prevRow).innerHTML='';
+    const prevCard=document.getElementById('card-'+activePanel);
+    if(prevCard)prevCard.classList.remove('active');
+  }
+  // Відкрити нову
+  activePanel=id;
+  cardEl.classList.add('active');
+  const cat=DATA[id];
+  panelContainer.innerHTML=`<div class="table-panel open" id="panel-${id}">
+    <div class="table-panel-header">
+      <span class="tph-icon">${cat.icon}</span>
+      <span class="tph-title">${cat.name}</span>
+      <span class="tph-close" onclick="closeCat('${id}')">✕</span>
+    </div>
+    ${buildTable(id)}
+  </div>`;
+  // Плавний скрол до таблиці
+  setTimeout(()=>{
+    const panel=document.getElementById('panel-'+id);
+    if(panel)panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  },100);
+}
+
+function closeCat(id){
+  const rowNum=CARD_ROW[id];
+  document.getElementById('panel-row-'+rowNum).innerHTML='';
+  const card=document.getElementById('card-'+id);
+  if(card)card.classList.remove('active');
+  if(activePanel===id)activePanel=null;
+}
+
+function toggleRow(rid){
+  const row=document.getElementById('r-'+rid);
+  if(!row)return;
+  const open=row.classList.contains('expanded');
+  document.querySelectorAll('.gt-row.expanded').forEach(r=>r.classList.remove('expanded'));
+  if(!open)row.classList.add('expanded');
+}
+
+// ── ПОШУК ──
+function doSearch(q){
+  const res=document.getElementById('searchResults');
+  const v=q.trim().toLowerCase();
+  if(v.length<2){res.classList.remove('show');return;}
+  // Переконатись що ALL заповнений — збудуємо якщо треба
+  Object.keys(DATA).forEach(id=>{
+    DATA[id].rows.forEach((r,i)=>{
+      const rid=id+'-'+i;
+      if(!ALL.find(x=>x.rid===rid)){
+        ALL.push({ic:r[0],nm:r[1],giV:fmt(r[2],r[3]),gc:giClass(r[2]),cat:id,catName:DATA[id].name,rid,tip:r[6]});
+      }
+    });
+  });
+  const found=ALL.filter(p=>p.nm.toLowerCase().includes(v));
+  if(!found.length){
+    res.innerHTML='<div class="sr-item"><span class="sr-name" style="color:var(--mu2);font-style:italic;padding:4px 0">Не знайдено</span></div>';
+    res.classList.add('show');return;
+  }
+  res.innerHTML=found.slice(0,10).map(p=>`
+    <div class="sr-item" onclick="goTo('${p.cat}','${p.rid}')">
+      <span class="sr-icon">${p.ic}</span>
+      <span class="sr-name">${p.nm}</span>
+      <span class="sr-cat">${p.catName}</span>
+      <span class="sr-gi-badge ${p.gc}">${p.giV}</span>
+    </div>`).join('');
+  res.classList.add('show');
+}
+function goTo(catId,rid){
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('searchInp').value='';
+  const card=document.getElementById('card-'+catId);
+  if(card&&activePanel!==catId)toggleCat(catId,card);
+  setTimeout(()=>{
+    const row=document.getElementById('r-'+rid);
+    if(row){row.scrollIntoView({behavior:'smooth',block:'center'});row.classList.add('expanded');}
+  },350);
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('searchResults').classList.remove('show');});
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%';});
+</script>
+</body>
+</html>
