@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Жири · День 5 · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#FAF6EF;--g:#C8943A;--g2:#E0B060;--gd:#8A6020;
+  --ink:#2C1E08;--ink2:#4A3518;--mu:#8A7258;--mu2:#B8A080;--sage:#7A9A6A;
+  --bl:#3A78A8;--blp:#EAF3FA;--blb:rgba(58,120,168,.22);
+  --or:#C87838;--orp:#FDF0E4;--orb:rgba(200,120,56,.22);
+  --bd:rgba(200,148,58,.18);--bd2:rgba(200,148,58,.32)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--g),var(--g2),var(--sage));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:nth-child(odd){background:var(--cr)}
+section:nth-child(even){background:linear-gradient(160deg,#F7EFE0,#F0E4CC)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:10px;text-align:center;display:block}
+.ey.gr{color:var(--sage)}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g)}
+.tt em.gr{color:var(--sage)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.15}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* HERO */
+#s-hero{min-height:100svh;
+  background:radial-gradient(ellipse 100% 60% at 80% 110%,rgba(122,154,106,.14),transparent 55%),
+  radial-gradient(ellipse 80% 50% at 10% 0%,rgba(200,148,58,.12),transparent 50%),
+  linear-gradient(168deg,#F8F6EE,#EEE8D4 55%,#E4D8B8);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(122,154,106,.12);animation:rb 7s ease-in-out infinite}
+.ring:nth-child(1){width:200px;height:200px}
+.ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
+.ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.7);border:1px solid var(--bd2);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:var(--ink2);line-height:1.2}
+.ar{font-size:9px;letter-spacing:2px;color:var(--mu);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(122,154,106,.1);border:1px solid rgba(122,154,106,.3);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:#4A7040;text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,70px);font-weight:700;line-height:1.05;color:var(--ink);position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:var(--sage);display:block;font-size:clamp(28px,7.5vw,50px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--sage),transparent);margin:15px auto;position:relative;z-index:1}
+.hs{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--mu);line-height:1.7;max-width:280px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--mu2);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+
+/* ПРОГРЕС ТИЖНЯ */
+.week-dots{display:flex;gap:8px;justify-content:center;margin-top:28px;position:relative;z-index:1}
+.wd-item{display:flex;flex-direction:column;align-items:center;gap:5px}
+.wd-dot{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.9rem;font-weight:500}
+.wd-dot.done{background:rgba(122,154,106,.15);border:1.5px solid rgba(122,154,106,.4);color:#4A7040}
+.wd-dot.today{background:var(--sage);color:#fff}
+.wd-lbl{font-size:9px;color:var(--mu2);letter-spacing:.5px}
+
+/* ЗВИЧКА */
+.hc{background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.hc::before{content:'🏆';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.05;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:rgba(200,148,58,.1);border:1px solid var(--bd2);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--gd);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.5vw,22px);line-height:1.5;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g)}
+.hdv{width:24px;height:1px;background:rgba(200,148,58,.3);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* ЧЕК-ЛИСТ */
+.checklist{display:flex;flex-direction:column;gap:8px}
+.cl-item{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;cursor:pointer;user-select:none;transition:all .2s}
+.cl-item:hover{background:rgba(255,255,255,.9);border-color:var(--bd2)}
+.cl-item.on{background:rgba(122,154,106,.08);border-color:rgba(122,154,106,.4)}
+.cl-check{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--bd);background:rgba(250,246,239,.9);display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;flex-shrink:0;transition:all .18s}
+.cl-item.on .cl-check{background:var(--sage);border-color:var(--sage);color:#fff}
+.cl-icon{font-size:1.1rem;flex-shrink:0}
+.cl-text{font-size:13px;color:var(--ink2);line-height:1.4;flex:1}
+.cl-item.on .cl-text{color:var(--ink)}
+.cl-result{margin-top:14px;background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:14px;padding:16px;display:none}
+.cl-result.show{display:block;animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+.cl-top{display:flex;align-items:flex-end;gap:6px;margin-bottom:9px}
+.cl-num{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--sage);line-height:1}
+.cl-of{font-size:13px;color:var(--mu);padding-bottom:5px}
+.cl-bar{height:6px;border-radius:3px;background:rgba(122,154,106,.12);overflow:hidden;margin-bottom:10px}
+.cl-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--g),var(--sage));transition:width .5s cubic-bezier(.34,1.2,.64,1);width:0%}
+.cl-msg{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--ink2);line-height:1.6}
+
+/* ПРОГРЕС ДО/ПІСЛЯ */
+.prog-table{display:flex;flex-direction:column;gap:10px}
+.prog-row{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:14px;padding:14px 15px}
+.prog-label{font-size:12px;font-weight:500;color:var(--ink2);margin-bottom:10px}
+.prog-sides{display:flex;gap:8px}
+.prog-side{flex:1}
+.prog-side-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu2);margin-bottom:6px;text-align:center}
+.prog-btns{display:flex;flex-direction:column;gap:4px}
+.prog-btn{background:rgba(250,246,239,.9);border:1.5px solid var(--bd);border-radius:8px;padding:7px 6px;font-size:11px;color:var(--mu);cursor:pointer;text-align:center;transition:all .18s;user-select:none;line-height:1.3}
+.prog-btn:hover{border-color:var(--bd2);color:var(--ink2)}
+.prog-btn.sb{background:rgba(200,120,56,.08);border-color:var(--orb);color:var(--or);font-weight:500}
+.prog-btn.sa{background:rgba(122,154,106,.1);border-color:rgba(122,154,106,.4);color:#4A7040;font-weight:500}
+.prog-div{width:1px;background:var(--bd);flex-shrink:0;margin-top:20px}
+.prog-summary{margin-top:12px;background:rgba(122,154,106,.08);border:1px solid rgba(122,154,106,.25);border-radius:12px;padding:12px 14px;display:none;text-align:center}
+.prog-summary.show{display:block;animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+.prog-summary p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:#4A7040;line-height:1.6}
+
+/* МІЙ МІНІМУМ */
+.min-table{display:flex;flex-direction:column;gap:8px}
+.min-row{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px}
+.min-icon{font-size:1.2rem;flex-shrink:0}
+.min-info{flex:1}
+.min-name{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:1px}
+.min-amount{font-size:11px;color:var(--mu)}
+.min-sel{background:rgba(250,246,239,.9);border:1.5px solid var(--bd);border-radius:9px;padding:7px 9px;font-family:'Jost',sans-serif;font-size:11px;color:var(--ink2);outline:none;cursor:pointer;width:100px;flex-shrink:0;text-align:center}
+.min-sel:focus{border-color:var(--bd2)}
+
+/* ПОКАЗНИКИ */
+.lab-card{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;backdrop-filter:blur(4px)}
+.lab-head{padding:14px 16px;border-bottom:1px solid var(--bd);background:rgba(200,148,58,.06)}
+.lab-head-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.lab-head-sub{font-size:11px;color:var(--mu)}
+.lab-item{padding:16px;border-bottom:1px solid rgba(200,148,58,.07)}
+.lab-item:last-child{border-bottom:none}
+.lab-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px}
+.lab-ico{font-size:1.5rem;flex-shrink:0}
+.lab-info{flex:1}
+.lab-name{font-size:14px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.lab-norm{font-size:12px;color:var(--gd)}
+.lab-norm strong{font-weight:600}
+.lab-scale{position:relative;height:8px;border-radius:4px;background:linear-gradient(90deg,#4A90D9 0%,#5BB85B 40%,#E0B060 70%,#E07050 100%);margin-bottom:6px}
+.lab-marker{position:absolute;top:-4px;width:16px;height:16px;border-radius:50%;background:#fff;border:2.5px solid var(--gd);transform:translateX(-50%);transition:left .4s cubic-bezier(.34,1.2,.64,1);display:none}
+.lab-ticks{display:flex;justify-content:space-between;font-size:10px;color:var(--mu2);margin-bottom:8px}
+.lab-input-row{display:flex;align-items:center;gap:10px}
+.lab-input{flex:1;background:rgba(250,246,239,.9);border:1.5px solid var(--bd);border-radius:9px;padding:9px 12px;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);outline:none;text-align:center;transition:border-color .15s}
+.lab-input:focus{border-color:var(--bd2)}
+.lab-unit{font-size:12px;color:var(--mu);white-space:nowrap}
+.lab-verdict{margin-top:8px;font-size:12px;border-radius:9px;padding:9px 12px;line-height:1.55;display:none}
+.lab-verdict.show{display:block}
+.lab-verdict.low{background:var(--blp);color:var(--bl)}
+.lab-verdict.ok{background:rgba(122,154,106,.1);color:#4A7040}
+.lab-verdict.warn{background:var(--orp);color:var(--or)}
+
+/* РЕФЛЕКСІЯ */
+.rc{background:rgba(255,255,255,.65);border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;margin-bottom:10px;backdrop-filter:blur(8px)}
+.rct{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rcs{font-size:11px;color:var(--mu);margin-bottom:15px;line-height:1.5}
+.rqs{display:flex;flex-direction:column;gap:12px}
+.rql{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rqt{width:100%;background:rgba(250,246,239,.8);border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:62px;line-height:1.65;transition:border-color .15s}
+.rqt:focus{border-color:var(--bd2)}
+.rqt::placeholder{color:var(--mu2);font-style:italic}
+.stars{display:flex;gap:7px;margin-top:3px}
+.star{font-size:24px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none}
+.star.li{opacity:1;transform:scale(1.1)}
+.smsg{margin-top:7px;font-size:12px;color:var(--gd);font-style:italic;min-height:18px}
+.pvr{display:flex;gap:9px;align-items:flex-start;background:rgba(255,255,255,.5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px}
+.pvt{font-size:11px;color:var(--mu);line-height:1.6}
+.pvt strong{color:var(--ink2)}
+
+/* ФІНАЛЬНЕ СЛОВО */
+.spc{background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(250,246,239,.9));border:1.5px solid var(--bd2);border-radius:18px;padding:22px 18px}
+.spt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:9px}
+.spb{font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:7px}
+.spb em{font-style:italic;color:var(--gd)}
+.sps{font-size:11px;color:var(--mu2);font-style:italic;margin-top:5px;margin-bottom:16px}
+.tlinks{display:flex;flex-direction:column;gap:9px}
+.tlink{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.8);border:1.5px solid var(--bd);border-radius:11px;padding:11px 14px;text-decoration:none;color:var(--ink2);font-size:13px;transition:all .2s}
+.tlink:hover{border-color:var(--bd2);background:#fff;transform:translateY(-1px)}
+.tlr{margin-left:auto;color:var(--mu2)}
+
+/* ЗАВЕРШЕННЯ */
+.finish-btn{width:100%;padding:16px;border-radius:14px;border:none;background:linear-gradient(135deg,var(--sage),#4A7040);color:#fff;font-family:'Jost',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.finish-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(122,154,106,.35)}
+.finish-btn:active{transform:scale(.98)}
+.finish-done{margin-top:14px;background:linear-gradient(135deg,#1a2e1a,#0d1f0d);border-radius:20px;padding:28px 22px;text-align:center;display:none;animation:pp .5s cubic-bezier(.34,1.2,.64,1)}
+.finish-done.show{display:block}
+.fd-icon{font-size:3rem;display:block;margin-bottom:12px}
+.fd-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:10px}
+.fd-text{font-size:13px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:16px}
+.fd-text em{color:#a0d4a0;font-style:italic}
+.fd-summary{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;text-align:left}
+.fd-sum-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px}
+.fd-sum-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:12px}
+.fd-sum-row:last-child{border-bottom:none;padding-bottom:0}
+.fd-sum-label{color:rgba(255,255,255,.4)}
+.fd-sum-val{color:#a0d4a0;font-weight:500}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#EEF5E8,#DFF0D0 50%,#C8E0B0) !important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:60px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:var(--ink)}
+.fnt em{font-style:italic;color:#4A7040}
+.fnl{width:32px;height:1px;background:var(--sage);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--ink2);line-height:1.7;max-width:280px;margin:0 auto 26px}
+.tc{background:rgba(255,255,255,.6);border:1.5px solid var(--bd2);border-radius:20px;padding:24px 20px;text-align:center;max-width:340px;width:100%;backdrop-filter:blur(8px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:12px;display:block}
+.tci{font-size:42px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,5vw,24px);font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.tct em{color:var(--sage);font-style:italic}
+.tcd{font-size:12px;color:var(--mu);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar">Нутриціолог</div></div>
+  </div>
+  <div class="wb rv">Тиждень жирів · День 5</div>
+  <span class="hi rv">🏆</span>
+  <h1 class="ht rv">Підсумок тижня —<em>ти це зробила!</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs rv">П'ять днів про жири. П'ять кроків до балансу.<br>Сьогодні підводимо підсумки 💚</p>
+  <div class="week-dots rv">
+    <div class="wd-item"><div class="wd-dot done">1</div><div class="wd-lbl">Жири</div></div>
+    <div class="wd-item"><div class="wd-dot done">2</div><div class="wd-lbl">Транс</div></div>
+    <div class="wd-item"><div class="wd-dot done">3</div><div class="wd-lbl">Омега</div></div>
+    <div class="wd-item"><div class="wd-dot done">4</div><div class="wd-lbl">Гормони</div></div>
+    <div class="wd-item"><div class="wd-dot today">5</div><div class="wd-lbl">Підсумок</div></div>
+  </div>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка тижня</span>
+  <h2 class="tt rv">П'ять днів<br><em>з корисними жирами</em></h2>
+  <div class="hc rv">
+    <span class="hp">🌱 Тиждень жирів · Звичка</span>
+    <span class="hib">💚</span>
+    <p class="hq">«Щодня додаю<br><em>корисний жир</em><br>до кожного прийому їжі»</p>
+    <div class="hdv"></div>
+    <p class="hds">Ця звичка — не дієта і не обмеження. Це турбота про себе.<br><br>Жири дають гормони, енергію, красу шкіри і рівний настрій. Тепер ти знаєш це точно 💛</p>
+  </div>
+</div></section>
+
+<!-- ЧЕК-ЛИСТ -->
+<section><div class="w">
+  <span class="ey gr rv">Чек-лист тижня</span>
+  <h2 class="tt rv">Що ти<br><em class="gr">зробила цього тижня</em></h2>
+  <p class="sb rv">Відзнач те що робила хоча б один раз</p>
+  <div class="checklist rv" id="checklist">
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">🫒</span><div class="cl-text">Додала корисний жир до прийому їжі</div></div>
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">🔍</span><div class="cl-text">Прочитала склад продукту і шукала трансжири</div></div>
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">🐟</span><div class="cl-text">З'їла жирну рибу хоча б один раз</div></div>
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">🍳</span><div class="cl-text">Замінила соняшникову олію на якіснішу</div></div>
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">🌾</span><div class="cl-text">Додала насіння льону або чіа в йогурт або кашу</div></div>
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">🥑</span><div class="cl-text">З'їла авокадо або жменю горіхів як перекус</div></div>
+    <div class="cl-item" onclick="toggleCL(this)"><div class="cl-check">✓</div><span class="cl-icon">💊</span><div class="cl-text">Перевірила або замислилась про омегу-3 в капсулах</div></div>
+  </div>
+  <div class="cl-result rv" id="clResult">
+    <div class="cl-top"><span class="cl-num" id="clNum">0</span><span class="cl-of"> з 7 виконано</span></div>
+    <div class="cl-bar"><div class="cl-bar-fill" id="clBar"></div></div>
+    <div class="cl-msg" id="clMsg"></div>
+  </div>
+</div></section>
+
+<!-- МІЙ ПРОГРЕС ДО / ПІСЛЯ -->
+<section><div class="w">
+  <span class="ey rv">Мій прогрес</span>
+  <h2 class="tt rv">До і після —<br><em>що змінилось</em></h2>
+  <p class="sb rv">Оціни кожен показник чесно</p>
+  <div class="prog-table rv" id="progTable">
+
+    <div class="prog-row">
+      <div class="prog-label">🫒 Корисні жири в раціоні</div>
+      <div class="prog-sides">
+        <div class="prog-side"><div class="prog-side-lbl">На початку</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'b')">Рідко</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Іноді</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Часто</div>
+        </div></div>
+        <div class="prog-div"></div>
+        <div class="prog-side"><div class="prog-side-lbl">Зараз</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'a')">Іноді</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Частіше</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Щодня</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="prog-row">
+      <div class="prog-label">⚡ Рівень енергії</div>
+      <div class="prog-sides">
+        <div class="prog-side"><div class="prog-side-lbl">На початку</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'b')">Низький</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Середній</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Високий</div>
+        </div></div>
+        <div class="prog-div"></div>
+        <div class="prog-side"><div class="prog-side-lbl">Зараз</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'a')">Низький</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Середній</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Вищий</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="prog-row">
+      <div class="prog-label">🍫 Тяга до солодкого</div>
+      <div class="prog-sides">
+        <div class="prog-side"><div class="prog-side-lbl">На початку</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'b')">Сильна</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Середня</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Слабка</div>
+        </div></div>
+        <div class="prog-div"></div>
+        <div class="prog-side"><div class="prog-side-lbl">Зараз</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'a')">Сильна</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Менша</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Слабка</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="prog-row">
+      <div class="prog-label">🌿 Стан шкіри</div>
+      <div class="prog-sides">
+        <div class="prog-side"><div class="prog-side-lbl">На початку</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'b')">Суха</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Норма</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Добра</div>
+        </div></div>
+        <div class="prog-div"></div>
+        <div class="prog-side"><div class="prog-side-lbl">Зараз</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'a')">Так само</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Краще</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Відмінно</div>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="prog-row">
+      <div class="prog-label">☀️ Настрій і самопочуття</div>
+      <div class="prog-sides">
+        <div class="prog-side"><div class="prog-side-lbl">На початку</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'b')">Нестабільний</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Середній</div>
+          <div class="prog-btn" onclick="pb(this,'b')">Добрий</div>
+        </div></div>
+        <div class="prog-div"></div>
+        <div class="prog-side"><div class="prog-side-lbl">Зараз</div><div class="prog-btns">
+          <div class="prog-btn" onclick="pb(this,'a')">Так само</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Стабільніший</div>
+          <div class="prog-btn" onclick="pb(this,'a')">Відмінний</div>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="prog-summary rv" id="progSummary">
+    <p id="progMsg"></p>
+  </div>
+</div></section>
+
+<!-- МІЙ МІНІМУМ -->
+<section><div class="w">
+  <span class="ey rv">Щоденний план</span>
+  <h2 class="tt rv">Беру з собою<br><em>назавжди</em></h2>
+  <p class="sb rv">Запиши коли їстимеш кожне джерело жирів</p>
+  <div class="min-table rv">
+    <div class="min-row"><span class="min-icon">🫒</span><div class="min-info"><div class="min-name">Якісна олія</div><div class="min-amount">1–2 ст.л. на день</div></div>
+      <select class="min-sel"><option value="">Коли?</option><option>🌅 Сніданок</option><option>🍎 Перекус</option><option>🍽️ Обід</option><option>🌙 Вечеря</option><option>🥗 В салат</option></select></div>
+    <div class="min-row"><span class="min-icon">🌰</span><div class="min-info"><div class="min-name">Горіхи або насіння</div><div class="min-amount">Жменя ~30 г</div></div>
+      <select class="min-sel"><option value="">Коли?</option><option>🌅 Сніданок</option><option>🍎 Перекус</option><option>🍽️ Обід</option><option>🌙 Вечеря</option></select></div>
+    <div class="min-row"><span class="min-icon">🥑</span><div class="min-info"><div class="min-name">Авокадо або насіння</div><div class="min-amount">½ або 2 ст.л.</div></div>
+      <select class="min-sel"><option value="">Коли?</option><option>🌅 Сніданок</option><option>🍎 Перекус</option><option>🍽️ Обід</option><option>🌙 Вечеря</option></select></div>
+    <div class="min-row"><span class="min-icon">🐟</span><div class="min-info"><div class="min-name">Жирна риба</div><div class="min-amount">2–3 рази на тиждень</div></div>
+      <select class="min-sel"><option value="">Коли?</option><option>Пн і Чт</option><option>Вт і Пт</option><option>Пн, Ср, Пт</option><option>Пн, Чт, Сб</option></select></div>
+    <div class="min-row"><span class="min-icon">🧈</span><div class="min-info"><div class="min-name">Вершкове масло 82%+</div><div class="min-amount">На хліб або в страви</div></div>
+      <select class="min-sel"><option value="">Коли?</option><option>🌅 Сніданок</option><option>🍎 Перекус</option><option>🍽️ Обід</option><option>🌙 Вечеря</option></select></div>
+    <div class="min-row"><span class="min-icon">🥩</span><div class="min-info"><div class="min-name">М'ясо, яйця, сметана</div><div class="min-amount">Тваринний білок — вже містить жири</div></div>
+      <select class="min-sel"><option value="">Коли?</option><option>🌅 Сніданок</option><option>🍎 Перекус</option><option>🍽️ Обід</option><option>🌙 Вечеря</option></select></div>
+  </div>
+</div></section>
+
+<!-- ПОКАЗНИКИ -->
+<section><div class="w">
+  <span class="ey rv">Корисно знати</span>
+  <h2 class="tt rv">Мої показники<br><em>в аналізах</em></h2>
+  <p class="sb rv">Введи свої значення — і дізнайся чи все в нормі</p>
+  <div class="lab-card rv">
+    <div class="lab-head">
+      <div class="lab-head-title">🧪 Аналізи пов'язані з жирами</div>
+      <div class="lab-head-sub">Орієнтир — для точної інтерпретації звертайся до лікаря</div>
+    </div>
+
+    <div class="lab-item">
+      <div class="lab-top"><span class="lab-ico">☀️</span><div class="lab-info">
+        <div class="lab-name">Вітамін D · 25(OH)D</div>
+        <div class="lab-norm">Норма: <strong>40–60 нг/мл</strong> (100–150 нмоль/л)</div>
+      </div></div>
+      <div class="lab-scale"><div class="lab-marker" id="vitd-m"></div></div>
+      <div class="lab-ticks"><span>0</span><span>20</span><span style="color:var(--sage);font-weight:500">40–60 ✅</span><span>80</span><span>100</span></div>
+      <div class="lab-input-row">
+        <input class="lab-input" type="number" id="vitd" placeholder="—" inputmode="decimal" oninput="calcVitD()">
+        <span class="lab-unit">нг/мл</span>
+      </div>
+      <div class="lab-verdict" id="vitd-v"></div>
+    </div>
+
+    <div class="lab-item">
+      <div class="lab-top"><span class="lab-ico">🫀</span><div class="lab-info">
+        <div class="lab-name">Загальний холестерин</div>
+        <div class="lab-norm">Ідеально: <strong>до 4.5 ммоль/л</strong></div>
+      </div></div>
+      <div class="lab-scale"><div class="lab-marker" id="chol-m"></div></div>
+      <div class="lab-ticks"><span>2</span><span style="color:var(--sage);font-weight:500">4.5 ✅</span><span>6</span><span>7+</span><span></span></div>
+      <div class="lab-input-row">
+        <input class="lab-input" type="number" id="chol" placeholder="—" inputmode="decimal" oninput="calcChol()">
+        <span class="lab-unit">ммоль/л</span>
+      </div>
+      <div class="lab-verdict" id="chol-v"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Рефлексія тижня</span>
+  <h2 class="tt rv">Що змінилось<br><em>за цей тиждень</em></h2>
+  <div class="rc rv">
+    <div class="rct">📝 Підсумкові запитання</div>
+    <p class="rcs">Запиши чесно — це важливо для закріплення 🌿</p>
+    <div class="rqs">
+      <div><label class="rql">💡 Яка зміна тижня стала найбільшим відкриттям?</label>
+        <textarea class="rqt" id="r1" rows="2" placeholder="Наприклад: не знала що трансжири є в таких продуктах…"></textarea></div>
+      <div><label class="rql">🥑 Яке джерело жирів стало улюбленим цього тижня?</label>
+        <textarea class="rqt" id="r2" rows="2" placeholder="Наприклад: горіхи як перекус або льняна олія в салат…"></textarea></div>
+      <div><label class="rql">💙 Як почуваєшся після тижня усвідомленого харчування?</label>
+        <textarea class="rqt" id="r3" rows="2" placeholder="Наприклад: є більше розуміння що їм і чому…"></textarea></div>
+      <div>
+        <label class="rql">⭐ Як пройшов Тиждень жирів загалом?</label>
+        <div class="stars" id="stars">
+          <span class="star" onclick="rs(1)">⭐</span>
+          <span class="star" onclick="rs(2)">⭐</span>
+          <span class="star" onclick="rs(3)">⭐</span>
+          <span class="star" onclick="rs(4)">⭐</span>
+          <span class="star" onclick="rs(5)">⭐</span>
+        </div>
+        <div class="smsg" id="smsg"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pvr rv">
+    <span style="font-size:13px;flex-shrink:0">🔒</span>
+    <p class="pvt"><strong>Це твій особистий простір.</strong> Нотатки залишаються лише на твоєму пристрої 💛</p>
+  </div>
+</div></section>
+
+<!-- ФІНАЛЬНЕ СЛОВО -->
+<section><div class="w">
+  <div class="spc rv">
+    <div class="spt">💚 Фінальне слово від мене</div>
+    <p class="spb">Ти пройшла цілий тиждень і дізналась правду про жири. <em>Жири — це не ворог. Це сировина для твого здоров'я, гормонів і краси.</em></p>
+    <p class="spb">Забудь про «знежирені» продукти. Їж якісні жири — і твоє тіло скаже тобі дякую 🤍</p>
+    <p class="sps">— Любов Бухарова, нутриціолог</p>
+    <div class="tlinks">
+      <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tlink"><span style="font-size:1.1rem">✈️</span><span>Написати особисто — @Lyubov_nutritionist</span><span class="tlr">→</span></a>
+      <a href="https://t.me/+HjcCjo6AUOBkMTUy" target="_blank" class="tlink"><span style="font-size:1.1rem">👥</span><span>Приєднатись до групи в Telegram</span><span class="tlr">→</span></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ЗАВЕРШЕННЯ -->
+<section><div class="w">
+  <h2 class="tt rv" style="margin-bottom:8px">Завершити<br><em>тиждень жирів</em></h2>
+  <p class="sb rv">Натисни — і твій тиждень буде зафіксовано 🔒</p>
+
+  <button class="finish-btn rv" onclick="finishWeek()">🏆 Завершити тиждень жирів</button>
+
+  <div class="finish-done" id="finishDone">
+    <span class="fd-icon">🏆</span>
+    <div class="fd-title">Тиждень жирів — завершено!</div>
+    <div class="fd-text">Ти пройшла весь шлях. П'ять днів нових знань і маленьких змін.<br><em>Жири тепер — твої союзники назавжди 💚</em></div>
+    <div class="fd-summary">
+      <div class="fd-sum-title">Твій результат тижня</div>
+      <div class="fd-sum-row"><span class="fd-sum-label">Чек-лист тижня</span><span class="fd-sum-val" id="fs-cl">—</span></div>
+      <div class="fd-sum-row"><span class="fd-sum-label">Зірок за тиждень</span><span class="fd-sum-val" id="fs-s">—</span></div>
+      <div class="fd-sum-row"><span class="fd-sum-label">Відкриття тижня</span><span class="fd-sum-val" id="fs-r">—</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+  <span class="fni rv">🐟</span>
+  <h2 class="fnt rv">Тиждень жирів —<br><em>завершено!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Ти зробила це! Тепер жири — твої союзники назавжди.<br>Готова до наступного тижня? 💚</p>
+  <div class="tc rv">
+    <span class="tcl">Наступний тиждень</span>
+    <div class="tci">🌾</div>
+    <div class="tct">Тиждень<br><em>вуглеводів</em></div>
+    <p class="tcd">Правда про вуглеводи яка тебе здивує. Що їсти, скільки і коли — і чому не всі вуглеводи однакові 🌾</p>
+  </div>
+</section>
+
+<script>
+// Прогрес
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('pb').style.width=(s/h*100)+'%';
+});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// ── Чек-лист ──
+let clCount=0;
+const clMsgs=[
+  '🌱 Починаємо — ти вже тут і це важливо!',
+  '💛 1 з 7 — перший крок зроблено!',
+  '💛 2 з 7 — добрий початок тижня!',
+  '🌟 3 з 7 — вже половина! Чудово!',
+  '🌟 4 з 7 — більше половини! Молодець!',
+  '💪 5 з 7 — відмінний тиждень!',
+  '🏆 6 з 7 — майже ідеально!',
+  '🏆 7 з 7 — ідеальний тиждень жирів! Пишаюсь тобою 💚'
+];
+function toggleCL(item){
+  item.classList.toggle('on');
+  clCount=document.querySelectorAll('#checklist .cl-item.on').length;
+  document.getElementById('clNum').textContent=clCount;
+  document.getElementById('clBar').style.width=(clCount/7*100)+'%';
+  document.getElementById('clMsg').textContent=clMsgs[clCount];
+  document.getElementById('clResult').classList.add('show');
+}
+
+// ── Прогрес ──
+function pb(btn,side){
+  const sideEl=btn.closest('.prog-side');
+  sideEl.querySelectorAll('.prog-btn').forEach(b=>b.classList.remove('sb','sa'));
+  btn.classList.add(side==='b'?'sb':'sa');
+  // підсумок якщо заповнено 3+
+  let filled=0;
+  document.querySelectorAll('.prog-row').forEach(r=>{
+    if(r.querySelector('.prog-btn.sb')&&r.querySelector('.prog-btn.sa')) filled++;
+  });
+  if(filled>=3){
+    const msgs=[
+      '💛 Є перші зміни — і це вже важливо!',
+      '🌟 Помітний прогрес за тиждень!',
+      '💪 Відмінний прогрес! Тіло вже відчуває різницю!',
+      '🏆 Неймовірний тиждень! Ти змінилась 💚',
+      '🏆 Максимальний результат! Пишаюсь тобою 💚'
+    ];
+    document.getElementById('progMsg').textContent=msgs[Math.min(filled-3,msgs.length-1)];
+    document.getElementById('progSummary').classList.add('show');
+  }
+}
+
+// ── Показники ──
+function calcVitD(){
+  const val=parseFloat(document.getElementById('vitd').value);
+  const m=document.getElementById('vitd-m');
+  const v=document.getElementById('vitd-v');
+  if(!val||val<0){m.style.display='none';v.className='lab-verdict';return}
+  m.style.left=Math.min(val/100*100,100)+'%';
+  m.style.display='block';
+  if(val<20){
+    v.textContent='⬇️ Дефіцит (менше 20 нг/мл). Потрібна консультація і корекція';
+    v.className='lab-verdict show low';
+  } else if(val<40){
+    v.textContent='🟡 Недостатній рівень (20–40 нг/мл). Рекомендовано додатковий прийом Віт D разом з жирами для кращого засвоєння';
+    v.className='lab-verdict show low';
+  } else if(val<=60){
+    v.textContent='✅ Відмінно! (40–60 нг/мл) — оптимальний рівень. Продовжуй підтримувати!';
+    v.className='lab-verdict show ok';
+  } else {
+    v.textContent='💡 Рівень вище норми (60+ нг/мл). Проконсультуйся з лікарем або нутриціологом щодо балансу;
+    v.className='lab-verdict show warn';
+  }
+}
+
+function calcChol(){
+  const val=parseFloat(document.getElementById('chol').value);
+  const m=document.getElementById('chol-m');
+  const v=document.getElementById('chol-v');
+  if(!val||val<0){m.style.display='none';v.className='lab-verdict';return}
+  m.style.left=Math.min((val-2)/6*100,100)+'%';
+  m.style.display='block';
+  if(val<=4.5){
+    v.textContent='✅ Ідеально! До 4.5 ммоль/л — серцево-судинна система під захистом 💚';
+    v.className='lab-verdict show ok';
+  } else if(val<=5.2){
+    v.textContent='🟡 Трохи вище ідеалу (4.5–5.2). Зверни увагу на якість харчування — більше омега-3, менше трансжирів і цукру';
+    v.className='lab-verdict show warn';
+  } else {
+    v.textContent='⚠️ Підвищений холестерин (5.2+). Варто звернути увагу на харчування та роботу організму загалом — рекомендується консультація лікаря або нутриціолога;
+    v.className='lab-verdict show warn';
+  }
+}
+
+// ── Зірки ──
+let starCount=0;
+const sm=['','😔 Важкий тиждень — але ти пройшла його!','🌱 Є куди рости!','🌟 Добрий тиждень!','💪 Відмінний тиждень!','🏆 Ідеально! Пишаюсь тобою 💚'];
+function rs(n){
+  starCount=n;
+  document.querySelectorAll('#stars .star').forEach((s,i)=>s.classList.toggle('li',i<n));
+  document.getElementById('smsg').textContent=sm[n];
+}
+
+// ── Завершення ──
+function finishWeek(){
+  document.getElementById('fs-cl').textContent=clCount+' з 7 ✅';
+  document.getElementById('fs-s').textContent=starCount?'⭐'.repeat(starCount):'не обрано';
+  const r1=document.getElementById('r1').value.trim();
+  document.getElementById('fs-r').textContent=r1?r1.substring(0,40)+(r1.length>40?'…':''):'не заповнено';
+  document.getElementById('finishDone').classList.add('show');
+  document.querySelector('.finish-btn').style.display='none';
+  setTimeout(()=>document.getElementById('finishDone').scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+}
+</script>
+</body>
+</html>
