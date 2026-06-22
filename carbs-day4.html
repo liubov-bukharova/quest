@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>День 4 · Правила поєднання · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#F4F8F2;--cr2:#EDF5EB;
+  --g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--g4:#A8D8AC;--g5:#E8F5E9;
+  --ink:#1A2E1C;--ink2:#2E4A30;--mu:#5A7A5C;--mu2:#8AAA8C;
+  --bd:rgba(28,58,36,.14);--bd2:rgba(28,58,36,.26);
+  --warn:#B8600A;--warnp:#FDF3E7;--warnb:rgba(184,96,10,.2);
+  --red:#C0443A;--redp:rgba(192,68,58,.06);--redb:rgba(192,68,58,.18)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--g3),var(--g4));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:not(#s-hero):not(#s-final):nth-child(odd){background:var(--cr)}
+section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;text-align:center;display:block}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g2)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.12}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes slide-down{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+
+/* HERO */
+#s-hero{min-height:100svh;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(90,170,104,.14),transparent 60%),radial-gradient(ellipse 40% 30% at 85% 8%,rgba(90,170,104,.08),transparent 50%),#1C3A24;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);animation:rb 8s ease-in-out infinite}
+.ring:nth-child(1){width:220px;height:220px}
+.ring:nth-child(2){width:460px;height:460px;animation-delay:2.5s}
+.ring:nth-child(3){width:720px;height:720px;animation-delay:5s}
+.leaf{position:absolute;font-size:2rem;opacity:.07;animation:lf 6s ease-in-out infinite;pointer-events:none}
+.leaf:nth-child(4){top:8%;left:5%}.leaf:nth-child(5){top:15%;right:8%;animation-delay:1.5s}
+.leaf:nth-child(6){bottom:20%;left:10%;animation-delay:3s}.leaf:nth-child(7){bottom:12%;right:6%;animation-delay:4.5s}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(12px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:#E8F5E9;line-height:1.2}
+.ar-tag{font-size:9px;letter-spacing:2px;color:rgba(200,230,200,.7);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:rgba(200,235,202,.9);text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,70px);font-weight:700;line-height:1.05;color:#F0F7F0;position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:#8FCC9A;display:block;font-size:clamp(26px,7vw,48px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,rgba(143,204,154,.5),transparent);margin:15px auto;position:relative;z-index:1}
+.hs-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:290px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(143,204,154,.55);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+
+/* ДЛЯ КОГО */
+.symptom-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.symptom-chip{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--bd);border-radius:11px;padding:10px 12px;font-size:12px;color:var(--ink2)}
+.symptom-icon{font-size:1.1rem;flex-shrink:0}
+
+/* ПРИНЦИП */
+.principle-card{background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:18px;padding:24px 20px;text-align:center;box-shadow:0 4px 20px rgba(28,58,36,.22);position:relative;overflow:hidden}
+.principle-card::before{content:'🌿';position:absolute;right:-10px;bottom:-10px;font-size:100px;opacity:.08;pointer-events:none}
+.principle-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,235,200,.7);margin-bottom:12px;display:block}
+.principle-text{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5vw,28px);font-weight:700;color:#F0F7F0;line-height:1.3}
+.principle-text em{font-style:italic;color:#8FCC9A}
+.principle-sub{font-size:13px;color:rgba(180,220,184,.8);margin-top:10px;line-height:1.6}
+
+/* РЕКОМЕНДАЦІЇ */
+.rec-card{background:#fff;border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;margin-bottom:10px;box-shadow:0 2px 10px rgba(28,58,36,.06)}
+.rec-header{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none;transition:background .15s}
+.rec-header:hover{background:#F8FCF8}
+.rec-num{width:28px;height:28px;border-radius:50%;background:var(--g5);border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:var(--g2);flex-shrink:0}
+.rec-card.done .rec-num{background:var(--g2);border-color:var(--g2);color:#fff}
+.rec-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink);flex:1;line-height:1.3}
+.rec-card.done .rec-title{color:var(--g1)}
+.rec-arrow{font-size:.85rem;color:var(--mu2);transition:transform .3s;flex-shrink:0}
+.rec-arrow.open{transform:rotate(180deg)}
+.rec-body{display:none;padding:0 16px 16px;border-top:1px solid var(--bd)}
+.rec-body.open{display:block;animation:slide-down .25s ease}
+.rec-examples{display:flex;flex-direction:column;gap:6px;margin:12px 0}
+.rec-ex{display:flex;align-items:center;gap:9px;background:var(--g5);border-radius:9px;padding:9px 12px;font-size:12.5px;color:var(--ink2)}
+.rec-ex-icon{font-size:1rem;flex-shrink:0}
+.rec-note{font-size:12px;color:var(--mu);line-height:1.65;background:rgba(28,58,36,.03);border-radius:9px;padding:9px 12px;margin-top:4px}
+.rec-try-btn{width:100%;margin-top:12px;padding:10px;background:var(--g5);border:1.5px solid var(--bd);border-radius:10px;font-family:'Jost',sans-serif;font-size:13px;color:var(--g2);cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px}
+.rec-try-btn:hover{background:var(--g2);color:#fff;border-color:var(--g2)}
+.rec-card.done .rec-try-btn{background:var(--g2);color:#fff;border-color:var(--g2);pointer-events:none}
+
+/* ЗАВДАННЯ BADGE */
+.task-badge{display:inline-flex;align-items:center;gap:7px;background:var(--g1);color:#fff;border-radius:20px;padding:5px 14px;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+
+/* ЗАВДАННЯ 1 — МОЇ ПОЄДНАННЯ */
+.combo-grid{display:flex;flex-direction:column;gap:10px}
+.combo-card{background:#fff;border:1.5px solid var(--bd);border-radius:14px;padding:14px 16px;transition:all .2s}
+.combo-card.selected{border-color:var(--g2);background:var(--g5)}
+.combo-card-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.combo-meal-icon{font-size:1.3rem;flex-shrink:0}
+.combo-meal-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink)}
+.combo-options{display:flex;gap:7px;flex-wrap:wrap}
+.combo-opt{padding:7px 13px;border-radius:20px;border:1.5px solid var(--bd);background:#F8FCF8;font-size:12px;color:var(--ink2);cursor:pointer;transition:all .18s;user-select:none}
+.combo-opt:hover{border-color:var(--bd2)}
+.combo-opt.active-simple{background:#E8F5E9;border-color:#2E6B3A;color:#2E6B3A;font-weight:500}
+.combo-opt.active-mixed{background:#FDF3E7;border-color:#B8600A;color:#B8600A;font-weight:500}
+.combo-opt.active-complex{background:var(--redp);border-color:var(--red);color:var(--red);font-weight:500}
+.combo-note-inp{width:100%;margin-top:10px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:9px 12px;font-family:'Jost',sans-serif;font-size:12.5px;color:var(--ink);outline:none;resize:none;min-height:44px;line-height:1.6;transition:border-color .15s;display:none}
+.combo-note-inp.show{display:block}
+.combo-note-inp:focus{border-color:var(--g2)}
+.combo-note-inp::placeholder{color:var(--mu2);font-style:italic}
+.combo-summary{margin-top:14px;background:var(--g5);border:1px solid var(--bd);border-radius:12px;padding:13px 15px;display:none;animation:pp .4s ease}
+.combo-summary.show{display:block}
+.combo-summary-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.combo-summary-rows{display:flex;flex-direction:column;gap:6px}
+.combo-summary-row{display:flex;align-items:center;gap:8px;font-size:12.5px}
+.combo-summary-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-simple{background:#2E6B3A}
+.dot-mixed{background:#B8600A}
+.dot-complex{background:var(--red)}
+
+/* ЗАВДАННЯ 2 — ТРЕКЕР ВІДЧУТТІВ */
+.feeling-tracker{display:flex;flex-direction:column;gap:12px}
+.ft-meal{background:#fff;border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(28,58,36,.06)}
+.ft-meal-header{display:flex;align-items:center;gap:12px;padding:14px 16px}
+.ft-meal-icon{font-size:1.4rem;flex-shrink:0}
+.ft-meal-info{flex:1}
+.ft-meal-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink)}
+.ft-meal-time{font-size:11px;color:var(--mu);margin-top:1px}
+.ft-status{width:10px;height:10px;border-radius:50%;background:rgba(28,58,36,.12);flex-shrink:0;transition:background .3s}
+.ft-feelings{display:flex;gap:7px;padding:0 16px 14px;flex-wrap:wrap}
+.ft-btn{padding:8px 14px;border-radius:20px;border:1.5px solid var(--bd);background:#F8FCF8;font-size:12px;color:var(--ink2);cursor:pointer;transition:all .2s;user-select:none;display:flex;align-items:center;gap:5px}
+.ft-btn:hover{border-color:var(--bd2)}
+.ft-btn.f-light{background:#E8F5E9;border-color:#2E6B3A;color:#2E6B3A;font-weight:500}
+.ft-btn.f-ok{background:#FDF3E7;border-color:#B8600A;color:#B8600A;font-weight:500}
+.ft-btn.f-heavy{background:var(--redp);border-color:var(--red);color:var(--red);font-weight:500}
+.ft-meal.felt-light{border-color:#2E6B3A}
+.ft-meal.felt-ok{border-color:#B8600A}
+.ft-meal.felt-heavy{border-color:var(--red)}
+.ft-meal.felt-light .ft-status{background:#2E6B3A}
+.ft-meal.felt-ok .ft-status{background:#B8600A}
+.ft-meal.felt-heavy .ft-status{background:var(--red)}
+.ft-comment{display:none;margin:0 16px 14px}
+.ft-comment.show{display:block;animation:slide-down .2s ease}
+.ft-comment-inp{width:100%;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:8px 12px;font-family:'Jost',sans-serif;font-size:12px;color:var(--ink);outline:none;resize:none;min-height:40px;line-height:1.55;transition:border-color .15s}
+.ft-comment-inp:focus{border-color:var(--g2)}
+.ft-comment-inp::placeholder{color:var(--mu2);font-style:italic}
+.ft-insight{display:none;margin-top:14px;padding:13px 15px;border-radius:12px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-align:center;line-height:1.6;animation:pp .4s ease}
+.ft-insight.show{display:block}
+.ft-insight.ins-good{background:var(--g5);color:var(--g2);border:1px solid var(--bd)}
+.ft-insight.ins-mixed{background:var(--warnp);color:var(--warn);border:1px solid var(--warnb)}
+.ft-insight.ins-bad{background:var(--redp);color:var(--red);border:1px solid var(--redb)}
+
+/* ПРИКЛАДИ ТАРІЛОК */
+.plate-examples{display:flex;flex-direction:column;gap:10px}
+.plate-ex{background:#fff;border:1.5px solid var(--bd);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(28,58,36,.06)}
+.plate-ex-header{display:flex;align-items:center;gap:12px;padding:13px 15px;background:var(--g5);border-bottom:1px solid var(--bd)}
+.plate-ex-icon{font-size:1.3rem;flex-shrink:0}
+.plate-ex-time{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu)}
+.plate-ex-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.plate-ex-body{padding:12px 15px}
+.plate-ex-meal{font-size:13.5px;color:var(--ink2);font-weight:500;margin-bottom:4px}
+.plate-ex-why{font-size:11.5px;color:var(--mu);line-height:1.6}
+
+/* ЗВИЧКА */
+.hc{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.hc::before{content:'🌿';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.04;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:var(--g5);border:1px solid var(--bd);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--g2);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,20px);line-height:1.6;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g2)}
+.hdv{width:24px;height:1px;background:var(--bd2);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* ТРЕКЕРИ */
+.optional-block{border:1.5px dashed var(--bd);border-radius:20px;overflow:hidden;margin-bottom:12px}
+.optional-block:last-child{margin-bottom:0}
+.optional-toggle{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;background:#fff;user-select:none;transition:background .18s}
+.optional-toggle:hover{background:#F8FCF8}
+.ot-left{display:flex;align-items:center;gap:10px}
+.ot-icon{font-size:1.3rem}
+.ot-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.ot-sub{font-size:11px;color:var(--mu);margin-top:1px}
+.ot-arrow{font-size:1rem;color:var(--mu2);transition:transform .3s}
+.ot-arrow.open{transform:rotate(180deg)}
+.optional-body{display:none;padding:0 16px 16px;background:#fff}
+.optional-body.open{display:block;animation:slide-down .3s ease}
+.opt-div{height:1px;background:var(--bd);margin-bottom:14px}
+.ttp{font-size:11px;color:var(--g2);background:var(--g5);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin:0 0 12px;line-height:1.65}
+.wsr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}
+.wml{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--g2);line-height:1}
+.wu{font-size:12px;color:var(--mu2);margin-left:3px}
+.wcl{font-size:9px;color:var(--mu2);text-transform:uppercase;letter-spacing:1.5px}
+.wcv{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--mu2);text-align:right}
+.pt{height:4px;border-radius:2px;background:rgba(28,58,36,.08);overflow:hidden;margin-bottom:13px}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g2),var(--g3));width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.cups{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.cup{width:38px;height:38px;border-radius:10px;border:1.5px solid rgba(28,58,36,.14);background:#F8FCF8;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.cup:hover{border-color:var(--g2);transform:translateY(-2px)}
+.cup.fi{background:var(--g5);border-color:var(--g2)}
+.wmsg{font-size:11px;color:var(--mu);font-style:italic;text-align:center;min-height:16px}
+.meals{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.meal{display:flex;align-items:center;gap:10px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none}
+.meal:hover{background:#fff;border-color:var(--bd2)}
+.meal.ch{background:var(--g5);border-color:var(--bd2)}
+.me{font-size:1.1rem;flex-shrink:0}.mn{font-size:13px;color:var(--ink2);flex:1}
+.meal.ch .mn{color:var(--ink)}
+.mtk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.meal.ch .mtk{background:var(--g3);border-color:var(--g2);color:#fff}
+.pres{padding:10px 12px;background:var(--g5);border-radius:9px;border:1px solid var(--bd);display:none;text-align:center}
+.pres.sh{display:block}
+.pres p{font-size:12px;color:var(--g2);line-height:1.6}
+.pres strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+.fat-row{display:flex;align-items:center;gap:11px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none;margin-bottom:7px}
+.fat-row:hover{background:#fff;border-color:var(--bd2)}
+.fat-row.ch{background:var(--g5);border-color:var(--bd2)}
+.fat-icon{font-size:1.1rem;flex-shrink:0}.fat-name{font-size:13px;color:var(--ink2);flex:1}
+.fat-row.ch .fat-name{color:var(--ink)}
+.fat-tick{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.fat-row.ch .fat-tick{background:var(--g3);border-color:var(--g2);color:#fff}
+
+/* РЕФЛЕКСІЯ */
+.rq-card{background:#fff;border:1.5px solid var(--bd);border-radius:17px;padding:20px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.rq-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rq-sub{font-size:11px;color:var(--mu);margin-bottom:18px;line-height:1.5}
+.rq-list{display:flex;flex-direction:column;gap:14px}
+.rq-lbl{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rq-ta{width:100%;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:60px;line-height:1.65;transition:border-color .15s}
+.rq-ta:focus{border-color:var(--bd2)}
+.rq-ta::placeholder{color:var(--mu2);font-style:italic}
+.stars{display:flex;gap:7px;margin-top:3px}
+.star{font-size:24px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none}
+.star.li{opacity:1;transform:scale(1.1)}
+.smsg{margin-top:7px;font-size:12px;color:var(--g2);font-style:italic;min-height:18px}
+
+/* СЛОВО ВІД МЕНЕ */
+.expert-card{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:24px 20px;box-shadow:0 2px 14px rgba(28,58,36,.07);position:relative;overflow:hidden}
+.expert-card::after{content:'🌿';position:absolute;right:-8px;bottom:-12px;font-size:80px;opacity:.05;pointer-events:none}
+.expert-avatar{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.expert-av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.expert-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1.2}
+.expert-role{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.expert-text{font-size:13px;color:var(--mu);line-height:1.8;margin-bottom:6px}
+.expert-text em{font-style:italic;color:var(--g2)}
+.expert-sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--mu2);margin-bottom:16px}
+.tg-btn{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:13px;padding:14px 18px;text-decoration:none;cursor:pointer;transition:all .2s;width:100%;box-shadow:0 3px 12px rgba(28,58,36,.2)}
+.tg-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(28,58,36,.3)}
+.tg-icon{font-size:1.3rem;flex-shrink:0}
+.tg-text{flex:1;text-align:left}
+.tg-main{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:#fff;line-height:1.2}
+.tg-sub{font-size:10px;color:rgba(200,235,200,.8)}
+.tg-arrow{color:rgba(200,235,200,.7);font-size:1rem}
+
+/* ЗБЕРЕГТИ */
+.save-btn{width:100%;padding:16px 20px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:14px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.5px;box-shadow:0 4px 20px rgba(28,58,36,.22)}
+.save-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(28,58,36,.32)}
+.save-btn:active{transform:translateY(0)}
+.save-done{display:none;margin-top:12px;background:var(--g5);border:1px solid var(--bd2);border-radius:12px;padding:14px;text-align:center}
+.save-done.show{display:block;animation:pp .4s ease}
+.save-done p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);line-height:1.6}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#1C3A24,#243F2A 60%,#1A3620)!important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:54px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:#F0F7F0}
+.fnt em{font-style:italic;color:#8FCC9A}
+.fnl{width:32px;height:1px;background:rgba(143,204,154,.35);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:270px;margin:0 auto 26px}
+.tc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:19px;padding:22px 18px;text-align:center;max-width:330px;width:100%;backdrop-filter:blur(12px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(143,204,154,.8);margin-bottom:11px;display:block}
+.tci{font-size:38px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,21px);font-weight:700;color:#F0F7F0;margin-bottom:8px;line-height:1.3}
+.tct em{color:#8FCC9A;font-style:italic}
+.tcd{font-size:12px;color:rgba(180,220,184,.75);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="leaf">🌿</div><div class="leaf">🍃</div><div class="leaf">🌱</div><div class="leaf">🍽️</div>
+  <div class="apl rv"><div class="av">ЛБ</div><div><div class="an">Любов Бухарова</div><div class="ar-tag">Нутриціолог</div></div></div>
+  <div class="wb rv">Тиждень вуглеводів · День 4</div>
+  <span class="hi rv">🍽️</span>
+  <h1 class="ht rv">Правила поєднань<em>— легке травлення</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs-sub rv">Простіша тарілка = більше легкості. Сьогодні спостерігаємо за своїм тілом 🌿</p>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- ДЛЯ КОГО -->
+<section><div class="w">
+  <span class="ey rv">Ця програма — для тебе</span>
+  <h2 class="tt rv">Впізнаєш себе<br><em>у цих симптомах?</em></h2>
+  <p class="sb rv">Програма для людей 35+, які вже помічають зміни в організмі 🌿</p>
+
+  <div class="symptom-grid rv">
+    <div class="symptom-chip"><span class="symptom-icon">😮‍💨</span>Важкість після їжі</div>
+    <div class="symptom-chip"><span class="symptom-icon">🫧</span>Здуття живота</div>
+    <div class="symptom-chip"><span class="symptom-icon">😴</span>Сонливість після обіду</div>
+    <div class="symptom-chip"><span class="symptom-icon">🍬</span>Тяга до солодкого</div>
+    <div class="symptom-chip"><span class="symptom-icon">⚡</span>Зниження енергії</div>
+    <div class="symptom-chip"><span class="symptom-icon">⚖️</span>Зайва вага</div>
+    <div class="symptom-chip"><span class="symptom-icon">📈</span>Нестабільна енергія і стрибки цукру</div>
+  </div>
+
+  <div style="background:var(--g5);border:1px solid var(--bd);border-radius:13px;padding:14px 16px" class="rv">
+    <p style="font-size:13px;color:var(--g2);line-height:1.75">🌿 Сьогодні я дам не «ідеальне харчування», а <strong>протокол спрощення</strong> — щоб дати тілу менше навантаження, відчути легкість і почати відновлювати свій ресурс.</p>
+  </div>
+</div></section>
+
+<!-- ГОЛОВНИЙ ПРИНЦИП -->
+<section><div class="w">
+  <div class="principle-card rv">
+    <span class="principle-label">Головна ідея дня</span>
+    <div class="principle-text">Простіша тарілка —<br><em>більше легкості</em></div>
+    <p class="principle-sub">Не перевантажуй одну тарілку всім одразу. Чим простіше поєднання — тим легше травленню.</p>
+  </div>
+</div></section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка тижня</span>
+  <h2 class="tt rv">Спостерігаю<br><em>за своїм тілом</em></h2>
+  <div class="hc rv">
+    <span class="hp">🌿 День 4 · Звичка</span>
+    <span class="hib">🍽️</span>
+    <p class="hq">«Помічаю після якої їжі мені легко,<br><em>а після якої — важко»</em></p>
+    <div class="hdv"></div>
+    <p class="hds">Не рахуй ідеально. Не контролюй все. Просто спостерігай. Саме так починається справжнє розуміння свого тіла 🌿</p>
+  </div>
+</div></section>
+
+<!-- 5 РЕКОМЕНДАЦІЙ -->
+<section><div class="w">
+  <div style="text-align:center;margin-bottom:10px" class="rv"><span class="task-badge">✦ 5 Рекомендацій</span></div>
+  <h2 class="tt rv">Правила<br><em>простої тарілки</em></h2>
+  <p class="sb rv">Натисни на кожну щоб розкрити. Постав галочку "спробую" 🌿</p>
+
+  <!-- РЕК 1 -->
+  <div class="rec-card rv" id="rec1">
+    <div class="rec-header" onclick="toggleRec('rec1')">
+      <div class="rec-num">1</div>
+      <div class="rec-title">Білок поєднуй з овочами та зеленню</div>
+      <span class="rec-arrow" id="arr-rec1">▼</span>
+    </div>
+    <div class="rec-body" id="body-rec1">
+      <div class="rec-examples">
+        <div class="rec-ex"><span class="rec-ex-icon">🐟</span>Риба + великий салат або тушковані овочі</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🥚</span>Омлет + овочі + зелень</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🍗</span>Курка + овочі на пару або свіжий салат</div>
+      </div>
+      <div class="rec-note">🌿 Так дуже багато людей відчувають більше легкості після їжі. Овочі дають клітковину і допомагають засвоєнню білка.</div>
+      <button class="rec-try-btn" onclick="tryRec('rec1')">✓ Спробую сьогодні</button>
+    </div>
+  </div>
+
+  <!-- РЕК 2 -->
+  <div class="rec-card rv" id="rec2">
+    <div class="rec-header" onclick="toggleRec('rec2')">
+      <div class="rec-num">2</div>
+      <div class="rec-title">Крупи та вуглеводи — теж з овочами</div>
+      <span class="rec-arrow" id="arr-rec2">▼</span>
+    </div>
+    <div class="rec-body" id="body-rec2">
+      <div class="rec-examples">
+        <div class="rec-ex"><span class="rec-ex-icon">🌾</span>Гречка + великий салат або овочі</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🌱</span>Кіноа + свіжі або тушковані овочі</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🍚</span>Рис + овочі на пару</div>
+      </div>
+      <div class="rec-note">🌾 Овочі сповільнюють засвоєння вуглеводів і знижують глікемічний індекс всього прийому їжі.</div>
+      <button class="rec-try-btn" onclick="tryRec('rec2')">✓ Спробую сьогодні</button>
+    </div>
+  </div>
+
+  <!-- РЕК 3 -->
+  <div class="rec-card rv" id="rec3">
+    <div class="rec-header" onclick="toggleRec('rec3')">
+      <div class="rec-num">3</div>
+      <div class="rec-title">Уникай перевантаженої тарілки</div>
+      <span class="rec-arrow" id="arr-rec3">▼</span>
+    </div>
+    <div class="rec-body" id="body-rec3">
+      <div style="background:var(--redp);border:1px solid var(--redb);border-radius:10px;padding:10px 13px;margin:10px 0;font-size:12px;color:var(--red);line-height:1.65">
+        ⚠️ <strong>Складна комбінація:</strong><br>каша + м'ясо + хліб + десерт + солодкий йогурт
+      </div>
+      <div class="rec-note">🌿 Проблема часто не в одному продукті, а в <strong>загальному навантаженні</strong>. Особливо якщо є важкість після їжі — спробуй тимчасово (на 2–4 тижні) спростити тарілку. Це не назавжди — просто щоб дати тілу відпочити і відновити ресурс.</div>
+      <button class="rec-try-btn" onclick="tryRec('rec3')">✓ Спробую сьогодні</button>
+    </div>
+  </div>
+
+  <!-- РЕК 4 -->
+  <div class="rec-card rv" id="rec4">
+    <div class="rec-header" onclick="toggleRec('rec4')">
+      <div class="rec-num">4</div>
+      <div class="rec-title">Фрукти — після основного прийому їжі</div>
+      <span class="rec-arrow" id="arr-rec4">▼</span>
+    </div>
+    <div class="rec-body" id="body-rec4">
+      <div class="rec-examples">
+        <div class="rec-ex"><span class="rec-ex-icon">⏱️</span>Через 20–30 хвилин після обіду або вечері</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🍎</span>Яблуко, груша, ягоди — як легкий десерт</div>
+      </div>
+      <div class="rec-note">🌿 Особливо корисно якщо є тяга до солодкого, різкий голод або нестабільна енергія. Для багатьох так комфортніше.</div>
+      <button class="rec-try-btn" onclick="tryRec('rec4')">✓ Спробую сьогодні</button>
+    </div>
+  </div>
+
+  <!-- РЕК 5 -->
+  <div class="rec-card rv" id="rec5">
+    <div class="rec-header" onclick="toggleRec('rec5')">
+      <div class="rec-num">5</div>
+      <div class="rec-title">Кефір і йогурт — окремий перекус</div>
+      <span class="rec-arrow" id="arr-rec5">▼</span>
+    </div>
+    <div class="rec-body" id="body-rec5">
+      <div class="rec-examples">
+        <div class="rec-ex"><span class="rec-ex-icon">🥣</span>Йогурт з ягодами — як окремий перекус</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🥛</span>Кефір — не запивати основну їжу</div>
+        <div class="rec-ex"><span class="rec-ex-icon">🌱</span>Йогурт з насінням чіа або льоном</div>
+      </div>
+      <div class="rec-note">🌿 Не як доповнення до основної їжі, а як самостійний перекус — так травленню часто легше.</div>
+      <button class="rec-try-btn" onclick="tryRec('rec5')">✓ Спробую сьогодні</button>
+    </div>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ — ПОЄДНАННЯ + ВІДЧУТТЯ -->
+<section><div class="w">
+  <div style="text-align:center;margin-bottom:10px" class="rv"><span class="task-badge">✦ Завдання</span></div>
+  <h2 class="tt rv">Поєднання і відчуття<br><em>сьогодні</em></h2>
+  <p class="sb rv">Для кожного прийому їжі — яке поєднання і як себе почувала після 🌿</p>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px" class="rv">
+    <span style="font-size:11px;background:#E8F5E9;color:#2E6B3A;padding:4px 11px;border-radius:20px;border:1px solid rgba(46,107,58,.2)">🟢 Просте — білок або крупи + овочі</span>
+    <span style="font-size:11px;background:#FDF3E7;color:#B8600A;padding:4px 11px;border-radius:20px;border:1px solid rgba(184,96,10,.2)">🟡 Змішане — 3–4 компоненти</span>
+    <span style="font-size:11px;background:var(--redp);color:var(--red);padding:4px 11px;border-radius:20px;border:1px solid var(--redb)">🔴 Складне — все разом</span>
+  </div>
+
+  <div class="combo-grid rv" id="comboGrid">
+
+    <div class="combo-card" id="cc-breakfast">
+      <div class="combo-card-header">
+        <span class="combo-meal-icon">🌅</span>
+        <span class="combo-meal-name">Сніданок</span>
+      </div>
+      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
+      <div class="combo-options">
+        <div class="combo-opt" onclick="selectCombo('breakfast','simple',this)">🟢 Просте</div>
+        <div class="combo-opt" onclick="selectCombo('breakfast','mixed',this)">🟡 Змішане</div>
+        <div class="combo-opt" onclick="selectCombo('breakfast','complex',this)">🔴 Складне</div>
+        <div class="combo-opt" onclick="selectCombo('breakfast','skip',this)">— Пропустила</div>
+      </div>
+      <div class="combo-feeling-wrap" id="cfw-breakfast" style="display:none;margin-top:10px;animation:slide-down .2s ease">
+        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Відчуття після</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <div class="combo-opt" onclick="selectComboFeeling('breakfast','light',this)">😊 Легко</div>
+          <div class="combo-opt" onclick="selectComboFeeling('breakfast','ok',this)">😐 Нормально</div>
+          <div class="combo-opt" onclick="selectComboFeeling('breakfast','heavy',this)">😮‍💨 Важко</div>
+        </div>
+      </div>
+      <textarea class="combo-note-inp" id="cn-breakfast" placeholder="Що їла? (необов'язково)…" rows="1"></textarea>
+    </div>
+
+    <div class="combo-card" id="cc-snack1">
+      <div class="combo-card-header">
+        <span class="combo-meal-icon">🍎</span>
+        <span class="combo-meal-name">Перекус</span>
+      </div>
+      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
+      <div class="combo-options">
+        <div class="combo-opt" onclick="selectCombo('snack1','simple',this)">🟢 Просте</div>
+        <div class="combo-opt" onclick="selectCombo('snack1','mixed',this)">🟡 Змішане</div>
+        <div class="combo-opt" onclick="selectCombo('snack1','complex',this)">🔴 Складне</div>
+        <div class="combo-opt" onclick="selectCombo('snack1','skip',this)">— Пропустила</div>
+      </div>
+      <div class="combo-feeling-wrap" id="cfw-snack1" style="display:none;margin-top:10px;animation:slide-down .2s ease">
+        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Відчуття після</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <div class="combo-opt" onclick="selectComboFeeling('snack1','light',this)">😊 Легко</div>
+          <div class="combo-opt" onclick="selectComboFeeling('snack1','ok',this)">😐 Нормально</div>
+          <div class="combo-opt" onclick="selectComboFeeling('snack1','heavy',this)">😮‍💨 Важко</div>
+        </div>
+      </div>
+      <textarea class="combo-note-inp" id="cn-snack1" placeholder="Що їла? (необов'язково)…" rows="1"></textarea>
+    </div>
+
+    <div class="combo-card" id="cc-lunch">
+      <div class="combo-card-header">
+        <span class="combo-meal-icon">🍽️</span>
+        <span class="combo-meal-name">Обід</span>
+      </div>
+      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
+      <div class="combo-options">
+        <div class="combo-opt" onclick="selectCombo('lunch','simple',this)">🟢 Просте</div>
+        <div class="combo-opt" onclick="selectCombo('lunch','mixed',this)">🟡 Змішане</div>
+        <div class="combo-opt" onclick="selectCombo('lunch','complex',this)">🔴 Складне</div>
+        <div class="combo-opt" onclick="selectCombo('lunch','skip',this)">— Пропустила</div>
+      </div>
+      <div class="combo-feeling-wrap" id="cfw-lunch" style="display:none;margin-top:10px;animation:slide-down .2s ease">
+        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Відчуття після</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <div class="combo-opt" onclick="selectComboFeeling('lunch','light',this)">😊 Легко</div>
+          <div class="combo-opt" onclick="selectComboFeeling('lunch','ok',this)">😐 Нормально</div>
+          <div class="combo-opt" onclick="selectComboFeeling('lunch','heavy',this)">😮‍💨 Важко</div>
+        </div>
+      </div>
+      <textarea class="combo-note-inp" id="cn-lunch" placeholder="Що їла? (необов'язково)…" rows="1"></textarea>
+    </div>
+
+    <div class="combo-card" id="cc-dinner">
+      <div class="combo-card-header">
+        <span class="combo-meal-icon">🌙</span>
+        <span class="combo-meal-name">Вечеря</span>
+      </div>
+      <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
+      <div class="combo-options">
+        <div class="combo-opt" onclick="selectCombo('dinner','simple',this)">🟢 Просте</div>
+        <div class="combo-opt" onclick="selectCombo('dinner','mixed',this)">🟡 Змішане</div>
+        <div class="combo-opt" onclick="selectCombo('dinner','complex',this)">🔴 Складне</div>
+        <div class="combo-opt" onclick="selectCombo('dinner','skip',this)">— Пропустила</div>
+      </div>
+      <div class="combo-feeling-wrap" id="cfw-dinner" style="display:none;margin-top:10px;animation:slide-down .2s ease">
+        <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Відчуття після</div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <div class="combo-opt" onclick="selectComboFeeling('dinner','light',this)">😊 Легко</div>
+          <div class="combo-opt" onclick="selectComboFeeling('dinner','ok',this)">😐 Нормально</div>
+          <div class="combo-opt" onclick="selectComboFeeling('dinner','heavy',this)">😮‍💨 Важко</div>
+        </div>
+      </div>
+      <textarea class="combo-note-inp" id="cn-dinner" placeholder="Що їла? (необов'язково)…" rows="1"></textarea>
+    </div>
+
+  </div>
+
+  <div class="combo-summary" id="comboSummary">
+    <div class="combo-summary-title">Підсумок дня</div>
+    <div class="combo-summary-rows" id="comboSummaryRows"></div>
+  </div>
+
+  <div class="ft-insight" id="ftInsight"></div>
+
+</div></section>
+
+
+
+
+
+<!-- РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Рефлексія</span>
+  <h2 class="tt rv">Три питання<br><em>для тебе</em></h2>
+  <div class="rq-card rv">
+    <div class="rq-title">📝 Спостереження за тілом</div>
+    <p class="rq-sub">Запиши чесно — це лише для тебе 🌿</p>
+    <div class="rq-list">
+      <div>
+        <label class="rq-lbl">😊 Після якої їжі сьогодні тобі було найлегше? Що це було?</label>
+        <textarea class="rq-ta" rows="2" placeholder="Наприклад: після гречки з салатом — відчула легкість і не хотілося спати…"></textarea>
+      </div>
+      <div>
+        <label class="rq-lbl">😮‍💨 Чи була сьогодні важкість або здуття? Після чого?</label>
+        <textarea class="rq-ta" rows="2" placeholder="Наприклад: після обіду де були хліб + м'ясо + десерт — відчула важкість…"></textarea>
+      </div>
+      <div>
+        <label class="rq-lbl">🌿 Яку одну рекомендацію спробуєш дотримуватись наступного тижня?</label>
+        <textarea class="rq-ta" rows="2" placeholder="Наприклад: буду їсти фрукти через 20 хв після їжі, а не натще…"></textarea>
+      </div>
+      <div>
+        <label class="rq-lbl">⭐ Як пройшов День 4?</label>
+        <div class="stars" id="stars">
+          <span class="star" onclick="rs(1)">⭐</span><span class="star" onclick="rs(2)">⭐</span><span class="star" onclick="rs(3)">⭐</span><span class="star" onclick="rs(4)">⭐</span><span class="star" onclick="rs(5)">⭐</span>
+        </div>
+        <div class="smsg" id="smsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:12px" class="rv">
+    <span style="font-size:13px;flex-shrink:0">🔒</span>
+    <p style="font-size:11px;color:var(--mu);line-height:1.6"><strong style="color:var(--ink2)">Це твій особистий простір.</strong> Нотатки лише на твоєму пристрої 💛</p>
+  </div>
+</div></section>
+
+
+<!-- ТРЕКЕРИ -->
+<section><div class="w">
+  <span class="ey rv">Бонус</span>
+  <h2 class="tt rv">Трекери дня<br><em>(за бажанням)</em></h2>
+  <p class="sb rv">Є час і натхнення — відстеж воду, білок і жири 🌿</p>
+
+  <div class="optional-block rv">
+    <div class="optional-toggle" onclick="toggleOpt('water')">
+      <div class="ot-left"><span class="ot-icon">💧</span><div><div class="ot-title">Вода сьогодні</div><div class="ot-sub">Вода допомагає травленню</div></div></div>
+      <span class="ot-arrow" id="arr-water">▼</span>
+    </div>
+    <div class="optional-body" id="body-water">
+      <div class="opt-div"></div>
+      <div class="ttp">Пий 30 мл × вага і мінімум 1.5 л на день 🌿</div>
+      <div class="wsr"><div style="display:flex;align-items:baseline;gap:3px"><span class="wml" id="wml">0</span><span class="wu">мл</span></div><div><div class="wcl">Склянок</div><div class="wcv" id="wcv">0 / 10</div></div></div>
+      <div class="pt"><div class="pf" id="wpf"></div></div>
+      <div class="cups" id="cups"></div>
+      <div class="wmsg" id="wmsg"></div>
+    </div>
+  </div>
+
+  <div class="optional-block rv">
+    <div class="optional-toggle" onclick="toggleOpt('protein')">
+      <div class="ot-left"><span class="ot-icon">💪</span><div><div class="ot-title">Білок на тарілці</div><div class="ot-sub">Білок + овочі = легко</div></div></div>
+      <span class="ot-arrow" id="arr-protein">▼</span>
+    </div>
+    <div class="optional-body" id="body-protein">
+      <div class="opt-div"></div>
+      <div class="ttp">Відзнач прийоми їжі де був білок 💛</div>
+      <div class="meals" id="meals">
+        <div class="meal" onclick="tm(this)"><span class="me">🌅</span><span class="mn">Сніданок</span><div class="mtk">✓</div></div>
+        <div class="meal" onclick="tm(this)"><span class="me">🍎</span><span class="mn">Перекус</span><div class="mtk">✓</div></div>
+        <div class="meal" onclick="tm(this)"><span class="me">🍽️</span><span class="mn">Обід</span><div class="mtk">✓</div></div>
+        <div class="meal" onclick="tm(this)"><span class="me">🌙</span><span class="mn">Вечеря</span><div class="mtk">✓</div></div>
+      </div>
+      <div class="pres" id="pres"><p><strong id="pc">0</strong> з 4 прийомів із білком — <span id="pm"></span></p></div>
+    </div>
+  </div>
+
+  <div class="optional-block rv">
+    <div class="optional-toggle" onclick="toggleOpt('fatT')">
+      <div class="ot-left"><span class="ot-icon">🥑</span><div><div class="ot-title">Корисні жири сьогодні</div><div class="ot-sub">Жири + вуглеводи = нижчий ГІ</div></div></div>
+      <span class="ot-arrow" id="arr-fatT">▼</span>
+    </div>
+    <div class="optional-body" id="body-fatT">
+      <div class="opt-div"></div>
+      <div class="ttp">Жири допомагають засвоювати вітаміни з овочів 🌿</div>
+      <div id="fatRows">
+        <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🫒</span><span class="fat-name">Олія або горіхи</span><div class="fat-tick">✓</div></div>
+        <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🥑</span><span class="fat-name">Авокадо або насіння</span><div class="fat-tick">✓</div></div>
+        <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🐟</span><span class="fat-name">Жирна риба</span><div class="fat-tick">✓</div></div>
+      </div>
+      <div class="pres" id="fatResult" style="margin-top:8px"><p><strong id="fatCount">0</strong> джерела жирів — <span id="fatMsg"></span></p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- СЛОВО ВІД МЕНЕ -->
+<section><div class="w">
+  <span class="ey rv">Від нутриціолога</span>
+  <h2 class="tt rv">Слово<br><em>від мене</em></h2>
+  <div class="expert-card rv">
+    <div class="expert-avatar">
+      <div class="expert-av">ЛБ</div>
+      <div><div class="expert-name">Любов Бухарова</div><div class="expert-role">Нутриціолог · автор курсу</div></div>
+    </div>
+    <p class="expert-text">Це не заборони на все життя. <em>Якщо твій організм у ресурсі</em> — ти можеш їсти по-різному.</p>
+    <p class="expert-text">Але коли тіло вже втомлене — <em>простіші поєднання їжі дуже часто допомагають швидше повернути легкість і енергію</em> 🌿</p>
+    <p class="expert-text">Пиши якщо є питання — <em>завжди на зв'язку</em> 💛</p>
+    <div class="expert-sign">— Люба</div>
+    <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tg-btn">
+      <span class="tg-icon">✈️</span>
+      <div class="tg-text"><div class="tg-main">Написати Любові</div><div class="tg-sub">@Lyubov_nutritionist · Telegram</div></div>
+      <span class="tg-arrow">→</span>
+    </a>
+  </div>
+</div></section>
+
+<!-- ЗБЕРЕГТИ -->
+<section><div class="w">
+  <span class="ey rv">Завершити день</span>
+  <h2 class="tt rv">Зафіксувати<br><em>День 4</em></h2>
+  <p class="sb rv">Натисни коли виконала всі завдання 🌿</p>
+  <div class="rv">
+    <button class="save-btn" onclick="saveDay()"><span>✅</span><span>Завершити та зафіксувати День 4</span></button>
+    <div class="save-done" id="saveDone"><p>🏆 День 4 завершено!<br>Ти вже знаєш як тіло реагує на різну їжу 🌿</p></div>
+  </div>
+  <div style="display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:12px" class="rv">
+    <span style="font-size:13px;flex-shrink:0">🔒</span>
+    <p style="font-size:11px;color:var(--mu);line-height:1.6"><strong style="color:var(--ink2)">Дані зберігаються локально</strong> на твоєму пристрої 💛</p>
+  </div>
+</div></section>
+
+<!-- ЗАВТРА -->
+<section id="s-final">
+  <span class="fni rv">🌿</span>
+  <h2 class="fnt rv">День 4 —<br><em>виконано!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Ти вже спостерігаєш за своїм тілом.<br>Це і є початок змін 🌱</p>
+  <div class="tc rv">
+    <span class="tcl">Завтра · День 5</span>
+    <div class="tci">💧</div>
+    <div class="tct">Вода і травлення —<br><em>зв'язок який ми ігноруємо</em></div>
+    <p class="tcd">Дізнаєшся як правильне пиття води впливає на травлення і енергію 💛</p>
+  </div>
+</section>
+
+<script>
+// SCROLL + REVEAL
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%';});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// РЕКОМЕНДАЦІЇ
+function toggleRec(id){
+  const body=document.getElementById('body-'+id);
+  const arr=document.getElementById('arr-'+id);
+  const open=body.classList.contains('open');
+  body.classList.toggle('open',!open);
+  arr.classList.toggle('open',!open);
+}
+function tryRec(id){
+  const card=document.getElementById(id);
+  card.classList.add('done');
+  const btn=card.querySelector('.rec-try-btn');
+  btn.textContent='✅ Зафіксовано!';
+}
+
+// ЗАВДАННЯ 1 — ПОЄДНАННЯ
+const comboState={};
+function selectCombo(meal,type,el){
+  const card=document.getElementById('cc-'+meal);
+  card.querySelectorAll('.combo-options .combo-opt').forEach(o=>{
+    o.classList.remove('active-simple','active-mixed','active-complex');
+  });
+  if(type==='simple')el.classList.add('active-simple');
+  else if(type==='mixed')el.classList.add('active-mixed');
+  else if(type==='complex')el.classList.add('active-complex');
+  if(type!=='skip'){
+    card.classList.add('selected');
+    document.getElementById('cn-'+meal).classList.add('show');
+    const fw=document.getElementById('cfw-'+meal);
+    if(fw)fw.style.display='block';
+  }
+  comboState[meal]=type;
+  updateComboSummary();
+}
+
+function selectComboFeeling(meal,feeling,el){
+  const wrap=document.getElementById('cfw-'+meal);
+  wrap.querySelectorAll('.combo-opt').forEach(o=>o.classList.remove('active-simple','active-mixed','active-complex'));
+  if(feeling==='light')el.classList.add('active-simple');
+  else if(feeling==='ok')el.classList.add('active-mixed');
+  else el.classList.add('active-complex');
+  feelingState[meal]=feeling;
+  updateComboSummary();
+  updateFeelingInsight();
+}
+function updateFeelingInsight(){
+  const vals=Object.values(feelingState);
+  if(vals.length<2)return;
+  const ins=document.getElementById('ftInsight');
+  const lights=vals.filter(v=>v==='light').length;
+  const heavys=vals.filter(v=>v==='heavy').length;
+  ins.classList.add('show');
+  if(lights>=vals.length*0.7){
+    ins.className='ft-insight show ins-good';
+    ins.textContent='😊 Чудово! Сьогодні переважає легкість. Твоє тіло добре реагує — продовжуй спостерігати 🌿';
+  } else if(heavys>=vals.length*0.5){
+    ins.className='ft-insight show ins-bad';
+    ins.textContent='😮‍💨 Є відчуття важкості. Спробуй завтра зробити тарілку простішою — і подивись чи зміниться самопочуття 🌿';
+  } else {
+    ins.className='ft-insight show ins-mixed';
+    ins.textContent='🙂 Різні відчуття — це нормально. Порівняй: після якого поєднання було легко, а після якого — важко. Це твоя підказка 🌿';
+  }
+}
+const comboLabels={breakfast:'Сніданок',snack1:'Перекус',lunch:'Обід',dinner:'Вечеря'};
+const comboIcons={breakfast:'🌅',snack1:'🍎',lunch:'🍽️',dinner:'🌙'};
+const feelingLabels={light:'😊 Легко',ok:'😐 Нормально',heavy:'😮‍💨 Важко'};
+function updateComboSummary(){
+  const keys=Object.keys(comboState);
+  if(!keys.length)return;
+  const summary=document.getElementById('comboSummary');
+  const rows=document.getElementById('comboSummaryRows');
+  summary.classList.add('show');
+  rows.innerHTML=keys.map(k=>{
+    const t=comboState[k];
+    if(t==='skip')return '';
+    const color=t==='simple'?'dot-simple':t==='mixed'?'dot-mixed':'dot-complex';
+    const comboLabel=t==='simple'?'🟢 Просте':t==='mixed'?'🟡 Змішане':'🔴 Складне';
+    const feelLabel=feelingState[k]?(' → '+feelingLabels[feelingState[k]]):'';
+    return `<div class="combo-summary-row"><div class="combo-summary-dot ${color}"></div><span>${comboIcons[k]} ${comboLabels[k]}: ${comboLabel}${feelLabel}</span></div>`;
+  }).join('');
+}
+
+// ЗАВДАННЯ 2 — ВІДЧУТТЯ
+
+
+
+// ТРЕКЕРИ
+function toggleOpt(id){const b=document.getElementById('body-'+id),a=document.getElementById('arr-'+id),o=b.classList.contains('open');b.classList.toggle('open',!o);if(a)a.classList.toggle('open',!o);}
+
+// ТРЕКЕРИ
+let wg=0;const cupsEl=document.getElementById('cups');const wm=['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
+for(let i=0;i<10;i++){const b=document.createElement('button');b.type='button';b.className='cup';b.textContent='🥛';b.addEventListener('click',()=>{wg=b.classList.contains('fi')?i:i+1;document.querySelectorAll('.cup').forEach((c,j)=>c.classList.toggle('fi',j<wg));document.getElementById('wml').textContent=wg*200;document.getElementById('wcv').textContent=wg+' / 10';document.getElementById('wpf').style.width=(wg/10*100)+'%';document.getElementById('wmsg').textContent=wm[wg]||'';});cupsEl.appendChild(b);}
+const pm2=['','Перший прийом — будуємо! 🌱','Два — краще 💛','Три — відмінно! 💪','Ідеально! 🏆'];
+function tm(e){e.classList.toggle('ch');const d=document.querySelectorAll('#meals .meal.ch').length;document.getElementById('pc').textContent=d;document.getElementById('pm').textContent=pm2[Math.min(d,pm2.length-1)];document.getElementById('pres').classList.toggle('sh',d>0);}
+const fatMsgs=['','🥑 Одне джерело — вже є!','💛 Два — відмінно!','🏆 Три — ідеально!'];
+function toggleFat(row){row.classList.toggle('ch');const n=document.querySelectorAll('#fatRows .fat-row.ch').length;document.getElementById('fatCount').textContent=n;document.getElementById('fatMsg').textContent=fatMsgs[Math.min(n,fatMsgs.length-1)];document.getElementById('fatResult').classList.toggle('sh',n>0);}
+
+// ЗБЕРЕГТИ
+function saveDay(){document.getElementById('saveDone').classList.add('show');document.querySelector('.save-btn').style.opacity='.5';document.querySelector('.save-btn').style.pointerEvents='none';setTimeout(()=>document.getElementById('s-final').scrollIntoView({behavior:'smooth'}),800);}
+</script>
+</body>
+</html>
