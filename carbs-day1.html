@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>День 1 · Вуглеводи · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#F4F8F2;--cr2:#EDF5EB;
+  --g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--g4:#A8D8AC;--g5:#E8F5E9;
+  --ink:#1A2E1C;--ink2:#2E4A30;--mu:#5A7A5C;--mu2:#8AAA8C;
+  --bd:rgba(28,58,36,.14);--bd2:rgba(28,58,36,.26);
+  --warn:#B8600A;--warnp:#FDF3E7;--warnb:rgba(184,96,10,.2);
+  --red:#C0443A;--redp:rgba(192,68,58,.06);--redb:rgba(192,68,58,.22)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--g3),var(--g4));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:not(#s-hero):not(#s-final):nth-child(odd){background:var(--cr)}
+section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;text-align:center;display:block}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g2)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.12}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* HERO */
+#s-hero{min-height:100svh;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(90,170,104,.14),transparent 60%),radial-gradient(ellipse 40% 30% at 85% 8%,rgba(90,170,104,.08),transparent 50%),#1C3A24;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);animation:rb 8s ease-in-out infinite}
+.ring:nth-child(1){width:220px;height:220px}
+.ring:nth-child(2){width:460px;height:460px;animation-delay:2.5s}
+.ring:nth-child(3){width:720px;height:720px;animation-delay:5s}
+.leaf{position:absolute;font-size:2rem;opacity:.07;animation:lf 6s ease-in-out infinite;pointer-events:none}
+.leaf:nth-child(4){top:8%;left:5%}
+.leaf:nth-child(5){top:15%;right:8%;animation-delay:1.5s}
+.leaf:nth-child(6){bottom:20%;left:10%;animation-delay:3s}
+.leaf:nth-child(7){bottom:12%;right:6%;animation-delay:4.5s}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(12px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:#E8F5E9;line-height:1.2}
+.ar-tag{font-size:9px;letter-spacing:2px;color:rgba(200,230,200,.7);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:rgba(200,235,202,.9);text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,70px);font-weight:700;line-height:1.05;color:#F0F7F0;position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:#8FCC9A;display:block;font-size:clamp(26px,7vw,48px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,rgba(143,204,154,.5),transparent);margin:15px auto;position:relative;z-index:1}
+.hs-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:290px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(143,204,154,.55);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+
+/* КАРТКИ */
+.carb-table{background:#fff;border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.carb-head{display:grid;grid-template-columns:1fr 1fr;border-bottom:1.5px solid var(--bd)}
+.carb-head-col{padding:11px 14px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500}
+.carb-head-col.simple-h{color:var(--red);background:var(--redp);border-right:1px solid var(--redb)}
+.carb-head-col.complex-h{color:var(--g2);background:var(--g5)}
+.carb-section{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(28,58,36,.07)}
+.carb-section:last-child{border-bottom:none}
+.carb-cell{padding:10px 14px;border-right:1px solid rgba(28,58,36,.06)}
+.carb-cell:last-child{border-right:none}
+.carb-cat{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu2);margin-bottom:5px}
+.carb-item{font-size:12.5px;color:var(--ink2);padding:3px 0;line-height:1.35;display:flex;align-items:center;gap:6px}
+.carb-item::before{content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.carb-cell.s-side .carb-item::before{background:var(--red);opacity:.7}
+.carb-cell.c-side .carb-item::before{background:var(--g3);opacity:.9}
+
+/* ЗВИЧКА */
+.hc{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.hc::before{content:'🌾';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.04;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:var(--g5);border:1px solid var(--bd);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--g2);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.5vw,22px);line-height:1.5;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g2)}
+.hdv{width:24px;height:1px;background:var(--bd2);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* АУДИТ */
+.audit-table{background:#fff;border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.audit-head{display:grid;grid-template-columns:1fr auto auto;gap:8px;padding:10px 14px;background:var(--g5);border-bottom:1.5px solid var(--bd)}
+.audit-head-col{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.audit-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:11px 14px;border-bottom:1px solid rgba(28,58,36,.06);transition:background .15s}
+.audit-row:last-child{border-bottom:none}
+.audit-row.simple{background:rgba(192,68,58,.02)}
+.audit-row.complex{background:rgba(46,107,58,.02)}
+.audit-name{font-size:13px;color:var(--ink2);line-height:1.3}
+.audit-type{font-size:11px;padding:3px 9px;border-radius:20px;white-space:nowrap}
+.audit-type.s{background:var(--redp);color:var(--red);border:1px solid var(--redb)}
+.audit-type.c{background:var(--g5);color:var(--g2);border:1px solid var(--bd)}
+.audit-toggle{display:flex;gap:5px}
+.at-btn{padding:5px 10px;border-radius:8px;border:1.5px solid var(--bd);background:#F8FCF8;font-size:11px;color:var(--mu);cursor:pointer;transition:all .18s;font-family:'Jost',sans-serif;white-space:nowrap}
+.at-btn:hover{border-color:var(--g2);color:var(--g2)}
+.at-btn.yes.active-y{background:var(--g5);border-color:var(--bd2);color:var(--g2);font-weight:500}
+.at-btn.no.active-n{background:var(--redp);border-color:var(--redb);color:var(--red);font-weight:500}
+.audit-result{margin-top:14px;background:#fff;border:1.5px solid var(--bd2);border-radius:14px;padding:16px;display:none;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.audit-result.show{display:block;animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+.ar-scores{display:flex;gap:10px;margin-bottom:12px}
+.ar-score{flex:1;text-align:center;padding:10px 8px;border-radius:11px}
+.ar-score.simple-s{background:var(--redp);border:1px solid var(--redb)}
+.ar-score.complex-s{background:var(--g5);border:1px solid var(--bd)}
+.ar-score-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:4px}
+.ar-score-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;line-height:1}
+.ar-score.simple-s .ar-score-num{color:var(--red)}
+.ar-score.complex-s .ar-score-num{color:var(--g2)}
+.ar-verdict{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-align:center;line-height:1.6;padding:10px 13px;border-radius:10px}
+.ar-verdict.good{background:var(--g5);color:var(--g2)}
+.ar-verdict.mid{background:rgba(46,107,58,.07);color:var(--ink2)}
+.ar-verdict.low{background:var(--redp);color:var(--red)}
+
+/* ЗАМІНИ */
+.swap-list{display:flex;flex-direction:column;gap:9px}
+.swap-row{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;cursor:pointer;transition:all .2s;user-select:none;box-shadow:0 1px 8px rgba(28,58,36,.05)}
+.swap-row.done{background:var(--g5);border-color:var(--bd2)}
+.swap-from{font-size:12px;color:var(--red);flex:1;line-height:1.4}
+.swap-arrow{font-size:1rem;color:var(--mu2);flex-shrink:0}
+.swap-to{font-size:12px;color:var(--g2);font-weight:500;flex:1;line-height:1.4}
+.swap-check{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--bd);background:#F8FCF8;display:flex;align-items:center;justify-content:center;font-size:10px;color:transparent;flex-shrink:0;transition:all .18s}
+.swap-row.done .swap-check{background:var(--g3);border-color:var(--g2);color:#fff}
+.swap-result-msg{margin-top:12px;background:var(--g5);border:1px solid var(--bd);border-radius:12px;padding:12px 14px;display:none}
+.swap-result-msg p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);line-height:1.6;text-align:center}
+
+/* РЕФЛЕКСІЯ */
+.rq-card{background:#fff;border:1.5px solid var(--bd);border-radius:17px;padding:20px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.rq-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rq-sub{font-size:11px;color:var(--mu);margin-bottom:18px;line-height:1.5}
+.rq-list{display:flex;flex-direction:column;gap:14px}
+.rq-lbl{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rq-ta{width:100%;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:62px;line-height:1.65;transition:border-color .15s}
+.rq-ta:focus{border-color:var(--bd2)}
+.rq-ta::placeholder{color:var(--mu2);font-style:italic}
+.stars{display:flex;gap:7px;margin-top:3px}
+.star{font-size:24px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none}
+.star.li{opacity:1;transform:scale(1.1)}
+.smsg{margin-top:7px;font-size:12px;color:var(--g2);font-style:italic;min-height:18px}
+
+/* ТРЕКЕРИ */
+.trc{background:#fff;border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.trt{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.ttp{font-size:11px;color:var(--g2);background:var(--g5);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin:7px 0 13px;line-height:1.65}
+.wsr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}
+.wml{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--g2);line-height:1}
+.wu{font-size:12px;color:var(--mu2);margin-left:3px}
+.wcl{font-size:9px;color:var(--mu2);text-transform:uppercase;letter-spacing:1.5px}
+.wcv{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--mu2);text-align:right}
+.pt{height:4px;border-radius:2px;background:rgba(28,58,36,.08);overflow:hidden;margin-bottom:13px}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g2),var(--g3));width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.cups{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.cup{width:40px;height:40px;border-radius:10px;border:1.5px solid rgba(28,58,36,.14);background:#F8FCF8;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.cup:hover{border-color:var(--g2);transform:translateY(-2px)}
+.cup.fi{background:var(--g5);border-color:var(--g2)}
+.wmsg{font-size:11px;color:var(--mu);font-style:italic;text-align:center;min-height:16px}
+.meals{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.meal{display:flex;align-items:center;gap:10px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none}
+.meal:hover{background:#fff;border-color:var(--bd2)}
+.meal.ch{background:var(--g5);border-color:var(--bd2)}
+.me{font-size:1.1rem;flex-shrink:0}
+.mn{font-size:13px;color:var(--ink2);flex:1}
+.meal.ch .mn{color:var(--ink)}
+.mtk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.meal.ch .mtk{background:var(--g3);border-color:var(--g2);color:#fff}
+.pres{padding:10px 12px;background:var(--g5);border-radius:9px;border:1px solid var(--bd);display:none;text-align:center}
+.pres.sh{display:block}
+.pres p{font-size:12px;color:var(--g2);line-height:1.6}
+.pres strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+.fat-row{display:flex;align-items:center;gap:11px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none;margin-bottom:7px}
+.fat-row:hover{background:#fff;border-color:var(--bd2)}
+.fat-row.ch{background:var(--g5);border-color:var(--bd2)}
+.fat-icon{font-size:1.1rem;flex-shrink:0}
+.fat-name{font-size:13px;color:var(--ink2);flex:1}
+.fat-row.ch .fat-name{color:var(--ink)}
+.fat-tick{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.fat-row.ch .fat-tick{background:var(--g3);border-color:var(--g2);color:#fff}
+
+/* ПІДТРИМКА */
+.spc{background:#fff;border:1.5px solid var(--bd);border-radius:18px;padding:22px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.spt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:9px}
+.spb{font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:7px}
+.spb em{font-style:italic;color:var(--g2)}
+.sps{font-size:11px;color:var(--mu2);font-style:italic;margin-top:5px}
+.pvr{display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:10px}
+.pvt{font-size:11px;color:var(--mu);line-height:1.6}
+.pvt strong{color:var(--ink2)}
+
+/* КНОПКА */
+.save-btn{width:100%;padding:16px 20px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:14px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.5px;box-shadow:0 4px 20px rgba(28,58,36,.22)}
+.save-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(28,58,36,.32)}
+.save-btn:active{transform:translateY(0)}
+.save-done{display:none;margin-top:12px;background:var(--g5);border:1px solid var(--bd2);border-radius:12px;padding:14px;text-align:center;animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+.save-done p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);line-height:1.6}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#1C3A24,#243F2A 60%,#1A3620) !important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:54px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:#F0F7F0}
+.fnt em{font-style:italic;color:#8FCC9A}
+.fnl{width:32px;height:1px;background:rgba(143,204,154,.35);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:270px;margin:0 auto 26px}
+.tc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:19px;padding:22px 18px;text-align:center;max-width:330px;width:100%;backdrop-filter:blur(12px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(143,204,154,.8);margin-bottom:11px;display:block}
+.tci{font-size:38px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,21px);font-weight:700;color:#F0F7F0;margin-bottom:8px;line-height:1.3}
+.tct em{color:#8FCC9A;font-style:italic}
+.tcd{font-size:12px;color:rgba(180,220,184,.75);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="leaf">🌿</div><div class="leaf">🍃</div><div class="leaf">🌱</div><div class="leaf">🌾</div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar-tag">Нутриціолог</div></div>
+  </div>
+  <div class="wb rv">Тиждень вуглеводів · День 1</div>
+  <span class="hi rv">🌾</span>
+  <h1 class="ht rv">Вуглеводи —<em>це не ворог,<br>це енергія</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs-sub rv">Сьогодні навчишся розрізняти прості і складні вуглеводи — і зробиш перший аудит свого раціону 🌿</p>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- ТАБЛИЦЯ -->
+<section><div class="w">
+  <span class="ey rv">Де шукати</span>
+  <h2 class="tt rv">Прості vs Складні<br><em>вуглеводи</em></h2>
+  <p class="sb rv">Збережи — і звіряйся щодня 🌿</p>
+  <div class="carb-table rv">
+    <div class="carb-head">
+      <div class="carb-head-col simple-h">⚡ Прості</div>
+      <div class="carb-head-col complex-h">🌾 Складні</div>
+    </div>
+    <div class="carb-section">
+      <div class="carb-cell s-side">
+        <div class="carb-cat">Хліб</div>
+        <div class="carb-item">Білий хліб</div>
+        <div class="carb-item">Булки, батон</div>
+      </div>
+      <div class="carb-cell c-side">
+        <div class="carb-cat">Хліб</div>
+        <div class="carb-item">Цільнозерновий</div>
+        <div class="carb-item">Житній хліб</div>
+      </div>
+    </div>
+    <div class="carb-section">
+      <div class="carb-cell s-side">
+        <div class="carb-cat">Крупи</div>
+        <div class="carb-item">Білий рис</div>
+        <div class="carb-item">Швидка каша</div>
+      </div>
+      <div class="carb-cell c-side">
+        <div class="carb-cat">Крупи</div>
+        <div class="carb-item">Гречка</div>
+        <div class="carb-item">Бурий рис</div>
+        <div class="carb-item">Вівсянка</div>
+      </div>
+    </div>
+    <div class="carb-section">
+      <div class="carb-cell s-side">
+        <div class="carb-cat">Паста</div>
+        <div class="carb-item">Спагеті з білої муки</div>
+        <div class="carb-item">Звичайна паста</div>
+      </div>
+      <div class="carb-cell c-side">
+        <div class="carb-cat">Паста</div>
+        <div class="carb-item">Цільнозернові спагеті</div>
+        <div class="carb-item">Паста ц/з</div>
+      </div>
+    </div>
+    <div class="carb-section">
+      <div class="carb-cell s-side">
+        <div class="carb-cat">Солодке</div>
+        <div class="carb-item">Цукор, мед</div>
+        <div class="carb-item">Цукерки</div>
+        <div class="carb-item">Варення, соки</div>
+        <div class="carb-item">Солодкі напої</div>
+        <div class="carb-item">Випічка</div>
+      </div>
+      <div class="carb-cell c-side">
+        <div class="carb-cat">Зернові</div>
+        <div class="carb-item">Кіноа, булгур</div>
+        <div class="carb-cat" style="margin-top:8px">Бобові</div>
+        <div class="carb-item">Сочевиця</div>
+        <div class="carb-item">Нут, квасоля</div>
+      </div>
+    </div>
+    <div class="carb-section">
+      <div class="carb-cell s-side">
+        <div class="carb-cat">Фрукти та ягоди</div>
+        <div class="carb-item">Всі фрукти та ягоди</div>
+        <div class="carb-item">Банани, фініки</div>
+        <div class="carb-item">Виноград, яблука</div>
+        <div class="carb-item">Сухофрукти</div>
+        <div class="carb-cat" style="margin-top:8px">Молочне</div>
+        <div class="carb-item">Молоко, йогурт</div>
+      </div>
+      <div class="carb-cell c-side">
+        <div class="carb-cat">Овочі</div>
+        <div class="carb-item">Всі овочі</div>
+        <div class="carb-item">Вся зелень</div>
+        <div class="carb-item">Батат</div>
+        <div class="carb-cat" style="margin-top:8px">Інше</div>
+        <div class="carb-item">Гриби</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:12px;background:var(--warnp);border:1px solid var(--warnb);border-radius:11px;padding:11px 14px" class="rv">
+    <p style="font-size:12px;color:var(--warn);line-height:1.65">💡 <strong>Порада:</strong> Складні вуглеводи засвоюються повільно — дають стабільну енергію та довше тримають ситість. Прості — швидкий сплеск і такий само швидкий голод.</p>
+  </div>
+</div></section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка тижня</span>
+  <h2 class="tt rv">Вчимося обирати<br><em>свідомо вуглеводи</em></h2>
+  <div class="hc rv">
+    <span class="hp">🌱 День 1 · Звичка</span>
+    <span class="hib">🌾</span>
+    <p class="hq">«Обираю<br><em>свідомо вуглеводи»</em></p>
+    <div class="hdv"></div>
+    <p class="hds">Не потрібно відмовлятись від усього. Одна маленька заміна на день — і за тиждень ти вже живеш по-іншому.<br><br>Білий хліб → цільнозерновий. Каша швидка → гречка. Сік → вода з лимоном 🌿</p>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 1 -->
+<section><div class="w">
+  <span class="ey rv" style="color:var(--red)">Завдання 1</span>
+  <h2 class="tt rv">Аудит: що зазвичай<br><em>ти їси?</em></h2>
+  <p class="sb rv">Відміть що є у твоєму звичному раціоні — і побачиш чого більше</p>
+  <div class="audit-table rv">
+    <div class="audit-head">
+      <div class="audit-head-col">Продукт</div>
+      <div class="audit-head-col">Тип</div>
+      <div class="audit-head-col" style="text-align:center">Їм регулярно?</div>
+    </div>
+    <div class="audit-row simple"><div class="audit-name">Білий хліб або булки</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row simple"><div class="audit-name">Цукор, цукерки, солодке</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row simple"><div class="audit-name">Солодкі напої або пакетований сік</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row simple"><div class="audit-name">Каша швидкого приготування</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row simple"><div class="audit-name">Білий рис або спагеті з білої муки</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row simple"><div class="audit-name">Фрукти та ягоди</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row simple"><div class="audit-name">Молоко або йогурт</div><div class="audit-type s">Простий</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','s')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','s')">Ні</button></div></div>
+    <div class="audit-row complex"><div class="audit-name">Гречка, бурий рис, вівсянка</div><div class="audit-type c">Складний</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','c')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','c')">Ні</button></div></div>
+    <div class="audit-row complex"><div class="audit-name">Цільнозернові спагеті або паста ц/з</div><div class="audit-type c">Складний</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','c')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','c')">Ні</button></div></div>
+    <div class="audit-row complex"><div class="audit-name">Цільнозерновий або житній хліб</div><div class="audit-type c">Складний</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','c')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','c')">Ні</button></div></div>
+    <div class="audit-row complex"><div class="audit-name">Овочі та зелень</div><div class="audit-type c">Складний</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','c')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','c')">Ні</button></div></div>
+    <div class="audit-row complex"><div class="audit-name">Бобові (нут, сочевиця, квасоля)</div><div class="audit-type c">Складний</div><div class="audit-toggle"><button class="at-btn yes" onclick="auditPick(this,'yes','c')">Так</button><button class="at-btn no" onclick="auditPick(this,'no','c')">Ні</button></div></div>
+  </div>
+  <div class="audit-result rv" id="auditResult">
+    <div class="ar-scores">
+      <div class="ar-score simple-s"><div class="ar-score-lbl">Прості</div><div class="ar-score-num" id="simpleCount">0</div></div>
+      <div class="ar-score complex-s"><div class="ar-score-lbl">Складні</div><div class="ar-score-num" id="complexCount">0</div></div>
+    </div>
+    <div class="ar-verdict" id="auditVerdict"></div>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 2 -->
+<section><div class="w">
+  <span class="ey rv">Завдання 2</span>
+  <h2 class="tt rv">Замінюємо прості<br><em>на складні</em></h2>
+  <p class="sb rv">Відміть що замінюєш вже сьогодні 👇</p>
+  <div class="swap-list rv" id="swapList">
+    <div class="swap-row" onclick="toggleSwap(this)"><div class="swap-from">❌ Білий хліб</div><div class="swap-arrow">→</div><div class="swap-to">✅ Цільнозерновий або житній</div><div class="swap-check">✓</div></div>
+    <div class="swap-row" onclick="toggleSwap(this)"><div class="swap-from">❌ Солодкий сніданок</div><div class="swap-arrow">→</div><div class="swap-to">✅ білок+овочі та зелень</div><div class="swap-check">✓</div></div>
+    <div class="swap-row" onclick="toggleSwap(this)"><div class="swap-from">❌ Солодкий напій або сік</div><div class="swap-arrow">→</div><div class="swap-to">✅ Вода або трав'яний чай</div><div class="swap-check">✓</div></div>
+    <div class="swap-row" onclick="toggleSwap(this)"><div class="swap-from">❌ Каша швидкого приготування</div><div class="swap-arrow">→</div><div class="swap-to">✅ Звичайна гречка або вівсянка</div><div class="swap-check">✓</div></div>
+    <div class="swap-row" onclick="toggleSwap(this)"><div class="swap-from">❌ Білий рис на гарнір</div><div class="swap-arrow">→</div><div class="swap-to">✅ Бурий рис</div><div class="swap-check">✓</div></div>
+  </div>
+  <div class="swap-result-msg" id="swapResult"><p id="swapMsg"></p></div>
+</div></section>
+
+<!-- ТРЕКЕРИ -->
+<section><div class="w">
+  <span class="ey rv">Трекери дня</span>
+  <h2 class="tt rv">Вода, білок<br><em>і корисні жири</em></h2>
+  <div class="trc rv" style="margin-bottom:13px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💧</span><div class="trt">Вода сьогодні</div></div>
+    <div class="ttp">Якщо ще не дійшла до норми — додай 200 мл і продовжуй пити маленькими ковтками 🌿<br><span style="font-size:10px;opacity:.8">Норма: 30 мл × твоя вага (кг)</span></div>
+    <div class="wsr"><div style="display:flex;align-items:baseline;gap:3px"><span class="wml" id="wml">0</span><span class="wu">мл</span></div><div><div class="wcl">Склянок</div><div class="wcv" id="wcv">0 / 10</div></div></div>
+    <div class="pt"><div class="pf" id="wpf"></div></div>
+    <div class="cups" id="cups"></div>
+    <div class="wmsg" id="wmsg"></div>
+  </div>
+  <div class="trc rv" style="margin-bottom:13px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💪</span><div class="trt">Білок на тарілці</div></div>
+    <div class="ttp">Білок + складні вуглеводи = рівна енергія на весь день 💛</div>
+    <div class="meals" id="meals">
+      <div class="meal" onclick="tm(this)"><span class="me">🌅</span><span class="mn">Сніданок</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍎</span><span class="mn">Перекус</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍽️</span><span class="mn">Обід</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🌙</span><span class="mn">Вечеря</span><div class="mtk">✓</div></div>
+    </div>
+    <div class="pres" id="pres"><p><strong id="pc">0</strong> з 4 прийомів із білком — <span id="pm"></span></p></div>
+  </div>
+  <div class="trc rv">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">🥑</span><div class="trt">Корисні жири сьогодні</div></div>
+    <div class="ttp">Жири + вуглеводи = краще засвоєння і довша ситість 🌿</div>
+    <div id="fatRows">
+      <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🫒</span><span class="fat-name">Олія або горіхи</span><div class="fat-tick">✓</div></div>
+      <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🥑</span><span class="fat-name">Авокадо або насіння</span><div class="fat-tick">✓</div></div>
+      <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🐟</span><span class="fat-name">Жирна риба</span><div class="fat-tick">✓</div></div>
+    </div>
+    <div class="pres" id="fatResult" style="margin-top:8px"><p><strong id="fatCount">0</strong> джерела жирів — <span id="fatMsg"></span></p></div>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 3 — РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Завдання 3</span>
+  <h2 class="tt rv">Твої<br><em>відчуття дня</em></h2>
+  <div class="rq-card rv">
+    <div class="rq-title">📝 Запитання для рефлексії</div>
+    <p class="rq-sub">Запиши чесно — це лише для тебе 🌿</p>
+    <div class="rq-list">
+      <div><label class="rq-lbl">🌾 Які вуглеводи переважали у твоєму раціоні до цього?</label><textarea class="rq-ta" rows="2" placeholder="Наприклад: переважно білий хліб і солодке…"></textarea></div>
+      <div><label class="rq-lbl">💡 Що здивувало тебе в результатах аудиту?</label><textarea class="rq-ta" rows="2" placeholder="Наприклад: не думала що сік з пакета — це простий вуглевод…"></textarea></div>
+      <div><label class="rq-lbl">🎯 Яку одну заміну зробиш вже завтра?</label><textarea class="rq-ta" rows="2" placeholder="Наприклад: замінити кашу швидкого приготування на гречку…"></textarea></div>
+      <div>
+        <label class="rq-lbl">⭐ Як пройшов День 1?</label>
+        <div class="stars" id="stars"><span class="star" onclick="rs(1)">⭐</span><span class="star" onclick="rs(2)">⭐</span><span class="star" onclick="rs(3)">⭐</span><span class="star" onclick="rs(4)">⭐</span><span class="star" onclick="rs(5)">⭐</span></div>
+        <div class="smsg" id="smsg"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pvr rv"><span style="font-size:13px;flex-shrink:0">🔒</span><p class="pvt"><strong>Це твій особистий простір.</strong> Нотатки залишаються лише на твоєму пристрої 💛</p></div>
+</div></section>
+
+<!-- ПІДТРИМКА -->
+<section><div class="w">
+  <div class="spc rv">
+    <div class="spt">💚 Слово від мене</div>
+    <p class="spb">Вуглеводи — це не ворог. <em>Це паливо яке тіло чекало.</em> Питання лише в тому — яке паливо ти обираєш.</p>
+    <p class="spb">Починаємо з маленьких замін — і вже за тиждень ти відчуєш різницю в енергії і настрої 🌿</p>
+    <p class="sps">— Любов Бухарова, нутриціолог</p>
+  </div>
+</div></section>
+
+<!-- ЗБЕРЕГТИ -->
+<section><div class="w">
+  <span class="ey rv">Завершити день</span>
+  <h2 class="tt rv">Зберегти<br><em>День 1</em></h2>
+  <p class="sb rv">Натисни коли виконала всі завдання 🌿</p>
+  <div class="rv">
+    <button class="save-btn" onclick="saveDay()"><span>✅</span><span>Завершити та зберегти День 1</span></button>
+    <div class="save-done" id="saveDone"><p>🏆 День 1 завершено!<br>Ти чудово впоралась — завтра продовжуємо 🌾</p></div>
+  </div>
+</div></section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+  <span class="fni rv">🌾</span>
+  <h2 class="fnt rv">День 1 —<br><em>виконано!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Ти зробила перший крок — аудит свого раціону.<br>Завтра йдемо глибше 🌿</p>
+  <div class="tc rv">
+    <span class="tcl">Завтра · День 2</span>
+    <div class="tci">📊</div>
+    <div class="tct">Рахуємо вуглеводи<br><em>та клітковину</em></div>
+    <p class="tcd">Як зрозуміти чи вистачає вуглеводів і клітковини саме тобі 💛</p>
+  </div>
+</section>
+
+<script>
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%'});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+let simpleYes=0,complexYes=0;
+function auditPick(btn,type,cat){
+  const row=btn.closest('.audit-toggle');
+  row.querySelectorAll('.at-btn').forEach(b=>b.classList.remove('active-y','active-n'));
+  if(type==='yes') btn.classList.add('active-y'); else btn.classList.add('active-n');
+  simpleYes=0;complexYes=0;
+  document.querySelectorAll('.audit-row').forEach(r=>{
+    const y=r.querySelector('.at-btn.yes.active-y');
+    if(y){if(r.classList.contains('simple'))simpleYes++;if(r.classList.contains('complex'))complexYes++;}
+  });
+  document.getElementById('simpleCount').textContent=simpleYes;
+  document.getElementById('complexCount').textContent=complexYes;
+  document.getElementById('auditResult').classList.add('show');
+  const v=document.getElementById('auditVerdict');
+  if(complexYes>simpleYes){v.textContent='✅ Переважно складні — відмінно! Продовжуй в тому ж дусі 🌿';v.className='ar-verdict good'}
+  else if(complexYes===simpleYes&&complexYes>0){v.textContent='🟡 Приблизно рівно — вже непогано! Замінимо ще один простий 💛';v.className='ar-verdict mid'}
+  else{v.textContent='💪 Переважно прості — є куди рости! Починаємо з однієї заміни вже сьогодні 🌱';v.className='ar-verdict low'}
+}
+
+function toggleSwap(row){
+  row.classList.toggle('done');
+  const n=document.querySelectorAll('#swapList .swap-row.done').length;
+  const msgs=['','🌱 Перша заміна — великий крок!','💛 Дві заміни — ти вже на шляху!','🌟 Три заміни — чудово!','🏆 Чотири заміни!','🌾 П\'ять замін! Сьогодні ти їси по-новому 💚'];
+  const res=document.getElementById('swapResult');
+  if(n>0){res.style.display='block';document.getElementById('swapMsg').textContent=msgs[Math.min(n,msgs.length-1)];}
+  else res.style.display='none';
+}
+
+let wg=0;
+const cupsEl=document.getElementById('cups');
+const wm=['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
+for(let i=0;i<10;i++){
+  const b=document.createElement('button');b.type='button';b.className='cup';b.textContent='🥛';
+  b.addEventListener('click',()=>{
+    wg=b.classList.contains('fi')?i:i+1;
+    document.querySelectorAll('.cup').forEach((c,j)=>c.classList.toggle('fi',j<wg));
+    document.getElementById('wml').textContent=wg*200;
+    document.getElementById('wcv').textContent=wg+' / 10';
+    document.getElementById('wpf').style.width=(wg/10*100)+'%';
+    document.getElementById('wmsg').textContent=wm[wg]||'';
+  });
+  cupsEl.appendChild(b);
+}
+
+const pm2=['','Перший прийом — будуємо! 🌱','Два — краще 💛','Три — відмінно! 💪','Ідеально! 🏆'];
+function tm(e){e.classList.toggle('ch');const d=document.querySelectorAll('#meals .meal.ch').length;document.getElementById('pc').textContent=d;document.getElementById('pm').textContent=pm2[Math.min(d,pm2.length-1)];document.getElementById('pres').classList.toggle('sh',d>0)}
+
+const fatMsgs=['','🥑 Одне джерело — вже є!','💛 Два — відмінно!','🏆 Три — ідеально!'];
+function toggleFat(row){row.classList.toggle('ch');const n=document.querySelectorAll('#fatRows .fat-row.ch').length;document.getElementById('fatCount').textContent=n;document.getElementById('fatMsg').textContent=fatMsgs[Math.min(n,fatMsgs.length-1)];document.getElementById('fatResult').classList.toggle('sh',n>0)}
+
+const sm=['','😔 Важкий день — але ти тут!','🌱 Є куди рости!','🌟 Непоганий день!','💪 Відмінний день!','🏆 Ідеально! 🌾'];
+function rs(n){document.querySelectorAll('#stars .star').forEach((s,i)=>s.classList.toggle('li',i<n));document.getElementById('smsg').textContent=sm[n]}
+
+function saveDay(){
+  document.getElementById('saveDone').style.display='block';
+  document.querySelector('.save-btn').style.opacity='.5';
+  document.querySelector('.save-btn').style.pointerEvents='none';
+  setTimeout(()=>document.getElementById('s-final').scrollIntoView({behavior:'smooth'}),800);
+}
+</script>
+</body>
+</html>
