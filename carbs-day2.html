@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>День 2 · Вуглеводи та клітковина · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#F4F8F2;--cr2:#EDF5EB;
+  --g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--g4:#A8D8AC;--g5:#E8F5E9;
+  --ink:#1A2E1C;--ink2:#2E4A30;--mu:#5A7A5C;--mu2:#8AAA8C;
+  --bd:rgba(28,58,36,.14);--bd2:rgba(28,58,36,.26);
+  --warn:#B8600A;--warnp:#FDF3E7;--warnb:rgba(184,96,10,.2);
+  --red:#C0443A;--redp:rgba(192,68,58,.06);--redb:rgba(192,68,58,.22)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--g3),var(--g4));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:not(#s-hero):not(#s-final):nth-child(odd){background:var(--cr)}
+section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;text-align:center;display:block}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g2)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.12}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes bump{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+
+/* HERO */
+#s-hero{min-height:100svh;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(90,170,104,.14),transparent 60%),radial-gradient(ellipse 40% 30% at 85% 8%,rgba(90,170,104,.08),transparent 50%),#1C3A24;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);animation:rb 8s ease-in-out infinite}
+.ring:nth-child(1){width:220px;height:220px}
+.ring:nth-child(2){width:460px;height:460px;animation-delay:2.5s}
+.ring:nth-child(3){width:720px;height:720px;animation-delay:5s}
+.leaf{position:absolute;font-size:2rem;opacity:.07;animation:lf 6s ease-in-out infinite;pointer-events:none}
+.leaf:nth-child(4){top:8%;left:5%}.leaf:nth-child(5){top:15%;right:8%;animation-delay:1.5s}
+.leaf:nth-child(6){bottom:20%;left:10%;animation-delay:3s}.leaf:nth-child(7){bottom:12%;right:6%;animation-delay:4.5s}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(12px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:#E8F5E9;line-height:1.2}
+.ar-tag{font-size:9px;letter-spacing:2px;color:rgba(200,230,200,.7);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:rgba(200,235,202,.9);text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,10vw,64px);font-weight:700;line-height:1.05;color:#F0F7F0;position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:#8FCC9A;display:block;font-size:clamp(24px,6.5vw,44px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,rgba(143,204,154,.5),transparent);margin:15px auto;position:relative;z-index:1}
+.hs-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:290px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(143,204,154,.55);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+
+/* ЗВИЧКА */
+.hc{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.hc::before{content:'📊';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.04;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:var(--g5);border:1px solid var(--bd);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--g2);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,19px);line-height:1.55;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g2)}
+.hdv{width:24px;height:1px;background:var(--bd2);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* АКТИВНІСТЬ */
+.act-grid{display:flex;flex-direction:column;gap:8px}
+.act-btn{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:13px 15px;cursor:pointer;transition:all .2s;user-select:none;box-shadow:0 1px 6px rgba(28,58,36,.04)}
+.act-btn:hover{border-color:var(--g2);background:var(--g5)}
+.act-btn.sel{background:var(--g5);border-color:var(--bd2)}
+.act-circle{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;transition:all .2s}
+.act-btn.sel .act-circle{background:var(--g3);border-color:var(--g2);color:#fff}
+.act-label{font-size:13px;color:var(--ink2);flex:1;line-height:1.3}
+.act-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.act-coef{font-size:11px;color:var(--g2);font-weight:500;background:var(--g5);padding:3px 8px;border-radius:8px;border:1px solid var(--bd);white-space:nowrap}
+.calc-box{background:#fff;border:1.5px solid var(--bd);border-radius:16px;padding:18px 16px;box-shadow:0 2px 14px rgba(28,58,36,.07);margin-top:16px}
+.calc-step-lbl{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:10px}
+.calc-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.calc-lbl{font-size:12px;color:var(--ink2);min-width:80px}
+.calc-inp{flex:1;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:16px;color:var(--ink);outline:none;transition:border-color .15s;text-align:center}
+.calc-inp:focus{border-color:var(--bd2)}
+.calc-inp::placeholder{color:var(--mu2);font-size:13px}
+.calc-unit{font-size:13px;color:var(--mu)}
+.calc-need-act{font-size:12px;color:var(--warn);font-style:italic;text-align:center;padding:8px;display:none;background:var(--warnp);border-radius:8px;margin-top:4px}
+.calc-need-act.show{display:block}
+.calc-result{background:var(--g5);border:1.5px solid var(--bd2);border-radius:12px;padding:16px;text-align:center;display:none;margin-top:8px}
+.calc-result.show{display:block;animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+.calc-result-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:8px}
+.calc-range-row{display:flex;align-items:center;justify-content:center;gap:8px}
+.calc-num{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--g2);line-height:1}
+.calc-dash{font-size:1.4rem;color:var(--mu2)}
+.calc-unit-lbl{font-size:12px;color:var(--mu);margin-top:4px}
+.calc-detail{font-size:11px;color:var(--ink2);margin-top:8px;background:rgba(255,255,255,.6);border-radius:8px;padding:7px 10px;line-height:1.6}
+
+/* STICKY TOTAL */
+.fiber-sticky{position:sticky;top:0;z-index:50;padding:10px 0 0;margin-bottom:16px}
+.fiber-total-bar{background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:14px;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 16px rgba(28,58,36,.22)}
+.ftb-left{display:flex;flex-direction:column}
+.ftb-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,235,202,.7);margin-bottom:2px}
+.ftb-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1;transition:all .2s}
+.ftb-num.bump{animation:bump .25s ease-out}
+.ftb-unit{font-size:11px;color:rgba(200,235,202,.8);margin-left:4px}
+.ftb-verdict{font-size:12px;font-style:italic;color:rgba(200,235,202,.9);text-align:right;max-width:145px;line-height:1.4}
+.ftb-bar-wrap{height:3px;background:rgba(255,255,255,.15);border-radius:2px;margin-top:8px;overflow:hidden}
+.ftb-bar{height:100%;background:linear-gradient(90deg,#8FCC9A,#C8F0CA);border-radius:2px;transition:width .4s cubic-bezier(.34,1.2,.64,1);width:0%}
+
+/* ТАБИ КАТЕГОРІЙ */
+.cat-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.cat-tab{padding:7px 13px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-size:11px;color:var(--mu);cursor:pointer;transition:all .18s;font-family:'Jost',sans-serif;white-space:nowrap;box-shadow:0 1px 4px rgba(28,58,36,.04)}
+.cat-tab:hover{border-color:var(--g2);color:var(--g2)}
+.cat-tab.active{background:var(--g2);border-color:var(--g2);color:#fff;font-weight:500}
+.cat-panel{display:none}
+.cat-panel.show{display:block}
+
+/* РЯДКИ ПРОДУКТІВ — порційний стиль */
+.prod-list{background:#fff;border:1.5px solid var(--bd);border-radius:14px;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.prod-row{display:flex;align-items:center;padding:11px 14px;border-bottom:1px solid rgba(28,58,36,.06);gap:10px;transition:background .15s}
+.prod-row:last-child{border-bottom:none}
+.prod-row.has-count{background:rgba(46,107,58,.04)}
+.prod-icon{font-size:1.3rem;flex-shrink:0}
+.prod-info{flex:1;min-width:0}
+.prod-name{font-size:13px;color:var(--ink2);line-height:1.3}
+.prod-portion{font-size:10px;color:var(--mu2);margin-top:1px}
+.prod-fiber-badge{font-size:10px;color:var(--g2);font-weight:500;background:var(--g5);border:1px solid var(--bd);border-radius:6px;padding:1px 6px;white-space:nowrap;flex-shrink:0}
+/* +/- controls */
+.prod-counter{display:flex;align-items:center;gap:0;flex-shrink:0}
+.cnt-btn{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--bd);background:#F8FCF8;font-size:16px;color:var(--mu);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;user-select:none;font-family:'Jost',sans-serif;font-weight:300;line-height:1}
+.cnt-btn:hover{border-color:var(--g2);color:var(--g2);background:var(--g5)}
+.cnt-btn.minus:hover{border-color:var(--red);color:var(--red);background:var(--redp)}
+.cnt-val{width:32px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:700;color:var(--g2);line-height:1}
+.cnt-val.zero{color:var(--mu2)}
+/* fiber result per row */
+.prod-fiber-result{font-size:12px;font-weight:500;color:var(--g2);min-width:34px;text-align:right;flex-shrink:0;transition:all .2s}
+.prod-fiber-result.zero{color:var(--mu2)}
+
+/* ШКАЛА */
+.scale-grid{display:flex;flex-direction:column;gap:6px;margin-top:14px}
+.scale-row{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;font-size:12px;color:var(--ink2);box-shadow:0 1px 5px rgba(28,58,36,.04)}
+.scale-badge{font-size:14px;flex-shrink:0}
+.scale-val{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--g2);min-width:56px}
+
+/* ПЛАН */
+.plan-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.plan-tab{padding:6px 12px;border-radius:20px;border:1.5px solid var(--bd);background:#fff;font-size:11px;color:var(--mu);cursor:pointer;transition:all .18s;font-family:'Jost',sans-serif;white-space:nowrap}
+.plan-tab:hover{border-color:var(--g2);color:var(--g2)}
+.plan-tab.active{background:var(--g5);border-color:var(--bd2);color:var(--g2);font-weight:500}
+.plan-panel{display:none}
+.plan-panel.show{display:block}
+.plan-item{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--bd);border-radius:10px;padding:11px 13px;margin-bottom:7px;cursor:pointer;transition:all .2s;user-select:none;box-shadow:0 1px 6px rgba(28,58,36,.04)}
+.plan-item:hover{border-color:var(--g2)}
+.plan-item.done{background:var(--g5);border-color:var(--bd2)}
+.pi-name{font-size:13px;color:var(--ink2);flex:1}
+.pi-fiber{font-size:12px;color:var(--g2);font-weight:500;white-space:nowrap;margin-right:6px}
+.pi-check{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--bd);background:#F8FCF8;display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .18s}
+.plan-item.done .pi-check{background:var(--g3);border-color:var(--g2);color:#fff}
+
+/* ТРЕКЕРИ */
+.trc{background:#fff;border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.trt{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.ttp{font-size:11px;color:var(--g2);background:var(--g5);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin:7px 0 13px;line-height:1.65}
+.wsr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}
+.wml{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--g2);line-height:1}
+.wu{font-size:12px;color:var(--mu2);margin-left:3px}
+.wcl{font-size:9px;color:var(--mu2);text-transform:uppercase;letter-spacing:1.5px}
+.wcv{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--mu2);text-align:right}
+.pt{height:4px;border-radius:2px;background:rgba(28,58,36,.08);overflow:hidden;margin-bottom:13px}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g2),var(--g3));width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.cups{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.cup{width:40px;height:40px;border-radius:10px;border:1.5px solid rgba(28,58,36,.14);background:#F8FCF8;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.cup:hover{border-color:var(--g2);transform:translateY(-2px)}
+.cup.fi{background:var(--g5);border-color:var(--g2)}
+.wmsg{font-size:11px;color:var(--mu);font-style:italic;text-align:center;min-height:16px}
+.meals{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.meal{display:flex;align-items:center;gap:10px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none}
+.meal:hover{background:#fff;border-color:var(--bd2)}
+.meal.ch{background:var(--g5);border-color:var(--bd2)}
+.me{font-size:1.1rem;flex-shrink:0}
+.mn{font-size:13px;color:var(--ink2);flex:1}
+.meal.ch .mn{color:var(--ink)}
+.mtk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.meal.ch .mtk{background:var(--g3);border-color:var(--g2);color:#fff}
+.pres{padding:10px 12px;background:var(--g5);border-radius:9px;border:1px solid var(--bd);display:none;text-align:center}
+.pres.sh{display:block}
+.pres p{font-size:12px;color:var(--g2);line-height:1.6}
+.pres strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+.fat-row{display:flex;align-items:center;gap:11px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none;margin-bottom:7px}
+.fat-row:hover{background:#fff;border-color:var(--bd2)}
+.fat-row.ch{background:var(--g5);border-color:var(--bd2)}
+.fat-icon{font-size:1.1rem;flex-shrink:0}
+.fat-name{font-size:13px;color:var(--ink2);flex:1}
+.fat-row.ch .fat-name{color:var(--ink)}
+.fat-tick{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.fat-row.ch .fat-tick{background:var(--g3);border-color:var(--g2);color:#fff}
+
+/* РЕФЛЕКСІЯ */
+.rq-card{background:#fff;border:1.5px solid var(--bd);border-radius:17px;padding:20px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.rq-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rq-sub{font-size:11px;color:var(--mu);margin-bottom:18px;line-height:1.5}
+.rq-list{display:flex;flex-direction:column;gap:14px}
+.rq-lbl{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rq-ta{width:100%;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:62px;line-height:1.65;transition:border-color .15s}
+.rq-ta:focus{border-color:var(--bd2)}
+.rq-ta::placeholder{color:var(--mu2);font-style:italic}
+.stars{display:flex;gap:7px;margin-top:3px}
+.star{font-size:24px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none}
+.star.li{opacity:1;transform:scale(1.1)}
+.smsg{margin-top:7px;font-size:12px;color:var(--g2);font-style:italic;min-height:18px}
+.pvr{display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:10px}
+.pvt{font-size:11px;color:var(--mu);line-height:1.6}
+.pvt strong{color:var(--ink2)}
+
+/* ПІДТРИМКА */
+.spc{background:#fff;border:1.5px solid var(--bd);border-radius:18px;padding:22px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.spt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:9px}
+.spb{font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:7px}
+.spb em{font-style:italic;color:var(--g2)}
+.sps{font-size:11px;color:var(--mu2);font-style:italic;margin-top:5px;margin-bottom:16px}
+.tlink{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border-radius:11px;padding:13px 16px;text-decoration:none;color:#fff;font-size:13px;transition:all .2s;box-shadow:0 3px 12px rgba(28,58,36,.2)}
+.tlink:hover{transform:translateY(-1px)}
+.tlr{margin-left:auto;opacity:.7}
+
+/* КНОПКА */
+.save-btn{width:100%;padding:16px 20px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:14px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.5px;box-shadow:0 4px 20px rgba(28,58,36,.22)}
+.save-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(28,58,36,.32)}
+.save-done{display:none;margin-top:12px;background:var(--g5);border:1px solid var(--bd2);border-radius:12px;padding:14px;text-align:center;animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+.save-done p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);line-height:1.6}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#1C3A24,#243F2A 60%,#1A3620) !important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:54px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:#F0F7F0}
+.fnt em{font-style:italic;color:#8FCC9A}
+.fnl{width:32px;height:1px;background:rgba(143,204,154,.35);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:270px;margin:0 auto 26px}
+.tc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:19px;padding:22px 18px;text-align:center;max-width:330px;width:100%;backdrop-filter:blur(12px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(143,204,154,.8);margin-bottom:11px;display:block}
+.tci{font-size:38px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,21px);font-weight:700;color:#F0F7F0;margin-bottom:8px;line-height:1.3}
+.tct em{color:#8FCC9A;font-style:italic}
+.tcd{font-size:12px;color:rgba(180,220,184,.75);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="leaf">🌿</div><div class="leaf">🍃</div><div class="leaf">🌱</div><div class="leaf">🌾</div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar-tag">Нутриціолог</div></div>
+  </div>
+  <div class="wb rv">Тиждень вуглеводів · День 2</div>
+  <span class="hi rv">📊</span>
+  <h1 class="ht rv">Рахуємо вуглеводи<em>та клітковину</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs-sub rv">Дізнаєшся свою норму і без ваг підрахуєш клітковину за вчора 🌿</p>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка дня</span>
+  <h2 class="tt rv">Два кроки до<br><em>кращого самопочуття</em></h2>
+  <div class="hc rv">
+    <span class="hp">🌿 День 2 · Звичка</span>
+    <span class="hib">🌿</span>
+    <p class="hq">«Звертаю увагу на вуглеводи в тарілці<br><em>і поступово додаю більше клітковини»</em></p>
+    <div class="hdv"></div>
+    <p class="hds">Не рахуй калорії — просто поглянь на тарілку. Є крупа або овочі? Вже добре. Сьогодні вчимося бачити це свідомо 🌿</p>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 1 -->
+<section><div class="w">
+  <span class="ey rv" style="color:var(--red)">Завдання 1</span>
+  <h2 class="tt rv">Розрахунок норми<br><em>вуглеводів</em></h2>
+  <div style="background:#fff;border:1.5px solid var(--bd);border-radius:13px;padding:14px 16px;margin-bottom:20px;box-shadow:0 1px 8px rgba(28,58,36,.06)" class="rv">
+    <p style="font-size:13px;color:var(--mu);line-height:1.75">🌾 <strong style="color:var(--ink2)">Тобі не потрібно рахувати вуглеводи щодня.</strong> Але важливо розуміти — для кожного норма своя. Вона залежить від ваги і рівня активності. Розрахуй один раз — і матимеш орієнтир 🌿</p>
+  </div>
+  <p class="sb rv">Крок 1 — обери свій рівень активності</p>
+  <div class="act-grid rv">
+    <div class="act-btn" onclick="selectAct(this,2,3)"><div class="act-circle">✓</div><div class="act-label">🪑 Сидячий спосіб життя<div class="act-sub">офіс, мінімум руху</div></div><div class="act-coef">2–3 г/кг</div></div>
+    <div class="act-btn" onclick="selectAct(this,3,4)"><div class="act-circle">✓</div><div class="act-label">🚶 Легка активність<div class="act-sub">прогулянки, легкі тренування</div></div><div class="act-coef">3–4 г/кг</div></div>
+    <div class="act-btn" onclick="selectAct(this,4,5)"><div class="act-circle">✓</div><div class="act-label">🏃 Помірна активність<div class="act-sub">3–5 тренувань на тиждень</div></div><div class="act-coef">4–5 г/кг</div></div>
+    <div class="act-btn" onclick="selectAct(this,5,7)"><div class="act-circle">✓</div><div class="act-label">💪 Висока активність<div class="act-sub">інтенсивні тренування щодня</div></div><div class="act-coef">5–7 г/кг</div></div>
+  </div>
+  <div class="calc-box rv">
+    <div class="calc-step-lbl">Крок 2 — введи свою вагу</div>
+    <div class="calc-row">
+      <div class="calc-lbl">Моя вага</div>
+      <input class="calc-inp" id="weightInp" type="number" placeholder="60" min="30" max="200" oninput="calcCarbs()">
+      <div class="calc-unit">кг</div>
+    </div>
+    <div class="calc-need-act" id="calcNeedAct">⬆️ Спочатку обери рівень активності вище</div>
+    <div class="calc-result" id="calcResult">
+      <div class="calc-result-label">Твоя норма вуглеводів на день</div>
+      <div class="calc-range-row"><div class="calc-num" id="calcMin">—</div><div class="calc-dash">–</div><div class="calc-num" id="calcMax">—</div></div>
+      <div class="calc-unit-lbl">г вуглеводів / день</div>
+      <div class="calc-detail" id="calcDetail"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 2 — ПІДРАХУНОК КЛІТКОВИНИ -->
+<section><div class="w">
+  <span class="ey rv" style="color:var(--red)">Завдання 2</span>
+  <h2 class="tt rv">Підрахуй приблизно<br><em>клітковину за вчора</em></h2>
+  <p class="sb rv">Пригадай що їла вчора і натискай + навпроти кожного продукту 👇</p>
+
+  <div style="background:#fff;border:1.5px solid var(--bd);border-radius:13px;padding:13px 15px;margin-bottom:18px;box-shadow:0 1px 8px rgba(28,58,36,.06)" class="rv">
+    <p style="font-size:12px;color:var(--mu);line-height:1.7">💡 <strong style="color:var(--ink2)">Як рахувати:</strong> пройдись по кожній категорії і відміть що їла вчора. Одне натискання + = одна порція. Підсумок побачиш внизу після всіх категорій.</p>
+  </div>
+
+  <!-- Таби -->
+  <div class="cat-tabs rv">
+    <div class="cat-tab active" onclick="showCat('veg',this)">🥦 Овочі</div>
+    <div class="cat-tab" onclick="showCat('fruit',this)">🍎 Фрукти</div>
+    <div class="cat-tab" onclick="showCat('grain',this)">🌾 Злаки</div>
+    <div class="cat-tab" onclick="showCat('nuts',this)">🥜 Горіхи</div>
+    <div class="cat-tab" onclick="showCat('seeds',this)">🌱 Насіння</div>
+  </div>
+
+  <!-- ОВОЧІ -->
+  <div class="cat-panel show" id="cat-veg">
+    <div class="prod-list rv" id="list-veg"></div>
+  </div>
+  <!-- ФРУКТИ -->
+  <div class="cat-panel" id="cat-fruit">
+    <div class="prod-list rv" id="list-fruit"></div>
+  </div>
+  <!-- ЗЛАКИ -->
+  <div class="cat-panel" id="cat-grain">
+    <div class="prod-list rv" id="list-grain"></div>
+  </div>
+  <!-- ГОРІХИ -->
+  <div class="cat-panel" id="cat-nuts">
+    <div class="prod-list rv" id="list-nuts"></div>
+  </div>
+  <!-- НАСІННЯ -->
+  <div class="cat-panel" id="cat-seeds">
+    <div class="prod-list rv" id="list-seeds"></div>
+    <div style="margin-top:10px;background:var(--warnp);border:1px solid var(--warnb);border-radius:10px;padding:10px 13px">
+      <p style="font-size:12px;color:var(--warn);line-height:1.6">🏆 <strong>Лідери:</strong> Насіння чіа та льону — найкраще джерело клітковини. Додай 1–2 ст.л. у йогурт або кашу.</p>
+    </div>
+  </div>
+
+  <!-- Підказка -->
+  <div style="text-align:center;padding:10px 0 4px;font-size:12px;color:var(--mu);font-style:italic" class="rv">
+    ↓ Прокрути нижче — там твій підсумок клітковини
+  </div>
+
+  <!-- Шкала оцінки -->
+  <div class="scale-grid rv">
+    <div class="scale-row"><span class="scale-badge">🚨</span><span class="scale-val">&lt; 15 г</span> — Дуже мало! Тіло не отримує достатньо</div>
+    <div class="scale-row"><span class="scale-badge">⚠️</span><span class="scale-val">15–24 г</span> — Недостатньо. Є простір для покращення</div>
+    <div class="scale-row"><span class="scale-badge">✅</span><span class="scale-val">25–35 г</span> — Норма. Ти на правильному шляху!</div>
+    <div class="scale-row"><span class="scale-badge">🏆</span><span class="scale-val">36+ г</span> — Відмінно! Кишечник тебе дякує</div>
+  </div>
+
+  <!-- Підсумок внизу -->
+  <div class="fiber-sticky rv" style="position:static;padding:14px 0 0;margin-bottom:0;margin-top:14px">
+    <div class="fiber-total-bar">
+      <div class="ftb-left">
+        <div class="ftb-lbl">Клітковина за вчора</div>
+        <div><span class="ftb-num" id="ftbNum">0</span><span class="ftb-unit">г</span></div>
+      </div>
+      <div class="ftb-verdict" id="ftbVerdict">← Відміть продукти вище</div>
+    </div>
+    <div class="ftb-bar-wrap"><div class="ftb-bar" id="ftbBar"></div></div>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 3 — ПЛАН -->
+<section><div class="w">
+  <span class="ey rv">Завдання 3</span>
+  <h2 class="tt rv">Обери 2 продукти<br><em>на сьогодні</em></h2>
+
+  <!-- Результат з завдання 2 -->
+  <div style="background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:14px;padding:14px 18px;margin-bottom:18px;display:flex;align-items:center;justify-content:space-between" class="rv">
+    <div>
+      <div style="font-size:9px;letter-spacing:2px;text-transform:uppercase;color:rgba(200,235,202,.7);margin-bottom:3px">Твоя клітковина за вчора</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#fff;line-height:1"><span id="z3fiber">0</span><span style="font-size:13px;color:rgba(200,235,202,.8);margin-left:4px">г</span></div>
+    </div>
+    <div style="text-align:right;max-width:140px">
+      <div style="font-size:12px;color:rgba(200,235,202,.9);font-style:italic;line-height:1.4" id="z3verdict">← Спочатку виконай Завдання 2</div>
+    </div>
+  </div>
+
+  <div style="background:var(--warnp);border:1px solid var(--warnb);border-radius:11px;padding:11px 14px;margin-bottom:18px" class="rv">
+    <p style="font-size:12px;color:var(--warn);line-height:1.65">💡 <strong>Пам'ятай:</strong> +5 г клітковини на день — вже чудовий крок. Обери лише 2 продукти які легко додати сьогодні 🌿</p>
+  </div>
+
+  <p class="sb rv" style="margin-bottom:14px">Обери 2 продукти — і вони зафіксуються як твій план 👇</p>
+
+  <div class="plan-tabs rv">
+    <div class="plan-tab active" onclick="showPlan('veg',this)">🥦 Овочі</div>
+    <div class="plan-tab" onclick="showPlan('fruit',this)">🍎 Фрукти</div>
+    <div class="plan-tab" onclick="showPlan('grain',this)">🌾 Крупи</div>
+    <div class="plan-tab" onclick="showPlan('legnut',this)">🥜 Бобові та горіхи</div>
+  </div>
+  <div class="plan-panel show rv" id="pp-veg">
+    <div class="plan-item"><div class="pi-name">Броколі (1 кулак ~150г)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Брюссельська капуста (120г)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Морква (2 середні)</div><div class="pi-fiber">~4 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Авокадо (½ шт ~100г)</div><div class="pi-fiber">~7 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Білокачанна капуста (200г)</div><div class="pi-fiber">~4 г</div><div class="pi-check"></div></div>
+  </div>
+  <div class="plan-panel rv" id="pp-fruit">
+    <div class="plan-item"><div class="pi-name">Яблуко зі шкіркою (1 велике)</div><div class="pi-fiber">~4 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Груша (1 середня)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Малина (1 жменя ~100г)</div><div class="pi-fiber">~7 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Чорниця (1 жменя ~100г)</div><div class="pi-fiber">~2 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Ківі (2 шт)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+  </div>
+  <div class="plan-panel rv" id="pp-grain">
+    <div class="plan-item"><div class="pi-name">Насіння чіа (1 ст.л. ~15г)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Льон мелений (1 ст.л. ~15г)</div><div class="pi-fiber">~4 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Вівсяні пластівці (40г сухих)</div><div class="pi-fiber">~4 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Гречка варена (1 тарілка)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Висівки вівсяні (2 ст.л.)</div><div class="pi-fiber">~5 г</div><div class="pi-check"></div></div>
+  </div>
+  <div class="plan-panel rv" id="pp-legnut">
+    <div class="plan-item"><div class="pi-name">Нут варений (1 тарілка)</div><div class="pi-fiber">~7 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Сочевиця варена (1 тарілка)</div><div class="pi-fiber">~8 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Мигдаль (1 жменя ~30г)</div><div class="pi-fiber">~4 г</div><div class="pi-check"></div></div>
+    <div class="plan-item"><div class="pi-name">Волоський горіх (1 жменя)</div><div class="pi-fiber">~2 г</div><div class="pi-check"></div></div>
+  </div>
+
+  <!-- Вибрані продукти -->
+  <div id="chosenBox" style="display:none;margin-top:14px;background:var(--g5);border:1.5px solid var(--bd2);border-radius:14px;padding:16px 16px" class="rv">
+    <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g2);margin-bottom:10px">✅ Мій план на сьогодні</div>
+    <div id="chosenList"></div>
+    <div id="chosenMsg" style="margin-top:10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);line-height:1.6;text-align:center"></div>
+  </div>
+  <div id="chosenWarn" style="display:none;margin-top:10px;background:var(--warnp);border:1px solid var(--warnb);border-radius:10px;padding:10px 13px;font-size:12px;color:var(--warn);text-align:center">
+    Обери не більше 2 продуктів 🌿
+  </div>
+</div></section>
+
+<!-- ТРЕКЕРИ -->
+<section><div class="w">
+  <span class="ey rv">Трекери дня</span>
+  <h2 class="tt rv">Вода, білок<br><em>і корисні жири</em></h2>
+  <div class="trc rv" style="margin-bottom:13px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💧</span><div class="trt">Вода сьогодні</div></div>
+    <div class="ttp">Клітковина без води = здуття. Пий 30 мл × вагу кг маленькими ковтками весь день 🌿</div>
+    <div class="wsr"><div style="display:flex;align-items:baseline;gap:3px"><span class="wml" id="wml">0</span><span class="wu">мл</span></div><div><div class="wcl">Склянок</div><div class="wcv" id="wcv">0 / 10</div></div></div>
+    <div class="pt"><div class="pf" id="wpf"></div></div>
+    <div class="cups" id="cups"></div>
+    <div class="wmsg" id="wmsg"></div>
+  </div>
+  <div class="trc rv" style="margin-bottom:13px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💪</span><div class="trt">Білок на тарілці</div></div>
+    <div class="ttp">Білок + складні вуглеводи + клітковина = ідеальна тарілка 💛</div>
+    <div class="meals" id="meals">
+      <div class="meal" onclick="tm(this)"><span class="me">🌅</span><span class="mn">Сніданок</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍎</span><span class="mn">Перекус</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍽️</span><span class="mn">Обід</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🌙</span><span class="mn">Вечеря</span><div class="mtk">✓</div></div>
+    </div>
+    <div class="pres" id="pres"><p><strong id="pc">0</strong> з 4 прийомів із білком — <span id="pm"></span></p></div>
+  </div>
+  <div class="trc rv">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">🥑</span><div class="trt">Корисні жири сьогодні</div></div>
+    <div class="ttp">Жири допомагають засвоювати вітаміни з овочів 🌿</div>
+    <div id="fatRows">
+      <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🫒</span><span class="fat-name">Олія або горіхи</span><div class="fat-tick">✓</div></div>
+      <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🥑</span><span class="fat-name">Авокадо або насіння</span><div class="fat-tick">✓</div></div>
+      <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🐟</span><span class="fat-name">Жирна риба</span><div class="fat-tick">✓</div></div>
+    </div>
+    <div class="pres" id="fatResult" style="margin-top:8px"><p><strong id="fatCount">0</strong> джерела жирів — <span id="fatMsg"></span></p></div>
+  </div>
+</div></section>
+
+<!-- РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Рефлексія</span>
+  <h2 class="tt rv">Твої<br><em>відчуття дня</em></h2>
+  <div class="rq-card rv">
+    <div class="rq-title">📝 Два питання дня</div>
+    <p class="rq-sub">Запиши чесно — це лише для тебе 🌿</p>
+    <div class="rq-list">
+      <div><label class="rq-lbl">🌾 Скільки клітковини виявилось вчора — це тебе здивувало?</label><textarea class="rq-ta" rows="2" placeholder="Наприклад: виявилось лише 10г — не очікувала…"></textarea></div>
+      <div><label class="rq-lbl">🎯 Які 2 продукти ти додаєш вже сьогодні і чому обрала саме їх?</label><textarea class="rq-ta" rows="2" placeholder="Наприклад: чіа до сніданку і яблуко на перекус — просто і зручно…"></textarea></div>
+      <div>
+        <label class="rq-lbl">⭐ Як пройшов День 2?</label>
+        <div class="stars" id="stars"><span class="star" onclick="rs(1)">⭐</span><span class="star" onclick="rs(2)">⭐</span><span class="star" onclick="rs(3)">⭐</span><span class="star" onclick="rs(4)">⭐</span><span class="star" onclick="rs(5)">⭐</span></div>
+        <div class="smsg" id="smsg"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pvr rv"><span style="font-size:13px;flex-shrink:0">🔒</span><p class="pvt"><strong>Це твій особистий простір.</strong> Нотатки залишаються лише на твоєму пристрої 💛</p></div>
+</div></section>
+
+<!-- ПІДТРИМКА -->
+<section><div class="w">
+  <div class="spc rv">
+    <div class="spt">💚 Слово від мене</div>
+    <p class="spb">Клітковина — це не просто «корисно». <em>Це їжа для твоїх корисних бактерій.</em> Чим більше клітковини — тим кращий настрій, енергія і травлення.</p>
+    <p class="spb">Починай з малого — 1 ст. л. чіа або жменя малини. Тіло скаже дякую 🌿</p>
+    <p class="sps">— Любов Бухарова, нутриціолог</p>
+    <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tlink">
+      <span style="font-size:1.1rem">✈️</span>
+      <span>Написати особисто — @Lyubov_nutritionist</span>
+      <span class="tlr">→</span>
+    </a>
+  </div>
+</div></section>
+
+<!-- ЗБЕРЕГТИ -->
+<section style="background:var(--cr2)"><div class="w">
+  <span class="ey rv">Завершити день</span>
+  <h2 class="tt rv">Ти пройшла<br><em>всі завдання дня 🌾</em></h2>
+  <p class="sb rv">Натисни щоб зафіксувати свій прогрес</p>
+  <div class="rv">
+    <div style="background:#fff;border:1.5px solid var(--bd);border-radius:16px;padding:18px 18px 20px;text-align:center;box-shadow:0 2px 14px rgba(28,58,36,.08);margin-bottom:14px">
+      <div style="font-size:2rem;margin-bottom:8px">🌿</div>
+      <p style="font-size:13px;color:var(--mu);line-height:1.7;margin-bottom:16px">Сьогодні ти дізналась свою норму вуглеводів,<br>порахувала клітковину і обрала 2 продукти на завтра.<br><strong style="color:var(--ink2)">Це вже зміна!</strong></p>
+      <button class="save-btn" onclick="saveDay()" style="max-width:340px;margin:0 auto"><span>✅</span><span>Завершити та зберегти День 2</span></button>
+    </div>
+    <div class="save-done" id="saveDone"><p>🏆 День 2 завершено і збережено!<br>Ти чудово впоралась — завтра продовжуємо 🌾</p></div>
+  </div>
+</div></section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+  <span class="fni rv">⚡</span>
+  <h2 class="fnt rv">День 2 —<br><em>виконано!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Ти знаєш свою норму і реально порахувала клітковину.<br>Завтра — ще цікавіше 🌿</p>
+  <div class="tc rv">
+    <span class="tcl">Завтра · День 3</span>
+    <div class="tci">📈</div>
+    <div class="tct">Глікемічний індекс —<br><em>чому зникає енергія</em></div>
+    <p class="tcd">Зрозумієш чому після їжі хочеться спати і куди зникає настрій 💛</p>
+  </div>
+</section>
+
+<script>
+// Progress + reveal
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%'});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// ===== ДАНІ ПРОДУКТІВ =====
+const PRODUCTS = {
+  veg: [
+    {icon:'🥑', name:'Авокадо', portion:'½ авокадо (~100г)', fiber:6.7},
+    {icon:'🥦', name:'Броколі (варена)', portion:'1 кулак (~150г)', fiber:5.0},
+    {icon:'🥬', name:'Зелена капуста', portion:'1 кулак (~100г)', fiber:3.5},
+    {icon:'🫛', name:'Квасоля стручкова', portion:'1 жменя (~100г)', fiber:3.0},
+    {icon:'🥕', name:'Морква (сира)', portion:'1 середня (~80г)', fiber:2.2},
+    {icon:'🫙', name:'Квашена капуста', portion:'2 ст.л. (~60г)', fiber:1.7},
+    {icon:'🫜', name:'Буряк (варений)', portion:'1 невеликий (~100г)', fiber:2.8},
+    {icon:'🤍', name:'Цвітна капуста', portion:'1 кулак (~100г)', fiber:2.5},
+    {icon:'🌿', name:'Шпинат (свіжий)', portion:'2 жмені (~100г)', fiber:2.2},
+    {icon:'🥗', name:'Салат листовий', portion:'2 жмені (~100г)', fiber:1.6},
+    {icon:'🫑', name:'Перець солодкий', portion:'1 середній (~120г)', fiber:1.6},
+    {icon:'🎃', name:'Гарбуз (варений)', portion:'1 кулак (~150г)', fiber:2.0},
+    {icon:'🍅', name:'Помідор', portion:'1 середній (~120г)', fiber:1.4},
+    {icon:'🥒', name:'Огірок', portion:'1 середній (~150г)', fiber:0.9},
+  ],
+  fruit: [
+    {icon:'🍎', name:'Яблуко', portion:'1 яблуко зі шкіркою (~180г)', fiber:4.3},
+    {icon:'🍐', name:'Груша', portion:'1 середня (~170г)', fiber:5.3},
+    {icon:'🍓', name:'Малина', portion:'1 жменя (~100г)', fiber:6.5},
+    {icon:'🫐', name:'Чорниця', portion:'1 жменя (~100г)', fiber:2.4},
+    {icon:'🍓', name:'Полуниця', portion:'1 жменя (~100г)', fiber:2.0},
+    {icon:'🍒', name:'Вишня', portion:'1 жменя (~100г)', fiber:1.6},
+    {icon:'🍊', name:'Апельсин', portion:'1 середній (~150г)', fiber:3.3},
+    {icon:'🍊', name:'Мандарин', portion:'2 мандарини (~150г)', fiber:2.7},
+    {icon:'🍌', name:'Банан', portion:'1 середній (~120г)', fiber:3.1},
+    {icon:'🥝', name:'Ківі', portion:'2 шт (~150г)', fiber:4.5},
+    {icon:'🍑', name:'Персик', portion:'1 середній (~150г)', fiber:2.3},
+    {icon:'🌳', name:'Слива', portion:'3–4 шт (~120г)', fiber:1.7},
+    {icon:'🍇', name:'Виноград', portion:'1 жменя (~100г)', fiber:0.9},
+    {icon:'🟤', name:'Інжир сушений', portion:'3 шт (~45г)', fiber:4.4},
+    {icon:'🟤', name:'Фініки сушені', portion:'3 шт (~30г)', fiber:2.4},
+    {icon:'🍇', name:'Родзинки', portion:'2 ст.л. (~30г)', fiber:1.1},
+  ],
+  grain: [
+    {icon:'🌾', name:'Гречка', portion:'1 тарілка варена (~150г)', fiber:5.0},
+    {icon:'🥣', name:'Вівсянка', portion:'1 тарілка (~40г сухих)', fiber:4.0},
+    {icon:'🍝', name:'Ц.З спагеті', portion:'1 тарілка. (~100г)', fiber:4.5},
+    {icon:'🍚', name:'Бурий рис', portion:'1 тарілка варена (~150г)', fiber:2.7},
+    {icon:'🌿', name:'Кіноа', portion:'1 тарілка варена (~150г)', fiber:7.5},
+    {icon:'🌾', name:'Булгур', portion:'1 тарілка варена (~150г)', fiber:6.8},
+    {icon:'🍞', name:'Ц/з хліб', portion:'1 скибочка (~40г)', fiber:2.6},
+    {icon:'🍲', name:'Сочевиця', portion:'1 тарілка варена (~150г)', fiber:11.9},
+    {icon:'🍲', name:'Нут (варений)', portion:'1 тарілка (~150г)', fiber:11.4},
+    {icon:'🫘', name:'Квасоля (варена)', portion:'1 тарілка (~150г)', fiber:9.6},
+  ],
+  nuts: [
+    {icon:'🌰', name:'Мигдаль', portion:'1 жменя (~30г)', fiber:3.8},
+    {icon:'🌰', name:'Фісташки', portion:'1 жменя (~30г)', fiber:3.1},
+    {icon:'🌰', name:'Фундук', portion:'1 жменя (~30г)', fiber:2.9},
+    {icon:'🥜', name:'Арахіс', portion:'1 жменя (~30г)', fiber:2.6},
+    {icon:'🌰', name:'Волоський горіх', portion:'1 жменя (~30г)', fiber:2.0},
+    {icon:'🌰', name:'Кеш\'ю', portion:'1 жменя (~30г)', fiber:1.0},
+  ],
+  seeds: [
+    {icon:'🌱', name:'Насіння чіа', portion:'1 ст.л. (~15г)', fiber:5.2},
+    {icon:'🌱', name:'Насіння льону', portion:'1 ст.л. (~15г)', fiber:4.1},
+    {icon:'🟤', name:'Кунжут', portion:'1 ст.л. (~15г)', fiber:1.8},
+    {icon:'🌻', name:'Насіння соняшника', portion:'1 ст.л. (~15г)', fiber:1.3},
+    {icon:'🟢', name:'Насіння гарбуза', portion:'1 ст.л. (~15г)', fiber:0.9},
+  ]
+};
+
+// ── ЛІЧИЛЬНИКИ КЛІТКОВИНИ ──
+const counts = {};
+let fiberTotal = 0;
+
+function buildLists() {
+  Object.keys(PRODUCTS).forEach(cat => {
+    const list = document.getElementById('list-' + cat);
+    if (!list) return;
+    PRODUCTS[cat].forEach((p, i) => {
+      const key = cat + '_' + i;
+      counts[key] = 0;
+      const row = document.createElement('div');
+      row.className = 'prod-row';
+      row.id = 'row_' + key;
+      row.innerHTML = `
+        <span class="prod-icon">${p.icon}</span>
+        <div class="prod-info">
+          <div class="prod-name">${p.name}</div>
+          <div class="prod-portion">${p.portion} ≈ <strong>${p.fiber}г</strong> клітковини</div>
+        </div>
+        <span class="prod-fiber-badge">${p.fiber}г</span>
+        <div class="prod-counter">
+          <button class="cnt-btn minus" type="button" onclick="change('${key}',-1,${p.fiber})">−</button>
+          <div class="cnt-val zero" id="val_${key}">0</div>
+          <button class="cnt-btn plus" type="button" onclick="change('${key}',1,${p.fiber})">+</button>
+        </div>
+        <div class="prod-fiber-result zero" id="fres_${key}">—</div>
+      `;
+      list.appendChild(row);
+    });
+  });
+}
+
+function change(key, delta, fiberPerPortion) {
+  counts[key] = Math.max(0, (counts[key] || 0) + delta);
+  const n = counts[key];
+  const valEl = document.getElementById('val_' + key);
+  const fresEl = document.getElementById('fres_' + key);
+  const rowEl = document.getElementById('row_' + key);
+  if (!valEl || !fresEl || !rowEl) return;
+
+  valEl.textContent = n;
+  valEl.className = 'cnt-val' + (n === 0 ? ' zero' : '');
+
+  if (n > 0) {
+    const f = Math.round(n * fiberPerPortion * 10) / 10;
+    fresEl.textContent = f + 'г';
+    fresEl.className = 'prod-fiber-result';
+    rowEl.classList.add('has-count');
+  } else {
+    fresEl.textContent = '—';
+    fresEl.className = 'prod-fiber-result zero';
+    rowEl.classList.remove('has-count');
+  }
+  updateTotal();
+}
+
+function updateTotal() {
+  fiberTotal = 0;
+  Object.keys(counts).forEach(key => {
+    if (counts[key] > 0) {
+      const fresEl = document.getElementById('fres_' + key);
+      if (fresEl) {
+        const v = parseFloat(fresEl.textContent);
+        if (!isNaN(v)) fiberTotal += v;
+      }
+    }
+  });
+  fiberTotal = Math.round(fiberTotal * 10) / 10;
+
+  // Оновити бар підсумку
+  const numEl = document.getElementById('ftbNum');
+  if (numEl) {
+    numEl.textContent = fiberTotal;
+    numEl.classList.remove('bump');
+    void numEl.offsetWidth;
+    numEl.classList.add('bump');
+  }
+  const barEl = document.getElementById('ftbBar');
+  if (barEl) barEl.style.width = Math.min(fiberTotal / 40 * 100, 100) + '%';
+
+  const vEl = document.getElementById('ftbVerdict');
+  if (vEl) {
+    if (fiberTotal === 0) vEl.textContent = '← Натискай + нижче';
+    else if (fiberTotal < 15) vEl.textContent = '🚨 Дуже мало — норма 25–35 г';
+    else if (fiberTotal < 25) vEl.textContent = '⚠️ Недостатньо, додай ще';
+    else if (fiberTotal <= 35) vEl.textContent = '✅ Норма! Чудово 🌿';
+    else vEl.textContent = '🏆 Відмінно! Кишечник дякує';
+  }
+
+  // Оновити завдання 3 — показати суму
+  const z3 = document.getElementById('z3fiber');
+  const z3v = document.getElementById('z3verdict');
+  if (z3) z3.textContent = fiberTotal;
+  if (z3v) {
+    if (fiberTotal === 0) z3v.textContent = '← Спочатку виконай Завдання 2';
+    else if (fiberTotal < 15) z3v.textContent = '🚨 Дуже мало — обери 2 продукти нижче';
+    else if (fiberTotal < 25) z3v.textContent = '⚠️ Є куди рости — додай 2 продукти';
+    else if (fiberTotal <= 35) z3v.textContent = '✅ Норма! Підтримай результат';
+    else z3v.textContent = '🏆 Відмінно! Продовжуй так 💚';
+  }
+}
+
+buildLists();
+
+// ── ТАБИ КАТЕГОРІЙ ──
+function showCat(id, tab) {
+  document.querySelectorAll('.cat-panel').forEach(p => p.classList.remove('show'));
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('cat-' + id).classList.add('show');
+  tab.classList.add('active');
+}
+
+// ── АКТИВНІСТЬ + КАЛЬКУЛЯТОР ──
+let actMin = 0, actMax = 0;
+function selectAct(el, min, max) {
+  document.querySelectorAll('.act-btn').forEach(b => b.classList.remove('sel'));
+  el.classList.add('sel');
+  actMin = min; actMax = max;
+  calcCarbs();
+}
+function calcCarbs() {
+  const w = parseFloat(document.getElementById('weightInp').value) || 0;
+  const res = document.getElementById('calcResult');
+  const hint = document.getElementById('calcNeedAct');
+  if (w > 0 && actMin === 0) { hint.classList.add('show'); res.classList.remove('show'); return; }
+  hint.classList.remove('show');
+  if (w > 0 && actMin > 0) {
+    document.getElementById('calcMin').textContent = Math.round(w * actMin);
+    document.getElementById('calcMax').textContent = Math.round(w * actMax);
+    document.getElementById('calcDetail').textContent = w + ' кг × ' + actMin + '–' + actMax + ' г/кг = ' + Math.round(w * actMin) + '–' + Math.round(w * actMax) + ' г/день';
+    res.classList.add('show');
+  } else res.classList.remove('show');
+}
+
+// ── ЗАВДАННЯ 3 — ВИБІР 2 ПРОДУКТІВ ──
+function showPlan(id, tab) {
+  document.querySelectorAll('.plan-panel').forEach(p => p.classList.remove('show'));
+  document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('pp-' + id).classList.add('show');
+  tab.classList.add('active');
+}
+
+const chosen = new Set();
+
+document.addEventListener('click', function(e) {
+  const item = e.target.closest('.plan-item');
+  if (!item) return;
+
+  const name = item.querySelector('.pi-name') ? item.querySelector('.pi-name').textContent : '';
+  const fiber = item.querySelector('.pi-fiber') ? item.querySelector('.pi-fiber').textContent : '';
+
+  if (item.classList.contains('done')) {
+    // Знімаємо вибір
+    item.classList.remove('done');
+    const check = item.querySelector('.pi-check');
+    if (check) check.textContent = '';
+    chosen.delete(name);
+  } else {
+    // Додаємо вибір — максимум 2
+    if (chosen.size >= 2) {
+      const warn = document.getElementById('chosenWarn');
+      if (warn) { warn.style.display = 'block'; setTimeout(() => warn.style.display = 'none', 2000); }
+      return;
+    }
+    item.classList.add('done');
+    const check = item.querySelector('.pi-check');
+    if (check) check.textContent = '✓';
+    chosen.add(name + '|' + fiber);
+  }
+  renderChosen();
+});
+
+function renderChosen() {
+  const box = document.getElementById('chosenBox');
+  const list = document.getElementById('chosenList');
+  const msg = document.getElementById('chosenMsg');
+  if (!box || !list || !msg) return;
+
+  const items = Array.from(chosen);
+  if (items.length === 0) { box.style.display = 'none'; return; }
+
+  box.style.display = 'block';
+  list.innerHTML = items.map(it => {
+    const [n, f] = it.split('|');
+    return `<div style="display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.6);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin-bottom:7px">
+      <span style="font-size:1.1rem">✅</span>
+      <span style="font-size:13px;color:var(--ink2);flex:1">${n}</span>
+      <span style="font-size:12px;color:var(--g2);font-weight:500">${f}</span>
+    </div>`;
+  }).join('');
+
+  if (items.length === 1) msg.textContent = '🌱 Один продукт обрано — обери ще один!';
+  else msg.textContent = '🏆 Чудово! Два продукти зафіксовано. Додай їх вже сьогодні 💚';
+}
+
+// Вода
+let wg = 0;
+const cupsEl = document.getElementById('cups');
+const wm = ['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
+for (let i = 0; i < 10; i++) {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'cup'; b.textContent = '🥛';
+  b.addEventListener('click', () => {
+    wg = b.classList.contains('fi') ? i : i + 1;
+    document.querySelectorAll('.cup').forEach((c, j) => c.classList.toggle('fi', j < wg));
+    document.getElementById('wml').textContent = wg * 200;
+    document.getElementById('wcv').textContent = wg + ' / 10';
+    document.getElementById('wpf').style.width = (wg / 10 * 100) + '%';
+    document.getElementById('wmsg').textContent = wm[wg] || '';
+  });
+  cupsEl.appendChild(b);
+}
+
+// Білок
+const pm2 = ['', 'Перший прийом — будуємо! 🌱', 'Два — краще 💛', 'Три — відмінно! 💪', 'Ідеально! 🏆'];
+function tm(e) { e.classList.toggle('ch'); const d = document.querySelectorAll('#meals .meal.ch').length; document.getElementById('pc').textContent = d; document.getElementById('pm').textContent = pm2[Math.min(d, pm2.length - 1)]; document.getElementById('pres').classList.toggle('sh', d > 0); }
+
+// Жири
+const fatMsgs = ['', '🥑 Одне джерело — вже є!', '💛 Два — відмінно!', '🏆 Три — ідеально!'];
+function toggleFat(row) { row.classList.toggle('ch'); const n = document.querySelectorAll('#fatRows .fat-row.ch').length; document.getElementById('fatCount').textContent = n; document.getElementById('fatMsg').textContent = fatMsgs[Math.min(n, fatMsgs.length - 1)]; document.getElementById('fatResult').classList.toggle('sh', n > 0); }
+
+// Зірки
+const sm = ['', '😔 Важкий день — але ти тут!', '🌱 Є куди рости!', '🌟 Непоганий день!', '💪 Відмінний день!', '🏆 Ідеально! 🌾'];
+function rs(n) { document.querySelectorAll('#stars .star').forEach((s, i) => s.classList.toggle('li', i < n)); document.getElementById('smsg').textContent = sm[n]; }
+
+// Зберегти
+function saveDay() {
+  document.getElementById('saveDone').style.display = 'block';
+  document.querySelector('.save-btn').style.opacity = '.5';
+  document.querySelector('.save-btn').style.pointerEvents = 'none';
+  setTimeout(() => document.getElementById('s-final').scrollIntoView({ behavior: 'smooth' }), 800);
+}
+</script>
+</body>
+</html>
