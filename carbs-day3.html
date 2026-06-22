@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>День 3 · Глікемічний індекс · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#F4F8F2;--cr2:#EDF5EB;
+  --g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--g4:#A8D8AC;--g5:#E8F5E9;
+  --ink:#1A2E1C;--ink2:#2E4A30;--mu:#5A7A5C;--mu2:#8AAA8C;
+  --bd:rgba(28,58,36,.14);--bd2:rgba(28,58,36,.26);
+  --warn:#B8600A;--warnp:#FDF3E7;--warnb:rgba(184,96,10,.2);
+  --red:#C0443A;--redp:rgba(192,68,58,.06);--redb:rgba(192,68,58,.18)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--g3),var(--g4));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:not(#s-hero):not(#s-final):nth-child(odd){background:var(--cr)}
+section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g2);margin-bottom:10px;text-align:center;display:block}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g2)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.12}}
+@keyframes lf{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+@keyframes slide-down{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
+
+/* HERO */
+#s-hero{min-height:100svh;background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(90,170,104,.14),transparent 60%),radial-gradient(ellipse 40% 30% at 85% 8%,rgba(90,170,104,.08),transparent 50%),#1C3A24;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06);animation:rb 8s ease-in-out infinite}
+.ring:nth-child(1){width:220px;height:220px}.ring:nth-child(2){width:460px;height:460px;animation-delay:2.5s}.ring:nth-child(3){width:720px;height:720px;animation-delay:5s}
+.leaf{position:absolute;font-size:2rem;opacity:.07;animation:lf 6s ease-in-out infinite;pointer-events:none}
+.leaf:nth-child(4){top:8%;left:5%}.leaf:nth-child(5){top:15%;right:8%;animation-delay:1.5s}.leaf:nth-child(6){bottom:20%;left:10%;animation-delay:3s}.leaf:nth-child(7){bottom:12%;right:6%;animation-delay:4.5s}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(12px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:#E8F5E9;line-height:1.2}
+.ar-tag{font-size:9px;letter-spacing:2px;color:rgba(200,230,200,.7);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:rgba(200,235,202,.9);text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,70px);font-weight:700;line-height:1.05;color:#F0F7F0;position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:#8FCC9A;display:block;font-size:clamp(26px,7vw,48px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,rgba(143,204,154,.5),transparent);margin:15px auto;position:relative;z-index:1}
+.hs-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:290px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(143,204,154,.55);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+
+/* ТЕСТ */
+.test-card{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:24px 20px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.test-progress{display:flex;gap:5px;margin-bottom:16px}
+.test-dot{height:4px;flex:1;border-radius:2px;background:rgba(28,58,36,.1);transition:background .3s}
+.test-dot.done{background:var(--g2)}.test-dot.active{background:var(--g3)}
+.test-q{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,4vw,19px);font-weight:700;color:var(--ink);line-height:1.5;margin-bottom:14px}
+.test-opts{display:flex;flex-direction:column;gap:8px}
+.test-opt{display:flex;align-items:center;gap:12px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:11px;padding:11px 14px;cursor:pointer;transition:all .2s;user-select:none}
+.test-opt:hover{border-color:var(--bd2);background:#fff}
+.test-opt.selected{border-color:var(--g2);background:var(--g5)}
+.test-opt-dot{width:18px;height:18px;border-radius:50%;border:2px solid var(--bd);flex-shrink:0;transition:all .2s}
+.test-opt.selected .test-opt-dot{background:var(--g2);border-color:var(--g2)}
+.test-opt-text{font-size:13px;color:var(--ink2);line-height:1.4}
+.test-result{display:none;margin-top:14px;border-radius:13px;padding:14px 16px}
+.test-result.show{display:block;animation:pp .4s ease}
+.test-result-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;margin-bottom:6px}
+.test-result-body{font-size:12px;line-height:1.75}
+.test-result.r-red{background:var(--redp);border:1px solid var(--redb);color:var(--red)}
+.test-result.r-yellow{background:var(--warnp);border:1px solid var(--warnb);color:var(--warn)}
+.test-result.r-green{background:var(--g5);border:1px solid var(--bd);color:var(--g2)}
+.test-next-btn{width:100%;margin-top:10px;padding:10px;background:var(--g5);border:1.5px solid var(--bd);border-radius:10px;font-size:13px;color:var(--g2);cursor:pointer;transition:all .2s;display:none;font-family:'Jost',sans-serif}
+.test-next-btn.show{display:block}
+.test-next-btn:hover{background:#fff;border-color:var(--g2)}
+
+/* ДОВІДКА ГІ — сітка */
+.cat-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:4px}
+.cat-card{background:#fff;border:1.5px solid var(--bd);border-radius:14px;padding:14px 12px;cursor:pointer;transition:all .2s;user-select:none;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;position:relative}
+.cat-card:hover{border-color:var(--g2);background:var(--g5);transform:translateY(-2px)}
+.cat-card.active{background:var(--g5);border-color:var(--g2);border-width:2px;transform:translateY(-2px);box-shadow:0 4px 16px rgba(28,58,36,.12)}
+.cat-card-emoji{font-size:1.7rem;line-height:1}
+.cat-card-name{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.2}
+.cat-card.active .cat-card-name{color:var(--g1)}
+.cat-card-count{font-size:10px;color:var(--mu)}
+.cat-card-arrow{position:absolute;bottom:7px;right:9px;font-size:.75rem;color:var(--mu2);transition:transform .2s}
+.cat-card.active .cat-card-arrow{transform:rotate(90deg);color:var(--g2)}
+
+/* ТАБЛИЦЯ ПАНЕЛЬ */
+.table-panel{display:none;background:#fff;border:1.5px solid var(--g2);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(28,58,36,.1);margin-bottom:8px}
+.table-panel.open{display:block;animation:pp .35s cubic-bezier(.34,1.3,.64,1)}
+.table-panel-header{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff}
+.tph-icon{font-size:1.3rem;flex-shrink:0}
+.tph-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;flex:1}
+.tph-close{font-size:.9rem;opacity:.7;cursor:pointer;padding:4px;transition:opacity .15s}
+.tph-close:hover{opacity:1}
+.gt-head{display:grid;grid-template-columns:1fr 52px 52px 58px;padding:8px 12px;border-bottom:1.5px solid var(--bd);background:var(--g5)}
+.gt-th{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.gt-th.c{text-align:center}
+.gt-row{display:grid;grid-template-columns:1fr 52px 52px 58px;align-items:center;padding:9px 12px;border-bottom:1px solid rgba(28,58,36,.05);cursor:pointer;transition:background .15s}
+.gt-row:last-child{border-bottom:none}
+.gt-row:hover{background:rgba(28,58,36,.02)}
+.gt-row.expanded{background:rgba(28,58,36,.02)}
+.gt-name-wrap{display:flex;align-items:center;gap:7px}
+.gt-icon{font-size:.95rem;flex-shrink:0}
+.gt-name{font-size:12px;color:var(--ink2);line-height:1.3}
+.gt-gi{font-size:11.5px;font-weight:500;text-align:center;padding:3px 5px;border-radius:7px}
+.gt-ii{font-size:11px;color:var(--mu);text-align:center}
+.gt-bar-wrap{display:flex;align-items:center}
+.gt-bar-bg{flex:1;height:5px;background:rgba(28,58,36,.08);border-radius:3px;overflow:hidden}
+.gt-bar-fill{height:100%;border-radius:3px;transition:width .5s ease}
+.gt-bar-fill.green{background:linear-gradient(90deg,#2E6B3A,#5AAA68)}
+.gt-bar-fill.yellow{background:linear-gradient(90deg,#B8600A,#D4905A)}
+.gt-bar-fill.red{background:linear-gradient(90deg,#C0443A,#E07070)}
+.gt-detail{display:none;padding:8px 12px 11px;background:rgba(28,58,36,.02);border-top:1px solid rgba(28,58,36,.05)}
+.gt-row.expanded+.gt-detail{display:block;animation:slide-down .2s ease}
+.gt-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:7px}
+.gt-detail-box{background:#fff;border:1px solid var(--bd);border-radius:8px;padding:7px 10px}
+.gt-detail-lbl{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu2);margin-bottom:2px}
+.gt-detail-val{font-size:14px;font-weight:500;color:var(--ink2)}
+.gt-detail-tip{font-size:11.5px;color:var(--mu);line-height:1.65}
+.gi-green{background:rgba(46,107,58,.1);color:#2E6B3A}
+.gi-yellow{background:rgba(184,96,10,.1);color:#B8600A}
+.gi-red{background:rgba(192,68,58,.1);color:#C0443A}
+.gi-gray{background:rgba(28,58,36,.06);color:var(--mu)}
+
+/* ПОШУК */
+.search-wrap{position:relative;margin-bottom:16px}
+.search-inp{width:100%;background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:11px 16px 11px 42px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color .15s}
+.search-inp:focus{border-color:var(--g2)}
+.search-inp::placeholder{color:var(--mu2)}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:1rem;color:var(--mu2);pointer-events:none}
+.search-results{display:none;background:#fff;border:1.5px solid var(--bd);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(28,58,36,.1);margin-top:6px;position:absolute;width:100%;z-index:10}
+.search-results.show{display:block;animation:slide-down .2s ease}
+.sr-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid rgba(28,58,36,.06);cursor:pointer;transition:background .15s}
+.sr-item:last-child{border-bottom:none}
+.sr-item:hover{background:#F8FCF8}
+.sr-icon{font-size:1.1rem;flex-shrink:0}
+.sr-name{font-size:13px;color:var(--ink2);flex:1}
+.sr-cat{font-size:10px;color:var(--mu2);background:rgba(28,58,36,.06);padding:2px 7px;border-radius:10px;white-space:nowrap}
+.sr-gi-badge{font-size:11px;font-weight:500;padding:2px 8px;border-radius:10px;white-space:nowrap}
+
+/* ЗВИЧКА */
+.hc{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.hc::before{content:'⚡';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.04;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:var(--g5);border:1px solid var(--bd);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--g2);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,20px);line-height:1.6;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g2)}
+.hdv{width:24px;height:1px;background:var(--bd2);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* BADGE */
+.task-badge{display:inline-flex;align-items:center;gap:7px;background:var(--g1);color:#fff;border-radius:20px;padding:5px 14px;font-size:9px;letter-spacing:2px;text-transform:uppercase}
+
+/* НОРМА ЦУКРУ */
+.sugar-norm-box{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--g2);border-radius:14px;padding:14px 16px;margin-bottom:16px}
+.sugar-norm-icon{font-size:2rem;flex-shrink:0}
+.sugar-norm-text{flex:1}
+.sugar-norm-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--g1)}
+.sugar-norm-sub{font-size:12px;color:var(--mu);margin-top:2px;line-height:1.5}
+.sugar-norm-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--g2);line-height:1;text-align:right}
+.sugar-norm-unit{font-size:10px;color:var(--mu);text-align:right}
+
+/* ЦУКОР ТАБЛИЦЯ */
+.sugar-tabs{display:flex;gap:8px;margin-bottom:14px}
+.sugar-tab{flex:1;padding:10px 8px;border-radius:11px;border:1.5px solid var(--bd);background:#F8FCF8;font-size:12px;color:var(--mu);cursor:pointer;transition:all .18s;text-align:center;font-family:'Jost',sans-serif;user-select:none;line-height:1.4}
+.sugar-tab.active.nat{background:#E8F5E9;border-color:#2E6B3A;color:#2E6B3A;font-weight:500}
+.sugar-tab.active.ind{background:var(--redp);border-color:var(--red);color:var(--red);font-weight:500}
+.sugar-tab.active.cmp{background:var(--warnp);border-color:var(--warn);color:var(--warn);font-weight:500}
+.sugar-tab-content{display:none}
+.sugar-tab-content.active{display:block;animation:slide-down .25s ease}
+
+.sugar-table{background:#fff;border:1.5px solid var(--bd);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(28,58,36,.06)}
+.sug-head{display:grid;grid-template-columns:1fr 80px 80px;padding:9px 14px;border-bottom:1.5px solid var(--bd)}
+.sug-th{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.sug-th.r{text-align:right}
+.sug-row{display:grid;grid-template-columns:1fr 80px 80px;align-items:center;padding:10px 14px;border-bottom:1px solid rgba(28,58,36,.05)}
+.sug-row:last-child{border-bottom:none}
+.sug-name{font-size:12.5px;color:var(--ink2)}
+.sug-portion{font-size:11px;color:var(--mu);margin-top:1px}
+.sug-val{font-size:13px;font-weight:500;text-align:right}
+.sug-val.nat-val{color:#2E6B3A}
+.sug-val.ind-val{color:var(--red)}
+.sug-bar-wrap{display:flex;align-items:center;justify-content:flex-end;gap:5px}
+.sug-bar-bg{width:60px;height:6px;background:rgba(28,58,36,.08);border-radius:3px;overflow:hidden}
+.sug-bar-fill{height:100%;border-radius:3px}
+.sug-bar-fill.nat{background:linear-gradient(90deg,#2E6B3A,#5AAA68)}
+.sug-bar-fill.ind{background:linear-gradient(90deg,var(--red),#E07070)}
+.sug-insight{margin-top:12px;border-radius:12px;padding:13px 15px;font-size:13px;line-height:1.7}
+.sug-insight.nat-ins{background:var(--g5);color:var(--g2);border:1px solid var(--bd)}
+.sug-insight.ind-ins{background:var(--redp);color:var(--red);border:1px solid var(--redb)}
+.sug-head.nat-head{background:#E8F5E9}
+.sug-head.ind-head{background:var(--redp)}
+
+/* ЗАМІНИ */
+.swap-pair{background:#fff;border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;margin-bottom:10px;transition:all .2s;box-shadow:0 2px 10px rgba(28,58,36,.06)}
+.swap-pair.done{border-color:var(--g2);box-shadow:0 3px 16px rgba(28,58,36,.12)}
+.swap-pair-header{display:flex;align-items:center;gap:10px;padding:14px 16px;cursor:pointer;user-select:none}
+.swap-from{display:flex;align-items:center;gap:8px;flex:1}
+.swap-from-icon{font-size:1.2rem;flex-shrink:0}
+.swap-from-text{font-size:12px;color:var(--mu);line-height:1.3}
+.swap-from-name{font-size:13px;color:var(--ink2);font-weight:500;line-height:1.2}
+.swap-arrow-icon{font-size:1.1rem;color:var(--mu2);flex-shrink:0}
+.swap-to{display:flex;align-items:center;gap:8px;flex:1}
+.swap-to-icon{font-size:1.2rem;flex-shrink:0}
+.swap-to-name{font-size:13px;color:var(--g1);font-weight:500;line-height:1.2}
+.swap-to-text{font-size:11px;color:var(--mu);line-height:1.3}
+.swap-check-btn{width:28px;height:28px;border-radius:50%;border:2px solid var(--bd);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;transition:all .2s;cursor:pointer}
+.swap-pair.done .swap-check-btn{background:var(--g2);border-color:var(--g2);color:#fff}
+.swap-why{display:none;padding:0 16px 14px;font-size:12px;color:var(--mu);line-height:1.65;background:var(--g5);border-top:1px solid var(--bd)}
+.swap-pair.open .swap-why{display:block}
+.swap-why strong{color:var(--g2)}
+.swap-custom-wrap{display:flex;gap:8px;margin-top:4px}
+.swap-inp{flex:1;background:#fff;border:1.5px solid var(--bd);border-radius:9px;padding:10px 13px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color .15s}
+.swap-inp:focus{border-color:var(--g2)}
+.swap-inp::placeholder{color:var(--mu2);font-style:italic}
+.swap-add-btn{padding:10px 14px;background:var(--g5);border:1.5px solid var(--bd);border-radius:9px;font-size:13px;color:var(--g2);cursor:pointer;transition:all .15s;font-family:'Jost',sans-serif;white-space:nowrap}
+.swap-add-btn:hover{background:var(--g2);color:#fff;border-color:var(--g2)}
+.swap-done-msg{display:none;margin-top:12px;padding:12px 15px;background:var(--g5);border:1px solid var(--bd);border-radius:12px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);text-align:center}
+.swap-done-msg.show{display:block;animation:pp .4s ease}
+
+/* ТРЕКЕРИ */
+.optional-block{border:1.5px dashed var(--bd);border-radius:20px;overflow:hidden;margin-bottom:12px}
+.optional-block:last-child{margin-bottom:0}
+.optional-toggle{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;cursor:pointer;background:#fff;user-select:none;transition:background .18s}
+.optional-toggle:hover{background:#F8FCF8}
+.ot-left{display:flex;align-items:center;gap:10px}
+.ot-icon{font-size:1.3rem}
+.ot-title{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.ot-sub{font-size:11px;color:var(--mu);margin-top:1px}
+.ot-arrow{font-size:1rem;color:var(--mu2);transition:transform .3s}
+.ot-arrow.open{transform:rotate(180deg)}
+.optional-body{display:none;padding:0 16px 16px;background:#fff}
+.optional-body.open{display:block;animation:slide-down .3s ease}
+.opt-div{height:1px;background:var(--bd);margin-bottom:14px}
+.ttp{font-size:11px;color:var(--g2);background:var(--g5);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin:0 0 12px;line-height:1.65}
+.wsr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}
+.wml{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--g2);line-height:1}
+.wu{font-size:12px;color:var(--mu2);margin-left:3px}
+.wcl{font-size:9px;color:var(--mu2);text-transform:uppercase;letter-spacing:1.5px}
+.wcv{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--mu2);text-align:right}
+.pt{height:4px;border-radius:2px;background:rgba(28,58,36,.08);overflow:hidden;margin-bottom:13px}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g2),var(--g3));width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.cups{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.cup{width:38px;height:38px;border-radius:10px;border:1.5px solid rgba(28,58,36,.14);background:#F8FCF8;cursor:pointer;font-size:.95rem;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.cup:hover{border-color:var(--g2);transform:translateY(-2px)}
+.cup.fi{background:var(--g5);border-color:var(--g2)}
+.wmsg{font-size:11px;color:var(--mu);font-style:italic;text-align:center;min-height:16px}
+.meals{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.meal{display:flex;align-items:center;gap:10px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none}
+.meal:hover{background:#fff;border-color:var(--bd2)}
+.meal.ch{background:var(--g5);border-color:var(--bd2)}
+.me{font-size:1.1rem;flex-shrink:0}.mn{font-size:13px;color:var(--ink2);flex:1}
+.meal.ch .mn{color:var(--ink)}
+.mtk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.meal.ch .mtk{background:var(--g3);border-color:var(--g2);color:#fff}
+.pres{padding:10px 12px;background:var(--g5);border-radius:9px;border:1px solid var(--bd);display:none;text-align:center}
+.pres.sh{display:block}
+.pres p{font-size:12px;color:var(--g2);line-height:1.6}
+.pres strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+.fat-row{display:flex;align-items:center;gap:11px;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none;margin-bottom:7px}
+.fat-row:hover{background:#fff;border-color:var(--bd2)}
+.fat-row.ch{background:var(--g5);border-color:var(--bd2)}
+.fat-icon{font-size:1.1rem;flex-shrink:0}.fat-name{font-size:13px;color:var(--ink2);flex:1}
+.fat-row.ch .fat-name{color:var(--ink)}
+.fat-tick{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.fat-row.ch .fat-tick{background:var(--g3);border-color:var(--g2);color:#fff}
+
+/* РЕФЛЕКСІЯ */
+.rq-card{background:#fff;border:1.5px solid var(--bd);border-radius:17px;padding:20px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.rq-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rq-sub{font-size:11px;color:var(--mu);margin-bottom:18px;line-height:1.5}
+.rq-list{display:flex;flex-direction:column;gap:14px}
+.rq-lbl{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rq-ta{width:100%;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:60px;line-height:1.65;transition:border-color .15s}
+.rq-ta:focus{border-color:var(--bd2)}
+.rq-ta::placeholder{color:var(--mu2);font-style:italic}
+.stars{display:flex;gap:7px;margin-top:3px}
+.star{font-size:24px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none}
+.star.li{opacity:1;transform:scale(1.1)}
+.smsg{margin-top:7px;font-size:12px;color:var(--g2);font-style:italic;min-height:18px}
+
+/* СЛОВО ВІД МЕНЕ */
+.expert-card{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:24px 20px;box-shadow:0 2px 14px rgba(28,58,36,.07);position:relative;overflow:hidden}
+.expert-card::after{content:'⚡';position:absolute;right:-8px;bottom:-12px;font-size:80px;opacity:.05;pointer-events:none}
+.expert-avatar{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.expert-av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;color:#fff;flex-shrink:0}
+.expert-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);line-height:1.2}
+.expert-role{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+.expert-text{font-size:13px;color:var(--mu);line-height:1.8;margin-bottom:6px}
+.expert-text em{font-style:italic;color:var(--g2)}
+.expert-sign{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--mu2);margin-bottom:16px}
+.tg-btn{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:13px;padding:14px 18px;text-decoration:none;cursor:pointer;transition:all .2s;width:100%;box-shadow:0 3px 12px rgba(28,58,36,.2)}
+.tg-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(28,58,36,.3)}
+.tg-icon{font-size:1.3rem;flex-shrink:0}
+.tg-text{flex:1;text-align:left}
+.tg-main{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:#fff;line-height:1.2}
+.tg-sub{font-size:10px;color:rgba(200,235,200,.8)}
+.tg-arrow{color:rgba(200,235,200,.7);font-size:1rem}
+
+/* ЗБЕРЕГТИ */
+.save-btn{width:100%;padding:16px 20px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border:none;border-radius:14px;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:.5px;box-shadow:0 4px 20px rgba(28,58,36,.22)}
+.save-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(28,58,36,.32)}
+.save-done{display:none;margin-top:12px;background:var(--g5);border:1px solid var(--bd2);border-radius:12px;padding:14px;text-align:center}
+.save-done.show{display:block;animation:pp .4s ease}
+.save-done p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--g2);line-height:1.6}
+.pvr{display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:12px}
+.pvt{font-size:11px;color:var(--mu);line-height:1.6}
+.pvt strong{color:var(--ink2)}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#1C3A24,#243F2A 60%,#1A3620)!important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:54px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:#F0F7F0}
+.fnt em{font-style:italic;color:#8FCC9A}
+.fnl{width:32px;height:1px;background:rgba(143,204,154,.35);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:rgba(180,220,184,.85);line-height:1.7;max-width:270px;margin:0 auto 26px}
+.tc{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:19px;padding:22px 18px;text-align:center;max-width:330px;width:100%;backdrop-filter:blur(12px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(143,204,154,.8);margin-bottom:11px;display:block}
+.tci{font-size:38px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,21px);font-weight:700;color:#F0F7F0;margin-bottom:8px;line-height:1.3}
+.tct em{color:#8FCC9A;font-style:italic}
+.tcd{font-size:12px;color:rgba(180,220,184,.75);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="leaf">🌿</div><div class="leaf">🍃</div><div class="leaf">⚡</div><div class="leaf">🌾</div>
+  <div class="apl rv"><div class="av">ЛБ</div><div><div class="an">Любов Бухарова</div><div class="ar-tag">Нутриціолог</div></div></div>
+  <div class="wb rv">Тиждень вуглеводів · День 3</div>
+  <span class="hi rv">⚡</span>
+  <h1 class="ht rv">Глікемічний індекс<em>— енергія без стрибків</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs-sub rv">Сьогодні зрозумієш чому після їжі хочеться спати — і як обрати продукти для стабільної енергії 🌿</p>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- ТЕСТ -->
+<section><div class="w">
+  <span class="ey rv">Починаємо з тебе</span>
+  <h2 class="tt rv">Як ти себе почуваєш<br><em>після їжі?</em></h2>
+  <p class="sb rv">Чесна відповідь — і ти одразу зрозумієш де твоя точка росту 🌿</p>
+  <div class="test-card rv" id="testCard">
+    <div class="test-progress" id="testProgress"></div>
+    <div id="testBody"></div>
+  </div>
+</div></section>
+
+<!-- ДОВІДКА ГІ -->
+<section><div class="w">
+  <span class="ey rv">Довідка</span>
+  <h2 class="tt rv">Таблиці<br><em>глікемічного індексу</em></h2>
+  <p class="sb rv">Всі 10 категорій · ГІ та інсуліновий індекс · натисни на продукт для деталей 🌿</p>
+  <div class="search-wrap rv">
+    <span class="search-icon">🔍</span>
+    <input class="search-inp" type="text" placeholder="Знайти продукт…" id="searchInp" oninput="doSearch(this.value)" autocomplete="off">
+    <div class="search-results" id="searchResults"></div>
+  </div>
+  <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap" class="rv">
+    <span style="font-size:11px;color:#2E6B3A;background:#E8F5E9;padding:4px 10px;border-radius:20px;border:1px solid rgba(46,107,58,.2)">🟢 ГІ до 40 — низький</span>
+    <span style="font-size:11px;color:#B8600A;background:#FDF3E7;padding:4px 10px;border-radius:20px;border:1px solid rgba(184,96,10,.2)">🟡 ГІ 40–70 — середній</span>
+    <span style="font-size:11px;color:#C0443A;background:#FDF1F0;padding:4px 10px;border-radius:20px;border:1px solid rgba(192,68,58,.2)">🔴 ГІ 70+ — високий</span>
+  </div>
+  <div class="cat-grid rv" id="catGrid">
+    <div class="cat-card" onclick="toggleCat('veg',this)" id="card-veg"><span class="cat-card-emoji">🥦</span><div class="cat-card-name">Овочі</div><div class="cat-card-count">24 продукти</div><span class="cat-card-arrow">›</span></div>
+    <div class="cat-card" onclick="toggleCat('fruit',this)" id="card-fruit"><span class="cat-card-emoji">🍎</span><div class="cat-card-name">Фрукти та ягоди</div><div class="cat-card-count">21 продукт</div><span class="cat-card-arrow">›</span></div>
+    <div id="panel-row-1" style="grid-column:1/-1"></div>
+    <div class="cat-card" onclick="toggleCat('grain',this)" id="card-grain"><span class="cat-card-emoji">🌾</span><div class="cat-card-name">Крупи та хліб</div><div class="cat-card-count">16 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div class="cat-card" onclick="toggleCat('dairy',this)" id="card-dairy"><span class="cat-card-emoji">🥛</span><div class="cat-card-name">Молочне</div><div class="cat-card-count">15 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div id="panel-row-2" style="grid-column:1/-1"></div>
+    <div class="cat-card" onclick="toggleCat('protein',this)" id="card-protein"><span class="cat-card-emoji">🥚</span><div class="cat-card-name">Білки</div><div class="cat-card-count">8 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div class="cat-card" onclick="toggleCat('fat',this)" id="card-fat"><span class="cat-card-emoji">🥑</span><div class="cat-card-name">Жири та олії</div><div class="cat-card-count">6 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div id="panel-row-3" style="grid-column:1/-1"></div>
+    <div class="cat-card" onclick="toggleCat('nuts',this)" id="card-nuts"><span class="cat-card-emoji">🥜</span><div class="cat-card-name">Горіхи та насіння</div><div class="cat-card-count">10 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div class="cat-card" onclick="toggleCat('drinks',this)" id="card-drinks"><span class="cat-card-emoji">☕</span><div class="cat-card-name">Напої</div><div class="cat-card-count">18 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div id="panel-row-4" style="grid-column:1/-1"></div>
+    <div class="cat-card" onclick="toggleCat('sweets',this)" id="card-sweets"><span class="cat-card-emoji">🍫</span><div class="cat-card-name">Солодке та випічка</div><div class="cat-card-count">24 продукти</div><span class="cat-card-arrow">›</span></div>
+    <div class="cat-card" onclick="toggleCat('sauces',this)" id="card-sauces"><span class="cat-card-emoji">🌭</span><div class="cat-card-name">Соуси та фастфуд</div><div class="cat-card-count">11 продуктів</div><span class="cat-card-arrow">›</span></div>
+    <div id="panel-row-5" style="grid-column:1/-1"></div>
+  </div>
+</div></section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка тижня</span>
+  <h2 class="tt rv">Енергію не накопичую —<br><em>обираю вуглеводи</em></h2>
+  <div class="hc rv">
+    <span class="hp">⚡ День 3 · Звичка</span>
+    <span class="hib">🌾</span>
+    <p class="hq">«Енергію не накопичую.<br><em>Обираю вуглеводи замість цукерок»</em></p>
+    <div class="hdv"></div>
+    <p class="hds">Тяга до солодкого — це сигнал тіла що воно хоче енергії. Але цукерка дасть стрибок і спад. Яблуко, ягоди або жменя горіхів — дадуть рівну енергію і ситість ⚡</p>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 1 — ЦУКОР -->
+<section><div class="w">
+  <div style="text-align:center;margin-bottom:10px" class="rv"><span class="task-badge">✦ Завдання 1</span></div>
+  <h2 class="tt rv">Скільки цукру<br><em>насправді?</em></h2>
+  <p class="sb rv">Всі цифри — по реальних порціях. Знайди своє «о, не знала!» 🌿</p>
+  <div class="sugar-norm-box rv">
+    <span class="sugar-norm-icon">🍬</span>
+    <div class="sugar-norm-text">
+      <div class="sugar-norm-title">Добова норма цукру</div>
+      <div class="sugar-norm-sub">ВООЗ рекомендує не більше<br><strong>25 г доданого цукру</strong> на день</div>
+    </div>
+    <div><div class="sugar-norm-num">25 г</div><div class="sugar-norm-unit">на день</div></div>
+  </div>
+
+  <div class="sugar-tabs rv">
+    <div class="sugar-tab active nat" onclick="switchSugarTab('nat',this)">🟢 Натуральні<br>продукти</div>
+    <div class="sugar-tab ind" onclick="switchSugarTab('ind',this)">🔴 Промислові<br>продукти</div>
+    <div class="sugar-tab cmp" onclick="switchSugarTab('cmp',this)">🔄 Порівняй<br>продукти</div>
+  </div>
+
+    <div class="sugar-tab-content active" id="stab-nat">
+    <div class="sugar-table">
+      <div class="sug-head nat-head"><div class="sug-th">Продукт / Порція</div><div class="sug-th r">Цукор</div><div class="sug-th r">% норми</div></div>
+      <div class="sug-row"><div><div class="sug-name">🥦 Броколі</div><div class="sug-portion">150 г</div></div><div class="sug-val nat-val" style="text-align:right">1.7 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:7%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥕 Морква свіжа</div><div class="sug-portion">1 середня (80 г)</div></div><div class="sug-val nat-val" style="text-align:right">5.6 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:22%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🫐 Малина / чорниця</div><div class="sug-portion">1 склянка (150 г)</div></div><div class="sug-val nat-val" style="text-align:right">6.5 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:26%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍉 Кавун</div><div class="sug-portion">1 скибка (200 г)</div></div><div class="sug-val nat-val" style="text-align:right">16 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:64%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍑 Абрикоси свіжі</div><div class="sug-portion">3 шт (100 г)</div></div><div class="sug-val nat-val" style="text-align:right">10.5 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:42%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍎 Яблуко зі шкіркою</div><div class="sug-portion">1 середнє (150 г)</div></div><div class="sug-val nat-val" style="text-align:right">17 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:68%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍌 Банан</div><div class="sug-portion">1 середній (100 г)</div></div><div class="sug-val nat-val" style="text-align:right">12 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:48%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍇 Виноград</div><div class="sug-portion">1 жменя (100 г)</div></div><div class="sug-val nat-val" style="text-align:right">17 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:68%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🌹 Шипшина свіжа</div><div class="sug-portion">100 г</div></div><div class="sug-val nat-val" style="text-align:right">24 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:96%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🌾 Гречка варена</div><div class="sug-portion">150 г (тарілка)</div></div><div class="sug-val nat-val" style="text-align:right">0 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:0%"></div></div></div></div>
+      <div style="background:var(--g5);padding:8px 14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)">🍂 Сухофрукти — концентрований цукор (маленькі порції!)</div>
+      <div class="sug-row"><div><div class="sug-name">🌹 Шипшина суха</div><div class="sug-portion">1 ст.л. (10 г)</div></div><div class="sug-val nat-val" style="text-align:right">6 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:24%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🫐 Чорнослив</div><div class="sug-portion">5 шт (30 г)</div></div><div class="sug-val nat-val" style="text-align:right">19.4 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:78%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍇 Родзинки</div><div class="sug-portion">1 ст.л. (20 г)</div></div><div class="sug-val nat-val" style="text-align:right">14.2 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:57%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍎 Яблука сушені</div><div class="sug-portion">5 шт (30 г)</div></div><div class="sug-val nat-val" style="text-align:right">20.4 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:82%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🌴 Фініки</div><div class="sug-portion">3 шт (30 г)</div></div><div class="sug-val nat-val" style="text-align:right">21.6 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:86%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍑 Курага</div><div class="sug-portion">5 шт (30 г)</div></div><div class="sug-val nat-val" style="text-align:right">24 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:96%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍯 Мед</div><div class="sug-portion">1 ст.л. (20 г)</div></div><div class="sug-val nat-val" style="text-align:right">16.1 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:64%"></div></div></div></div>
+    </div>
+        <div class="sug-insight nat-ins">
+      ✅ <strong>Свіжі фрукти і овочі — безпечні!</strong> Морква, ягоди, яблуко — мало цукру і багато клітковини. Але сухофрукти — це концентрат: 5 шт кураги майже добова норма. Їж маленькими порціями 🌿
+    </div>
+  </div>
+  <div class="sugar-tab-content" id="stab-ind">
+    <div class="sugar-table">
+      <div class="sug-head ind-head"><div class="sug-th">Продукт / Порція</div><div class="sug-th r">Цукор</div><div class="sug-th r">% норми</div></div>
+      <div class="sug-row"><div><div class="sug-name">🍕 Піца / фастфуд</div><div class="sug-portion">1 шматок (150 г)</div></div><div class="sug-val ind-val" style="text-align:right">~8 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:21%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🌽 Чіпси / крекери / кукурудзяні палички</div><div class="sug-portion">1 пачка (30 г)</div></div><div class="sug-val ind-val" style="text-align:right">~2 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:8%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥐 Круасан</div><div class="sug-portion">1 шт (60 г)</div></div><div class="sug-val ind-val" style="text-align:right">12 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:48%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍪 Печиво / вафлі / булочна дрібнота</div><div class="sug-portion">4–5 шт (60 г)</div></div><div class="sug-val ind-val" style="text-align:right">20 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:80%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥣 Готові пластівці для сніданку</div><div class="sug-portion">1 порція (30 г)</div></div><div class="sug-val ind-val" style="text-align:right">12 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:48%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍫 Зерновий батончик</div><div class="sug-portion">1 шт (40 г)</div></div><div class="sug-val ind-val" style="text-align:right">~15 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:60%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍰 Торт з глазур'ю / тістечко</div><div class="sug-portion">1 шматок (80 г)</div></div><div class="sug-val ind-val" style="text-align:right">~30 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🫙 Джем / консервовані фрукти</div><div class="sug-portion">1 ст.л. (20 г)</div></div><div class="sug-val ind-val" style="text-align:right">12 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:48%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🧃 Консервований сік з пакету</div><div class="sug-portion">1 пачка (200 мл)</div></div><div class="sug-val ind-val" style="text-align:right">22 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:88%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥤 Кола / Фанта / солодкі газовані</div><div class="sug-portion">1 банка (330 мл)</div></div><div class="sug-val ind-val" style="text-align:right">35 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍫 Шоколадний батончик Snickers/Mars</div><div class="sug-portion">1 шт (50 г)</div></div><div class="sug-val ind-val" style="text-align:right">27 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍬 Цукерки / льодяники / жувальні</div><div class="sug-portion">5 шт (~50 г)</div></div><div class="sug-val ind-val" style="text-align:right">~38 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+    </div>
+        <div class="sug-insight ind-ins">
+      😱 <strong>Добова норма 25 г — це доданий цукор.</strong> 1 банка коли = 140% норми. Сік з пакету, зернові батончики, торт, піца — цукор є скрізь де не очікуєш. Читай склад!
+    </div>
+  </div>
+  <div class="sugar-tab-content" id="stab-cmp">
+    <div style="background:var(--warnp);border:1px solid var(--warnb);border-radius:11px;padding:11px 14px;margin-bottom:12px;font-size:12px;color:var(--warn);line-height:1.7">
+      ⚖️ <strong>Порівняй однакові порції</strong> — і зрозумій де більше цукру ніж здається. Норма: 25 г на день.
+    </div>
+    <div class="sugar-table">
+      <div class="sug-head" style="background:#F8FCF8"><div class="sug-th">Продукт / Порція</div><div class="sug-th r">Цукор</div><div class="sug-th r">% норми</div></div>
+      <div style="background:var(--g5);padding:8px 14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)">🍌 Фрукти — здається багато цукру?</div>
+      <div class="sug-row"><div><div class="sug-name">🍌 Банан</div><div class="sug-portion">1 шт (100 г)</div></div><div class="sug-val nat-val" style="text-align:right">12 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:48%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍎 Яблуко</div><div class="sug-portion">1 шт (150 г)</div></div><div class="sug-val nat-val" style="text-align:right">17 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:68%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍊 Апельсин</div><div class="sug-portion">1 шт (150 г)</div></div><div class="sug-val nat-val" style="text-align:right">14 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill nat" style="width:56%"></div></div></div></div>
+      <div style="background:var(--redp);padding:8px 14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red)">🍪 Це ж мало цукру — чи справді?</div>
+      <div class="sug-row"><div><div class="sug-name">🍪 Вівсяне печиво</div><div class="sug-portion">3 шт (45 г)</div></div><div class="sug-val ind-val" style="text-align:right">15 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:60%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥐 Круасан</div><div class="sug-portion">1 шт (60 г)</div></div><div class="sug-val ind-val" style="text-align:right">12 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:48%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🧃 Сік "дитячий" з пакету</div><div class="sug-portion">1 пачка (200 мл)</div></div><div class="sug-val ind-val" style="text-align:right">22 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:88%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥣 Мюслі з йогуртом</div><div class="sug-portion">1 порція (50 г + 125 г)</div></div><div class="sug-val ind-val" style="text-align:right">~22 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:88%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍫 Зерновий батончик (фітнес)</div><div class="sug-portion">1 шт (40 г)</div></div><div class="sug-val ind-val" style="text-align:right">~15 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:60%"></div></div></div></div>
+      <div style="background:var(--redp);padding:8px 14px;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--red)">💣 Рекордсмени по цукру за 1 порцію</div>
+      <div class="sug-row"><div><div class="sug-name">🍫 Snickers / Mars батончик</div><div class="sug-portion">1 шт (50 г)</div></div><div class="sug-val ind-val" style="text-align:right">27 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🥤 Кола / Фанта</div><div class="sug-portion">1 банка (330 мл)</div></div><div class="sug-val ind-val" style="text-align:right">35 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+      <div class="sug-row"><div><div class="sug-name">🍬 Жувальні цукерки</div><div class="sug-portion">1 пачка (50 г)</div></div><div class="sug-val ind-val" style="text-align:right">38 г</div><div class="sug-bar-wrap"><div class="sug-bar-bg"><div class="sug-bar-fill ind" style="width:100%"></div></div></div></div>
+    </div>
+    <div class="sug-insight ind-ins" style="margin-top:12px">
+      🤯 <strong>Вівсяне печиво і банан містять майже однаково цукру</strong> — але банан дає клітковину і вітаміни. Зерновий батончик "фітнес" — стільки ж цукру скільки в шоколадці. Читай склад!
+    </div>
+  </div
+</div></section>
+
+<!-- ЗАВДАННЯ 2 — ЗАМІНИ -->
+<section><div class="w">
+  <div style="text-align:center;margin-bottom:10px" class="rv"><span class="task-badge">✦ Завдання 2</span></div>
+  <h2 class="tt rv">Розумні<br><em>заміни</em></h2>
+  <p class="sb rv">Не позбавляй себе задоволення — обирай з клітковиною і природним цукром 🌿</p>
+  <div style="background:var(--g5);border:1px solid var(--bd);border-radius:12px;padding:11px 15px;margin-bottom:16px;font-size:12px;color:var(--g2);line-height:1.7" class="rv">
+    💡 <strong>Принцип:</strong> Той самий смак і задоволення — але клітковина сповільнює цукор, а природній цукор із фруктів засвоюється набагато повільніше ніж доданий.
+  </div>
+  <div id="swapList" class="rv">
+    <div class="swap-pair" id="sp0">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp0')">
+        <div class="swap-from"><span class="swap-from-icon">🍞</span><div><div class="swap-from-name">Білий хліб</div><div class="swap-from-text">Швидкий цукор, немає клітковини</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🫓</span><div><div class="swap-to-name">Хліб на заквасці з вершковим маслом</div><div class="swap-to-text">Клітковина + жир = повільний цукор</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp0')">✓</div>
+      </div>
+      <div class="swap-why">🌾 <strong>Чому краще:</strong> Закваска знижує ГІ хліба до 49–55. Вершкове масло сповільнює засвоєння. Смак насиченіший — насичуєшся меншою порцією.</div>
+    </div>
+    <div class="swap-pair" id="sp1">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp1')">
+        <div class="swap-from"><span class="swap-from-icon">🍬</span><div><div class="swap-from-name">Цукерки / карамель</div><div class="swap-from-text">38 г цукру на 5 штук — норма одразу</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🌴</span><div><div class="swap-to-name">Фініки + горіхи</div><div class="swap-to-text">Природній цукор + жир + клітковина</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp1')">✓</div>
+      </div>
+      <div class="swap-why">🥜 <strong>Чому краще:</strong> 2 фініки + жменя мигдалю = солодко, ситно і довго. Клітковина фініків і жири горіхів дають повільне засвоєння цукру.</div>
+    </div>
+    <div class="swap-pair" id="sp2">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp2')">
+        <div class="swap-from"><span class="swap-from-icon">🥤</span><div><div class="swap-from-name">Кола / Фанта / сік з пакету</div><div class="swap-from-text">35 г цукру на 330 мл — без клітковини</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🍋</span><div><div class="swap-to-name">Вода з лимоном і м'ятою або трав'яний чай</div><div class="swap-to-text">Нуль цукру · освіжає не гірше</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp2')">✓</div>
+      </div>
+      <div class="swap-why">💧 <strong>Чому краще:</strong> Вода з лимоном або м'ятою — освіжає не гірше коли. Смузі з овочів і фруктів або кокосова вода — якщо хочеться чогось особливого.</div>
+    </div>
+    <div class="swap-pair" id="sp3">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp3')">
+        <div class="swap-from"><span class="swap-from-icon">🍪</span><div><div class="swap-from-name">Печиво / вафлі</div><div class="swap-from-text">20 г цукру і ГІ 60–80</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🍎</span><div><div class="swap-to-name">Яблуко або груша + мигдаль</div><div class="swap-to-text">Клітковина + природній цукор + жир</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp3')">✓</div>
+      </div>
+      <div class="swap-why">🍎 <strong>Чому краще:</strong> Яблуко зі шкіркою містить пектин — сповільнює цукор. Мигдаль додає жир і білок. Разом — стабільна енергія на 2–3 години.</div>
+    </div>
+    <div class="swap-pair" id="sp4">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp4')">
+        <div class="swap-from"><span class="swap-from-icon">🍫</span><div><div class="swap-from-name">Молочний шоколад / батончик</div><div class="swap-from-text">27 г цукру · ГІ 70 · ІІ 122</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🍫</span><div><div class="swap-to-name">Гіркий шоколад 70%+ (2–3 квадратики)</div><div class="swap-to-text">ГІ 25 · ІІ 22 · є магній</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp4')">✓</div>
+      </div>
+      <div class="swap-why">🍫 <strong>Чому краще:</strong> Гіркий шоколад 70%+ має ГІ всього 25 — як ягоди! 2–3 квадратики = задоволення без стрибка цукру.</div>
+    </div>
+    <div class="swap-pair" id="sp5">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp5')">
+        <div class="swap-from"><span class="swap-from-icon">🥐</span><div><div class="swap-from-name">Круасан / булочка</div><div class="swap-from-text">ГІ 67 · дріжджове тісто без клітковини</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🥑</span><div><div class="swap-to-name">Хліб на заквасці з авокадо або яйцем</div><div class="swap-to-text">Клітковина + жир + білок</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp5')">✓</div>
+      </div>
+      <div class="swap-why">🥑 <strong>Чому краще:</strong> Хліб на заквасці + авокадо = ГІ знижується, ситість на 3–4 години.</div>
+    </div>
+    <div class="swap-pair" id="sp6">
+      <div class="swap-pair-header" onclick="toggleSwapOpen('sp6')">
+        <div class="swap-from"><span class="swap-from-icon">🧃</span><div><div class="swap-from-name">Сік з пакету</div><div class="swap-from-text">22 г цукру без клітковини</div></div></div>
+        <span class="swap-arrow-icon">→</span>
+        <div class="swap-to"><span class="swap-to-icon">🫐</span><div><div class="swap-to-name">Цілі ягоди або фрукт</div><div class="swap-to-text">Той самий цукор + клітковина</div></div></div>
+        <div class="swap-check-btn" onclick="doneSwap(event,'sp6')">✓</div>
+      </div>
+      <div class="swap-why">🫐 <strong>Чому краще:</strong> Цілий фрукт і сік мають майже однакову кількість цукру — але у фрукті є клітковина! Вона сповільнює всмоктування.</div>
+    </div>
+  </div>
+  <div class="swap-custom-wrap rv">
+    <input class="swap-inp" type="text" id="swapInp" placeholder="Своя заміна…">
+    <button class="swap-add-btn" onclick="addSwap()">+ Додати</button>
+  </div>
+  <div class="swap-done-msg" id="swapDoneMsg">🌿 Чудово! Ти зробила усвідомлену заміну — це і є нова звичка в дії ⚡</div>
+</div></section>
+
+<!-- ТРЕКЕРИ -->
+<section><div class="w">
+  <span class="ey rv">Бонус</span>
+  <h2 class="tt rv">Трекери дня<br><em>(за бажанням)</em></h2>
+  <p class="sb rv">Є час і натхнення — відстеж воду, білок і жири 🌿</p>
+  <div class="optional-block rv">
+    <div class="optional-toggle" onclick="toggleOpt('water')"><div class="ot-left"><span class="ot-icon">💧</span><div><div class="ot-title">Вода сьогодні</div><div class="ot-sub">Гідрація = стабільна енергія</div></div></div><span class="ot-arrow" id="arr-water">▼</span></div>
+    <div class="optional-body" id="body-water">
+      <div class="opt-div"></div>
+      <div class="ttp">Пий 30 мл × вага і мінімум 1.5 л на день 🌿</div>
+      <div class="wsr"><div style="display:flex;align-items:baseline;gap:3px"><span class="wml" id="wml">0</span><span class="wu">мл</span></div><div><div class="wcl">Склянок</div><div class="wcv" id="wcv">0 / 10</div></div></div>
+      <div class="pt"><div class="pf" id="wpf"></div></div>
+      <div class="cups" id="cups"></div>
+      <div class="wmsg" id="wmsg"></div>
+    </div>
+  </div>
+  <div class="optional-block rv">
+    <div class="optional-toggle" onclick="toggleOpt('protein')"><div class="ot-left"><span class="ot-icon">💪</span><div><div class="ot-title">Білок на тарілці</div><div class="ot-sub">Знижує ГІ прийому їжі</div></div></div><span class="ot-arrow" id="arr-protein">▼</span></div>
+    <div class="optional-body" id="body-protein">
+      <div class="opt-div"></div>
+      <div class="ttp">Відзнач прийоми їжі де був білок 💛</div>
+      <div class="meals" id="meals">
+        <div class="meal" onclick="tm(this)"><span class="me">🌅</span><span class="mn">Сніданок</span><div class="mtk">✓</div></div>
+        <div class="meal" onclick="tm(this)"><span class="me">🍎</span><span class="mn">Перекус</span><div class="mtk">✓</div></div>
+        <div class="meal" onclick="tm(this)"><span class="me">🍽️</span><span class="mn">Обід</span><div class="mtk">✓</div></div>
+        <div class="meal" onclick="tm(this)"><span class="me">🌙</span><span class="mn">Вечеря</span><div class="mtk">✓</div></div>
+      </div>
+      <div class="pres" id="pres"><p><strong id="pc">0</strong> з 4 прийомів із білком — <span id="pm"></span></p></div>
+    </div>
+  </div>
+  <div class="optional-block rv">
+    <div class="optional-toggle" onclick="toggleOpt('fatT')"><div class="ot-left"><span class="ot-icon">🥑</span><div><div class="ot-title">Корисні жири сьогодні</div><div class="ot-sub">Сповільнюють засвоєння вуглеводів</div></div></div><span class="ot-arrow" id="arr-fatT">▼</span></div>
+    <div class="optional-body" id="body-fatT">
+      <div class="opt-div"></div>
+      <div class="ttp">Жири + вуглеводи = нижчий ГІ всього прийому 🌿</div>
+      <div id="fatRows">
+        <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🫒</span><span class="fat-name">Олія або горіхи</span><div class="fat-tick">✓</div></div>
+        <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🥑</span><span class="fat-name">Авокадо або насіння</span><div class="fat-tick">✓</div></div>
+        <div class="fat-row" onclick="toggleFat(this)"><span class="fat-icon">🐟</span><span class="fat-name">Жирна риба</span><div class="fat-tick">✓</div></div>
+      </div>
+      <div class="pres" id="fatResult" style="margin-top:8px"><p><strong id="fatCount">0</strong> джерела жирів — <span id="fatMsg"></span></p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Рефлексія</span>
+  <h2 class="tt rv">Три питання<br><em>для тебе</em></h2>
+  <div class="rq-card rv">
+    <div class="rq-title">📝 Чесно і коротко</div>
+    <p class="rq-sub">Це лише для тебе — запиши перше що приходить в голову 🌿</p>
+    <div class="rq-list">
+      <div>
+        <label class="rq-lbl">🍬 Коли востаннє ти їла цукерки чи печиво не тому що хотіла — а просто так, автоматично?</label>
+        <textarea class="rq-ta" rows="2" placeholder="Наприклад: вчора на роботі, просто тому що вони лежали поруч…"></textarea>
+      </div>
+      <div>
+        <label class="rq-lbl">🔄 Яку одну заміну з сьогоднішніх ти спробуєш вже цього тижня?</label>
+        <textarea class="rq-ta" rows="2" placeholder="Наприклад: замість печива — яблуко з мигдалем…"></textarea>
+      </div>
+      <div>
+        <label class="rq-lbl">💡 Яке число в таблиці цукру найбільше тебе здивувало?</label>
+        <textarea class="rq-ta" rows="2" placeholder="Наприклад: не знала що в пакетику соку майже добова норма цукру…"></textarea>
+      </div>
+      <div>
+        <label class="rq-lbl">⭐ Як пройшов День 3?</label>
+        <div class="stars" id="stars">
+          <span class="star" onclick="rs(1)">⭐</span><span class="star" onclick="rs(2)">⭐</span><span class="star" onclick="rs(3)">⭐</span><span class="star" onclick="rs(4)">⭐</span><span class="star" onclick="rs(5)">⭐</span>
+        </div>
+        <div class="smsg" id="smsg"></div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:12px" class="rv">
+    <span style="font-size:13px;flex-shrink:0">🔒</span>
+    <p style="font-size:11px;color:var(--mu);line-height:1.6"><strong style="color:var(--ink2)">Це твій особистий простір.</strong> Нотатки лише на твоєму пристрої 💛</p>
+  </div>
+</div></section>
+
+<!-- СЛОВО ВІД МЕНЕ -->
+<section><div class="w">
+  <span class="ey rv">Від нутриціолога</span>
+  <h2 class="tt rv">Слово<br><em>від мене</em></h2>
+  <div class="expert-card rv">
+    <div class="expert-avatar">
+      <div class="expert-av">ЛБ</div>
+      <div><div class="expert-name">Любов Бухарова</div><div class="expert-role">Нутриціолог · автор курсу</div></div>
+    </div>
+    <p class="expert-text">ГІ і цукор — це не про заборони. <em>Це про усвідомленість.</em> Коли ти знаєш що в склянці соку стільки ж цукру скільки в цукерці — вибір стає іншим.</p>
+    <p class="expert-text">Не потрібно відмовлятись від всього. Достатньо <em>однієї маленької заміни</em> на тиждень — і через місяць ти здивуєшся як змінилось самопочуття 🌿</p>
+    <p class="expert-text">Пиши якщо є питання або хочеш розібрати своє меню — <em>завжди на зв'язку</em> 💛</p>
+    <div class="expert-sign">— Люба</div>
+    <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tg-btn">
+      <span class="tg-icon">✈️</span>
+      <div class="tg-text"><div class="tg-main">Написати Любові</div><div class="tg-sub">@Lyubov_nutritionist · Telegram</div></div>
+      <span class="tg-arrow">→</span>
+    </a>
+  </div>
+</div></section>
+
+<!-- ЗБЕРЕГТИ -->
+<section><div class="w">
+  <span class="ey rv">Завершити день</span>
+  <h2 class="tt rv">Зафіксувати<br><em>День 3</em></h2>
+  <p class="sb rv">Натисни коли виконала всі завдання 🌿</p>
+  <div class="rv">
+    <button class="save-btn" onclick="saveDay()"><span>✅</span><span>Завершити та зафіксувати День 3</span></button>
+    <div class="save-done" id="saveDone"><p>🏆 День 3 завершено!<br>Ти знаєш про цукор те що змінить твої звички ⚡</p></div>
+  </div>
+  <div style="display:flex;gap:9px;align-items:flex-start;background:var(--g5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px;margin-top:12px" class="rv">
+    <span style="font-size:13px;flex-shrink:0">🔒</span>
+    <p style="font-size:11px;color:var(--mu);line-height:1.6"><strong style="color:var(--ink2)">Дані зберігаються локально</strong> на твоєму пристрої 💛</p>
+  </div>
+</div></section>
+
+<!-- ЗАВТРА -->
+<section id="s-final">
+  <span class="fni rv">⚡</span>
+  <h2 class="fnt rv">День 3 —<br><em>виконано!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Ти знаєш про цукор і вже маєш свої заміни.<br>Завтра про правила поєднання 🌿</p>
+  <div class="tc rv">
+    <span class="tcl">Завтра · День 4</span>
+    <div class="tci">🌿</div>
+    <div class="tct">Правила поєднання —<br><em>легке травлення</em></div>
+    <p class="tcd">Які продукти поєднувати а які ні — щоб живіт не здувало і енергія була після їжі 💛</p>
+  </div>
+</section>
+
+<script>
+// SCROLL + REVEAL
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%';});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// ТЕСТ
+const Qs=[
+  {q:'Як ти себе почуваєш через 1–2 години після сніданку?',opts:[{t:'😴 Хочеться спати або відпочити',r:'bad'},{t:'🍬 Тяга до солодкого',r:'bad'},{t:'📉 Енергія трохи знижується',r:'mid'},{t:'✅ Почуваюся добре і ситою',r:'good'}]},
+  {q:'Що буває після обіду?',opts:[{t:'😴 Сильно хочу спати',r:'bad'},{t:'🍫 Шукаю щось солодке',r:'bad'},{t:'😐 Трохи важко але нормально',r:'mid'},{t:'⚡ Продовжую день з енергією',r:'good'}]},
+  {q:'Як часто відчуваєш різкий голод через 2 год після їжі?',opts:[{t:'😰 Майже завжди',r:'bad'},{t:'🤔 Досить часто',r:'bad'},{t:'🙂 Іноді буває',r:'mid'},{t:'✅ Рідко або ніколи',r:'good'}]}
+];
+let curQ=0,answers=[];
+const RES={bad:{cls:'r-red',title:'🔴 Твої вуглеводи «швидкі»',body:'Судячи з відповідей — зараз ти їси вуглеводи без білка і жиру. Саме через це різкий спад і тяга до солодкого. Вже після перших замін ти відчуєш різницю!'},mid:{cls:'r-yellow',title:'🟡 Є простір для покращення',body:'Є коливання. Спробуй додавати білок і жир до вуглеводів — стрибки зменшаться помітно.'},good:{cls:'r-green',title:'🟢 Ти вже на правильному шляху!',body:'Стабільна енергія після їжі — ознака правильних поєднань. Цей день допоможе закріпити знання!'}};
+function renderQ(){
+  const prog=document.getElementById('testProgress');prog.innerHTML='';
+  Qs.forEach((_,i)=>{const d=document.createElement('div');d.className='test-dot'+(i<curQ?' done':i===curQ?' active':'');prog.appendChild(d);});
+  const q=Qs[curQ];
+  document.getElementById('testBody').innerHTML=`<p class="test-q">${q.q}</p><div class="test-opts">${q.opts.map(o=>`<div class="test-opt" onclick="answerQ(this,'${o.r}')"><div class="test-opt-dot"></div><div class="test-opt-text">${o.t}</div></div>`).join('')}</div><button class="test-next-btn" id="nextBtn" onclick="nextQ()">${curQ<Qs.length-1?'Наступне →':'Побачити результат →'}</button>`;
+}
+function answerQ(el,r){if(el.classList.contains('selected'))return;document.querySelectorAll('.test-opt').forEach(o=>o.classList.remove('selected'));el.classList.add('selected');answers.push(r);document.getElementById('nextBtn').classList.add('show');}
+function nextQ(){curQ++;if(curQ>=Qs.length){showRes();return;}renderQ();}
+function showRes(){const bad=answers.filter(a=>a==='bad').length,mid=answers.filter(a=>a==='mid').length,key=bad>=2?'bad':mid>=2?'mid':'good',res=RES[key];const prog=document.getElementById('testProgress');prog.innerHTML='';Qs.forEach(()=>{const d=document.createElement('div');d.className='test-dot done';prog.appendChild(d);});document.getElementById('testBody').innerHTML=`<div class="test-result ${res.cls} show"><div class="test-result-title">${res.title}</div><div class="test-result-body">${res.body}</div></div><p style="font-size:11px;color:var(--mu);text-align:center;margin-top:12px;font-style:italic">Гортай далі — в завданнях знайдеш рішення 🌿</p>`;}
+renderQ();
+
+// ГІ ДОВІДКА
+const DATA={
+  veg:{name:'Овочі та зелень',icon:'🥦',rows:[
+    ['🥬','Салат латук',10,null,10,null,'Їж скільки хочеш! Майже без вуглеводів.'],
+    ['🌿','Петрушка, кріп, кінза',10,null,10,null,'Зелень — нульовий вплив на цукор.'],
+    ['🧅','Цибуля зелена',10,null,10,null,'Антиоксиданти і нульовий вплив.'],
+    ['🍅','Помідори свіжі',10,null,10,null,'Лікопін + мінімум цукру.'],
+    ['🥒','Огірки свіжі',21,null,8,17,'Відмінно для гідрації та детоксу.'],
+    ['🥬','Капуста свіжа біла',15,null,10,null,'Клітковина і вітамін С. Їж сміливо.'],
+    ['🥬','Капуста квашена',10,null,15,null,'Пробіотики для кишківника!'],
+    ['🥬','Капуста червона',10,null,10,null,'Антоціани — сильні антиоксиданти.'],
+    ['🥦','Броколі свіжа і варена',10,null,10,null,'Сульфорафан — захист клітин. Один з найкорисніших овочів.'],
+    ['🥦','Брюссельська капуста',15,null,10,null,'Клітковина і рослинний білок.'],
+    ['🥕','Морква сира',35,null,25,null,'Сира морква значно краща ніж варена за ГІ.'],
+    ['🥕','Морква варена',39,null,85,null,'Варка сильно піднімає ІІ до 85! Краще сирою.'],
+    ['🧅','Цибуля ріпчаста свіжа',10,null,10,null,'Квертецин — протизапальний ефект.'],
+    ['🥔','Картопля сира',30,null,null,null,'Містить резистентний крохмаль.'],
+    ['🥔','Картопля відварна і пюре',87,null,118,121,'Дуже високий ГІ і ІІ! Охолоджена — краща.'],
+    ['🥔','Картопля запечена в шкірці',95,null,74,null,'Найвищий ГІ серед усіх форм картоплі.'],
+    ['🥔','Картопля смажена/фрі',74,95,74,null,'ГІ 74–95 залежно від способу смаження. Жир і висока температура максимально підвищують ГІ.'],
+    ['🫑','Баклажан свіжий',30,38,10,null,'Низький ГІ. Гарний замінник картоплі.'],
+    ['🥒','Кабачок свіжий',15,null,10,null,'Майже нульовий вплив на цукор.'],
+    ['🥒','Кабачок тушкований',54,null,70,null,'Термічна обробка суттєво піднімає ГІ.'],
+    ['🎃','Гарбуз запечений',75,null,75,85,'Солодкий гарбуз — помірно.'],
+    ['🍄','Гриби сирі',15,null,10,null,'Нульовий ГІ, вітаміни групи В.'],
+    ['🫚','Буряк сирий',30,null,38,null,'Сирий набагато краще ніж варений.'],
+    ['🫚','Буряк варений',65,null,65,null,'Варка піднімає ГІ з 30 до 65. Помірно.'],
+  ]},
+  fruit:{name:'Фрукти та ягоди',icon:'🍎',rows:[
+    ['🍒','Вишня свіжа',22,null,22,null,'Антоціани + дуже низький ГІ.'],
+    ['🍑','Абрикос свіжий',20,null,20,null,'Бета-каротин і мінімальний ГІ.'],
+    ['🍑','Персик свіжий',30,null,39,null,'Соковитий і низькоглікемічний.'],
+    ['🍎','Яблука свіжі',30,null,59,null,'Їж зі шкіркою — там пектин і клітковина.'],
+    ['🍐','Груші свіжі',20,49,45,null,'Залежно від сорту ГІ 20–49.'],
+    ['🍓','Полуниця свіжа',32,null,25,null,'Низький ГІ і багато вітаміну С.'],
+    ['🍇','Слива свіжа',35,null,25,null,'Клітковина і сорбіт для травлення.'],
+    ['🫐','Малина свіжа',30,null,25,null,'Рекордсмен за клітковиною серед ягід.'],
+    ['⚫','Чорна смородина',30,null,25,null,'Вітамін С і антиоксиданти.'],
+    ['🫐','Чорниця',42,null,40,null,'Антоціани і нейропротекторний ефект.'],
+    ['🍈','Агрус свіжий',40,null,40,null,'Клітковина і вітамін С.'],
+    ['🍊','Апельсини',42,null,60,null,'Їж цілим — сік має вищий ГІ без клітковини.'],
+    ['🍊','Мандарини',40,null,60,null,'Зручний перекус.'],
+    ['🍇','Виноград червоний/зелений',40,null,82,null,'ГІ середній, але ІІ помітний — 82! Помірно.'],
+    ['🥝','Авокадо',15,null,4,null,'Майже без цукру. Корисні жири.'],
+    ['🍌','Банани',51,null,81,null,'Їж з горіховою пастою або йогуртом.'],
+    ['🥭','Манго',50,null,112,null,'Багато цукру. ІІ дуже великий — помірно.'],
+    ['🍉','Кавун',72,null,84,null,'Високий ГІ — невеликими порціями.'],
+    ['🍈','Диня',62,70,127,null,'Дуже високий ІІ! Помірно і не окремо.'],
+    ['🌴','Фініки',42,null,110,null,'ГІ середній але ІІ дуже великий — 110!'],
+    ['🍍','Папайя',55,null,129,null,'Ензими для травлення, але ІІ рекордно високий.'],
+  ]},
+  grain:{name:'Крупи, хліб, каші',icon:'🌾',rows:[
+    ['🍞','Білий пшеничний хліб',100,null,100,null,'Еталон ГІ. Максимально швидкий цукор.'],
+    ['🫓','Житній хліб',50,null,96,null,'ГІ нижчий ніж білий, але ІІ залишається дуже великим.'],
+    ['🫓','Хліб житній на заквасці',50,null,70,null,'Ферментація знижує обидва індекси.'],
+    ['🍞','Цільнозерновий хліб',49,74,96,null,'Великий розкид! Справжній з цілими зернами — ГІ ~49. Комерційний з тонко змеленого борошна — ГІ до 74. Шукай цілі зерна у складі на першому місці.'],
+    ['🥣','Вівсяні висівки',40,null,32,null,'Бета-глюкан знижує холестерин.'],
+    ['🥣','Вівсяні пластівці',50,null,75,null,'Клітковина і ситість. ІІ помірний.'],
+    ['🥣','Вівсяна каша без цукру',55,null,40,null,'Варена вівсянка на воді — ГІ 55. Чим довша варка — тим вищий. Без цукру і молока — найкращий варіант.'],
+    ['🌾','Гречана каша без цукру',50,null,39,null,'Найкраща крупа! ГІ 50 — середній, але ІІ 39 — низький. Рутин, залізо, клітковина.'],
+    ['🌿','Макарони варені al dente',40,58,40,null,'Al dente (7–8 хв) — ГІ ~40. Розварені — ГІ до 58+. Охолоджені макарони ще нижчий ГІ через резистентний крохмаль.'],
+    ['🌾','Лапша з ц/з пшениці',68,null,40,null,'Краще ніж звичайна паста.'],
+    ['🍚','Білий рис',72,89,79,null,'ГІ 72–89 залежно від сорту і часу варки. Чим розваренішій — тим вищий. Заміни на гречку.'],
+    ['🍚','Коричневий рис',55,66,62,null,'Значно краще ніж білий рис. ГІ 55–66 залежно від сорту і способу готування.'],
+    ['🌽','Кукурудзяні пластівці',76,null,75,null,'Солодкі пластівці — майже цукор.'],
+    ['🥞','Млинці/оладки з білого борошна',69,null,112,null,'Дуже високий ІІ! Рідкісне задоволення.'],
+    ['🧇','Мюслі',40,80,46,null,'ГІ сильно залежить від складу: без цукру ~40, з цукром до 80. Завжди читай склад!'],
+    ['🍰','Сирники',60,75,100,110,'Сир підвищує ІІ. Без цукру — краще.'],
+  ]},
+  dairy:{name:'Молоко та молочне',icon:'🥛',rows:[
+    ['🥛','Молоко незбиране',31,null,34,null,'Невисокий ГІ але помірний ІІ.'],
+    ['🥛','Молоко топлене 4%',32,null,90,null,'Низький ГІ, але ІІ дуже великий — 90!'],
+    ['🥛','Соєве молоко',30,null,10,null,'Найнижчий ІІ серед молочних альтернатив.'],
+    ['🥛','Сухе молоко',23,null,95,null,'Дуже великий ІІ попри низький ГІ.'],
+    ['🧀','Сир (творог)',30,null,90,120,'Низький ГІ але ДУЖЕ великий ІІ — 90–120!'],
+    ['🧀','Зернений сир Cottage',30,null,54,null,'Краще ніж творог за ІІ.'],
+    ['🧀','Сир твердий будь-який',55,null,45,null,'Помірний ГІ і ІІ.'],
+    ['🧀','Вершковий сир Cream cheese',10,null,18,null,'Дуже низький ГІ і ІІ.'],
+    ['🥄','Сметана 20%',56,null,98,null,'Помірний ГІ але дуже великий ІІ — 98!'],
+    ['🥛','Кефір 3.2%',25,null,98,null,'Низький ГІ, але ІІ дуже великий — 98!'],
+    ['🥛','Ацидофілін 3.2%',25,null,90,null,'Пробіотики але великий ІІ.'],
+    ['🥛','Ряжанка',30,null,98,null,'Аналогічно кефіру.'],
+    ['🥣','Йогурт грецький 10%, без цукру',11,14,46,null,'Найкращий вибір! Низький ГІ і ІІ.'],
+    ['🥣','Йогурт нежирний з фруктами',31,null,84,null,'Добавки піднімають ГІ і ІІ.'],
+    ['🥛','Згущене молоко',80,null,90,null,'Багато цукру. Дуже рідко.'],
+  ]},
+  protein:{name:'Білки',icon:'🥚',rows:[
+    ['🥚','Яйця варені',0,null,31,null,'Нульовий ГІ. Повноцінний амінокислотний профіль.'],
+    ['🥩','Червоне м\'ясо без жиру',0,null,19,51,'ГІ нульовий. ІІ залежить від приготування.'],
+    ['🍗','М\'ясо птиці: курка, індичка',0,null,17,23,'Чистий білок. Краще варене або запечене.'],
+    ['🐟','Риба',0,28,26,59,'ГІ і ІІ залежать від виду і способу готування.'],
+    ['🦞','М\'ясо омара, краба',5,null,null,null,'Майже нульовий ГІ. Чистий білок.'],
+    ['🦐','Креветки',50,null,null,null,'Помірний ГІ, але дуже низька калорійність.'],
+    ['🫘','Квасоля тушкована',40,null,88,null,'Клітковина і білок, але ІІ помітний — 88.'],
+    ['🫘','Сочевиця варена',25,null,58,null,'Чемпіон серед бобових. Клітковина + білок.'],
+  ]},
+  fat:{name:'Жири та олії',icon:'🥑',rows:[
+    ['🧈','Вершкове масло',0,null,2,null,'Нульовий ГІ. Насичені жири — помірно.'],
+    ['🥩','Сало',0,null,0,null,'Нульовий ГІ і ІІ. Чисті жири.'],
+    ['🥓','Свинина бекон',0,null,9,null,'Низький ІІ, але слідкуй за якістю.'],
+    ['🫒','Оливкова олія холодного віджиму',0,null,3,null,'Ідеальний вибір! Омега-9 і антиоксиданти.'],
+    ['🌻','Рослинна олія',0,null,3,null,'Нульовий ГІ і ІІ.'],
+    ['🥩','Свинина жирна',0,null,19,null,'Нульовий ГІ. Насичені жири помірно.'],
+  ]},
+  nuts:{name:'Горіхи та насіння',icon:'🥜',rows:[
+    ['🌰','Волоський горіх',20,null,7,null,'Рекордно низький ІІ — 7! Омега-3.'],
+    ['🥜','Пекан',10,null,10,null,'Один з найнижчих ГІ серед горіхів.'],
+    ['🌰','Фундук',15,null,15,null,'Магній і вітамін Е.'],
+    ['🌰','Бразильський горіх',15,null,15,null,'Один горіх покриває добову норму селену!'],
+    ['🫘','Фісташки',15,null,15,null,'Найбільше клітковини серед горіхів.'],
+    ['🥜','Арахіс сирий',20,null,20,null,'Технічно бобовий, але поводиться як горіх.'],
+    ['🌰','Мигдаль',25,null,20,null,'Вітамін Е і кальцій.'],
+    ['🫘','Кеш\'ю сирий',22,null,20,null,'Вищий ГІ ніж інші горіхи — помірно.'],
+    ['🌻','Насіння соняшнику',15,35,8,25,'Вітамін Е і корисні жири.'],
+    ['🎃','Насіння гарбуза',15,null,25,null,'Цинк і магній. Ідеальний перекус.'],
+  ]},
+  drinks:{name:'Напої',icon:'☕',rows:[
+    ['☕','Чорна кава без цукру',0,30,0,null,'Нульовий ІІ але може стимулювати кортизол.'],
+    ['🍵','Чай зелений/чорний без цукру',0,null,0,null,'Нульовий вплив. Антиоксиданти.'],
+    ['☕','Кава з молоком і цукром',52,null,50,null,'Цукор і молоко підвищують обидва індекси.'],
+    ['🍵','Чай із цукром',60,null,50,null,'Цукор піднімає ГІ і ІІ.'],
+    ['🍫','Какао з молоком',51,null,50,null,'Помірний ГІ і ІІ.'],
+    ['🍊','Сік мандариновий свіжий',40,null,60,null,'Свіжовіджатий — краще ніж пакетований.'],
+    ['🍎','Сік яблучний',43,null,60,null,'Без клітковини — ГІ вищий ніж у яблука.'],
+    ['🍷','Гранатовий сік',35,null,35,null,'Антиоксиданти і помірний ГІ.'],
+    ['🍑','Сік абрикосовий',34,null,null,null,'Відносно низький ГІ для соку.'],
+    ['🍅','Сік томатний',31,null,25,null,'Один з найкращих соків за ГІ.'],
+    ['🍷','Вино біле сухе',36,44,3,null,'Низький ГІ і дуже низький ІІ.'],
+    ['🍷','Вино червоне сухе',36,44,null,null,'Аналогічно білому.'],
+    ['🍾','Шампанське',50,60,null,null,'Цукор підвищує ГІ.'],
+    ['🍺','Пиво світле чи темне',45,100,110,120,'ГІ варіюється. ІІ дуже великий — 110–120!'],
+    ['🥃','Горілка, віскі, коньяк',0,null,0,null,'Нульовий ГІ і ІІ, але токсичний вплив.'],
+    ['🥤','Кока-кола, Фанта, Спрайт',70,null,60,null,'Дуже великий ГІ. Порожні калорії.'],
+    ['🫙','Квас хлібний',45,60,null,null,'Помірний ГІ. Є доданий цукор.'],
+    ['☕','Гарячий шоколад',51,null,null,null,'Помірний ГІ.'],
+  ]},
+  sweets:{name:'Солодке та випічка',icon:'🍫',rows:[
+    ['🍫','Шоколад темний 70–85% какао',25,null,22,null,'Найкращий вибір! Низький ГІ і ІІ.'],
+    ['🍫','Шоколад молочний',70,null,120,null,'Цукор і молоко — дуже великий ІІ.'],
+    ['⬜','Шоколад білий',70,null,120,null,'Без какао — чистий цукор і жир.'],
+    ['🍫','Snickers',70,null,122,null,'Рекордно великий ІІ — 122!'],
+    ['🍫','Mars',70,null,122,null,'Аналогічно Snickers.'],
+    ['🍰','Шоколадний торт',41,null,82,null,'ГІ нижчий ніж очікуєш, але ІІ великий.'],
+    ['🧁','Кекс шоколадний Мафін',80,null,120,null,'Борошно + цукор + жир = максимум ІІ.'],
+    ['🧁','Кекс Мафін',74,null,69,null,'Дуже великий ГІ.'],
+    ['🍮','Чізкейк',50,60,null,null,'Помірний ГІ — сир знижує.'],
+    ['🍩','Пончики',88,null,74,null,'Дуже великий ГІ.'],
+    ['🥐','Круасан',67,null,79,null,'Великий ГІ і ІІ.'],
+    ['🍪','Печиво бісквітне',60,null,48,null,'Помірний ІІ але великий ГІ.'],
+    ['🍪','Печиво з шоколадною крихтою',60,null,92,null,'Дуже великий ІІ — 92!'],
+    ['🍪','Печиво вівсяне',60,null,48,null,'Не плутай з вівсянкою — це печиво.'],
+    ['🧇','Вафлі',70,null,61,null,'Великий ГІ.'],
+    ['🍬','Жувальні цукерки',80,null,160,null,'Рекордний ІІ — 160! Найгірший вибір.'],
+    ['🍬','Карамель',80,null,160,null,'Аналогічно жувальним цукеркам.'],
+    ['🟠','Мармелад апельсиновий',48,null,80,null,'Помірний ГІ але великий ІІ.'],
+    ['🟢','Мармелад із цукром',65,null,83,null,'Вищий ГІ ніж апельсиновий.'],
+    ['🍦','Морозиво без глазурі',70,null,89,null,'Цукор + молоко = великий ІІ.'],
+    ['🍧','Шоколадне морозиво',70,null,74,null,'Помірніший ІІ ніж молочне.'],
+    ['🍯','Конфітюр',51,null,85,null,'Великий ІІ — цукор і фрукти разом.'],
+    ['🍯','Мед',50,70,62,null,'Ефективніший за цукор але не \"здоровий\" у великих кількостях.'],
+    ['⬜','Цукор пісок',65,80,82,null,'Еталон \"поганих\" вуглеводів.'],
+  ]},
+  sauces:{name:'Соуси та фастфуд',icon:'🌭',rows:[
+    ['🧂','Соєвий соус',15,null,null,null,'Низький ГІ. Але багато солі.'],
+    ['🌭','Гірчиця столова',32,null,null,null,'Низький ГІ. Хороша приправа.'],
+    ['🥫','Кетчуп',50,60,41,null,'Помірний ГІ і ІІ. Є доданий цукор.'],
+    ['🍅','Томатний соус',31,null,41,null,'Значно краще ніж кетчуп.'],
+    ['🥗','Майонез 74%',40,50,40,60,'Помірний ГІ і ІІ. Але калорійний.'],
+    ['🟤','Цукор коричневий',70,null,82,null,'Не корисніший за білий цукор!'],
+    ['🌿','Стевія',0,null,0,null,'Нульовий ГІ і ІІ. Натуральний цукрозамінник.'],
+    ['⬜','Еритритол',1,null,2,null,'Майже нульовий вплив. Найкращий цукрозамінник.'],
+    ['🍔','Гамбургер (Макдональдс)',66,null,80,null,'Хліб + соуси = великий ГІ і ІІ.'],
+    ['🍔','Чізбургер (Макдональдс)',90,null,80,null,'Дуже великий ГІ!'],
+    ['🌭','Хот-дог',90,null,80,null,'Серед найгіршого фастфуду за ГІ.'],
+  ]}
+};
+
+// Маппінг карток до рядків сітки
+const CARD_ROW={'veg':1,'fruit':1,'grain':2,'dairy':2,'protein':3,'fat':3,'nuts':4,'drinks':4,'sweets':5,'sauces':5};
+let activePanel=null;
+const ALL=[];
+
+function giClass(v){if(v===null)return 'gi-gray';const n=parseFloat(v);if(n<40)return 'gi-green';if(n<=70)return 'gi-yellow';return 'gi-red';}
+function barCls(v){if(v===null)return 'green';const n=parseFloat(v);if(n<40)return 'green';if(n<=70)return 'yellow';return 'red';}
+function fmt(a,b){if(a===null)return '—';return b===null?String(a):a+'–'+b;}
+function bw(a,b){const v=b?((a+b)/2):a;return v===null?0:Math.min(100,Math.round(v/130*100));}
+
+function buildTable(catId){
+  const cat=DATA[catId];
+  let h=`<div class="gt-head"><div class="gt-th">Продукт</div><div class="gt-th c">ГІ</div><div class="gt-th c">ІІ</div><div class="gt-th">Рівень</div></div>`;
+  cat.rows.forEach((r,i)=>{
+    const [ic,nm,gi1,gi2,ii1,ii2,tip]=r;
+    const giV=fmt(gi1,gi2),iiV=fmt(ii1,ii2),gc=giClass(gi1),bc=barCls(gi1),bwv=bw(gi1,gi2);
+    const rid=catId+'-'+i;
+    h+=`<div class="gt-row" id="r-${rid}" onclick="toggleRow('${rid}')">
+      <div class="gt-name-wrap"><span class="gt-icon">${ic}</span><span class="gt-name">${nm}</span></div>
+      <div class="gt-gi ${gc}">${giV}</div>
+      <div class="gt-ii">${iiV}</div>
+      <div class="gt-bar-wrap"><div class="gt-bar-bg"><div class="gt-bar-fill ${bc}" style="width:${bwv}%"></div></div></div>
+    </div>
+    <div class="gt-detail" id="d-${rid}">
+      <div class="gt-detail-grid">
+        <div class="gt-detail-box"><div class="gt-detail-lbl">Глікемічний індекс</div><div class="gt-detail-val ${gc}">${giV}</div></div>
+        <div class="gt-detail-box"><div class="gt-detail-lbl">Інсуліновий індекс</div><div class="gt-detail-val">${iiV}</div></div>
+      </div>
+      <div class="gt-detail-tip">${tip}</div>
+    </div>`;
+    // Для пошуку
+    if(!ALL.find(x=>x.rid===rid))ALL.push({ic,nm,giV,gc,cat:catId,catName:cat.name,rid,tip});
+  });
+  return h;
+}
+
+function toggleCat(id,cardEl){
+  const rowNum=CARD_ROW[id];
+  const panelContainer=document.getElementById('panel-row-'+rowNum);
+  // Якщо вже відкрита та сама — закрити
+  if(activePanel===id){
+    panelContainer.innerHTML='';
+    cardEl.classList.remove('active');
+    activePanel=null;
+    return;
+  }
+  // Закрити попередню в тому ж рядку або в іншому
+  if(activePanel){
+    const prevRow=CARD_ROW[activePanel];
+    document.getElementById('panel-row-'+prevRow).innerHTML='';
+    const prevCard=document.getElementById('card-'+activePanel);
+    if(prevCard)prevCard.classList.remove('active');
+  }
+  // Відкрити нову
+  activePanel=id;
+  cardEl.classList.add('active');
+  const cat=DATA[id];
+  panelContainer.innerHTML=`<div class="table-panel open" id="panel-${id}">
+    <div class="table-panel-header">
+      <span class="tph-icon">${cat.icon}</span>
+      <span class="tph-title">${cat.name}</span>
+      <span class="tph-close" onclick="closeCat('${id}')">✕</span>
+    </div>
+    ${buildTable(id)}
+  </div>`;
+  // Плавний скрол до таблиці
+  setTimeout(()=>{
+    const panel=document.getElementById('panel-'+id);
+    if(panel)panel.scrollIntoView({behavior:'smooth',block:'nearest'});
+  },100);
+}
+
+function closeCat(id){
+  const rowNum=CARD_ROW[id];
+  document.getElementById('panel-row-'+rowNum).innerHTML='';
+  const card=document.getElementById('card-'+id);
+  if(card)card.classList.remove('active');
+  if(activePanel===id)activePanel=null;
+}
+
+function toggleRow(rid){
+  const row=document.getElementById('r-'+rid);
+  if(!row)return;
+  const open=row.classList.contains('expanded');
+  document.querySelectorAll('.gt-row.expanded').forEach(r=>r.classList.remove('expanded'));
+  if(!open)row.classList.add('expanded');
+}
+
+// ── ПОШУК ──
+function doSearch(q){
+  const res=document.getElementById('searchResults');
+  const v=q.trim().toLowerCase();
+  if(v.length<2){res.classList.remove('show');return;}
+  // Переконатись що ALL заповнений — збудуємо якщо треба
+  Object.keys(DATA).forEach(id=>{
+    DATA[id].rows.forEach((r,i)=>{
+      const rid=id+'-'+i;
+      if(!ALL.find(x=>x.rid===rid)){
+        ALL.push({ic:r[0],nm:r[1],giV:fmt(r[2],r[3]),gc:giClass(r[2]),cat:id,catName:DATA[id].name,rid,tip:r[6]});
+      }
+    });
+  });
+  const found=ALL.filter(p=>p.nm.toLowerCase().includes(v));
+  if(!found.length){
+    res.innerHTML='<div class="sr-item"><span class="sr-name" style="color:var(--mu2);font-style:italic;padding:4px 0">Не знайдено</span></div>';
+    res.classList.add('show');return;
+  }
+  res.innerHTML=found.slice(0,10).map(p=>`
+    <div class="sr-item" onclick="goTo('${p.cat}','${p.rid}')">
+      <span class="sr-icon">${p.ic}</span>
+      <span class="sr-name">${p.nm}</span>
+      <span class="sr-cat">${p.catName}</span>
+      <span class="sr-gi-badge ${p.gc}">${p.giV}</span>
+    </div>`).join('');
+  res.classList.add('show');
+}
+function goTo(catId,rid){
+  document.getElementById('searchResults').classList.remove('show');
+  document.getElementById('searchInp').value='';
+  const card=document.getElementById('card-'+catId);
+  if(card&&activePanel!==catId)toggleCat(catId,card);
+  setTimeout(()=>{
+    const row=document.getElementById('r-'+rid);
+    if(row){row.scrollIntoView({behavior:'smooth',block:'center'});row.classList.add('expanded');}
+  },350);
+}
+document.addEventListener('click',e=>{if(!e.target.closest('.search-wrap'))document.getElementById('searchResults').classList.remove('show');});
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%';});
+
+
+// ЦУКОР ТАБЛИЦЯ
+function switchSugarTab(type,el){
+  document.querySelectorAll('.sugar-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sugar-tab-content').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  const tab=document.getElementById('stab-'+type);
+  if(tab)tab.classList.add('active');
+}
+
+// ЗАМІНИ
+function toggleSwapOpen(id){document.getElementById(id).classList.toggle('open');}
+function doneSwap(e,id){e.stopPropagation();document.getElementById(id).classList.toggle('done');const n=document.querySelectorAll('.swap-pair.done').length;document.getElementById('swapDoneMsg').classList.toggle('show',n>0);}
+function addSwap(){const inp=document.getElementById('swapInp'),val=inp.value.trim();if(!val)return;const id='sp-'+Date.now();const div=document.createElement('div');div.className='swap-pair';div.id=id;div.innerHTML=`<div class="swap-pair-header" onclick="toggleSwapOpen('${id}')"><div class="swap-from"><span class="swap-from-icon">✨</span><div><div class="swap-from-name">Мій варіант</div></div></div><span class="swap-arrow-icon">→</span><div class="swap-to"><div><div class="swap-to-name">${val}</div></div></div><div class="swap-check-btn" onclick="doneSwap(event,'${id}')">✓</div></div>`;document.getElementById('swapList').appendChild(div);inp.value='';}
+
+// ТРЕКЕРИ
+function toggleOpt(id){const b=document.getElementById('body-'+id),a=document.getElementById('arr-'+id),o=b.classList.contains('open');b.classList.toggle('open',!o);if(a)a.classList.toggle('open',!o);}
+let wg=0;const cupsEl=document.getElementById('cups');const wm=['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
+for(let i=0;i<10;i++){const b=document.createElement('button');b.type='button';b.className='cup';b.textContent='🥛';b.addEventListener('click',()=>{wg=b.classList.contains('fi')?i:i+1;document.querySelectorAll('.cup').forEach((c,j)=>c.classList.toggle('fi',j<wg));document.getElementById('wml').textContent=wg*200;document.getElementById('wcv').textContent=wg+' / 10';document.getElementById('wpf').style.width=(wg/10*100)+'%';document.getElementById('wmsg').textContent=wm[wg]||'';});cupsEl.appendChild(b);}
+const pm2=['','Перший прийом — будуємо! 🌱','Два — краще 💛','Три — відмінно! 💪','Ідеально! 🏆'];
+function tm(e){e.classList.toggle('ch');const d=document.querySelectorAll('#meals .meal.ch').length;document.getElementById('pc').textContent=d;document.getElementById('pm').textContent=pm2[Math.min(d,pm2.length-1)];document.getElementById('pres').classList.toggle('sh',d>0);}
+const fatMsgs=['','🥑 Одне джерело — вже є!','💛 Два — відмінно!','🏆 Три — ідеально!'];
+function toggleFat(row){row.classList.toggle('ch');const n=document.querySelectorAll('#fatRows .fat-row.ch').length;document.getElementById('fatCount').textContent=n;document.getElementById('fatMsg').textContent=fatMsgs[Math.min(n,fatMsgs.length-1)];document.getElementById('fatResult').classList.toggle('sh',n>0);}
+
+// РЕФЛЕКСІЯ
+const sm=['','😔 Важкий день — але ти тут!','🌱 Є куди рости!','🌟 Непоганий день!','💪 Відмінний день!','🏆 Ідеально! 🌾'];
+function rs(n){document.querySelectorAll('#stars .star').forEach((s,i)=>s.classList.toggle('li',i<n));document.getElementById('smsg').textContent=sm[n];}
+
+// ЗБЕРЕГТИ
+function saveDay(){document.getElementById('saveDone').classList.add('show');document.querySelector('.save-btn').style.opacity='.5';document.querySelector('.save-btn').style.pointerEvents='none';setTimeout(()=>document.getElementById('s-final').scrollIntoView({behavior:'smooth'}),800);}
+</script>
+</body>
+</html>
