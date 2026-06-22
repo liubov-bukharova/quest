@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Генотипи — Нутриціолог Бухарова Любов</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+:root {
+  --bg: #f7f3ed; --ink: #18130e; --muted: #8a7d70;
+  --gold: #c9a84c; --gold2: #e8d08a; --border: #ddd5c5; --warm: #fffdf9;
+  --c-hunter:#2a5236; --c-gatherer:#7a3030; --c-teacher:#1e3d5a;
+  --c-explorer:#4a2d6a; --c-warrior:#6b3d10; --c-nomad:#135050;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--ink);font-size:14px;min-height:100vh;}
+
+#view-select{display:block;}
+#view-detail{display:none;}
+
+/* HEADER */
+.app-header{background:var(--ink);color:#f7f3ed;padding:28px 20px 22px;text-align:center;}
+.app-header .tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
+.app-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,5vw,34px);font-weight:300;line-height:1.25;}
+.app-header h1 em{font-style:italic;color:var(--gold2);}
+.app-header .sub{font-size:12px;color:rgba(247,243,237,.4);margin-top:8px;letter-spacing:1px;}
+
+/* SELECT */
+.selector-wrap{max-width:700px;margin:32px auto 0;padding:0 16px 60px;}
+.section-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:14px;text-align:center;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:480px){.grid{grid-template-columns:repeat(2,1fr);}}
+.geno-btn{border:2px solid var(--border);border-radius:6px;background:#fff;padding:22px 10px 18px;cursor:pointer;text-align:center;transition:all .2s;display:flex;flex-direction:column;align-items:center;gap:7px;box-shadow:0 2px 20px rgba(24,19,14,.08);position:relative;overflow:hidden;}
+.geno-btn::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--c);opacity:0;transition:opacity .2s;}
+.geno-btn:hover{border-color:var(--c);transform:translateY(-2px);}
+.geno-btn:hover::before{opacity:1;}
+.geno-btn .icon{font-size:30px;line-height:1;}
+.geno-btn .gname{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--ink);line-height:1.2;}
+.geno-btn .gsub{font-size:10px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;}
+
+/* DETAIL */
+.detail-hero{padding:36px 24px 28px;color:#fff;}
+.back-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;padding:7px 14px;border-radius:3px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;margin-bottom:24px;transition:background .15s;}
+.back-btn:hover{background:rgba(255,255,255,.25);}
+.detail-hero .hero-tag{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:8px;}
+.detail-hero .hero-icon{font-size:44px;margin-bottom:12px;display:block;}
+.detail-hero h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,7vw,48px);font-weight:300;line-height:1.1;}
+.detail-hero h2 em{font-style:italic;color:var(--gold2);}
+.detail-body{max-width:680px;margin:0 auto;padding:32px 24px 160px;}
+.detail-body p{font-size:14px;line-height:1.85;color:#2a2018;margin-bottom:16px;font-weight:300;}
+.detail-body p.lead{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;font-style:italic;color:var(--ink);line-height:1.65;margin-bottom:22px;}
+.detail-body p.closing{font-size:13px;color:var(--muted);border-top:1px solid var(--border);padding-top:16px;margin-top:8px;line-height:1.75;}
+
+/* BOTTOM BAR */
+.bottom-bar{position:fixed;bottom:0;left:0;right:0;background:var(--ink);border-top:1px solid rgba(201,168,76,.25);padding:14px 20px;display:flex;gap:10px;z-index:100;}
+.btn-share{flex:1;background:var(--gold);color:var(--ink);border:none;padding:14px 20px;border-radius:4px;font-family:'Jost',sans-serif;font-size:14px;font-weight:600;letter-spacing:1px;cursor:pointer;transition:background .15s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.btn-share:hover{background:var(--gold2);}
+.btn-pdf{background:transparent;color:rgba(247,243,237,.55);border:1px solid rgba(247,243,237,.2);padding:14px 16px;border-radius:4px;font-family:'Jost',sans-serif;font-size:12px;cursor:pointer;transition:all .15s;white-space:nowrap;}
+.btn-pdf:hover{color:#fff;border-color:rgba(247,243,237,.5);}
+
+@media print{
+  #view-select,.back-btn,.bottom-bar{display:none!important;}
+  #view-detail{display:block!important;}
+  .detail-body{padding-bottom:20px;}
+  body{background:#fff;}
+  .detail-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+}
+</style>
+</head>
+<body>
+
+<!-- SELECT -->
+<div id="view-select">
+  <div class="app-header">
+    <div class="tag">Нутриціолог Бухарова Любов</div>
+    <h1>Харчування за <em>генотипом</em></h1>
+    <div class="sub">Оберіть генотип — відкриється персональний опис</div>
+  </div>
+  <div class="selector-wrap">
+    <div class="section-label">Оберіть генотип клієнта</div>
+    <div class="grid">
+      <button class="geno-btn" style="--c:var(--c-hunter)"   onclick="openGeno('hunter')"><span class="icon">🏹</span><span class="gname">Мисливець</span><span class="gsub">Hunter</span></button>
+      <button class="geno-btn" style="--c:var(--c-gatherer)" onclick="openGeno('gatherer')"><span class="icon">🌾</span><span class="gname">Збирач</span><span class="gsub">Gatherer</span></button>
+      <button class="geno-btn" style="--c:var(--c-teacher)"  onclick="openGeno('teacher')"><span class="icon">📚</span><span class="gname">Учитель</span><span class="gsub">Teacher</span></button>
+      <button class="geno-btn" style="--c:var(--c-explorer)" onclick="openGeno('explorer')"><span class="icon">🔬</span><span class="gname">Дослідник</span><span class="gsub">Explorer</span></button>
+      <button class="geno-btn" style="--c:var(--c-warrior)"  onclick="openGeno('warrior')"><span class="icon">⚔️</span><span class="gname">Воїн</span><span class="gsub">Warrior</span></button>
+      <button class="geno-btn" style="--c:var(--c-nomad)"    onclick="openGeno('nomad')"><span class="icon">🌍</span><span class="gname">Номад</span><span class="gsub">Nomad</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- DETAIL -->
+<div id="view-detail">
+  <div class="detail-hero" id="detail-hero">
+    <button class="back-btn" onclick="goBack()">← Назад</button>
+    <div class="hero-tag">Ваш генотип</div>
+    <span class="hero-icon" id="detail-icon"></span>
+    <h2 id="detail-title"></h2>
+  </div>
+  <div class="detail-body" id="detail-body"></div>
+  <div class="bottom-bar">
+    <button class="btn-share" onclick="shareCard()">📤 Надіслати клієнту</button>
+    <button class="btn-pdf"   onclick="savePDF()">🖨 PDF</button>
+  </div>
+</div>
+
+<script>
+const GENOS = {
+  hunter:{name:'Мисливець',icon:'🏹',color:'#2a5236',paragraphs:[
+    {cls:'lead',text:'Ви народжені бути пильними. Ваш організм ніби постійно сканує простір навколо, швидко помічаючи будь-які потенційні загрози. Те, на що іншим потрібен час, ваш організм часто розпізнає миттєво.'},
+    {cls:'',text:'Ваша сила — у швидкій реакції.'},
+    {cls:'',text:'Імунна система Мисливця працює активно та рішуче. Вона готова швидко реагувати на віруси, бактерії та інші небажані чинники. Саме тому люди цього генотипу часто мають потужний природний захист і добре пристосовані до харчування з достатньою кількістю якісного білка.'},
+    {cls:'',text:'Але кожна сильна сторона має свою зворотну сторону.'},
+    {cls:'',text:'Іноді імунна система Мисливця реагує занадто активно. Це може проявлятися схильністю до алергій, запальних процесів, підвищеної чутливості або інших реакцій, коли організм починає боротися навіть там, де загроза не є настільки серйозною.'},
+    {cls:'',text:'Також організм Мисливця не завжди однаково добре справляється з усіма продуктами сучасного харчування. Деякі злаки та продукти з високим вмістом глютену можуть створювати додаткове навантаження на систему травлення та імунітет.'},
+    {cls:'',text:'Саме тому для Мисливця важливо не просто правильно харчуватися, а обирати їжу, яка підтримує баланс організму та не провокує зайву напругу в роботі імунної системи.'},
+    {cls:'',text:'Якщо ви впізнали себе в описі Мисливця — важливо розуміти: ваш організм може працювати на високій швидкості реакцій, але це не завжди означає, що він зараз у балансі.'},
+    {cls:'closing',text:'Знати свій генотип — це розуміти свої особливості. Відновити ресурс організму — це дати тілу можливість працювати так, як задумано природою.'},
+  ]},
+  gatherer:{name:'Збирач',icon:'🌾',color:'#7a3030',paragraphs:[
+    {cls:'lead',text:'Ви створені для того, щоб накопичувати. Ваш організм ніби пам\u2019ятає часи, коли їжа була нестабільним ресурсом, і тому завжди прагне зберегти енергію про запас.'},
+    {cls:'',text:'Ваше тіло працює за принципом обережності: якщо є можливість відкласти — воно відкладає, якщо є можливість зберегти — воно зберігає.'},
+    {cls:'',text:'Ваша сила — у здатності виживати в умовах нестабільності.'},
+    {cls:'',text:'Метаболізм Збирача налаштований на максимальне засвоєння та збереження калорій. Це допомагало нашим предкам переживати періоди голоду, коли кожна спожита калорія могла стати критично важливою для життя.'},
+    {cls:'',text:'Але в сучасному світі ця стратегія працює інакше.'},
+    {cls:'',text:'Те, що колись було перевагою, сьогодні часто призводить до надмірного накопичення ваги, складнощів зі зниженням маси тіла та підвищеного ризику порушень вуглеводного обміну.'},
+    {cls:'',text:'Багато Збирачів помічають: навіть при значному скороченні калорій вага змінюється повільно або стоїть на місці. Це не про слабку силу волі — це про глибоку біологічну програму збереження енергії.'},
+    {cls:'',text:'Чим сильніше обмеження, тим активніше організм намагається \u00abзахистити запаси\u00bb і ще більше сповільнює обмін речовин.'},
+    {cls:'',text:'Саме тому для Збирача важливо не голодування і жорсткі обмеження, а м\u2019яке відновлення метаболічної гнучкості — коли тіло знову вчиться використовувати енергію, а не тільки її накопичувати.'},
+    {cls:'',text:'Якщо ви впізнали себе в генотипі Збирача — ключове питання не в тому, чому вага швидко накопичується.'},
+    {cls:'',text:'Питання в іншому: що саме зараз змушує тіло працювати в режимі постійного збереження енергії?'},
+    {cls:'closing',text:'Знати свій генотип — це розуміти свої особливості. Відновити ресурс організму — це дати тілу можливість працювати так, як задумано природою.'},
+  ]},
+  teacher:{name:'Учитель',icon:'📚',color:'#1e3d5a',paragraphs:[
+    {cls:'lead',text:'Ви створені для взаємодії зі світом через довіру. Ваш організм ніби обирає шлях прийняття, а не постійної боротьби.'},
+    {cls:'',text:'Там, де інші реагують швидко і різко, ви часто даєте простір, час і можливість організму \u00abrозібратися самому\u00bb.'},
+    {cls:'',text:'Ваша сила — у витривалості та здатності адаптуватися до різних умов.'},
+    {cls:'',text:'Імунна система Учителя працює м\u2019якше. Вона не завжди відповідає миттєво на зовнішні виклики, але саме це дозволяє організму довго залишатися стабільним у різних середовищах і контактах.'},
+    {cls:'',text:'Такий тип реакції має свою особливість: іноді організм не дає різких сигналів одразу.'},
+    {cls:'',text:'Процеси можуть розвиватися поступово — через втому, зниження енергії, порушення травлення або інші \u00abтихі\u00bb симптоми, які легко списати на спосіб життя або стрес.'},
+    {cls:'',text:'Тому для Учителя особливо важливо не ігнорувати дрібні зміни в самопочутті, а вчасно помічати сигнали тіла.'},
+    {cls:'',text:'Система травлення та дихання часто потребує додаткової підтримки, щоб баланс корисної мікрофлори зберігався стабільним, а організм міг ефективно захищатися від зовнішніх впливів.'},
+    {cls:'',text:'Саме через м\u2019якість реакцій для Учителя важливо не перевантажувати організм, а створювати умови, в яких тіло отримує достатньо ресурсів для відновлення та захисту.'},
+    {cls:'',text:'Якщо ви впізнали себе в генотипі Учителя — важливо пам\u2019ятати: м\u2019яка реакція організму не означає, що проблем немає.'},
+    {cls:'',text:'Навпаки, тіло може довго не давати різких сигналів, і зміни накопичуються поступово.'},
+    {cls:'closing',text:'Знати свій генотип — це розуміти свої особливості. Відновити ресурс організму — це дати тілу можливість працювати так, як задумано природою.'},
+  ]},
+  explorer:{name:'Дослідник',icon:'🔬',color:'#4a2d6a',paragraphs:[
+    {cls:'lead',text:'Ви створені для руху і змін. Ваш організм не любить однаковості — він ніби постійно шукає нові умови, нові реакції, нові способи адаптації.'},
+    {cls:'',text:'Ви не завжди дієте передбачувано. Там, де інші організми працюють за стабільним сценарієм, у вас реакції можуть бути дуже різними — іноді сильними, іноді майже непомітними.'},
+    {cls:'',text:'Ваша сила — у гнучкості та здатності пристосовуватися до нестабільного середовища.'},
+    {cls:'',text:'Імунна та нервова системи Дослідника працюють особливим чином: вони швидкі, але вибіркові. Організм ніби сам вирішує, на що реагувати інтенсивно, а що залишити без уваги.'},
+    {cls:'',text:'Саме тому ви можете дуже по-різному реагувати на однакові фактори — наприклад, кофеїн, стрес або зміну режиму.'},
+    {cls:'',text:'Те, що для інших є звичним стимулом, у вас може викликати сильну або тривалу реакцію.'},
+    {cls:'',text:'Дослідники часто відчувають, що їхній організм живе за власними правилами. Він не завжди підкоряється загальним схемам і стандартним рекомендаціям.'},
+    {cls:'',text:'Саме тому для цього генотипу особливо важливо не копіювати універсальні підходи, а знаходити власний баланс — той, який враховує унікальну чутливість нервової системи, енергії та реакцій організму.'},
+    {cls:'',text:'Якщо ви впізнали себе в генотипі Дослідника — ваш організм може реагувати дуже індивідуально і непередбачувано.'},
+    {cls:'',text:'Але саме тому універсальні рекомендації часто не працюють.'},
+    {cls:'closing',text:'Знати свій генотип — це розуміти свої особливості. Відновити ресурс організму — це дати тілу можливість працювати так, як задумано природою.'},
+  ]},
+  warrior:{name:'Воїн',icon:'⚔️',color:'#6b3d10',paragraphs:[
+    {cls:'lead',text:'Ви створені для дії. Ваш організм ніби живе у ритмі \u00abнапруга — рух — відновлення\u00bb, і найкраще працює тоді, коли є навантаження і мета.'},
+    {cls:'',text:'У стані активності ви сильні, зібрані й витривалі. Але коли руху стає менше, тіло ніби переходить у режим збереження і починає швидше накопичувати енергію.'},
+    {cls:'',text:'Ваша сила — у здатності витримувати навантаження і швидко відновлюватися після нього.'},
+    {cls:'',text:'Метаболізм Воїна дуже чутливий до рівня активності. Коли є рух, тренування або динамічний спосіб життя — тіло працює ефективно. Коли активність знижується — баланс легко зміщується в бік накопичення.'},
+    {cls:'',text:'Саме тому для Воїна критично важливий не лише раціон, а й регулярний рух як базова умова стабільного самопочуття.'},
+    {cls:'',text:'Організм Воїна добре адаптований до періодів напруги, але в сучасному світі часто стикається з тривалим стресом без достатнього відновлення. Це може призводити до виснаження ресурсів, коливань ваги та нестабільної енергії.'},
+    {cls:'',text:'Тому ключ до балансу Воїна — це не постійне обмеження, а правильне чергування навантаження і відновлення.'},
+    {cls:'',text:'Якщо ви впізнали себе в генотипі Воїна — ваш організм добре працює в режимі дії, але дуже чутливий до періодів зниження активності та перевантаження.'},
+    {cls:'closing',text:'Знати свій генотип — це розуміти свої особливості. Відновити ресурс організму — це дати тілу можливість працювати так, як задумано природою.'},
+  ]},
+  nomad:{name:'Номад',icon:'🌍',color:'#135050',paragraphs:[
+    {cls:'lead',text:'Ви створені для руху і змін. Ваш організм ніби не прив\u2019язаний до одного ритму — він легко адаптується до нових умов, але потребує балансу між змінами і відновленням.'},
+    {cls:'',text:'Ви добре функціонуєте в динамічному середовищі, де є нові задачі, зміна ритму, подорожі або постійна адаптація.'},
+    {cls:'',text:'Ваша сила — у гнучкості та здатності виживати в різних умовах.'},
+    {cls:'',text:'Але ця гнучкість має свою ціну: системи організму іноді працюють менш узгоджено між собою — нервова, імунна та енергетична регуляція можуть втрачати синхронність.'},
+    {cls:'',text:'Через це можуть з\u2019являтися періоди нестабільної енергії, втоми, зниження концентрації або чутливості до стресу.'},
+    {cls:'',text:'Організм Номада потребує не жорсткої системи, а м\u2019якої координації — коли тіло і нервова система працюють у більш узгодженому ритмі.'},
+    {cls:'',text:'Для Номада особливо важливо відновлення через спокій, стабільність режиму та підтримку нервової системи.'},
+    {cls:'closing',text:'Знати свій генотип — це розуміти свої особливості. Відновити ресурс організму — це дати тілу можливість працювати так, як задумано природою.'},
+  ]},
+};
+
+let current = null;
+
+function openGeno(id) {
+  current = id;
+  const g = GENOS[id];
+  document.getElementById('detail-hero').style.background = g.color;
+  document.getElementById('detail-icon').textContent = g.icon;
+  document.getElementById('detail-title').innerHTML = 'Генотип <em>' + g.name + '</em>';
+  document.getElementById('detail-body').innerHTML = g.paragraphs
+    .map(p => '<p class="' + p.cls + '">' + p.text + '</p>').join('');
+  document.getElementById('view-select').style.display = 'none';
+  document.getElementById('view-detail').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  document.getElementById('view-detail').style.display = 'none';
+  document.getElementById('view-select').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function shareCard() {
+  if (!current) return;
+  const g = GENOS[current];
+  const text = 'Генотип ' + g.name + '\n\n'
+    + g.paragraphs.map(p => p.text).join('\n\n')
+    + '\n\n— Нутриціолог Бухарова Любов';
+
+  if (navigator.share) {
+    navigator.share({
+      title: 'Генотип ' + g.name + ' — Нутриціолог Бухарова Любов',
+      text: text
+    });
+  } else {
+    // Fallback: copy to clipboard
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Текст скопійовано! Вставте в Telegram або інший месенджер.');
+    });
+  }
+}
+
+function savePDF() {
+  window.print();
+}
+</script>
+</body>
+</html>
