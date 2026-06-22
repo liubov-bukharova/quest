@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Гайд · Олії та Омега-3 · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cream:#FAF6EF;--gold:#C8943A;--gold2:#E0B060;--gd:#8A6020;
+  --ink:#2C1E08;--ink2:#4A3518;--mu:#8A7258;--mu2:#B8A080;--sage:#7A9A6A;
+  --bl:#3A78A8;--blp:#EAF3FA;--blb:rgba(58,120,168,.22);
+  --or:#C87838;--orp:#FDF0E4;--orb:rgba(200,120,56,.22);
+  --red:#C0443A;--redp:rgba(192,68,58,.05);--redb:rgba(192,68,58,.2);
+  --bd:rgba(200,148,58,.18);--bd2:rgba(200,148,58,.32);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cream);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--bl),var(--sage));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:nth-child(odd){background:var(--cream)}
+section:nth-child(even){background:linear-gradient(160deg,#F7EFE0,#F0E4CC)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;text-align:center;display:block}
+.ey.bl{color:var(--bl)}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px}
+.tt em{font-style:italic;color:var(--gold)}
+.tt em.bl{color:var(--bl)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+
+/* HERO */
+#s-hero{min-height:75svh;
+  background:radial-gradient(ellipse 100% 60% at 70% 120%,rgba(200,148,58,.2),transparent 55%),
+  linear-gradient(168deg,#FBF7F0,#F2E8D4 55%,#EAD8BC);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:60px 24px 72px;position:relative;overflow:hidden}
+.hr{position:absolute;border-radius:50%;border:1px solid rgba(200,148,58,.1);animation:rb 7s ease-in-out infinite}
+.hr:nth-child(1){width:200px;height:200px}
+.hr:nth-child(2){width:440px;height:440px;animation-delay:2s}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.15}}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.7);border:1px solid var(--bd2);border-radius:40px;padding:8px 18px 8px 8px;margin-bottom:28px;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gd));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:var(--ink2);line-height:1.2}
+.ar{font-size:9px;letter-spacing:2px;color:var(--mu);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(200,148,58,.1);border:1px solid var(--bd2);border-radius:20px;padding:4px 16px;font-size:9px;letter-spacing:3px;color:var(--gd);text-transform:uppercase;margin-bottom:20px;position:relative;z-index:1}
+.hi{font-size:58px;display:block;margin-bottom:12px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,9vw,56px);font-weight:700;line-height:1.1;color:var(--ink);position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:var(--gold);display:block}
+.hd{width:32px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px auto;position:relative;z-index:1}
+.hs{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);line-height:1.7;max-width:280px;position:relative;z-index:1}
+.nav-r{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px;position:relative;z-index:1}
+.nav-p{background:rgba(255,255,255,.75);border:1.5px solid var(--bd);border-radius:20px;padding:8px 16px;font-size:12px;color:var(--ink2);cursor:pointer;text-decoration:none;transition:all .2s}
+.nav-p:hover{border-color:var(--gold);background:#fff}
+.nav-p.b{border-color:var(--blb);color:var(--bl)}
+
+/* ТИПИ ЖИРІВ */
+.fat-cards{display:flex;flex-direction:column;gap:8px}
+.fat-card{display:flex;gap:12px;align-items:flex-start;border-radius:12px;padding:12px 14px}
+.fat-card.mono{background:var(--blp);border:1.5px solid var(--blb)}
+.fat-card.o3{background:rgba(100,200,130,.1);border:1.5px solid rgba(100,200,130,.3)}
+.fat-card.o6{background:var(--orp);border:1.5px solid var(--orb)}
+.fat-card.sat{background:var(--redp);border:1.5px solid var(--redb)}
+.fat-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.fat-title{font-size:13px;font-weight:500;margin-bottom:3px}
+.fat-card.mono .fat-title{color:var(--bl)}
+.fat-card.o3 .fat-title{color:#4A7040}
+.fat-card.o6 .fat-title{color:var(--or)}
+.fat-card.sat .fat-title{color:var(--red)}
+.fat-desc{font-size:11px;color:var(--mu);line-height:1.55}
+
+/* КАРТКИ ОЛІЙ */
+.oil-cards{display:flex;flex-direction:column;gap:9px}
+.oc{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:14px;overflow:hidden;backdrop-filter:blur(4px);cursor:pointer;transition:border-color .2s}
+.oc:hover{border-color:var(--bd2)}
+.oc.open{border-color:var(--bd2)}
+.och{display:flex;align-items:center;gap:11px;padding:12px 14px}
+.oci{font-size:1.35rem;flex-shrink:0}
+.oct{font-size:13px;font-weight:500;color:var(--ink);flex:1;line-height:1.3}
+.ocd-temp{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--gold);flex-shrink:0}
+.oca{font-size:1.2rem;color:var(--mu2);flex-shrink:0;transition:transform .25s}
+.oc.open .oca{transform:rotate(90deg)}
+.ocb{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.oc.open .ocb{max-height:300px}
+.occ{padding:0 14px 14px;border-top:1px solid var(--bd)}
+.ofl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu2);margin:10px 0 3px}
+.ofv{font-size:12px;color:var(--ink2);line-height:1.6}
+.ofv strong{color:var(--bl);font-weight:500}
+.overd{margin-top:9px;border-radius:9px;padding:9px 12px;font-size:12px;line-height:1.6}
+.overd.gd{background:rgba(58,120,168,.07);border:1px solid var(--blb);color:var(--bl)}
+.overd.ok{background:rgba(200,148,58,.07);border:1px solid var(--bd);color:var(--gd)}
+.overd.wn{background:var(--orp);border:1px solid var(--orb);color:var(--or)}
+.overd.bd{background:var(--redp);border:1px solid var(--redb);color:var(--red)}
+
+/* ПІДСУМОК */
+.sum-card{background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:16px;padding:18px 16px}
+.sum-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:12px}
+.sum-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--bd)}
+.sum-row:last-child{border-bottom:none;padding-bottom:0}
+.sum-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.sum-text{font-size:12px;color:var(--ink2);line-height:1.55}
+.sum-text strong{color:var(--gd);font-weight:500}
+
+/* КАПСУЛИ */
+.cap-card{background:rgba(255,255,255,.7);border:1.5px solid var(--blb);border-radius:16px;overflow:hidden;backdrop-filter:blur(4px)}
+.cap-top{padding:14px 16px;background:var(--blp);border-bottom:1px solid var(--blb)}
+.cap-top-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.cap-top-sub{font-size:11px;color:var(--mu)}
+.cap-list{padding:4px 0}
+.cap-row{display:flex;gap:11px;align-items:flex-start;padding:12px 16px;border-bottom:1px solid rgba(58,120,168,.08)}
+.cap-row:last-child{border-bottom:none}
+.cap-num{width:22px;height:22px;border-radius:50%;background:var(--bl);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.cap-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px}
+.cap-desc{font-size:12px;color:var(--mu);line-height:1.55}
+.cap-desc strong{color:var(--bl);font-weight:500}
+.cap-tag{display:inline-block;background:rgba(58,120,168,.1);border:1px solid var(--blb);border-radius:20px;padding:3px 10px;font-size:11px;color:var(--bl);margin-top:5px}
+.cert-row{display:flex;gap:9px;margin-top:14px}
+.cert-c{flex:1;background:var(--blp);border:1.5px solid var(--blb);border-radius:12px;padding:13px 12px;text-align:center}
+.cert-n{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--bl);margin-bottom:5px}
+.cert-d{font-size:11px;color:var(--mu);line-height:1.5}
+.rf-card{background:var(--redp);border:1.5px solid var(--redb);border-radius:14px;padding:15px 15px;margin-top:12px}
+.rf-title{font-size:12px;font-weight:500;color:var(--red);margin-bottom:10px}
+.rf-row{display:flex;gap:8px;align-items:flex-start;margin-bottom:7px}
+.rf-row:last-child{margin-bottom:0}
+.rf-text{font-size:12px;color:#8A3030;line-height:1.5}
+
+/* INTRO BLOCK */
+.intro-block{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:16px;padding:16px 16px 14px;backdrop-filter:blur(4px)}
+.intro-block-top{display:flex;gap:12px;align-items:flex-start;margin-bottom:0}
+.intro-block-icon{font-size:1.4rem;flex-shrink:0;margin-top:2px}
+.intro-block-title{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:3px}
+.intro-block-desc{font-size:12px;color:var(--mu);line-height:1.6}
+/* гармошка всередині intro-block */
+.intro-acc{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 12px;background:rgba(200,148,58,.08);border:1px solid var(--bd);border-radius:10px;cursor:pointer;user-select:none;transition:background .2s}
+.intro-acc:hover{background:rgba(200,148,58,.14)}
+.ia-label{font-size:12px;color:var(--gd);flex:1;font-weight:500}
+.ia-arrow{font-size:1.2rem;color:var(--gold);transition:transform .25s;flex-shrink:0}
+.ia-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.ia-body.op{max-height:700px}
+.ia-arrow.op{transform:rotate(90deg)}
+.ia-inner{padding:12px 0 2px}
+
+/* ПІДТРИМКА */
+.spc{background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(250,246,239,.9));border:1.5px solid var(--bd2);border-radius:18px;padding:22px 18px}
+.spt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:9px}
+.spb{font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:7px}
+.spb em{font-style:italic;color:var(--gd)}
+.sps{font-size:11px;color:var(--mu2);font-style:italic;margin-top:5px;margin-bottom:16px}
+.tgl{display:flex;flex-direction:column;gap:9px}
+.tga{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.8);border:1.5px solid var(--bd);border-radius:11px;padding:11px 14px;text-decoration:none;color:var(--ink2);font-size:13px;transition:all .2s}
+.tga:hover{border-color:var(--bd2);background:#fff;transform:translateY(-1px)}
+.tgr{margin-left:auto;color:var(--mu2)}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#F0E4CC,#E8D4B0 50%,#DEC890) !important;padding:64px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:55vh}
+.fni{font-size:52px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,40px);font-weight:700;line-height:1.15;margin-bottom:10px;color:var(--ink)}
+.fnt em{font-style:italic;color:var(--gd)}
+.fnl{width:30px;height:1px;background:var(--gold);margin:0 auto 14px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--ink2);line-height:1.7;max-width:270px;margin:0 auto}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="hr"></div><div class="hr"></div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar">Нутриціолог</div></div>
+  </div>
+  <div class="wb rv">Бонус до Дня 3 · Тиждень жирів</div>
+  <span class="hi rv">📖</span>
+  <h1 class="ht rv">Два гайди<em>які змінять кухню</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs rv">Олії для смаження і як обрати якісну омегу-3 💊🍳</p>
+  <div class="nav-r rv">
+    <a href="#s-oil" class="nav-p">🍳 Олії для смаження</a>
+    <a href="#s-omega" class="nav-p b">💊 Омега-3 в капсулах</a>
+  </div>
+</section>
+
+<!-- ВСТУП — КЛЮЧОВІ ПОНЯТТЯ -->
+<section><div class="w">
+  <span class="ey rv">Вступ · Ключові поняття</span>
+  <h2 class="tt rv">Перш ніж<br><em>обирати</em></h2>
+  <p class="sb rv">Вибір якісної олії — це не тільки про смак, а й про здоров'я</p>
+
+  <!-- 1. ТЕМПЕРАТУРА ДИМЛЕННЯ + ГАРМОШКА -->
+  <div class="intro-block rv">
+    <div class="intro-block-top">
+      <span class="intro-block-icon">🌡️</span>
+      <div>
+        <div class="intro-block-title">Температура димлення</div>
+        <div class="intro-block-desc">Точка при якій олія починає горіти і виділяти токсичні речовини. Для смаження обирай варіанти з <strong>високим показником</strong></div>
+      </div>
+    </div>
+    <!-- гармошка -->
+    <div class="intro-acc" id="ia-temp" onclick="togIA('ia-temp')">
+      <span style="font-size:1rem">🔥</span>
+      <span class="ia-label">Температурні режими сковорідки — натискай щоб дізнатись більше</span>
+      <span class="ia-arrow" id="iaa-temp">›</span>
+    </div>
+    <div class="ia-body" id="iab-temp">
+      <div class="ia-inner">
+        <div class="oc" style="margin-bottom:8px" onclick="tog(this)">
+          <div class="och"><span class="oci">🟡</span><div class="oct">120–150°C · Слабкий вогонь</div><div class="ocd-temp" style="color:var(--sage);font-size:.85rem">Делікатне</div><div class="oca">›</div></div>
+          <div class="ocb"><div class="occ">
+            <div class="ofl">Для чого</div><div class="ofv">Яйця, томління овочів, прогрівання</div>
+            <div class="ofl">Як перевірити</div><div class="ofv">Олія ледь рухається. Крапля води — ледь шипить</div>
+            <div class="overd gd" style="background:rgba(122,154,106,.1);border-color:rgba(122,154,106,.3);color:#4A7040">✅ Підходять всі олії з температурою від 150°C</div>
+          </div></div>
+        </div>
+        <div class="oc" style="margin-bottom:8px" onclick="tog(this)">
+          <div class="och"><span class="oci">🟠</span><div class="oct">160–190°C · Середній вогонь</div><div class="ocd-temp" style="color:var(--gold);font-size:.85rem">Робоча</div><div class="oca">›</div></div>
+          <div class="ocb"><div class="occ">
+            <div class="ofl">Для чого</div><div class="ofv">Курка, котлети, сирники, рибне філе — більшість страв</div>
+            <div class="ofl">Як перевірити</div><div class="ofv">Крапля води зашипить і випарується за кілька секунд</div>
+            <div class="overd ok">💡 Оливкова рафінована, сало, качиний жир, гхі, олія авокадо</div>
+          </div></div>
+        </div>
+        <div class="oc" onclick="tog(this)">
+          <div class="och"><span class="oci">🔴</span><div class="oct">200–250°C · Сильний вогонь</div><div class="ocd-temp" style="color:var(--red);font-size:.85rem">Максимум</div><div class="oca">›</div></div>
+          <div class="ocb"><div class="occ">
+            <div class="ofl">Для чого</div><div class="ofv">Стейки, вок-смаження, швидке обсмажування</div>
+            <div class="ofl">Як перевірити</div><div class="ofv">Крапля перетворюється на кульку яка «танцює» по металу — <strong>ефект Лейденфроста</strong></div>
+            <div class="overd gd">✅ Тільки найстійкіші: авокадо (~271°C), яловичий жир (250°C), гхі (~250°C)</div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. СКЛАД ОЛІЇ — ТИПИ ЖИРІВ -->
+  <div class="intro-block rv" style="margin-top:10px">
+    <div class="intro-block-top">
+      <span class="intro-block-icon">⚖️</span>
+      <div>
+        <div class="intro-block-title">Склад олії · Тип жирних кислот</div>
+        <div class="intro-block-desc">Від типу жирів залежить вплив на здоров'я і стабільність при нагріванні</div>
+      </div>
+    </div>
+    <div class="fat-cards" style="margin-top:12px">
+      <div class="fat-card mono">
+        <span class="fat-icon">💙</span>
+        <div>
+          <div class="fat-title" style="color:var(--bl)">Мононенасичені · Омега-9</div>
+          <div class="fat-desc">Підтримують серце і судини · знижують «поганий» холестерин · покращують чутливість до інсуліну · багаті на вітаміни A, D, E</div>
+        </div>
+      </div>
+      <div class="fat-card o3">
+        <span class="fat-icon">🐟</span>
+        <div>
+          <div class="fat-title" style="color:#4A7040">Поліненасичені · Омега-3</div>
+          <div class="fat-desc">Протизапальна дія · покращують роботу мозку · підтримують зір і серцево-судинну систему</div>
+        </div>
+      </div>
+      <div class="fat-card o6">
+        <span class="fat-icon">⚠️</span>
+        <div>
+          <div class="fat-title">Поліненасичені · Омега-6</div>
+          <div class="fat-desc">У нормі — потрібні. У надлишку — провокують запалення в організмі</div>
+        </div>
+      </div>
+      <div class="fat-card sat">
+        <span class="fat-icon">❗</span>
+        <div>
+          <div class="fat-title">Насичені жири</div>
+          <div class="fat-desc">Підвищують «поганий» холестерин · збільшують ризик серцево-судинних захворювань · сприяють накопиченню вісцерального жиру</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. ВИРОБНИЦТВО — РАФІНОВАНА / НЕРАФІНОВАНА -->
+  <div class="intro-block rv" style="margin-top:10px">
+    <div class="intro-block-top">
+      <span class="intro-block-icon">⚗️</span>
+      <div>
+        <div class="intro-block-title">Процес виробництва олії</div>
+        <div class="intro-block-desc">Рафінована чи нерафінована — від цього залежить де використовувати</div>
+      </div>
+    </div>
+    <div class="fat-cards" style="margin-top:12px">
+      <div class="fat-card mono">
+        <span class="fat-icon">🔥</span>
+        <div>
+          <div class="fat-title" style="color:var(--bl)">Рафінована — для смаження</div>
+          <div class="fat-desc">Хімічна та парова обробка, видалення домішок. Вища температура димлення — стабільна при нагріванні</div>
+        </div>
+      </div>
+      <div class="fat-card o6">
+        <span class="fat-icon">🥗</span>
+        <div>
+          <div class="fat-title">Нерафінована олія</div>
+          <div class="fat-desc">Холодний віджим, тільки механічна фільтрація без хімічної обробки.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div></section>
+
+<!-- РОСЛИННІ ОЛІЇ -->
+<section id="s-oil"><div class="w">
+  <span class="ey rv">Гайд 1 · Рослинні олії</span>
+  <h2 class="tt rv">Рослинні олії —<br><em>детально</em></h2>
+  <p class="sb rv">Натискай на кожну — склад і вердикт</p>
+
+  <div class="oil-cards rv">
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🥑</span><div class="oct">Масло авокадо</div><div class="ocd-temp">190–271°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Температура</div>
+        <div class="ofv">Рафінована — ~271°C · Нерафінована — 190–204°C</div>
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv">Переважно <strong>мононенасичені (омега-9)</strong> — корисні для серця і судин</div>
+        <div class="overd gd">✅ Рафінована — золотий стандарт для будь-якого смаження</div>
+      </div></div>
+    </div>
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🫒</span><div class="oct">Оливкова олія</div><div class="ocd-temp">190–240°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Температура залежно від виду</div>
+        <div class="ofv">Extra Virgin — ~190°C · Virgin — ~200°C · Рафінована (Pure/Light) — ~230°C · Pomace (з макухи) — ~240°C</div>
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv"><strong>Омега-9 — 70–80%</strong> (для серця) · Поліненасичені — 8–12% · Насичені — 8–14%</div>
+        <div class="overd ok">💡 <strong>Для смаження і тушкування — рафінована.</strong> Extra Virgin тільки в салат або після приготування</div>
+      </div></div>
+    </div>
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🌻</span><div class="oct">Соняшникова олія</div><div class="ocd-temp">107–230°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Температура</div>
+        <div class="ofv">Рафінована — ~230°C · <strong>Нерафінована — ~107°C (не для смаження!)</strong></div>
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv">Переважають <strong>омега-6</strong> — у надлишку провокують запалення</div>
+        <div class="overd bd">❌ Нерафінована — токсична при нагріванні. Рафінована — головна причина дисбалансу омега-3/6</div>
+      </div></div>
+    </div>
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🥥</span><div class="oct">Кокосове масло</div><div class="ocd-temp">177–232°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Температура</div>
+        <div class="ofv">Нерафіноване — ~177°C · Рафіноване — ~232°C</div>
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv"><strong>Насичені — 82–90%</strong> (лауринова кислота) · Омега-9 — ~6% · Омега-6 — ~2%</div>
+        <div class="overd wn">⚠️ Не найкращий варіант через надзвичайно високий вміст насичених жирів</div>
+      </div></div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ТВАРИННІ ЖИРИ -->
+<section><div class="w">
+  <span class="ey rv">Гайд 1 · Тваринні жири</span>
+  <h2 class="tt rv">Тваринні жири<br><em>та гхі</em></h2>
+  <p class="sb rv">Стабільні при нагріванні — недооцінений вибір</p>
+
+  <div class="oil-cards rv">
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🧈</span><div class="oct">Масло гхі (топлене)</div><div class="ocd-temp">~250°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Особливість</div>
+        <div class="ofv">Не рафінована і не нерафінована — окремий процес через термічну обробку. <strong>Без лактози та казеїну</strong> — підходить при непереносимості молочних</div>
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv">Основа — <strong>насичені жири</strong>. Стабільні при нагріванні</div>
+        <div class="overd wn">⚠️ Висока температура — добре. Але <strong>не найкращий варіант</strong> через надзвичайно високий вміст насичених жирів</div>
+      </div></div>
+    </div>
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🥩</span><div class="oct">Смалець та Сало</div><div class="ocd-temp">182–190°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Температура</div>
+        <div class="ofv">Смалець — ~182°C · Сало — ~190°C</div>
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv"><strong>Насичені — 40–45%</strong> · <strong>Мононенасичені — 45–50%</strong> (як в оливковій!)</div>
+        <div class="overd gd">✅ Стійкі до окислення. Тушкування і обсмажування на середньому вогні</div>
+      </div></div>
+    </div>
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🦆</span><div class="oct">Качиний жир</div><div class="ocd-temp">190–200°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv"><strong>Мононенасичені — ~50%</strong> (як в оливковій!) · Насичені — ~35% · Поліненасичені — ~15%</div>
+        <div class="ofl">Додатково</div>
+        <div class="ofv">Містить вітаміни A, D, E та омега-9 — корисна для серця і судин</div>
+        <div class="overd gd">✅ Стабільний мононенасичений жир.</div>
+      </div></div>
+    </div>
+
+    <div class="oc" onclick="tog(this)">
+      <div class="och"><span class="oci">🐄</span><div class="oct">Яловичий жир (топлений)</div><div class="ocd-temp">200–250°C</div><div class="oca">›</div></div>
+      <div class="ocb"><div class="occ">
+        <div class="ofl">Склад жирів</div>
+        <div class="ofv"><strong>Насичені — ~50–52%</strong> · Мононенасичені — ~42–44%</div>
+        <div class="ofl">Використання</div>
+        <div class="ofv">Дуже стабільний при нагріванні — ідеальний для фритюру і дуже високих температур</div>
+        <div class="overd gd">✅ Один з найстабільніших для смаження при максимальних температурах</div>
+      </div></div>
+    </div>
+
+  </div>
+</div></section>
+
+<!-- ВИСНОВОК -->
+<section><div class="w">
+  <span class="ey rv">Висновок</span>
+  <h2 class="tt rv">Коротка<br><em>шпаргалка</em></h2>
+
+  <div class="sum-card rv">
+    <div class="sum-title">💡 Мій вибір для кухні</div>
+    <div class="sum-row"><span class="sum-icon">🔥</span><div class="sum-text"><strong>Висока температура:</strong> олія авокадо рафінована, рафінована оливкова олія</div></div>
+    <div class="sum-row"><span class="sum-icon">🌡️</span><div class="sum-text"><strong>Середня температура:</strong> качиний жир, оливкова Virgin.</div></div>
+    <div class="sum-row"><span class="sum-icon">🥗</span><div class="sum-text"><strong>Тільки холодна їжа:</strong> льняна олія, Extra Virgin.</div></div>
+    <div class="sum-row"><span class="sum-icon">❌</span><div class="sum-text"><strong>Уникати:</strong>будь-яка повторно нагріта олія</div></div>
+  </div>
+
+  <div class="sum-card rv" style="margin-top:10px;background:var(--redp);border-color:var(--redb)">
+    <div class="sum-title" style="color:var(--red)">⚠️ Про соняшникову рафіновану</div>
+    <div style="font-size:12px;color:#8A3030;line-height:1.65">Технічно підходить за температурою (~230°C) — але переважно складається з омега-6. При щоденному використанні порушує баланс і провокує запалення. Краща альтернатива — оливкова або авокадо.</div>
+  </div>
+</div></section>
+
+<!-- ОМЕГА-3 В КАПСУЛАХ -->
+<section id="s-omega"><div class="w">
+  <span class="ey bl rv">Гайд 2 · Омега-3 в капсулах</span>
+  <h2 class="tt rv">Як обрати<br><em class="bl">якісну омегу-3</em></h2>
+  <p class="sb rv">Не всі добавки однаково корисні — ось чекліст</p>
+
+  <div class="cap-card rv">
+    <div class="cap-top">
+      <div class="cap-top-title">✅ На що дивитися в складі</div>
+      <div class="cap-top-sub">Перевіряй кожен пункт перед покупкою</div>
+    </div>
+    <div class="cap-list">
+      <div class="cap-row">
+        <div class="cap-num">1</div>
+        <div>
+          <div class="cap-title">EPA та DHA — чим більше тим краще</div>
+          <div class="cap-desc">Шукай сумарний вміст EPA+DHA на капсулу. <strong>Мінімум 500 мг</strong> на добову дозу</div>
+          <span class="cap-tag">EPA+DHA ≥ 500 мг/доза</span>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-num">2</div>
+        <div>
+          <div class="cap-title">Токоферол (Вітамін E) у складі</div>
+          <div class="cap-desc">Захищає омега-3 від окислення всередині капсули. Без нього жир може гіркнути і втрачати властивості</div>
+          <span class="cap-tag">Tocopherol / Вітамін E</span>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-num">3</div>
+        <div>
+          <div class="cap-title">Звідки отриманий риб'ячий жир</div>
+          <div class="cap-desc">Перевагу дрібній рибі — анчоуси, сардини, скумбрія. Менше важких металів і ртуті</div>
+          <span class="cap-tag">Anchovies / Sardines</span>
+        </div>
+      </div>
+      <div class="cap-row">
+        <div class="cap-num">4</div>
+        <div>
+          <div class="cap-title">Форма: TG краще ніж EE</div>
+          <div class="cap-desc"><strong>TG (тригліцеридна)</strong> — натуральна, засвоюється набагато краще. <strong>EE (етиловий ефір)</strong> — дешева у виробництві, засвоюється гірше</div>
+          <span class="cap-tag">TG form / Triglyceride</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cert-row rv">
+    <div class="cert-c">
+      <div class="cert-n">IFOS</div>
+      <div class="cert-d">International Fish Oil Standards — найвищий стандарт якості риб'ячого жиру у світі</div>
+    </div>
+    <div class="cert-c">
+      <div class="cert-n">GMP</div>
+      <div class="cert-d">Good Manufacturing Practice — гарантує що в капсулі дійсно те що написано на упаковці</div>
+    </div>
+  </div>
+
+  <div class="rf-card rv">
+    <div class="rf-title">❌ Червоні прапорці — не купуй якщо є хоч одне</div>
+    <div class="rf-row"><span style="font-size:.9rem;flex-shrink:0">🚩</span><div class="rf-text">Написано «риб'ячий жир» без вказівки EPA і DHA — невідомо що всередині</div></div>
+    <div class="rf-row"><span style="font-size:.9rem;flex-shrink:0">🚩</span><div class="rf-text">Вказано лише «omega-3» без розбивки — може бути ALA яка погано засвоюється</div></div>
+    <div class="rf-row"><span style="font-size:.9rem;flex-shrink:0">🚩</span><div class="rf-text">Форма EE (ethyl ester) — дешевий і менш ефективний варіант</div></div>
+    <div class="rf-row"><span style="font-size:.9rem;flex-shrink:0">🚩</span><div class="rf-text">Немає сертифікату IFOS або GMP — якість не підтверджена</div></div>
+    <div class="rf-row"><span style="font-size:.9rem;flex-shrink:0">🚩</span><div class="rf-text">Сильний запах риби при відкритті — знак окислення, жир зіпсований</div></div>
+  </div>
+</div></section>
+
+<!-- ПІДТРИМКА -->
+<section><div class="w">
+  <div class="spc rv">
+    <div class="spt">💚 Слово від мене</div>
+    <p class="spb">Тепер ти знаєш на чому готувати і як обрати якісну омегу-3. <em>Маленькі зміни на кухні — великі зміни в самопочутті.</em></p>
+    <p class="spb">Питання по конкретних брендах — пиши мені 🤍</p>
+    <p class="sps">— Любов Бухарова, нутриціолог</p>
+    <div class="tgl">
+      <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tga"><span style="font-size:1.1rem">✈️</span><span>Написати особисто — @Lyubov_nutritionist</span><span class="tgr">→</span></a>
+      <a href="https://t.me/+HjcCjo6AUOBkMTUy" target="_blank" class="tga"><span style="font-size:1.1rem">👥</span><span>Приєднатись до групи в Telegram</span><span class="tgr">→</span></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+  <span class="fni rv">🍳</span>
+  <h2 class="fnt rv">Тепер ти знаєш<br><em>все про жири!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Збережи цю сторінку — і повертайся коли будеш обирати олію або омегу-3 💚</p>
+</section>
+
+<script>
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%'});
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+function tog(c){c.classList.toggle('open')}
+function togIA(id){
+  const body=document.getElementById('iab-'+id.replace('ia-',''));
+  const arrow=document.getElementById('iaa-'+id.replace('ia-',''));
+  body.classList.toggle('op');
+  arrow.classList.toggle('op');
+}
+</script>
+</body>
+</html>
