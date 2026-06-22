@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Жири · День 4 · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#FAF6EF;--g:#C8943A;--g2:#E0B060;--gd:#8A6020;
+  --ink:#2C1E08;--ink2:#4A3518;--mu:#8A7258;--mu2:#B8A080;--sage:#7A9A6A;
+  --rose:#A84878;--rosep:rgba(168,72,120,.07);--roseb:rgba(168,72,120,.22);
+  --bd:rgba(200,148,58,.18);--bd2:rgba(200,148,58,.32)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--rose),var(--g),var(--g2));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:nth-child(odd){background:var(--cr)}
+section:nth-child(even){background:linear-gradient(160deg,#F7EFE0,#F0E4CC)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:10px;text-align:center;display:block}
+.ey.rose{color:var(--rose)}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g)}
+.tt em.rose{color:var(--rose)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+
+/* HERO */
+#s-hero{min-height:100svh;
+  background:radial-gradient(ellipse 100% 60% at 80% 110%,rgba(168,72,120,.12),transparent 55%),
+  radial-gradient(ellipse 80% 50% at 10% 0%,rgba(200,148,58,.12),transparent 50%),
+  linear-gradient(168deg,#FBF5F0,#F2E6DC 55%,#EAD4C8);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(168,72,120,.1);animation:rb 7s ease-in-out infinite}
+.ring:nth-child(1){width:200px;height:200px}
+.ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
+.ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.15}}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.7);border:1px solid var(--bd2);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:var(--ink2);line-height:1.2}
+.ar{font-size:9px;letter-spacing:2px;color:var(--mu);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(168,72,120,.08);border:1px solid var(--roseb);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:var(--rose);text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,70px);font-weight:700;line-height:1.05;color:var(--ink);position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:var(--rose);display:block;font-size:clamp(28px,7.5vw,50px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent);margin:15px auto;position:relative;z-index:1}
+.hs{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--mu);line-height:1.7;max-width:280px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--mu2);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* ГОРМОНИ */
+.horm-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:14px}
+.horm-card{border-radius:13px;padding:14px 13px;text-align:center}
+.horm-card.r{background:var(--rosep);border:1.5px solid var(--roseb)}
+.horm-card.g{background:rgba(200,148,58,.07);border:1.5px solid var(--bd)}
+.horm-card.full{grid-column:1/-1}
+.horm-icon{font-size:1.5rem;display:block;margin-bottom:6px}
+.horm-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.horm-desc{font-size:11px;color:var(--mu);line-height:1.5}
+
+/* ЕМОЦІЙНИЙ БЛОК */
+.emo-block{border-radius:20px;padding:28px 22px;position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#2C1E08,#4A2830);
+  margin-bottom:14px}
+.emo-block::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;
+  border-radius:50%;background:rgba(168,72,120,.15);pointer-events:none}
+.emo-block::after{content:'';position:absolute;bottom:-30px;left:-30px;width:130px;height:130px;
+  border-radius:50%;background:rgba(200,148,58,.1);pointer-events:none}
+.emo-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,164,192,.7);margin-bottom:16px;display:block}
+.emo-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,6vw,30px);font-weight:700;color:#fff;line-height:1.25;margin-bottom:20px}
+.emo-title em{font-style:italic;color:#E8A4C0}
+.emo-items{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+.emo-item{display:flex;align-items:flex-start;gap:13px}
+.emo-dot{width:5px;height:5px;border-radius:50%;background:var(--g2);flex-shrink:0;margin-top:7px}
+.emo-text{font-size:13px;color:rgba(255,255,255,.75);line-height:1.7}
+.emo-text strong{color:#fff;font-weight:500}
+.emo-text em{color:#E8A4C0;font-style:italic}
+
+
+
+/* ЗВИЧКА */
+.hc{background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.hc::before{content:'✨';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.05;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:rgba(200,148,58,.1);border:1px solid var(--bd2);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--gd);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.5vw,22px);line-height:1.5;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g)}
+.hdv2{width:24px;height:1px;background:rgba(200,148,58,.3);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* ТЕСТ */
+.test-card{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:15px;overflow:hidden;backdrop-filter:blur(4px)}
+.test-head{padding:14px 15px;border-bottom:1px solid var(--bd);background:var(--rosep)}
+.test-head-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink)}
+.test-head-sub{font-size:11px;color:var(--mu);margin-top:2px}
+.test-items{padding:8px 0}
+.test-item{display:flex;align-items:center;gap:12px;padding:10px 15px;cursor:pointer;user-select:none;transition:background .15s;border-bottom:1px solid rgba(200,148,58,.06)}
+.test-item:last-child{border-bottom:none}
+.test-item:hover{background:rgba(255,255,255,.4)}
+.test-item.on{background:var(--rosep)}
+.test-check{width:22px;height:22px;border-radius:7px;border:1.5px solid var(--bd);background:rgba(250,246,239,.8);display:flex;align-items:center;justify-content:center;font-size:11px;color:transparent;flex-shrink:0;transition:all .18s}
+.test-item.on .test-check{background:var(--rose);border-color:var(--rose);color:#fff}
+.test-label{font-size:12px;color:var(--ink2);line-height:1.4;flex:1}
+.test-foot{padding:14px 15px;border-top:1px solid var(--bd);background:rgba(255,255,255,.4)}
+.tf-row{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:9px}
+.tf-num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--rose);line-height:1}
+.tf-of{font-size:12px;color:var(--mu);margin-left:3px}
+.tf-status{font-size:11px;color:var(--mu);text-align:right;line-height:1.5}
+.tf-bar{height:5px;border-radius:3px;background:rgba(168,72,120,.12);overflow:hidden;margin-bottom:10px}
+.tf-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--g),var(--rose));transition:width .4s cubic-bezier(.34,1.2,.64,1);width:0%}
+.tf-verdict{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-align:center;line-height:1.6;padding:10px 13px;border-radius:10px;display:none}
+.tf-verdict.v0{background:rgba(122,154,106,.1);color:#4A7040}
+.tf-verdict.v1{background:rgba(200,148,58,.08);color:var(--gd)}
+.tf-verdict.v2{background:var(--rosep);color:var(--rose)}
+
+
+
+/* ДІЯ ДНЯ */
+.action-card{background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:18px;overflow:hidden;backdrop-filter:blur(6px)}
+.action-head{padding:16px 17px;border-bottom:1px solid var(--bd);background:linear-gradient(135deg,rgba(200,148,58,.08),rgba(168,72,120,.05))}
+.action-head-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.action-head-sub{font-size:11px;color:var(--mu);line-height:1.5}
+.action-meals{display:flex;flex-direction:column;gap:0}
+.action-meal{border-bottom:1px solid rgba(200,148,58,.08)}
+.action-meal:last-child{border-bottom:none}
+.action-meal-head{display:flex;align-items:center;gap:11px;padding:13px 17px;cursor:pointer;user-select:none;transition:background .15s}
+.action-meal-head:hover{background:rgba(255,255,255,.5)}
+.action-meal.open .action-meal-head{background:rgba(200,148,58,.05)}
+.action-meal-icon{font-size:1.2rem;flex-shrink:0}
+.action-meal-name{font-size:13px;font-weight:500;color:var(--ink);flex:1}
+.action-meal-arrow{font-size:1rem;color:var(--mu2);transition:transform .22s;flex-shrink:0}
+.action-meal.open .action-meal-arrow{transform:rotate(90deg)}
+.action-meal-body{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.action-meal.open .action-meal-body{max-height:400px}
+.action-meal-inner{padding:4px 17px 16px 42px}
+.action-prod-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--g);margin-bottom:10px}
+.action-prods{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:10px}
+.action-prod{display:flex;align-items:center;gap:6px;background:rgba(200,148,58,.07);border:1.5px solid var(--bd);border-radius:22px;padding:7px 13px;cursor:pointer;user-select:none;transition:all .2s cubic-bezier(.34,1.3,.64,1)}
+.action-prod:active{transform:scale(.96)}
+.action-prod.picked{background:rgba(122,154,106,.13);border-color:rgba(122,154,106,.5)}
+.action-prod-em{font-size:.95rem}
+.action-prod-name{font-size:12px;color:var(--ink2)}
+.action-prod.picked .action-prod-name{color:#3A6030;font-weight:500}
+.action-check{width:16px;height:16px;border-radius:50%;border:1.5px solid rgba(200,148,58,.3);display:flex;align-items:center;justify-content:center;font-size:8px;color:transparent;flex-shrink:0;transition:all .18s}
+.action-prod.picked .action-check{background:#5A8A50;border-color:#5A8A50;color:#fff}
+.action-summary{margin-top:6px;min-height:18px;font-size:12px;color:#4A7040;font-style:italic;font-family:'Cormorant Garamond',serif;line-height:1.5}
+.action-total{margin:14px 17px;padding:12px 15px;background:linear-gradient(135deg,rgba(122,154,106,.1),rgba(200,148,58,.06));border:1px solid rgba(122,154,106,.25);border-radius:12px;display:none}
+.action-total.show{display:block}
+.action-total-text{font-size:13px;color:#3A6030;line-height:1.65}
+.action-total-text strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+
+/* ДЕСЕРТ — ГАРМОШКА */
+.dessert-acc{background:linear-gradient(135deg,rgba(168,72,120,.06),rgba(200,148,58,.06));border:1.5px solid var(--roseb);border-radius:16px;overflow:hidden}
+.dessert-acc-head{display:flex;align-items:center;gap:12px;padding:16px 16px;cursor:pointer;user-select:none;transition:background .2s}
+.dessert-acc-head:hover{background:rgba(168,72,120,.04)}
+.dessert-acc.open .dessert-acc-head{background:var(--rosep)}
+.dah-icon{font-size:1.6rem;flex-shrink:0}
+.dah-info{flex:1}
+.dah-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:2px}
+.dah-sub{font-size:11px;color:var(--mu)}
+.dah-arrow{font-size:1.2rem;color:var(--rose);transition:transform .25s;flex-shrink:0}
+.dessert-acc.open .dah-arrow{transform:rotate(90deg)}
+.dessert-acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.dessert-acc.open .dessert-acc-body{max-height:700px}
+.dessert-acc-inner{padding:0 16px 18px;border-top:1px solid var(--bd)}
+.dessert-ingr-title{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin:14px 0 9px}
+.dessert-ingr-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid rgba(200,148,58,.07)}
+.dessert-ingr-row:last-child{border-bottom:none}
+.dessert-ingr-name{font-size:13px;color:var(--ink2)}
+.dessert-ingr-amount{font-size:12px;color:var(--gd);font-weight:500}
+.dessert-steps{margin-top:14px}
+.dessert-step{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.dessert-step-num{width:22px;height:22px;border-radius:50%;background:var(--rose);color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.dessert-step-text{font-size:12px;color:var(--ink2);line-height:1.6;flex:1}
+.dessert-nut{margin-top:14px;background:rgba(200,148,58,.07);border:1px solid var(--bd);border-radius:10px;padding:12px 14px}
+.dessert-nut-title{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gd);margin-bottom:10px;font-weight:500}
+.dessert-nut-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--ink2);padding:6px 0;border-bottom:1px solid rgba(200,148,58,.1)}
+.dessert-nut-row:last-child{border-bottom:none}
+.dessert-nut-val{font-weight:700;color:var(--gd);font-size:14px}
+
+/* ЩОДЕННИЙ БЛОК */
+.daily-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(58,120,168,.1);border:1px solid rgba(58,120,168,.25);border-radius:20px;padding:5px 13px;font-size:9px;letter-spacing:2px;color:#3A78A8;text-transform:uppercase;margin-bottom:14px}
+
+/* ТРЕКЕРИ */
+.trc{background:rgba(255,255,255,.65);border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;backdrop-filter:blur(8px)}
+.trt{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.ttp{font-size:11px;color:var(--gd);background:rgba(200,148,58,.08);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin:7px 0 13px;line-height:1.65}
+.wsr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}
+.wml{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--g);line-height:1}
+.wu{font-size:12px;color:var(--mu2);margin-left:3px}
+.wcl{font-size:9px;color:var(--mu2);text-transform:uppercase;letter-spacing:1.5px}
+.wcv{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--mu2);text-align:right}
+.pt{height:4px;border-radius:2px;background:rgba(200,148,58,.12);overflow:hidden;margin-bottom:13px}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g),var(--g2));width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.cups{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.cup{width:40px;height:40px;border-radius:10px;border:1.5px solid rgba(200,148,58,.25);background:rgba(250,246,239,.8);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.cup:hover{border-color:var(--g);transform:translateY(-2px)}
+.cup.fi{background:rgba(200,148,58,.18);border-color:var(--g)}
+.wmsg{font-size:11px;color:var(--mu);font-style:italic;text-align:center;min-height:16px}
+.meals{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.meal{display:flex;align-items:center;gap:10px;background:rgba(250,246,239,.8);border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none}
+.meal:hover{background:rgba(255,255,255,.9);border-color:var(--bd2)}
+.meal.ch{background:rgba(122,154,106,.1);border-color:rgba(122,154,106,.4)}
+.me{font-size:1.1rem;flex-shrink:0}
+.mn{font-size:13px;color:var(--ink2);flex:1}
+.meal.ch .mn{color:var(--ink)}
+.mtk{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(200,148,58,.3);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.meal.ch .mtk{background:#7A9A6A;border-color:#7A9A6A;color:#fff}
+.pres{padding:10px 12px;background:rgba(122,154,106,.08);border-radius:9px;border:1px solid rgba(122,154,106,.25);display:none;text-align:center}
+.pres.sh{display:block}
+.pres p{font-size:12px;color:#4A7040;line-height:1.6}
+.pres strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+
+/* РЕФЛЕКСІЯ */
+.rc{background:rgba(255,255,255,.65);border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;margin-bottom:10px;backdrop-filter:blur(8px)}
+.rct{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rcs{font-size:11px;color:var(--mu);margin-bottom:15px;line-height:1.5}
+.rqs{display:flex;flex-direction:column;gap:12px}
+.rql{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rqt{width:100%;background:rgba(250,246,239,.8);border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:62px;line-height:1.65;transition:border-color .15s}
+.rqt:focus{border-color:var(--bd2)}
+.rqt::placeholder{color:var(--mu2);font-style:italic}
+.pvr{display:flex;gap:9px;align-items:flex-start;background:rgba(255,255,255,.5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px}
+.pvt{font-size:11px;color:var(--mu);line-height:1.6}
+.pvt strong{color:var(--ink2)}
+
+/* ПІДТРИМКА */
+.spc{background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(250,246,239,.9));border:1.5px solid var(--bd2);border-radius:18px;padding:22px 18px;margin-bottom:18px}
+.spt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:9px}
+.spb{font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:7px}
+.spb em{font-style:italic;color:var(--gd)}
+.sps{font-size:11px;color:var(--mu2);font-style:italic;margin-top:5px}
+
+/* КНОПКА ЗАВЕРШИТИ */
+.finish-btn{width:100%;padding:16px;border-radius:14px;border:none;background:linear-gradient(135deg,var(--rose),#7a2848);color:#fff;font-family:'Jost',sans-serif;font-size:15px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.finish-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(168,72,120,.3)}
+.finish-btn:active{transform:scale(.98)}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#F5E8EE,#EDD4DC 50%,#E4C0CC) !important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:54px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:var(--ink)}
+.fnt em{font-style:italic;color:var(--rose)}
+.fnl{width:32px;height:1px;background:var(--rose);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--ink2);line-height:1.7;max-width:270px;margin:0 auto 26px}
+.dots{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:26px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(44,30,8,.15)}
+.dot.dn{background:rgba(200,148,58,.45)}
+.dot.da{background:var(--rose);width:20px;border-radius:3px}
+.tc{background:rgba(255,255,255,.55);border:1.5px solid var(--bd2);border-radius:19px;padding:22px 18px;text-align:center;max-width:330px;width:100%;backdrop-filter:blur(8px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:11px;display:block}
+.tci{font-size:38px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,21px);font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.tct em{color:var(--rose);font-style:italic}
+.tcd{font-size:12px;color:var(--mu);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar">Нутриціолог</div></div>
+  </div>
+  <div class="wb rv">Тиждень жирів · День 4</div>
+  <span class="hi rv">🏗️</span>
+  <h1 class="ht rv">Жири і гормони —<em>чому без жирів все йде не так</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs rv">Твоє тіло буквально будує гормони з жирів.<br>Без цього — будівництво зупиняється 💙</p>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- ГОЛОВНЕ ВІДКРИТТЯ + ЕМОЦІЯ — об'єднана секція -->
+<section><div class="w">
+  <span class="ey rose rv">Головне відкриття дня</span>
+  <h2 class="tt rv">Жири — це<br><em class="rose">сировина для гормонів</em></h2>
+  <p class="sb rv">Тіло буквально будує з жирів гормони — без них система не працює</p>
+
+  <div class="horm-grid rv">
+    <div class="horm-card r"><span class="horm-icon">🌸</span><div class="horm-name">Естроген</div><div class="horm-desc">Жіночий гормон · цикл і настрій</div></div>
+    <div class="horm-card r"><span class="horm-icon">🌿</span><div class="horm-name">Прогестерон</div><div class="horm-desc">Спокій · сон · регулярний цикл</div></div>
+    <div class="horm-card g"><span class="horm-icon">⚡</span><div class="horm-name">Тестостерон</div><div class="horm-desc">Енергія · лібідо · м'язи</div></div>
+    <div class="horm-card g"><span class="horm-icon">🧠</span><div class="horm-name">Кортизол</div><div class="horm-desc">Гормон стресу · теж з жирів</div></div>
+    <div class="horm-card g full"><span class="horm-icon">☀️</span><div class="horm-name">Вітамін D — це теж гормон</div><div class="horm-desc">Імунітет · настрій · засвоюється тільки з жирами</div></div>
+  </div>
+
+  <div class="emo-block rv" style="margin-top:18px">
+    <span class="emo-label">Істина про жири</span>
+    <div class="emo-title">Хочеш менше<br>тяги до солодкого?<br><em>Їж більше жирів.</em></div>
+    <div class="emo-items">
+      <div class="emo-item"><div class="emo-dot"></div><div class="emo-text">Коли жирів не вистачає — мозок вимагає <strong>швидку енергію</strong>. Звідси тяга до солодкого о 15:00. Це не слабкість волі. Це <em>хімія тіла</em>.</div></div>
+      <div class="emo-item"><div class="emo-dot"></div><div class="emo-text"><strong>Суха шкіра, втома, перепади настрою</strong> — усе це може бути просто <em>нестачею жирів</em>. Не віком. Не стресом. Не долею.</div></div>
+      <div class="emo-item"><div class="emo-dot"></div><div class="emo-text">Жінка яка їсть якісні жири — має <strong>рівний настрій, здорову шкіру і стабільний цикл</strong>. Це біохімія 💛</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка тижня</span>
+  <h2 class="tt rv">Щодня додаю<br><em>корисний жир</em></h2>
+  <div class="hc rv">
+    <span class="hp">🌱 День 4 · Звичка</span>
+    <span class="hib">✨</span>
+    <p class="hq">«Щодня додаю<br><em>корисний жир</em><br>до кожного прийому їжі»</p>
+    <div class="hdv2"></div>
+    <p class="hds">Кожного разу запитай: «чи є тут жир?» І якщо ні — додай ложку олії, жменю горіхів або шматочок авокадо.<br><br>Так формується звичка — легко і без стресу 💛</p>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 1 — ТЕСТ -->
+<section><div class="w">
+  <span class="ey rose rv">Завдання 1</span>
+  <h2 class="tt rv">Тест: чи вистачає<br><em class="rose">мені жирів?</em></h2>
+  <p class="sb rv">Відзнач симптоми які є у тебе прямо зараз</p>
+
+  <div class="test-card rv">
+    <div class="test-head">
+      <div class="test-head-title">Натискай на кожен симптом який впізнаєш</div>
+      <div class="test-head-sub">Чесно — тільки для тебе 🌿</div>
+    </div>
+    <div class="test-items" id="testItems">
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Постійна втома навіть після нормального сну</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Перепади настрою або дратівливість без причини</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Нерегулярний цикл або його зміни</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Туман у голові — важко зосередитися</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Проблеми зі сном</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Суха шкіра або ламкі нігті</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Сильна тяга до солодкого щодня</div></div>
+      <div class="test-item" onclick="toggleTest(this)"><div class="test-check">✓</div><div class="test-label">Відчуття що постійно мерзнеш</div></div>
+    </div>
+    <div class="test-foot">
+      <div class="tf-row">
+        <div><span class="tf-num" id="tfNum">0</span><span class="tf-of"> з 8</span></div>
+        <div class="tf-status" id="tfStatus"></div>
+      </div>
+      <div class="tf-bar"><div class="tf-bar-fill" id="tfBar"></div></div>
+      <div class="tf-verdict" id="tfVerdict"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ДІЯ ДНЯ -->
+<section><div class="w">
+  <span class="ey rose rv">Завдання 2 · Дія</span>
+  <h2 class="tt rv">Де додати жири<br><em class="rose">вже сьогодні?</em></h2>
+  <p class="sb rv">Відкрий прийом їжі і вибери що додаси — це і є твоя дія дня</p>
+
+  <div class="action-card rv">
+    <div class="action-head">
+      <div class="action-head-title">👇 Обери прийом їжі і додай жир</div>
+      <div class="action-head-sub">Натискай на прийом, потім вибирай продукт — просто і без стресу</div>
+    </div>
+    <div class="action-meals">
+
+      <div class="action-meal" id="am0">
+        <div class="action-meal-head" onclick="toggleMeal(0)">
+          <span class="action-meal-icon">🌅</span>
+          <span class="action-meal-name">Сніданок</span>
+          <span class="action-meal-arrow">›</span>
+        </div>
+        <div class="action-meal-body">
+          <div class="action-meal-inner">
+            <div class="action-prod-title">Що можна додати</div>
+            <div class="action-prods">
+              <div class="action-prod" onclick="pickProd(this,0)"><span class="action-prod-em">🥑</span><span class="action-prod-name">Авокадо</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,0)"><span class="action-prod-em">🧈</span><span class="action-prod-name">Вершкове масло</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,0)"><span class="action-prod-em">🌰</span><span class="action-prod-name">Горіхи</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,0)"><span class="action-prod-em">🌾</span><span class="action-prod-name">Насіння чіа</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,0)"><span class="action-prod-em">🥚</span><span class="action-prod-name">Яйця</span><div class="action-check">✓</div></div>
+            </div>
+            <div class="action-summary" id="as0"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-meal" id="am1">
+        <div class="action-meal-head" onclick="toggleMeal(1)">
+          <span class="action-meal-icon">🍎</span>
+          <span class="action-meal-name">Перекус</span>
+          <span class="action-meal-arrow">›</span>
+        </div>
+        <div class="action-meal-body">
+          <div class="action-meal-inner">
+            <div class="action-prod-title">Що можна додати</div>
+            <div class="action-prods">
+              <div class="action-prod" onclick="pickProd(this,1)"><span class="action-prod-em">🌰</span><span class="action-prod-name">Жменя горіхів</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,1)"><span class="action-prod-em">🌾</span><span class="action-prod-name">Насіння гарбуза</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,1)"><span class="action-prod-em">🧀</span><span class="action-prod-name">Сир твердий</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,1)"><span class="action-prod-em">🥜</span><span class="action-prod-name">Горіхова паста</span><div class="action-check">✓</div></div>
+            </div>
+            <div class="action-summary" id="as1"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-meal" id="am2">
+        <div class="action-meal-head" onclick="toggleMeal(2)">
+          <span class="action-meal-icon">🍽️</span>
+          <span class="action-meal-name">Обід</span>
+          <span class="action-meal-arrow">›</span>
+        </div>
+        <div class="action-meal-body">
+          <div class="action-meal-inner">
+            <div class="action-prod-title">Що можна додати</div>
+            <div class="action-prods">
+              <div class="action-prod" onclick="pickProd(this,2)"><span class="action-prod-em">🫒</span><span class="action-prod-name">Олія у салат</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,2)"><span class="action-prod-em">🐟</span><span class="action-prod-name">Жирна риба</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,2)"><span class="action-prod-em">🥑</span><span class="action-prod-name">Авокадо у салат</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,2)"><span class="action-prod-em">🥩</span><span class="action-prod-name">М'ясо із жиром</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,2)"><span class="action-prod-em">🌾</span><span class="action-prod-name">Насіння у страву</span><div class="action-check">✓</div></div>
+            </div>
+            <div class="action-summary" id="as2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-meal" id="am3">
+        <div class="action-meal-head" onclick="toggleMeal(3)">
+          <span class="action-meal-icon">🌙</span>
+          <span class="action-meal-name">Вечеря</span>
+          <span class="action-meal-arrow">›</span>
+        </div>
+        <div class="action-meal-body">
+          <div class="action-meal-inner">
+            <div class="action-prod-title">Що можна додати</div>
+            <div class="action-prods">
+              <div class="action-prod" onclick="pickProd(this,3)"><span class="action-prod-em">🧈</span><span class="action-prod-name">Вершкове масло</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,3)"><span class="action-prod-em">🫒</span><span class="action-prod-name">Олія оливкова</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,3)"><span class="action-prod-em">🥚</span><span class="action-prod-name">Яйця</span><div class="action-check">✓</div></div>
+              <div class="action-prod" onclick="pickProd(this,3)"><span class="action-prod-em">🐟</span><span class="action-prod-name">Риба запечена</span><div class="action-check">✓</div></div>
+            </div>
+            <div class="action-summary" id="as3"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="action-total" id="actionTotal">
+      <div class="action-total-text" id="actionTotalText"></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ТРЕКЕРИ — щоденний блок -->
+<section style="background:linear-gradient(160deg,#EAF0F5,#DDE8F0) !important"><div class="w">
+  <span class="ey rv" style="color:#3A78A8">Щоденний блок</span>
+  <h2 class="tt rv">Вода і білок —<br><em style="color:#3A78A8">заповнюй кожен день</em></h2>
+  <p class="sb rv" style="margin-bottom:18px">Ці два трекери — твій щоденний ритуал протягом усього курсу</p>
+  <div class="trc rv" style="margin-bottom:13px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💧</span><div class="trt">Вода сьогодні</div></div>
+    <div class="ttp">Продовжуємо пити воду 💧 Ти вже знаєш свою норму — 30 мл на 1 кг ваги 🌿</div>
+    <div class="wsr"><div style="display:flex;align-items:baseline;gap:3px"><span class="wml" id="wml">0</span><span class="wu">мл</span></div><div><div class="wcl">Склянок</div><div class="wcv" id="wcv">0 / 10</div></div></div>
+    <div class="pt"><div class="pf" id="wpf"></div></div>
+    <div class="cups" id="cups"></div>
+    <div class="wmsg" id="wmsg"></div>
+  </div>
+  <div class="trc rv">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💪</span><div class="trt">Білок на тарілці</div></div>
+    <div class="ttp">Цим ти будуєш себе 🏗️ Додавай білок + жир разом — так краще засвоюється 💛</div>
+    <div class="meals" id="meals">
+      <div class="meal" onclick="tm(this)"><span class="me">🌅</span><span class="mn">Сніданок</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍎</span><span class="mn">Перекус</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍽️</span><span class="mn">Обід</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🌙</span><span class="mn">Вечеря</span><div class="mtk">✓</div></div>
+    </div>
+    <div class="pres" id="pres"><p><strong id="pc">0</strong> з 4 прийомів із білком — <span id="pm"></span></p></div>
+  </div>
+</div></section>
+
+<!-- РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Рефлексія</span>
+  <h2 class="tt rv">Твої<br><em>відчуття дня</em></h2>
+  <div class="rc rv">
+    <div class="rct">📝 Запитання для рефлексії</div>
+    <p class="rcs">Запиши чесно — це лише для тебе 🌿</p>
+    <div class="rqs">
+      <div><label class="rql">💙 Який симптом з тесту здивував тебе найбільше?</label><textarea class="rqt" rows="2" placeholder="Наприклад: не знала що тяга до солодкого пов'язана з жирами…"></textarea></div>
+      <div><label class="rql">🥑 Яке джерело жирів додаси вже завтра?</label><textarea class="rqt" rows="2" placeholder="Наприклад: авокадо на сніданок або горіхи як перекус…"></textarea></div>
+      <div><label class="rql">💫 Як ти себе почуваєш після цього дня? Що змінилось у твоєму сприйнятті жирів?</label><textarea class="rqt" rows="3" placeholder="Наприклад: більше не боюся жирів, розумію що треба додавати…"></textarea></div>
+    </div>
+  </div>
+  <div class="pvr rv"><span style="font-size:13px;flex-shrink:0">🔒</span><p class="pvt"><strong>Це твій особистий простір.</strong> Нотатки залишаються лише на твоєму пристрої 💛</p></div>
+</div></section>
+
+<!-- ДЕСЕРТ — тепер після рефлексії -->
+<section><div class="w">
+  <span class="ey rose rv">Подарунок від мене 🎁</span>
+  <h2 class="tt rv">Смачний десерт<br><em class="rose">з авокадо</em></h2>
+  <p class="sb rv">Здорова та красива жінка любить якісні жири — і смачні десерти теж 💚</p>
+
+  <div class="dessert-acc rv" id="dessertAcc">
+    <div class="dessert-acc-head" onclick="toggleDessert()">
+      <span class="dah-icon">🥑</span>
+      <div class="dah-info">
+        <div class="dah-title">Шоколадний мус з авокадо</div>
+        <div class="dah-sub">212 ккал · 5 хвилин · 1 порція — натискай щоб розкрити</div>
+      </div>
+      <span class="dah-arrow" id="dessertArrow">›</span>
+    </div>
+    <div class="dessert-acc-body" id="dessertBody">
+      <div class="dessert-acc-inner">
+        <div class="dessert-ingr-title">Інгредієнти</div>
+        <div class="dessert-ingr-row"><span class="dessert-ingr-name">🥑 Авокадо</span><span class="dessert-ingr-amount">50 г</span></div>
+        <div class="dessert-ingr-row"><span class="dessert-ingr-name">🥛 Йогурт 2,5% або горіхове молоко</span><span class="dessert-ingr-amount">50 г</span></div>
+        <div class="dessert-ingr-row"><span class="dessert-ingr-name">🌰 Волоські горіхи</span><span class="dessert-ingr-amount">10 г</span></div>
+        <div class="dessert-ingr-row"><span class="dessert-ingr-name">🍯 Мед</span><span class="dessert-ingr-amount">5 г (½ ч.л.)</span></div>
+        <div class="dessert-ingr-row"><span class="dessert-ingr-name">🍫 Какао-порошок без цукру</span><span class="dessert-ingr-amount">5 г (1 ч.л.)</span></div>
+
+        <div class="dessert-steps">
+          <div class="dessert-ingr-title">Приготування</div>
+          <div class="dessert-step"><div class="dessert-step-num">1</div><div class="dessert-step-text">У блендері змішати авокадо, йогурт (або горіхове молоко), мед і какао до однорідної кремової консистенції</div></div>
+          <div class="dessert-step"><div class="dessert-step-num">2</div><div class="dessert-step-text">Мус прикрасити подрібненими волоськими горіхами. Подавати одразу або охолодити 15 хвилин</div></div>
+        </div>
+
+        <div style="margin-top:12px;background:rgba(200,148,58,.06);border:1px solid var(--bd);border-radius:10px;padding:12px 14px">
+          <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gd);margin-bottom:8px">Горіхове молоко (опційно)</div>
+          <div style="font-size:12px;color:var(--mu);line-height:1.7">Промити горіхи, додати 200 мл чистої води, збити блендером, процідити через сито. Зберігати в холодильнику 2–3 дні.</div>
+        </div>
+
+        <div class="dessert-nut">
+          <div class="dessert-nut-title">Харчова цінність · 1 порція</div>
+          <div class="dessert-nut-row"><span>🔥 Калорії</span><span class="dessert-nut-val">212 ккал</span></div>
+          <div class="dessert-nut-row"><span>💪 Білки</span><span class="dessert-nut-val">5.4 г</span></div>
+          <div class="dessert-nut-row"><span>🥑 Жири</span><span class="dessert-nut-val">14.8 г</span></div>
+          <div class="dessert-nut-row"><span>🌾 Вуглеводи</span><span class="dessert-nut-val">17.5 г</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ПІДТРИМКА + КНОПКА ЗАВЕРШИТИ -->
+<section><div class="w">
+  <div class="emo-block rv" style="margin-bottom:0">
+    <span class="emo-label">Подумай про це · Істина про жири</span>
+    <div class="emo-title" style="font-size:clamp(19px,5vw,26px);margin-bottom:18px">Твоє тіло не ламається.<br><em>Воно просто просить ресурс.</em></div>
+    <div class="emo-items">
+      <div class="emo-item"><div class="emo-dot"></div><div class="emo-text">Жири — це не калорії які треба боятись. Це <strong>будівельний матеріал</strong> для твоїх гормонів, шкіри і мозку.</div></div>
+      <div class="emo-item"><div class="emo-dot"></div><div class="emo-text">Жінка яка дає собі достатньо жирів — <em>виглядає молодше, спить краще і думає ясніше</em>. Це не дієта. Це турбота про себе.</div></div>
+      <div class="emo-item"><div class="emo-dot"></div><div class="emo-text" style="color:rgba(255,255,255,.55);font-size:12px">— Любов Бухарова, нутриціолог</div></div>
+    </div>
+  </div>
+  <button class="finish-btn rv" id="finishBtn" onclick="finishDay()">✅ Завершити День 4</button>
+</div></section>
+
+<!-- ФІНАЛ — прихований до натискання кнопки -->
+<section id="s-final" style="display:none">
+  <span class="fni">✨</span>
+  <h2 class="fnt">День 4 —<br><em>виконано!</em></h2>
+  <div class="fnl"></div>
+  <p class="fns">Ти тепер знаєш звідки беруться гормони.<br>І знаєш що з цим робити 💙</p>
+  <div class="dots">
+    <div class="dot dn"></div><div class="dot dn"></div>
+    <div class="dot dn"></div><div class="dot da"></div>
+    <div class="dot"></div>
+  </div>
+  <div class="tc">
+    <span class="tcl">Завтра · День 5</span>
+    <div class="tci">🏆</div>
+    <div class="tct">Підсумок тижня<br><em>і твій план жирів</em></div>
+    <p class="tcd">Побачиш наскільки далеко зайшла за цей тиждень — і отримаєш свій особистий план жирів на кожен день 💚</p>
+  </div>
+</section>
+
+<script>
+// Прогрес
+window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%'});
+// Reveal
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// ── Тест ──
+const verdicts=[
+  {cls:'v0',txt:'✅ 0–2 — жирів, мабуть, вистачає. Але завжди є куди покращити баланс!'},
+  {cls:'v1',txt:'🟡 3–5 — варто додати більше корисних жирів. Тіло вже подає сигнали.'},
+  {cls:'v2',txt:'⚠️ 6–8 — тіло сигналізує. Жири — твій пріоритет цього тижня 💙'}
+];
+function toggleTest(item){
+  item.classList.toggle('on');
+  const n=document.querySelectorAll('#testItems .test-item.on').length;
+  document.getElementById('tfNum').textContent=n;
+  document.getElementById('tfBar').style.width=(n/8*100)+'%';
+  const idx=n<=2?0:n<=5?1:2;
+  const v=document.getElementById('tfVerdict');
+  v.textContent=verdicts[idx].txt;
+  v.className='tf-verdict '+verdicts[idx].cls;
+  v.style.display='block';
+  const statuses=['Жирів вистачає','Варто додати більше','Жири — пріоритет!'];
+  document.getElementById('tfStatus').textContent=statuses[idx];
+}
+
+
+
+// ── Дія дня ──
+const picked = [new Set(), new Set(), new Set(), new Set()];
+function toggleMeal(idx){
+  const el=document.getElementById('am'+idx);
+  const wasOpen=el.classList.contains('open');
+  document.querySelectorAll('.action-meal').forEach(m=>m.classList.remove('open'));
+  if(!wasOpen) el.classList.add('open');
+}
+function pickProd(el, mealIdx){
+  el.classList.toggle('picked');
+  const name=el.querySelector('.action-prod-name').textContent;
+  if(el.classList.contains('picked')) picked[mealIdx].add(name);
+  else picked[mealIdx].delete(name);
+  updateActionSummary(mealIdx);
+  updateActionTotal();
+}
+function updateActionSummary(idx){
+  const s=document.getElementById('as'+idx);
+  const arr=[...picked[idx]];
+  if(arr.length===0){s.textContent='';return;}
+  s.textContent='✅ Додаси: '+arr.join(', ')+' — чудово!';
+}
+function updateActionTotal(){
+  const total=[...picked[0],...picked[1],...picked[2],...picked[3]];
+  const t=document.getElementById('actionTotal');
+  const tx=document.getElementById('actionTotalText');
+  if(total.length===0){t.classList.remove('show');return;}
+  t.classList.add('show');
+  const meals=['сніданок','перекус','обід','вечерю'];
+  const parts=picked.map((s,i)=>s.size>0?`${meals[i]}: ${[...s].join(', ')}`:'').filter(Boolean);
+  tx.innerHTML='<strong>Твій план жирів на сьогодні 🏆</strong><br>'+parts.join('<br>')+'<br><span style="font-size:11px;color:#5A8050;margin-top:4px;display:block">Збережи цей список у пам\'яті — і виконай 💚</span>';
+}
+
+// ── Десерт ──
+function toggleDessert(){
+  const acc=document.getElementById('dessertAcc');
+  acc.classList.toggle('open');
+  document.getElementById('dessertArrow').style.transform=acc.classList.contains('open')?'rotate(90deg)':'';
+}
+
+// ── Завершити день ──
+function finishDay(){
+  document.getElementById('finishBtn').style.display='none';
+  const fin=document.getElementById('s-final');
+  fin.style.display='flex';
+  fin.style.opacity='0';
+  fin.style.transform='translateY(20px)';
+  fin.style.transition='opacity .6s, transform .6s';
+  setTimeout(()=>{fin.style.opacity='1';fin.style.transform='none';},30);
+  setTimeout(()=>fin.scrollIntoView({behavior:'smooth',block:'start'}),80);
+}
+
+// ── Вода ──
+let wg=0;const cupsEl=document.getElementById('cups');
+const wm=['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
+for(let i=0;i<10;i++){const b=document.createElement('button');b.type='button';b.className='cup';b.textContent='🥛';b.addEventListener('click',()=>{wg=b.classList.contains('fi')?i:i+1;document.querySelectorAll('.cup').forEach((c,j)=>c.classList.toggle('fi',j<wg));document.getElementById('wml').textContent=wg*200;document.getElementById('wcv').textContent=wg+' / 10';document.getElementById('wpf').style.width=(wg/10*100)+'%';document.getElementById('wmsg').textContent=wm[wg]||''});cupsEl.appendChild(b)}
+
+// ── Білок ──
+const pm2=['','Перший прийом — будуємо! 🌱','Два — краще 💛','Три — відмінно! 💪','Ідеально! 🏆'];
+function tm(e){e.classList.toggle('ch');const d=document.querySelectorAll('#meals .meal.ch').length;document.getElementById('pc').textContent=d;document.getElementById('pm').textContent=pm2[Math.min(d,pm2.length-1)];document.getElementById('pres').classList.toggle('sh',d>0)}
+</script>
+</body>
+</html>
