@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Жири · День 3 · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+  --cr:#FAF6EF;--g:#C8943A;--g2:#E0B060;--gd:#8A6020;
+  --ink:#2C1E08;--ink2:#4A3518;--mu:#8A7258;--mu2:#B8A080;--sage:#7A9A6A;
+  --bl:#3A78A8;--blp:#EAF3FA;--blb:rgba(58,120,168,.22);
+  --or:#C87838;--orp:#FDF0E4;--orb:rgba(200,120,56,.22);
+  --bd:rgba(200,148,58,.18);--bd2:rgba(200,148,58,.32)
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;color:var(--ink);background:var(--cr);overflow-x:hidden;font-weight:300}
+.pb{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--bl),var(--g),var(--or));z-index:200;transition:width .12s}
+section{padding:56px 22px}
+section:nth-child(odd){background:var(--cr)}
+section:nth-child(even){background:linear-gradient(160deg,#F7EFE0,#F0E4CC)}
+.w{max-width:480px;margin:0 auto}
+.ey{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:10px;text-align:center;display:block}
+.ey.bl{color:var(--bl)}
+.tt{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,38px);font-weight:700;line-height:1.2;text-align:center;margin-bottom:8px;color:var(--ink)}
+.tt em{font-style:italic;color:var(--g)}
+.tt em.bl{color:var(--bl)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}
+.rv.on{opacity:1;transform:none}
+
+/* HERO */
+#s-hero{min-height:100svh;
+  background:radial-gradient(ellipse 100% 60% at 80% 110%,rgba(58,120,168,.16),transparent 55%),
+  radial-gradient(ellipse 80% 50% at 10% 0%,rgba(200,148,58,.12),transparent 50%),
+  linear-gradient(168deg,#F8F5EE,#EEE8D8 55%,#E6D8C0);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:64px 24px 90px;position:relative;overflow:hidden}
+.ring{position:absolute;border-radius:50%;border:1px solid rgba(58,120,168,.1);animation:rb 7s ease-in-out infinite}
+.ring:nth-child(1){width:200px;height:200px}
+.ring:nth-child(2){width:420px;height:420px;animation-delay:2s}
+.ring:nth-child(3){width:680px;height:680px;animation-delay:4s}
+@keyframes rb{0%,100%{transform:scale(.85);opacity:.5}50%{transform:scale(1.1);opacity:.15}}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.7);border:1px solid var(--bd2);border-radius:40px;padding:7px 17px 7px 7px;margin-bottom:34px;position:relative;z-index:1;backdrop-filter:blur(8px)}
+.av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--g),var(--gd));display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+.an{font-size:12px;font-weight:500;color:var(--ink2);line-height:1.2}
+.ar{font-size:9px;letter-spacing:2px;color:var(--mu);text-transform:uppercase}
+.wb{display:inline-block;background:rgba(58,120,168,.08);border:1px solid var(--blb);border-radius:20px;padding:5px 17px;font-size:9px;letter-spacing:3px;color:var(--bl);text-transform:uppercase;margin-bottom:26px;position:relative;z-index:1}
+.hi{font-size:66px;display:block;margin-bottom:14px;animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,70px);font-weight:700;line-height:1.05;color:var(--ink);position:relative;z-index:1;letter-spacing:-1px}
+.ht em{font-style:italic;color:var(--bl);display:block;font-size:clamp(28px,7.5vw,50px);line-height:1.2}
+.hd{width:34px;height:1px;background:linear-gradient(90deg,transparent,var(--g),transparent);margin:15px auto;position:relative;z-index:1}
+.hs{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--mu);line-height:1.7;max-width:280px;position:relative;z-index:1}
+.sc{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--mu2);font-size:9px;letter-spacing:3px;text-transform:uppercase;animation:bob 2s ease-in-out infinite;z-index:1}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
+
+/* БАЛАНС КАРТКИ */
+.bv{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:16px;padding:18px 16px;margin-bottom:12px;backdrop-filter:blur(4px)}
+.bvr{display:flex;gap:8px;margin-bottom:12px}
+.bs{flex:1;border-radius:11px;padding:13px 11px;text-align:center}
+.bs.b3{background:var(--blp);border:1.5px solid var(--blb)}
+.bs.b6{background:var(--orp);border:1.5px solid var(--orb)}
+.bsi{font-size:1.7rem;display:block;margin-bottom:5px}
+.bsn{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;margin-bottom:3px}
+.bs.b3 .bsn{color:var(--bl)}.bs.b6 .bsn{color:var(--or)}
+.bsd{font-size:11px;color:var(--mu);line-height:1.5}
+.bvs{display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--mu2);flex-shrink:0}
+.brat{background:rgba(200,148,58,.07);border:1px solid var(--bd);border-radius:9px;padding:11px 13px;text-align:center}
+.brl{font-size:10px;color:var(--mu);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:7px}
+.brr{display:flex;gap:7px;justify-content:center;align-items:center}
+.bri{border-radius:8px;padding:6px 11px;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600}
+.bri.g{background:rgba(122,154,106,.12);color:#4A7040;border:1px solid rgba(122,154,106,.3)}
+.bri.o{background:rgba(200,120,56,.1);color:var(--or);border:1px solid var(--orb)}
+.brn{font-size:11px;color:var(--mu);margin-top:7px;line-height:1.5}
+
+/* ПРОДУКТИ СІТКА */
+.og{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.oc{border-radius:11px;padding:11px 10px}
+.oc.b3c{background:var(--blp);border:1.5px solid var(--blb)}
+.oc.b6g{background:var(--orp);border:1.5px solid var(--orb)}
+.oc.b6b{background:rgba(192,68,58,.05);border:1.5px solid rgba(192,68,58,.18)}
+.oci{font-size:1.3rem;display:block;margin-bottom:5px}
+.ocn{font-size:12px;font-weight:500;margin-bottom:2px;line-height:1.3}
+.oc.b3c .ocn{color:var(--bl)}.oc.b6g .ocn{color:var(--or)}.oc.b6b .ocn{color:#C0443A}
+.ocd{font-size:11px;color:var(--mu);line-height:1.5}
+.sdiv{display:flex;align-items:center;gap:8px;margin:14px 0 10px}
+.sdiv-l{flex:1;height:1px;background:var(--bd)}
+.sdiv-t{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu2);white-space:nowrap}
+.warnbox{background:rgba(192,68,58,.06);border:1px solid rgba(192,68,58,.2);border-radius:10px;padding:11px 13px;font-size:12px;color:#8A3030;line-height:1.65;margin-top:10px}
+
+/* ЗВИЧКА */
+.hc{background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;backdrop-filter:blur(8px)}
+.hc::before{content:'🐟';position:absolute;right:-10px;bottom:-15px;font-size:90px;opacity:.06;pointer-events:none;transform:rotate(-12deg)}
+.hp{display:inline-block;background:rgba(200,148,58,.1);border:1px solid var(--bd2);border-radius:20px;padding:4px 14px;font-size:9px;letter-spacing:2.5px;color:var(--gd);text-transform:uppercase;margin-bottom:15px}
+.hib{font-size:42px;display:block;margin-bottom:13px;animation:fl 5s ease-in-out infinite}
+.hq{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(17px,4.5vw,22px);line-height:1.5;color:var(--ink);margin-bottom:13px}
+.hq em{color:var(--g)}
+.hdv{width:24px;height:1px;background:rgba(200,148,58,.3);margin:0 auto 13px}
+.hds{font-size:13px;color:var(--mu);line-height:1.75}
+
+/* ЛІЧИЛЬНИК БАЛАНСУ */
+.bcc{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:15px;overflow:hidden;margin-bottom:10px;backdrop-filter:blur(4px)}
+.bch{display:flex;align-items:center;gap:8px;padding:11px 13px;border-bottom:1px solid var(--bd)}
+.bch.h3{background:var(--blp)}.bch.h6{background:var(--orp)}
+.bct{font-size:12px;font-weight:500;color:var(--ink);flex:1}
+.bcb{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:700;padding:3px 10px;border-radius:20px;flex-shrink:0}
+.bcb.bb{background:rgba(58,120,168,.12);color:var(--bl);border:1px solid var(--blb)}
+.bcb.ob{background:rgba(200,120,56,.12);color:var(--or);border:1px solid var(--orb)}
+.bcrow{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 13px;border-bottom:1px solid rgba(200,148,58,.07)}
+.bcrow:last-child{border-bottom:none}
+.bcrl{display:flex;align-items:center;gap:8px;flex:1}
+.bcei{font-size:1.1rem;flex-shrink:0}
+.bcnm{font-size:12px;color:var(--ink2)}
+.bcsu{font-size:10px;color:var(--mu);margin-top:1px}
+.ctr{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.cb{width:26px;height:26px;border-radius:50%;border:none;font-size:1rem;cursor:pointer;font-weight:600;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.cb.mi{background:rgba(58,120,168,.1);color:var(--bl)}.cb.pl{background:var(--bl);color:#fff}
+.cb.mio{background:rgba(200,120,56,.1);color:var(--or)}.cb.plo{background:var(--or);color:#fff}
+.cb:hover{transform:scale(1.1)}.cb:active{transform:scale(.95)}
+.cv{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--ink);min-width:20px;text-align:center}
+.bres{background:rgba(255,255,255,.75);border:1.5px solid var(--bd2);border-radius:15px;padding:17px 15px;backdrop-filter:blur(8px);animation:pp .4s cubic-bezier(.34,1.56,.64,1)}
+@keyframes pp{0%{transform:scale(.95);opacity:0}100%{transform:scale(1);opacity:1}}
+.brw{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:11px}
+.brsd{flex:1;text-align:center;padding:9px 6px;border-radius:10px}
+.brsd.b3s{background:var(--blp);border:1px solid var(--blb)}
+.brsd.b6s{background:var(--orp);border:1px solid var(--orb)}
+.brlb{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mu);margin-bottom:3px}
+.brng{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;line-height:1}
+.brsd.b3s .brng{color:var(--bl)}.brsd.b6s .brng{color:var(--or)}
+.brsb{font-size:10px;color:var(--mu)}
+.brvs{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--mu2);flex-shrink:0}
+.brbt{height:6px;border-radius:3px;background:rgba(200,120,56,.15);overflow:hidden;margin-bottom:10px}
+.brbf{height:100%;border-radius:3px;background:var(--bl);transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.brv{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-align:center;line-height:1.6;padding:9px 12px;border-radius:10px}
+.brv.gv{background:rgba(122,154,106,.1);color:#4A7040}
+.brv.ov{background:rgba(200,148,58,.08);color:var(--gd)}
+.brv.bv2{background:rgba(200,120,56,.08);color:var(--or)}
+
+/* ПЛАНЕР ОМЕГА-3 */
+.op-cards{display:flex;flex-direction:column;gap:10px}
+.op-card{background:rgba(255,255,255,.7);border:1.5px solid var(--bd);border-radius:15px;overflow:hidden;backdrop-filter:blur(4px);transition:border-color .2s}
+.op-card.has{border-color:var(--blb)}
+.op-head{display:flex;align-items:center;gap:11px;padding:13px 14px}
+.op-ico{font-size:1.45rem;flex-shrink:0}
+.op-inf{flex:1}
+.op-nm{font-size:13px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.op-hint{font-size:11px;color:var(--mu);line-height:1.4}
+.op-cnt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--mu2);flex-shrink:0}
+.op-card.has .op-cnt{color:var(--bl)}
+.op-days-wrap{padding:0 14px 13px;border-top:1px solid var(--bd)}
+.op-days-lbl{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--mu2);margin:9px 0 7px}
+.op-days-row{display:flex;gap:5px}
+.op-day{flex:1;height:36px;border-radius:9px;border:1.5px solid var(--bd);background:rgba(250,246,239,.8);cursor:pointer;font-size:11px;font-weight:500;color:var(--mu);display:flex;align-items:center;justify-content:center;transition:all .18s;user-select:none}
+.op-day:hover{border-color:var(--bl);color:var(--bl)}
+.op-day.sel{background:var(--bl);border-color:var(--bl);color:#fff}
+
+/* КНОПКА ЗАФІКСУВАТИ */
+.lock-btn{width:100%;margin-top:16px;padding:15px;border-radius:14px;border:none;background:linear-gradient(135deg,var(--bl),#2a5a8a);color:#fff;font-family:'Jost',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s;letter-spacing:.3px}
+.lock-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(58,120,168,.3)}
+.lock-btn:active{transform:scale(.98)}
+
+/* КАРТА ТИЖНЯ */
+.week-card{margin-top:14px;background:linear-gradient(135deg,#1a3a5c,#0d2840);border-radius:20px;overflow:hidden;display:none;animation:pp .5s cubic-bezier(.34,1.2,.64,1)}
+.week-card.show{display:block}
+.wc-head{padding:18px 18px 12px;text-align:center;border-bottom:1px solid rgba(255,255,255,.08)}
+.wc-head-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#fff;margin-bottom:3px}
+.wc-head-sub{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.5px}
+.wc-body{padding:12px 14px 6px}
+.wc-row{display:flex;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.05)}
+.wc-row:last-child{border-bottom:none}
+.wc-day{font-size:11px;font-weight:500;color:rgba(255,255,255,.4);width:26px;flex-shrink:0;letter-spacing:.5px}
+.wc-icons{display:flex;gap:6px;flex:1;flex-wrap:wrap}
+.wc-item{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.07);border-radius:20px;padding:4px 10px}
+.wc-item-icon{font-size:1rem}
+.wc-item-name{font-size:10px;color:rgba(255,255,255,.6)}
+.wc-empty{font-size:11px;color:rgba(255,255,255,.2);font-style:italic}
+.wc-foot{padding:12px 18px 16px;text-align:center}
+.wc-foot-text{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.3px}
+.wc-foot-score{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#6ecfdd;margin-top:4px}
+
+/* ТРЕКЕРИ */
+.trc{background:rgba(255,255,255,.65);border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;backdrop-filter:blur(8px)}
+.trt{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
+.ttp{font-size:11px;color:var(--gd);background:rgba(200,148,58,.08);border:1px solid var(--bd);border-radius:9px;padding:9px 12px;margin:7px 0 13px;line-height:1.65}
+.wsr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:7px}
+.wml{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:var(--g);line-height:1}
+.wu{font-size:12px;color:var(--mu2);margin-left:3px}
+.wcl{font-size:9px;color:var(--mu2);text-transform:uppercase;letter-spacing:1.5px}
+.wcv{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--mu2);text-align:right}
+.pt{height:4px;border-radius:2px;background:rgba(200,148,58,.12);overflow:hidden;margin-bottom:13px}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--g),var(--g2));width:0%;transition:width .5s cubic-bezier(.34,1.2,.64,1)}
+.cups{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:7px}
+.cup{width:40px;height:40px;border-radius:10px;border:1.5px solid rgba(200,148,58,.25);background:rgba(250,246,239,.8);cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all .2s cubic-bezier(.34,1.4,.64,1)}
+.cup:hover{border-color:var(--g);transform:translateY(-2px)}
+.cup.fi{background:rgba(200,148,58,.18);border-color:var(--g)}
+.wmsg{font-size:11px;color:var(--mu);font-style:italic;text-align:center;min-height:16px}
+.meals{display:flex;flex-direction:column;gap:7px;margin-bottom:9px}
+.meal{display:flex;align-items:center;gap:10px;background:rgba(250,246,239,.8);border:1.5px solid var(--bd);border-radius:10px;padding:10px 12px;cursor:pointer;transition:all .2s;user-select:none}
+.meal:hover{background:rgba(255,255,255,.9);border-color:var(--bd2)}
+.meal.ch{background:rgba(122,154,106,.1);border-color:rgba(122,154,106,.4)}
+.me{font-size:1.1rem;flex-shrink:0}
+.mn{font-size:13px;color:var(--ink2);flex:1}
+.meal.ch .mn{color:var(--ink)}
+.mtk{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(200,148,58,.3);display:flex;align-items:center;justify-content:center;font-size:9px;color:transparent;flex-shrink:0;transition:all .2s}
+.meal.ch .mtk{background:var(--sage);border-color:var(--sage);color:#fff}
+.pres{padding:10px 12px;background:rgba(122,154,106,.08);border-radius:9px;border:1px solid rgba(122,154,106,.25);display:none;text-align:center}
+.pres.sh{display:block}
+.pres p{font-size:12px;color:#4A7040;line-height:1.6}
+.pres strong{font-family:'Cormorant Garamond',serif;font-size:15px}
+
+/* РЕФЛЕКСІЯ */
+.rc{background:rgba(255,255,255,.65);border:1.5px solid var(--bd);border-radius:17px;padding:19px 17px;margin-bottom:10px;backdrop-filter:blur(8px)}
+.rct{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.rcs{font-size:11px;color:var(--mu);margin-bottom:15px;line-height:1.5}
+.rqs{display:flex;flex-direction:column;gap:12px}
+.rql{font-size:12px;color:var(--ink2);margin-bottom:5px;display:block;line-height:1.4}
+.rqt{width:100%;background:rgba(250,246,239,.8);border:1.5px solid var(--bd);border-radius:9px;padding:10px 12px;font-family:'Jost',sans-serif;font-size:13px;color:var(--ink);outline:none;resize:none;min-height:62px;line-height:1.65;transition:border-color .15s}
+.rqt:focus{border-color:var(--bd2)}
+.rqt::placeholder{color:var(--mu2);font-style:italic}
+.stars{display:flex;gap:7px;margin-top:3px}
+.star{font-size:24px;cursor:pointer;opacity:.25;transition:all .2s;user-select:none}
+.star.li{opacity:1;transform:scale(1.1)}
+.smsg{margin-top:7px;font-size:12px;color:var(--gd);font-style:italic;min-height:18px}
+.pvr{display:flex;gap:9px;align-items:flex-start;background:rgba(255,255,255,.5);border:1px solid var(--bd);border-radius:10px;padding:11px 12px}
+.pvt{font-size:11px;color:var(--mu);line-height:1.6}
+.pvt strong{color:var(--ink2)}
+
+/* ПІДТРИМКА */
+.spc{background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(250,246,239,.9));border:1.5px solid var(--bd2);border-radius:18px;padding:22px 18px}
+.spt{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:9px}
+.spb{font-size:13px;color:var(--mu);line-height:1.75;margin-bottom:7px}
+.spb em{font-style:italic;color:var(--gd)}
+.sps{font-size:11px;color:var(--mu2);font-style:italic;margin-top:5px;margin-bottom:16px}
+.tlinks{display:flex;flex-direction:column;gap:9px}
+.tlink{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.8);border:1.5px solid var(--bd);border-radius:11px;padding:11px 14px;text-decoration:none;color:var(--ink2);font-size:13px;transition:all .2s}
+.tlink:hover{border-color:var(--bd2);background:#fff;transform:translateY(-1px)}
+.tlr{margin-left:auto;color:var(--mu2)}
+
+/* ФІНАЛ */
+#s-final{background:linear-gradient(160deg,#F0E4CC,#E8D4B0 50%,#DEC890) !important;padding:70px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh}
+.fni{font-size:54px;display:block;margin-bottom:15px;animation:fl 5s ease-in-out infinite}
+.fnt{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,7vw,42px);font-weight:700;line-height:1.15;margin-bottom:11px;color:var(--ink)}
+.fnt em{font-style:italic;color:var(--gd)}
+.fnl{width:32px;height:1px;background:var(--g);margin:0 auto 13px}
+.fns{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--ink2);line-height:1.7;max-width:270px;margin:0 auto 26px}
+.dots{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:26px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(44,30,8,.15)}
+.dot.dn{background:rgba(200,148,58,.45)}
+.dot.da{background:var(--g);width:20px;border-radius:3px}
+.tc{background:rgba(255,255,255,.55);border:1.5px solid var(--bd2);border-radius:19px;padding:22px 18px;text-align:center;max-width:330px;width:100%;backdrop-filter:blur(8px)}
+.tcl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:11px;display:block}
+.tci{font-size:38px;margin-bottom:10px;display:block;animation:fl 5s ease-in-out infinite}
+.tct{font-family:'Cormorant Garamond',serif;font-size:clamp(16px,4.5vw,21px);font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.3}
+.tct em{color:var(--g);font-style:italic}
+.tcd{font-size:12px;color:var(--mu);line-height:1.75}
+</style>
+</head>
+<body>
+<div class="pb" id="pb"></div>
+
+<!-- HERO -->
+<section id="s-hero">
+  <div class="ring"></div><div class="ring"></div><div class="ring"></div>
+  <div class="apl rv">
+    <div class="av">ЛБ</div>
+    <div><div class="an">Любов Бухарова</div><div class="ar">Нутриціолог</div></div>
+  </div>
+  <div class="wb rv">Тиждень жирів · День 3</div>
+  <span class="hi rv">⚖️</span>
+  <h1 class="ht rv">Омега-3 і омега-6 —<em>баланс який змінює все</em></h1>
+  <div class="hd rv"></div>
+  <p class="hs rv">Два типи жирів змагаються у твоєму тілі щодня.<br>Хто перемагає — визначає твоє здоров'я 🐟</p>
+  <div class="sc">↓ гортай</div>
+</section>
+
+<!-- БАЛАНС ВІЗУАЛ -->
+<section><div class="w">
+  <span class="ey rv">Що відбувається в тілі</span>
+  <h2 class="tt rv">Дві команди —<br><em>одна перемагає</em></h2>
+  <p class="sb rv">Ідеальне співвідношення 1:4. У більшості людей — 1:20 або 1:30</p>
+  <div class="bv rv">
+    <div class="bvr">
+      <div class="bs b3"><span class="bsi">🐟</span><div class="bsn">Омега-3</div><div class="bsd">Заспокоює · захищає серце · покращує пам'ять · знижує тривожність</div></div>
+      <div class="bvs">VS</div>
+      <div class="bs b6"><span class="bsi">🌻</span><div class="bsn">Омега-6</div><div class="bsd">У нормі — потрібна. У надлишку — запалення, акне, біль, втома</div></div>
+    </div>
+    <div class="brat">
+      <div class="brl">Співвідношення омега-3 до омега-6</div>
+      <div class="brr"><div class="bri g">✅ Ідеал: 1:4</div><span style="color:var(--mu2)">→</span><div class="bri o">⚠️ Реальність: 1:20–30</div></div>
+      <div class="brn">Омега-6 у 20–30 разів більше — звідси хронічне запалення про яке ти навіть не знаєш</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ПРОДУКТИ -->
+<section><div class="w">
+  <span class="ey bl rv">Продукти</span>
+  <h2 class="tt rv">Де що<br><em class="bl">знаходиться</em></h2>
+  <p class="sb rv" style="margin-bottom:10px">🐟 Омега-3 — додаємо більше</p>
+  <div class="og rv">
+    <div class="oc b3c"><span class="oci">🐟</span><div class="ocn">Лосось, скумбрія, сардини</div><div class="ocd">Найпотужніше EPA і DHA</div></div>
+    <div class="oc b3c"><span class="oci">🌾</span><div class="ocn">Насіння льону і чіа</div><div class="ocd">Рослинна омега-3</div></div>
+    <div class="oc b3c"><span class="oci">🌰</span><div class="ocn">Волоські горіхи</div><div class="ocd">Найбагатший горіх на омега-3</div></div>
+    <div class="oc b3c"><span class="oci">🌿</span><div class="ocn">Льняна олія</div><div class="ocd">Тільки в салат — не нагрівати!</div></div>
+  </div>
+  <div class="sdiv rv"><div class="sdiv-l"></div><div class="sdiv-t">Омега-6</div><div class="sdiv-l"></div></div>
+  <p style="font-size:12px;color:var(--mu);text-align:center;margin-bottom:10px">🌻 Корисна омега-6 — природні продукти, в помірній кількості</p>
+  <div class="og rv">
+    <div class="oc b6g"><span class="oci">🥑</span><div class="ocn">Авокадо</div><div class="ocd">Збалансований профіль</div></div>
+    <div class="oc b6g"><span class="oci">🌰</span><div class="ocn">Мигдаль, кеш'ю</div><div class="ocd">Природний баланс жирів</div></div>
+    <div class="oc b6g"><span class="oci">🌻</span><div class="ocn">Насіння соняшника</div><div class="ocd">У помірній кількості</div></div>
+    <div class="oc b6g"><span class="oci">🥚</span><div class="ocn">яйця</div><div class="ocd">Корисні та смачні</div></div>
+  </div>
+  <p style="font-size:12px;color:#8A3030;text-align:center;margin-bottom:10px">❌ Ці продукти порушують баланс</p>
+  <div class="og rv">
+    <div class="oc b6b"><span class="oci">🫙</span><div class="ocn">Соняшникова для смаження</div><div class="ocd">Головна причина дисбалансу</div></div>
+    <div class="oc b6b"><span class="oci">🍟</span><div class="ocn">Фастфуд і фритюр</div><div class="ocd">Пошкоджена омега-6</div></div>
+    <div class="oc b6b"><span class="oci">🍪</span><div class="ocn">Готова випічка</div><div class="ocd">Рослинні олії у складі</div></div>
+    <div class="oc b6b"><span class="oci">🥫</span><div class="ocn">Майонези і соуси</div><div class="ocd">Соняшникова або соєва</div></div>
+  </div>
+  <div class="warnbox rv">⚠️ <strong>Фастфуд, випічка і соуси</strong> — головна причина дисбалансу. Не горіхи чи авокадо, а промислова їжа на дешевій олії.</div>
+</div></section>
+
+<!-- ЗВИЧКА -->
+<section><div class="w">
+  <span class="ey rv">Звичка тижня</span>
+  <h2 class="tt rv">Щодня додаю<br><em>якісні жири</em></h2>
+  <div class="hc rv">
+    <span class="hp">🌱 День 3 · Звичка</span>
+    <span class="hib">🐟</span>
+    <p class="hq">«Щодня — хоча б<br><em>одне джерело омега-3</em><br>на тарілці»</p>
+    <div class="hdv"></div>
+    <p class="hds">Не обов'язково риба щодня. Волоські горіхи, ложка льняної олії в салат, насіння льону в йогурт — цього вже достатньо.<br><br>Одне джерело щодня — і баланс починає відновлюватись 💛</p>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 1 — БАЛАНС -->
+<section><div class="w">
+  <span class="ey bl rv">Завдання 1</span>
+  <h2 class="tt rv">Мій баланс<br><em class="bl">за тиждень</em></h2>
+  <p class="sb rv">За останні 7 днів — скільки разів ти їла ці продукти?</p>
+  <div class="bcc rv">
+    <div class="bch h3"><span style="font-size:1rem">🐟</span><div class="bct">Омега-3 — додаємо більше</div><div class="bcb bb" id="o3t">0 разів</div></div>
+    <div id="o3r">
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🐟</span><div><div class="bcnm">Жирна риба, морепродукти</div><div class="bcsu">Лосось, скумбрія, оселедець</div></div></div><div class="ctr"><button class="cb mi" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb pl" onclick="cc(this,1)">+</button></div></div>
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🌾</span><div><div class="bcnm">Льняне насіння або олія</div></div></div><div class="ctr"><button class="cb mi" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb pl" onclick="cc(this,1)">+</button></div></div>
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🌰</span><div><div class="bcnm">Волоські горіхи</div></div></div><div class="ctr"><button class="cb mi" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb pl" onclick="cc(this,1)">+</button></div></div>
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🌱</span><div><div class="bcnm">Насіння чіа</div></div></div><div class="ctr"><button class="cb mi" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb pl" onclick="cc(this,1)">+</button></div></div>
+    </div>
+  </div>
+  <div class="bcc rv">
+    <div class="bch h6"><span style="font-size:1rem">⚠️</span><div class="bct">Омега-6 у надлишку</div><div class="bcb ob" id="o6t">0 разів</div></div>
+    <div id="o6r">
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🌻</span><div><div class="bcnm">Соняшникова олія для смаження</div></div></div><div class="ctr"><button class="cb mio" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb plo" onclick="cc(this,1)">+</button></div></div>
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🍟</span><div><div class="bcnm">Фастфуд або смажене</div></div></div><div class="ctr"><button class="cb mio" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb plo" onclick="cc(this,1)">+</button></div></div>
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🥫</span><div><div class="bcnm">Майонез або готові соуси</div></div></div><div class="ctr"><button class="cb mio" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb plo" onclick="cc(this,1)">+</button></div></div>
+      <div class="bcrow"><div class="bcrl"><span class="bcei">🍿</span><div><div class="bcnm">Чіпси, піца, снеки</div></div></div><div class="ctr"><button class="cb mio" onclick="cc(this,-1)">−</button><span class="cv">0</span><button class="cb plo" onclick="cc(this,1)">+</button></div></div>
+    </div>
+  </div>
+  <div class="bres rv" id="bres" style="display:none">
+    <div class="brw">
+      <div class="brsd b3s"><div class="brlb">Омега-3</div><div class="brng" id="brn3">0</div><div class="brsb">разів</div></div>
+      <div class="brvs">VS</div>
+      <div class="brsd b6s"><div class="brlb">Омега-6 ↑</div><div class="brng" id="brn6">0</div><div class="brsb">разів</div></div>
+    </div>
+    <div class="brbt"><div class="brbf" id="brbf"></div></div>
+    <div class="brv" id="brvd"></div>
+  </div>
+</div></section>
+
+<!-- ЗАВДАННЯ 2 — ПЛАНЕР -->
+<section><div class="w">
+  <span class="ey bl rv">Завдання 2</span>
+  <h2 class="tt rv">Мій план омега-3<br><em class="bl">на тиждень</em></h2>
+  <p class="sb rv">Відмічай дні для кожного продукту — потім натисни «Зафіксувати» 👇</p>
+
+  <div class="op-cards rv">
+
+    <div class="op-card" id="opc-fish">
+      <div class="op-head">
+        <span class="op-ico">🐟</span>
+        <div class="op-inf">
+          <div class="op-nm">Риба та морепродукти</div>
+          <div class="op-hint">2–3 рази · лосось, скумбрія, оселедець, тунець</div>
+        </div>
+        <div class="op-cnt" id="cnt-fish">0×</div>
+      </div>
+      <div class="op-days-wrap">
+        <div class="op-days-lbl">Коли їм цього тижня:</div>
+        <div class="op-days-row">
+          <div class="op-day" onclick="pd('fish',this)" data-d="Пн">Пн</div>
+          <div class="op-day" onclick="pd('fish',this)" data-d="Вт">Вт</div>
+          <div class="op-day" onclick="pd('fish',this)" data-d="Ср">Ср</div>
+          <div class="op-day" onclick="pd('fish',this)" data-d="Чт">Чт</div>
+          <div class="op-day" onclick="pd('fish',this)" data-d="Пт">Пт</div>
+          <div class="op-day" onclick="pd('fish',this)" data-d="Сб">Сб</div>
+          <div class="op-day" onclick="pd('fish',this)" data-d="Нд">Нд</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="op-card" id="opc-nuts">
+      <div class="op-head">
+        <span class="op-ico">🌰</span>
+        <div class="op-inf">
+          <div class="op-nm">Волоські горіхи</div>
+          <div class="op-hint">Жменя щодня або через день · перекус, каша</div>
+        </div>
+        <div class="op-cnt" id="cnt-nuts">0×</div>
+      </div>
+      <div class="op-days-wrap">
+        <div class="op-days-lbl">Коли їм цього тижня:</div>
+        <div class="op-days-row">
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Пн">Пн</div>
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Вт">Вт</div>
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Ср">Ср</div>
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Чт">Чт</div>
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Пт">Пт</div>
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Сб">Сб</div>
+          <div class="op-day" onclick="pd('nuts',this)" data-d="Нд">Нд</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="op-card" id="opc-seeds">
+      <div class="op-head">
+        <span class="op-ico">🌾</span>
+        <div class="op-inf">
+          <div class="op-nm">Насіння льону або чіа</div>
+          <div class="op-hint">1–2 ст.л. в йогурт, кашу або смузі</div>
+        </div>
+        <div class="op-cnt" id="cnt-seeds">0×</div>
+      </div>
+      <div class="op-days-wrap">
+        <div class="op-days-lbl">Коли їм цього тижня:</div>
+        <div class="op-days-row">
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Пн">Пн</div>
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Вт">Вт</div>
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Ср">Ср</div>
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Чт">Чт</div>
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Пт">Пт</div>
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Сб">Сб</div>
+          <div class="op-day" onclick="pd('seeds',this)" data-d="Нд">Нд</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="op-card" id="opc-oil">
+      <div class="op-head">
+        <span class="op-ico">🌿</span>
+        <div class="op-inf">
+          <div class="op-nm">Льняна олія</div>
+          <div class="op-hint">1 ч.л. в салат — тільки холодна!</div>
+        </div>
+        <div class="op-cnt" id="cnt-oil">0×</div>
+      </div>
+      <div class="op-days-wrap">
+        <div class="op-days-lbl">Коли їм цього тижня:</div>
+        <div class="op-days-row">
+          <div class="op-day" onclick="pd('oil',this)" data-d="Пн">Пн</div>
+          <div class="op-day" onclick="pd('oil',this)" data-d="Вт">Вт</div>
+          <div class="op-day" onclick="pd('oil',this)" data-d="Ср">Ср</div>
+          <div class="op-day" onclick="pd('oil',this)" data-d="Чт">Чт</div>
+          <div class="op-day" onclick="pd('oil',this)" data-d="Пт">Пт</div>
+          <div class="op-day" onclick="pd('oil',this)" data-d="Сб">Сб</div>
+          <div class="op-day" onclick="pd('oil',this)" data-d="Нд">Нд</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- КНОПКА -->
+  <button class="lock-btn rv" onclick="lockPlan()">📅 Зафіксувати мій тиждень</button>
+
+  <!-- КАРТКА ТИЖНЯ -->
+  <div class="week-card" id="weekCard">
+    <div class="wc-head">
+      <div class="wc-head-title">🐟 Мій план омега-3 на тиждень</div>
+      <div class="wc-head-sub">Любов Бухарова · Нутриціолог</div>
+    </div>
+    <div class="wc-body" id="wcBody"></div>
+    <div class="wc-foot">
+      <div class="wc-foot-text">📸 Збережи скріншот — і орієнтуйся щодня</div>
+      <div class="wc-foot-score" id="wcScore"></div>
+    </div>
+  </div>
+
+</div></section>
+
+<!-- ТРЕКЕРИ -->
+<section><div class="w">
+  <span class="ey rv">Трекери дня</span>
+  <h2 class="tt rv">Вода і<br><em>білок на тарілці</em></h2>
+  <div class="trc rv" style="margin-bottom:13px">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💧</span><div class="trt">Вода сьогодні</div></div>
+    <div class="ttp">Продовжуємо пити воду 💧 Якщо ще не дійшла до норми — додай 200 мл і пий маленькими ковтками 🌿<br><span style="font-size:10px;opacity:.8">Норма: 30 мл на 1 кг ваги</span></div>
+    <div class="wsr"><div style="display:flex;align-items:baseline;gap:3px"><span class="wml" id="wml">0</span><span class="wu">мл</span></div><div><div class="wcl">Склянок</div><div class="wcv" id="wcv">0 / 10</div></div></div>
+    <div class="pt"><div class="pf" id="wpf"></div></div>
+    <div class="cups" id="cups"></div>
+    <div class="wmsg" id="wmsg"></div>
+  </div>
+  <div class="trc rv">
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><span style="font-size:1.3rem">💪</span><div class="trt">Білок на тарілці</div></div>
+    <div class="ttp">Цим ти будуєш себе 🏗️ Продовжуй їсти білок у кожному прийомі 💛</div>
+    <div class="meals" id="meals">
+      <div class="meal" onclick="tm(this)"><span class="me">🌅</span><span class="mn">Сніданок</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍎</span><span class="mn">Перекус</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🍽️</span><span class="mn">Обід</span><div class="mtk">✓</div></div>
+      <div class="meal" onclick="tm(this)"><span class="me">🌙</span><span class="mn">Вечеря</span><div class="mtk">✓</div></div>
+    </div>
+    <div class="pres" id="pres"><p><strong id="pc">0</strong> з 4 прийомів із білком — <span id="pm"></span></p></div>
+  </div>
+</div></section>
+
+<!-- РЕФЛЕКСІЯ -->
+<section><div class="w">
+  <span class="ey rv">Рефлексія</span>
+  <h2 class="tt rv">Твої<br><em>відчуття дня</em></h2>
+  <div class="rc rv">
+    <div class="rct">📝 Запитання для рефлексії</div>
+    <p class="rcs">Запиши чесно — це лише для тебе 🌿</p>
+    <div class="rqs">
+      <div><label class="rql">🐟 Яке джерело омега-3 тобі найближче і чому?</label><textarea class="rqt" rows="2" placeholder="Наприклад: люблю скумбрію консервовану…"></textarea></div>
+      <div><label class="rql">⚖️ Що здивувало тебе в балансі омега-3 і омега-6?</label><textarea class="rqt" rows="2" placeholder="Наприклад: не знала що соняшникова олія так впливає…"></textarea></div>
+      <div><label class="rql">💭 Як почуваєшся після дня усвідомлення?</label><textarea class="rqt" rows="2" placeholder="Наприклад: є натхнення змінити раціон…"></textarea></div>
+      <div>
+        <label class="rql">⭐ Як пройшов День 3?</label>
+        <div class="stars" id="stars"><span class="star" onclick="rs(1)">⭐</span><span class="star" onclick="rs(2)">⭐</span><span class="star" onclick="rs(3)">⭐</span><span class="star" onclick="rs(4)">⭐</span><span class="star" onclick="rs(5)">⭐</span></div>
+        <div class="smsg" id="smsg"></div>
+      </div>
+    </div>
+  </div>
+  <div class="pvr rv"><span style="font-size:13px;flex-shrink:0">🔒</span><p class="pvt"><strong>Це твій особистий простір.</strong> Нотатки залишаються лише на твоєму пристрої 💛</p></div>
+</div></section>
+
+<!-- ПІДТРИМКА -->
+<section><div class="w">
+  <div class="spc rv">
+    <div class="spt">💚 Слово від мене</div>
+    <p class="spb">Баланс омега-3 і омега-6 — це не про досконалість. Це про маленькі кроки. <em>Одне джерело омега-3 на день — і тіло вже починає відновлювати баланс.</em></p>
+    <p class="spb">Якщо є питання про омегу в капсулах — пиши мені 🤍</p>
+    <p class="sps">— Любов Бухарова, нутриціолог</p>
+    <div class="tlinks">
+      <a href="https://t.me/Lyubov_nutritionist" target="_blank" class="tlink"><span style="font-size:1.1rem">✈️</span><span>Написати особисто — @Lyubov_nutritionist</span><span class="tlr">→</span></a>
+      <a href="https://t.me/+HjcCjo6AUOBkMTUy" target="_blank" class="tlink"><span style="font-size:1.1rem">👥</span><span>Приєднатись до групи в Telegram</span><span class="tlr">→</span></a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ФІНАЛ -->
+<section id="s-final">
+  <span class="fni rv">🐟</span>
+  <h2 class="fnt rv">День 3 —<br><em>виконано!</em></h2>
+  <div class="fnl rv"></div>
+  <p class="fns rv">Ти тепер знаєш про баланс — і вже маєш план.<br>Це і є зміна зсередини 💚</p>
+  <div class="dots rv"><div class="dot dn"></div><div class="dot dn"></div><div class="dot da"></div><div class="dot"></div><div class="dot"></div></div>
+  <div class="tc rv">
+    <span class="tcl">Завтра · День 4</span>
+    <div class="tci">✨</div>
+    <div class="tct">Жири і твоє<br><em>самопочуття</em></div>
+    <p class="tcd">Дізнаєшся як корисні жири впливають на шкіру, гормони, настрій і енергію — відчуєш різницю вже за кілька тижнів 💛</p>
+  </div>
+</section>
+
+<script>
+// Прогрес
+window.addEventListener('scroll',()=>{
+  const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('pb').style.width=(s/h*100)+'%';
+});
+// Reveal
+const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
+
+// ── Баланс лічильник ──
+function cc(b,d){
+  const v=b.parentElement.querySelector('.cv');
+  let n=parseInt(v.textContent)+d;
+  if(n<0)n=0;if(n>7)n=7;
+  v.textContent=n;ub();
+}
+function ub(){
+  let o3=0,o6=0;
+  document.querySelectorAll('#o3r .cv').forEach(e=>o3+=parseInt(e.textContent));
+  document.querySelectorAll('#o6r .cv').forEach(e=>o6+=parseInt(e.textContent));
+  document.getElementById('o3t').textContent=o3+' разів';
+  document.getElementById('o6t').textContent=o6+' разів';
+  const r=document.getElementById('bres');
+  if(!o3&&!o6){r.style.display='none';return}
+  r.style.display='block';
+  document.getElementById('brn3').textContent=o3;
+  document.getElementById('brn6').textContent=o6;
+  const t=o3+o6||1,p=Math.round(o3/t*100);
+  document.getElementById('brbf').style.width=p+'%';
+  const v=document.getElementById('brvd');
+  if(o3>=o6){v.textContent='✅ Відмінно! Омега-3 в балансі — тіло отримує протизапальний захист 💙';v.className='brv gv'}
+  else if(o6<=o3*4){v.textContent='🟡 Невеликий дисбаланс. Додай ще 1–2 джерела омега-3 на тиждень 💛';v.className='brv ov'}
+  else{v.textContent='⚠️ Омега-6 значно більше. Починаємо додавати омега-3 щодня 🐟';v.className='brv bv2'}
+}
+
+// ── Планер ──
+const planData={fish:{},nuts:{},seeds:{},oil:{}};
+const typeEmoji={fish:'🐟',nuts:'🌰',seeds:'🌾',oil:'🌿'};
+const typeName={fish:'Риба',nuts:'Горіхи',seeds:'Насіння',oil:'Льняна олія'};
+const DAYS=['Пн','Вт','Ср','Чт','Пт','Сб','Нд'];
+
+function pd(type,btn){
+  btn.classList.toggle('sel');
+  planData[type][btn.dataset.d]=btn.classList.contains('sel');
+  const cnt=Object.values(planData[type]).filter(Boolean).length;
+  document.getElementById('cnt-'+type).textContent=cnt+'×';
+  document.getElementById('opc-'+type).classList.toggle('has',cnt>0);
+}
+
+function lockPlan(){
+  // Будуємо рядки по днях
+  const wcBody=document.getElementById('wcBody');
+  wcBody.innerHTML='';
+  let totalItems=0;
+
+  DAYS.forEach(day=>{
+    const items=[];
+    for(const type in planData){
+      if(planData[type][day]) items.push({emoji:typeEmoji[type],name:typeName[type]});
+    }
+
+    const row=document.createElement('div');
+    row.className='wc-row';
+
+    const dayEl=document.createElement('div');
+    dayEl.className='wc-day';
+    dayEl.textContent=day;
+    row.appendChild(dayEl);
+
+    const iconsEl=document.createElement('div');
+    iconsEl.className='wc-icons';
+
+    if(items.length===0){
+      const empty=document.createElement('span');
+      empty.className='wc-empty';
+      empty.textContent='день відпочинку';
+      iconsEl.appendChild(empty);
+    } else {
+      items.forEach(item=>{
+        totalItems++;
+        const chip=document.createElement('div');
+        chip.className='wc-item';
+        chip.innerHTML=`<span class="wc-item-icon">${item.emoji}</span><span class="wc-item-name">${item.name}</span>`;
+        iconsEl.appendChild(chip);
+      });
+    }
+    row.appendChild(iconsEl);
+    wcBody.appendChild(row);
+  });
+
+  // Підсумок
+  const fishCnt=Object.values(planData.fish).filter(Boolean).length;
+  let scoreText='';
+  if(totalItems===0) scoreText='Обери хоча б кілька днів ☝️';
+  else if(fishCnt>=2) scoreText='🏆 Молодець! '+fishCnt+'× риба цього тижня — чудово!';
+  else if(totalItems>=3) scoreText='💙 '+totalItems+' порцій омега-3 на тиждень!';
+  else scoreText='🌱 Починаємо — додай більше!';
+  document.getElementById('wcScore').textContent=scoreText;
+
+  // Показуємо картку
+  const card=document.getElementById('weekCard');
+  card.classList.add('show');
+  setTimeout(()=>card.scrollIntoView({behavior:'smooth',block:'nearest'}),100);
+}
+
+// ── Вода ──
+let wg=0;const cupsEl=document.getElementById('cups');
+const wm=['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
+for(let i=0;i<10;i++){
+  const b=document.createElement('button');b.type='button';b.className='cup';b.textContent='🥛';
+  b.addEventListener('click',()=>{
+    wg=b.classList.contains('fi')?i:i+1;
+    document.querySelectorAll('.cup').forEach((c,j)=>c.classList.toggle('fi',j<wg));
+    document.getElementById('wml').textContent=wg*200;
+    document.getElementById('wcv').textContent=wg+' / 10';
+    document.getElementById('wpf').style.width=(wg/10*100)+'%';
+    document.getElementById('wmsg').textContent=wm[wg]||'';
+  });
+  cupsEl.appendChild(b);
+}
+
+// ── Білок ──
+const pm2=['','Перший прийом — будуємо! 🌱','Два — краще 💛','Три — відмінно! 💪','Ідеально! 🏆'];
+function tm(e){
+  e.classList.toggle('ch');
+  const d=document.querySelectorAll('#meals .meal.ch').length;
+  document.getElementById('pc').textContent=d;
+  document.getElementById('pm').textContent=pm2[Math.min(d,pm2.length-1)];
+  document.getElementById('pres').classList.toggle('sh',d>0);
+}
+
+// ── Зірки ──
+const sm=['','😔 Важкий день — але ти тут!','🌱 Є куди рости!','🌟 Непоганий день!','💪 Відмінний день!','🏆 Ідеально! 🐟'];
+function rs(n){
+  document.querySelectorAll('#stars .star').forEach((s,i)=>s.classList.toggle('li',i<n));
+  document.getElementById('smsg').textContent=sm[n];
+}
+</script>
+</body>
+</html>
