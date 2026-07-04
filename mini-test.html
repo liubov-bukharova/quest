@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Міні-тест · Тіло — це система · Бухарова Любов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #3D6B5A;
+    --sage-light: #E8F2EE;
+    --sage-mid: #A8C9BC;
+    --sage-dark: #1E3D31;
+    --amber: #C8762A;
+    --amber-light: #FDF3E7;
+    --ink: #1A1A1A;
+    --ink-mid: #4A4A4A;
+    --ink-soft: #8A8A8A;
+    --surface: #FAFAF8;
+    --white: #FFFFFF;
+    --border: #E2E0DA;
+    --border-soft: #EEEDE8;
+  }
+
+  body {
+    font-family: 'Geologica', -apple-system, sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page-wrap { max-width: 480px; margin: 0 auto; min-height: 100vh; background: var(--white); }
+
+  .topbar {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand-name { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+  .brand-tag { font-size: 11px; color: var(--sage); font-weight: 500; }
+
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* ── INTRO ── */
+  .intro-top { padding: 36px 24px 28px; border-bottom: 1px solid var(--border-soft); }
+  .intro-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .intro-title { font-size: 26px; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.01em; }
+  .intro-title strong { font-weight: 600; }
+
+  .symptoms-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .symptom-tag { font-size: 13px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 99px; color: var(--ink-mid); }
+
+  .intro-connect { font-size: 15px; color: var(--ink-mid); line-height: 1.65; margin-bottom: 20px; }
+
+  .lyubov-quote-intro {
+    padding: 16px 18px;
+    background: var(--sage-light);
+    border-radius: 12px;
+    margin-bottom: 0;
+  }
+  .lyubov-quote-intro-text { font-size: 14px; color: var(--sage-dark); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
+  .lyubov-quote-intro-author { display: flex; align-items: center; gap: 10px; }
+  .lyubov-avatar-sm { width: 28px; height: 28px; border-radius: 50%; background: var(--sage); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .lyubov-author-name { font-size: 12px; font-weight: 600; color: var(--sage); }
+
+  .intro-bottom { padding: 24px; }
+  .intro-meta { display: flex; gap: 12px; margin-bottom: 20px; }
+  .meta-item { flex: 1; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 14px 12px; text-align: center; }
+  .meta-num { font-size: 22px; font-weight: 600; color: var(--sage); line-height: 1; margin-bottom: 4px; }
+  .meta-label { font-size: 11px; color: var(--ink-soft); line-height: 1.4; }
+
+  .intro-note { padding: 12px 16px; background: var(--sage-light); border-radius: 10px; font-size: 13px; color: var(--sage-dark); line-height: 1.6; margin-bottom: 20px; }
+
+  .btn-start { display: block; width: 100%; padding: 18px; background: var(--sage); color: #fff; border: none; border-radius: 14px; font-family: 'Geologica', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .btn-start:hover { background: var(--sage-dark); }
+
+  /* ── TEST ── */
+  .test-header { padding: 14px 24px 12px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: space-between; }
+  .test-header-title { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+  .test-progress-label { font-size: 12px; color: var(--ink-soft); }
+  .progress-track { height: 2px; background: var(--border); overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--sage); transition: width 0.4s ease; }
+
+  .question-wrap { padding: 36px 24px 24px; }
+  .question-text { font-size: 21px; font-weight: 400; color: var(--ink); line-height: 1.45; margin-bottom: 32px; letter-spacing: -0.01em; }
+
+  .answer-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .btn-ans { padding: 18px 12px; border: 1px solid var(--border); border-radius: 14px; background: var(--white); font-family: 'Geologica', sans-serif; font-size: 16px; font-weight: 500; color: var(--ink-mid); cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-ans:hover { border-color: var(--sage-mid); background: var(--sage-light); color: var(--sage); }
+  .btn-ans.selected-yes { border-color: var(--sage); background: var(--sage-light); color: var(--sage-dark); }
+  .btn-ans.selected-no { border-color: var(--border); background: var(--surface); color: var(--ink-soft); }
+  .btn-ans svg { width: 18px; height: 18px; }
+
+  .reaction-box { padding: 14px 16px; background: var(--amber-light); border-left: 3px solid var(--amber); border-radius: 0 10px 10px 0; font-size: 13.5px; color: #6B3E10; line-height: 1.65; margin-bottom: 20px; display: none; animation: fadeIn 0.25s ease; }
+  .reaction-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 5px; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  .btn-next { display: none; width: 100%; padding: 17px; background: var(--sage); color: #fff; border: none; border-radius: 14px; font-family: 'Geologica', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .btn-next:hover { background: var(--sage-dark); }
+
+  /* ── RESULT ── */
+  .result-hero { padding: 36px 24px 28px; border-bottom: 1px solid var(--border-soft); }
+  .result-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .result-title { font-size: 23px; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 14px; letter-spacing: -0.015em; }
+  .result-desc { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
+
+  .systems-section { padding: 24px 24px 8px; border-bottom: 1px solid var(--border-soft); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+  .system-row { display: flex; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border-soft); gap: 12px; }
+  .system-row:last-child { border-bottom: none; }
+  .sys-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-signal { background: #C8762A; }
+  .dot-ok { background: #3D6B5A; }
+  .sys-name { font-size: 14px; color: var(--ink); flex: 1; }
+  .sys-status { font-size: 12px; padding: 3px 10px; border-radius: 99px; font-weight: 500; }
+  .status-signal { background: var(--amber-light); color: var(--amber); }
+  .status-ok { background: var(--sage-light); color: var(--sage); }
+
+  /* ── INSIGHT + CARD ── */
+  .insight-card-block { margin: 20px 24px; background: var(--sage-light); border-radius: 16px; padding: 20px; }
+  .insight-text { font-size: 14px; color: var(--sage-dark); line-height: 1.7; margin-bottom: 18px; }
+  .insight-text strong { font-weight: 600; color: var(--sage-dark); }
+  .card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .card-list { list-style: none; }
+  .card-list li { font-size: 14px; color: var(--sage-dark); line-height: 1.6; padding: 4px 0; display: flex; gap: 8px; }
+  .card-list li::before { content: "✔"; color: var(--sage); font-size: 13px; flex-shrink: 0; }
+
+  /* ── STORY ── */
+  .story-block { margin: 0 24px 20px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 16px; padding: 20px; }
+  .story-author { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .story-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--sage); color: #fff; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .story-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .story-role { font-size: 11px; color: var(--ink-soft); }
+  .story-text { font-size: 14px; color: var(--ink-mid); line-height: 1.75; }
+
+  /* ── CTA ── */
+  .cta-section { margin: 0 24px 32px; padding: 24px; background: var(--sage-dark); border-radius: 20px; }
+  .cta-final-phrase { font-size: 15px; color: var(--sage-mid); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+  .cta-title { font-size: 20px; font-weight: 400; color: #fff; line-height: 1.35; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .cta-title strong { font-weight: 600; }
+  .btn-cta { display: block; width: 100%; padding: 16px; background: #fff; color: var(--sage-dark); border: none; border-radius: 12px; font-family: 'Geologica', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: background 0.2s; }
+  .btn-cta:hover { background: var(--sage-light); }
+  .cta-note { text-align: center; margin-top: 12px; font-size: 12px; color: var(--sage-mid); }
+
+  .restart-btn { display: block; text-align: center; margin: 0 auto 24px; padding: 10px; background: none; border: none; font-family: 'Geologica', sans-serif; font-size: 13px; color: var(--ink-soft); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="topbar">
+    <span class="brand-name">Бухарова Любов</span>
+    <span class="brand-tag">Нутриціолог</span>
+  </div>
+
+  <!-- INTRO -->
+  <div id="screen-intro" class="screen active">
+    <div class="intro-top">
+      <div class="intro-eyebrow">Міні-тест</div>
+      <h1 class="intro-title">Чому тіло говорить<br>з нами <strong>симптомами?</strong></h1>
+
+      <div class="symptoms-grid">
+        <span class="symptom-tag">втома з ранку</span>
+        <span class="symptom-tag">набряки</span>
+        <span class="symptom-tag">живіт</span>
+        <span class="symptom-tag">зміна ваги</span>
+        <span class="symptom-tag">поганий сон</span>
+        <span class="symptom-tag">тяга до солодкого</span>
+        <span class="symptom-tag">випадіння волосся</span>
+        <span class="symptom-tag">зміни шкіри</span>
+        <span class="symptom-tag">перепади настрою</span>
+        <span class="symptom-tag">тривога без причини</span>
+      </div>
+
+      <p class="intro-connect">Усе в організмі пов'язано. Тіло рідко подає лише один сигнал — і кожен симптом має свою причину.</p>
+
+      <div class="lyubov-quote-intro">
+        <div class="lyubov-quote-intro-text">
+          "Я створила цей міні-тест щоб показати вам що тіло — це система. І для справжнього відновлення потрібна комплексна робота з розумінням."
+        </div>
+        <div class="lyubov-quote-intro-author">
+          <div class="lyubov-avatar-sm">Л</div>
+          <span class="lyubov-author-name">Любов Бухарова, нутриціолог</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-bottom">
+      <div class="intro-meta">
+        <div class="meta-item">
+          <div class="meta-num">10</div>
+          <div class="meta-label">питань так / ні</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-num">9</div>
+          <div class="meta-label">систем тіла</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-num">~2′</div>
+          <div class="meta-label">хвилини</div>
+        </div>
+      </div>
+      <div class="intro-note">Відповідайте чесно. Ніхто не бачить результатів, крім вас.</div>
+      <button class="btn-start" onclick="startTest()">Розпочати →</button>
+    </div>
+  </div>
+
+  <!-- TEST -->
+  <div id="screen-test" class="screen">
+    <div class="test-header">
+      <span class="test-header-title">Тіло — це система</span>
+      <span class="test-progress-label" id="progress-label">1 / 10</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:10%"></div>
+    </div>
+
+    <div class="question-wrap">
+      <div class="question-text" id="q-text"></div>
+      <div class="answer-row">
+        <button class="btn-ans" id="btn-yes" onclick="answer(true)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Так
+        </button>
+        <button class="btn-ans" id="btn-no" onclick="answer(false)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Ні
+        </button>
+      </div>
+      <div class="reaction-box" id="reaction-box">
+        <div class="reaction-label">Що це означає</div>
+        <div id="reaction-text"></div>
+      </div>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Далі →</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="screen-result" class="screen">
+
+    <div class="result-hero">
+      <div class="result-eyebrow">На що зараз варто звернути увагу</div>
+      <h2 class="result-title" id="result-title"></h2>
+      <p class="result-desc" id="result-desc"></p>
+    </div>
+
+    <div class="systems-section">
+      <div class="section-label">Твої системи</div>
+      <div id="systems-list"></div>
+    </div>
+
+    <div class="insight-card-block">
+      <div class="insight-text" id="insight-text"></div>
+      <div class="card-title">📍 Карта ресурсу тіла</div>
+      <ul class="card-list">
+        <li>які системи реально перевантажені</li>
+        <li>чому це відбувається саме у вас</li>
+        <li>як симптоми пов'язані між собою</li>
+        <li>з чого почати відновлення</li>
+      </ul>
+    </div>
+
+    <div class="story-block">
+      <div class="story-author">
+        <div class="story-avatar">Л</div>
+        <div>
+          <div class="story-name">Любов Бухарова</div>
+          <div class="story-role">нутриціолог</div>
+        </div>
+      </div>
+      <div class="story-text">
+        Мої аналізи були в нормі. Лікарі казали — це стрес. Але я точно відчувала що щось не так.<br><br>
+        У мене були перевантажені 3 системи. І лише коли я це побачила — пішло справжнє відновлення. Я знову відчула енергію з ранку, перестала зриватись на солодке, нарешті почала висипатись, і зникли роздратування та тривога.<br><br>
+        Тепер я тут, щоб допомогти вам.
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <div class="cta-final-phrase">Не звикайте до стану який забирає вашу енергію.</div>
+      <div class="cta-title"><strong>За 45 хвилин</strong> ви зрозумієте як відновити саме своє тіло</div>
+      <a class="btn-cta" href="https://t.me/Lyubov_nutritionist?text=Любове%2C%20хочу%20Карту%20Ресурсу%20Тіла" target="_blank">Написати Любові — Хочу Карту Ресурсу Тіла →</a>
+      <div class="cta-note">45 хвилин · Онлайн · з нутриціологом Любов'ю<br><br>Я зв'яжусь з вами протягом 24 годин для узгодження зручного часу 🤍</div>
+    </div>
+
+    <button class="restart-btn" onclick="restart()">Пройти тест знову</button>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    systemFull: "Система перетравлення",
+    text: "Після їжі відчуваєш важкість, здуття або відчуття що їжа «лежить»?",
+    reaction: "Важкість і здуття після їжі — тіло сигналізує. Але що саме запустило цей процес — індивідуально для кожної."
+  },
+  {
+    systemFull: "ШКТ",
+    text: "Живіт або вага змінились без явної причини?",
+    reaction: "Зміни живота і ваги без причини — це не про їжу. За цим стоїть глибший збій. Який саме — ваша особиста картина."
+  },
+  {
+    systemFull: "Серцево-судинна система",
+    text: "Буває розсіяність, погіршення пам'яті або важко зосередитись?",
+    reaction: "Туман в голові і розсіяність — рідко бувають самі по собі. За цим завжди стоїть причина — і вона глибша ніж здається."
+  },
+  {
+    systemFull: "Нервова система",
+    text: "Прокидаєшся вночі, сон поверхневий — або тривога і роздратування без причини?",
+    reaction: "Порушення сну і тривога без причини — це не характер і не слабкість. Але що саме виснажує твою нервову систему — потрібно розібратись."
+  },
+  {
+    systemFull: "Імунна система",
+    text: "Часто хворієш або одужання йде довго і важко?",
+    reaction: "Тіло перестало захищатись — бо кинуло всі сили на щось інше. На що саме — покаже ваша картина."
+  },
+  {
+    systemFull: "Дихальна система",
+    text: "Відчуваєш швидку втомлюваність навіть без фізичного навантаження?",
+    reaction: "Швидка втомлюваність без навантаження — це сигнал що тіло витрачає ресурс не туди. Але звідки витік — у кожної своя причина."
+  },
+  {
+    systemFull: "Сечовидільна система",
+    text: "Бувають набряки зранку або ввечері — обличчя, руки, ноги?",
+    reaction: "Набряки — це не просто вода. Це сигнал що тіло не справляється з виведенням зайвого. Чому саме у вас — окрема історія."
+  },
+  {
+    systemFull: "Ендокринна система",
+    text: "Тягне на солодке або відчуваєш різкі перепади енергії протягом дня?",
+    reaction: "Тяга до солодкого і перепади енергії можуть говорити про багато різних факторів. Що саме стоїть за цим у вас — можна розібратись."
+  },
+  {
+    systemFull: "Опорно-рухова система",
+    text: "Є болі у спині, суглобах або скутість вранці?",
+    reaction: "Болі і скутість — це тіло яке довго мовчало. За цим завжди стоїть більше ніж здається."
+  },
+  {
+    systemFull: "Загальний ресурс",
+    text: "Хочеш зайнятись собою — але немає ні сили ні бажання навіть почати?",
+    reaction: "Немає сили почати — це не лінь. Це тіло яке вже віддало весь ресурс. Але звідки саме витік — ваша індивідуальна картина."
+  }
+];
+
+let current = 0;
+let answers = [];
+let answered = false;
+
+function startTest() {
+  document.getElementById('screen-intro').classList.remove('active');
+  document.getElementById('screen-test').classList.add('active');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  answered = false;
+  const q = questions[current];
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('reaction-box').style.display = 'none';
+  document.getElementById('reaction-text').textContent = '';
+  document.getElementById('btn-next').style.display = 'none';
+  document.getElementById('btn-yes').className = 'btn-ans';
+  document.getElementById('btn-no').className = 'btn-ans';
+  const pct = Math.round(((current + 1) / questions.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = (current + 1) + ' / ' + questions.length;
+  document.getElementById('btn-next').textContent = current < questions.length - 1 ? 'Далі →' : 'Показати результат →';
+}
+
+function answer(yes) {
+  if (answered) return;
+  answered = true;
+  answers.push({ yes, q: questions[current] });
+  document.getElementById('btn-yes').className = 'btn-ans' + (yes ? ' selected-yes' : '');
+  document.getElementById('btn-no').className = 'btn-ans' + (!yes ? ' selected-no' : '');
+  if (yes) {
+    document.getElementById('reaction-text').textContent = questions[current].reaction;
+    document.getElementById('reaction-box').style.display = 'block';
+  }
+  document.getElementById('btn-next').style.display = 'block';
+}
+
+function nextQuestion() {
+  if (current < questions.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('screen-test').classList.remove('active');
+  document.getElementById('screen-result').classList.add('active');
+  window.scrollTo(0, 0);
+
+  const yesCount = answers.filter(a => a.yes).length;
+  const title = document.getElementById('result-title');
+  const desc = document.getElementById('result-desc');
+  const insightEl = document.getElementById('insight-text');
+
+  if (yesCount === 0) {
+    title.textContent = 'Явних сигналів зараз немає';
+    desc.textContent = 'Твій організм зараз у відносному балансі. Підтримуй цей стан — і тіло відповість енергією та стабільністю.';
+    insightEl.innerHTML = 'Цей міні-тест показує реакції ваших систем. Якщо в майбутньому щось зміниться — ви знатимете куди звернути увагу.';
+  } else if (yesCount <= 3) {
+    title.textContent = 'Є кілька сигналів на які варто звернути увагу';
+    desc.textContent = 'Поки без критичних змін — але тіло вже підказує. Саме зараз найкращий момент розібратись що відбувається.';
+    insightEl.innerHTML = 'Цей міні-тест показує <strong>реакції</strong> ваших систем — але не показує які з них реально перевантажені. Що саме стоїть за цими сигналами — покаже Карта ресурсу тіла.';
+  } else if (yesCount <= 6) {
+    title.textContent = 'Кілька систем одночасно подають сигнали';
+    desc.textContent = 'Те що ви відчуваєте — не випадковість. Це тіло яке намагається достукатись. Кожен симптом має свою причину — і вони між собою пов\'язані.';
+    insightEl.innerHTML = 'Цей міні-тест показує <strong>реакції</strong> ваших систем — але не показує які з них реально перевантажені. Часто за кількома реакціями стоїть одна причина. Яка саме у вас — покаже Карта ресурсу тіла.';
+  } else {
+    title.textContent = 'Більшість систем зараз сигналізують';
+    desc.textContent = 'Симптоми накопичувались поступово. Тіло справлялось як могло — але зараз йому потрібна підтримка і розуміння з чого починати.';
+    insightEl.innerHTML = 'Цей міні-тест показує <strong>реакції</strong> ваших систем — але не показує які з них реально перевантажені. <strong>Не лякайтесь цифри.</strong> Часто за багатьма реакціями стоять лише 2-3 системи які тягнуть за собою решту. Які саме у вас — покаже Карта ресурсу тіла.';
+  }
+
+  const listEl = document.getElementById('systems-list');
+  listEl.innerHTML = '';
+  answers.forEach(a => {
+    const row = document.createElement('div');
+    row.className = 'system-row';
+    row.innerHTML = `
+      <span class="sys-dot ${a.yes ? 'dot-signal' : 'dot-ok'}"></span>
+      <span class="sys-name">${a.q.systemFull}</span>
+      <span class="sys-status ${a.yes ? 'status-signal' : 'status-ok'}">${a.yes ? 'є сигнали' : 'без сигналів'}</span>
+    `;
+    listEl.appendChild(row);
+  });
+}
+
+function restart() {
+  current = 0;
+  answers = [];
+  answered = false;
+  document.getElementById('screen-result').classList.remove('active');
+  document.getElementById('screen-intro').classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+</body>
+</html>
