@@ -3,736 +3,447 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Оцінка систем організму — Любов Бухарова</title>
+<title>Міні-тест · Тіло — це система · Бухарова Любов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#f4f3ef;--card:#fff;--text:#1c1c1c;--muted:#6b6b6b;
-  --border:#e2dfd8;--radius:10px;
-  --green:#4a7c6a;--green-light:#7aab94;--green-pale:#f0faf5;
-  --navy:#1a2e5a;
-}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* HEADER */
-header{background:var(--navy);color:white;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem;}
-.hd-left h1{font-size:19px;font-weight:700;letter-spacing:-.3px;}
-.hd-left .byline{font-size:12px;opacity:.7;margin-top:2px;font-style:italic;}
-.badge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:500;}
+  :root {
+    --sage: #3D6B5A;
+    --sage-light: #E8F2EE;
+    --sage-mid: #A8C9BC;
+    --sage-dark: #1E3D31;
+    --amber: #C8762A;
+    --amber-light: #FDF3E7;
+    --ink: #1A1A1A;
+    --ink-mid: #4A4A4A;
+    --ink-soft: #8A8A8A;
+    --surface: #FAFAF8;
+    --white: #FFFFFF;
+    --border: #E2E0DA;
+    --border-soft: #EEEDE8;
+  }
 
-/* LAYOUT */
-.layout{max-width:820px;margin:0 auto;padding:1.5rem 1.25rem 3rem;}
+  body {
+    font-family: 'Geologica', -apple-system, sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
 
-/* STEP INDICATOR */
-.steps{display:flex;align-items:center;gap:0;margin-bottom:1.5rem;}
-.step{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:#bbb;flex:1;}
-.step-num{width:26px;height:26px;border-radius:50%;border:2px solid #ddd;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;background:white;color:#bbb;}
-.step.active .step-num{border-color:var(--green);background:var(--green);color:white;}
-.step.active{color:var(--green);}
-.step.done .step-num{border-color:var(--green-light);background:var(--green-light);color:white;}
-.step.done{color:var(--green-light);}
-.step-line{flex:1;height:2px;background:#e0e0e0;margin:0 4px;}
-.step.done .step-line,.step.active .step-line{background:var(--green-light);}
+  .page-wrap { max-width: 480px; margin: 0 auto; min-height: 100vh; background: var(--white); }
 
-/* CARD SHARED */
-.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:0;}
-.card-hd{padding:.875rem 1.25rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem;}
-.card-hd h2{font-size:14px;font-weight:600;}
+  .topbar {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border-soft);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand-name { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); }
+  .brand-tag { font-size: 11px; color: var(--sage); font-weight: 500; }
 
-/* ──────────────────────────────────
-   SECTION 1: INTAKE QUESTIONNAIRE
-────────────────────────────────── */
-#intake-section{}
-.intake-header{background:linear-gradient(135deg,var(--green) 0%,var(--green-light) 100%);color:white;padding:1.5rem;border-radius:var(--radius) var(--radius) 0 0;}
-.intake-header h2{font-size:17px;font-weight:700;margin-bottom:4px;}
-.intake-header p{font-size:13px;opacity:.85;}
+  .screen { display: none; }
+  .screen.active { display: block; }
 
-.q-block{padding:1rem 1.5rem;border-bottom:1px solid var(--border);}
-.q-block:last-of-type{border-bottom:none;}
-.q-num{font-size:10px;font-weight:700;color:var(--green-light);text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;}
-.q-text{font-size:14px;color:var(--text);line-height:1.5;margin-bottom:8px;font-weight:500;}
-.q-sub{font-size:12px;color:var(--muted);margin-bottom:8px;line-height:1.4;}
-.q-input,.q-textarea{width:100%;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:14px;color:var(--text);font-family:inherit;transition:border-color .12s;background:white;resize:vertical;}
-.q-input:focus,.q-textarea:focus{outline:none;border-color:var(--green-light);}
-.q-textarea{min-height:70px;}
-.q-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
-@media(max-width:550px){.q-row{grid-template-columns:1fr;}}
-.q-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px;display:block;}
+  /* ── INTRO ── */
+  .intro-top { padding: 36px 24px 28px; border-bottom: 1px solid var(--border-soft); }
+  .intro-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .intro-title { font-size: 26px; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 24px; letter-spacing: -0.01em; }
+  .intro-title strong { font-weight: 600; }
 
-.intake-footer{padding:1.25rem 1.5rem;border-top:1px solid var(--border);display:flex;gap:10px;}
+  .symptoms-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .symptom-tag { font-size: 13px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 99px; color: var(--ink-mid); }
 
-/* ──────────────────────────────────
-   SECTION 2: TEST
-────────────────────────────────── */
-#test-section{display:none;}
-.prog-wrap{display:flex;align-items:center;gap:10px;}
-.prog-track{width:150px;height:5px;background:#e0e0e0;border-radius:10px;overflow:hidden;flex-shrink:0;}
-.prog-fill{height:100%;background:linear-gradient(90deg,var(--navy),#3a7bd5);border-radius:10px;transition:width .3s ease;width:0%;}
-.prog-label{font-size:12px;color:var(--muted);white-space:nowrap;}
-.instruction{font-size:13px;color:#1a4a7a;background:#eef4ff;border:1px solid #c7d9f8;border-radius:8px;padding:.65rem 1rem;margin:.875rem 1.25rem;}
-.symptom-list{padding:.5rem .75rem .75rem;}
-.symptom-row{display:flex;align-items:center;padding:7px 10px;border-radius:7px;cursor:pointer;transition:background .12s;gap:10px;border:1.5px solid transparent;user-select:none;}
-.symptom-row:hover{background:#f0f4ff;}
-.symptom-row.active{background:#eaf2ff;border-color:#3a7bd5;}
-.sym-check{width:20px;height:20px;border-radius:5px;border:2px solid #c5c5c5;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;transition:all .12s;background:white;}
-.symptom-row.active .sym-check{background:#2b6be0;border-color:#2b6be0;}
-.sym-text{flex:1;font-size:13px;line-height:1.35;}
-.sym-dots{display:flex;gap:4px;flex-shrink:0;align-items:center;}
-.sdot{width:13px;height:13px;border-radius:50%;flex-shrink:0;}
-.row-div{height:1px;background:var(--border);margin:1px 10px;}
+  .intro-connect { font-size: 15px; color: var(--ink-mid); line-height: 1.65; margin-bottom: 20px; }
 
-/* ──────────────────────────────────
-   SECTION 3: EXPERT RESULTS
-────────────────────────────────── */
-#results-section{display:none;}
-.results-hd{background:var(--navy);color:white;padding:1rem 1.25rem;border-radius:10px 10px 0 0;display:flex;align-items:center;justify-content:space-between;}
-.results-hd h2{font-size:15px;font-weight:600;}
-.results-hd .meta{font-size:12px;opacity:.7;}
-.results-list{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:1rem;gap:10px;}
-.sys-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
-.sys-card-hd{display:flex;align-items:center;gap:10px;padding:.75rem 1rem;border-bottom:1px solid var(--border);}
-.sys-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:white;flex-shrink:0;}
-.sys-name{font-size:14px;font-weight:600;flex:1;line-height:1.3;}
-.sys-score{font-size:30px;font-weight:700;line-height:1;flex-shrink:0;}
-.sys-card-body{padding:.875rem 1rem;}
-.st-badge{display:inline-block;padding:3px 12px;border-radius:20px;font-size:12px;font-weight:600;margin-bottom:10px;}
-.st-great{background:#e6f4ea;color:#1e7e34;}
-.st-good{background:#ddeeff;color:#0056b3;}
-.st-ok{background:#fff3cd;color:#856404;}
-.st-bad{background:#fde8e8;color:#c0392b;}
-.thresh-wrap{margin-bottom:10px;}
-.thresh-lbl{font-size:11px;color:var(--muted);margin-bottom:5px;font-weight:500;}
-.thresh-bar{display:grid;border-radius:6px;overflow:hidden;height:24px;font-size:10px;font-weight:700;color:white;}
-.thresh-seg{display:flex;align-items:center;justify-content:center;position:relative;}
-.thresh-seg span{font-size:10px;white-space:nowrap;}
-.thresh-seg.cur{outline:3px solid rgba(0,0,0,.35);outline-offset:-3px;z-index:1;}
-.thresh-lbls{display:grid;margin-top:3px;}
-.t-lbl{font-size:9.5px;color:var(--muted);text-align:center;line-height:1.2;}
-.t-lbl.cur{font-weight:700;color:var(--text);}
-.thresh-mk-wrap{position:relative;height:16px;margin-top:4px;}
-.thresh-mk{position:absolute;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;border:2.5px solid white;box-shadow:0 1px 5px rgba(0,0,0,.35);top:1px;transition:left .4s ease;}
-.sym-list-title{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;margin-bottom:5px;}
-.sym-list{list-style:none;}
-.sym-list li{font-size:12.5px;color:var(--text);padding:2px 0;display:flex;align-items:baseline;gap:6px;line-height:1.35;}
-.sym-list li::before{content:"•";font-size:10px;flex-shrink:0;color:var(--muted);}
-.sym-none{font-size:12px;color:#aaa;font-style:italic;}
+  .lyubov-quote-intro {
+    padding: 16px 18px;
+    background: var(--sage-light);
+    border-radius: 12px;
+    margin-bottom: 0;
+  }
+  .lyubov-quote-intro-text { font-size: 14px; color: var(--sage-dark); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
+  .lyubov-quote-intro-author { display: flex; align-items: center; gap: 10px; }
+  .lyubov-avatar-sm { width: 28px; height: 28px; border-radius: 50%; background: var(--sage); color: #fff; font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .lyubov-author-name { font-size: 12px; font-weight: 600; color: var(--sage); }
 
-/* ──────────────────────────────────
-   SECTION 4: CLIENT FORM (priority picker)
-────────────────────────────────── */
-#form-section{display:none;margin-top:1.5rem;}
-.form-hd{background:var(--green);color:white;padding:1rem 1.25rem;border-radius:10px 10px 0 0;}
-.form-hd h2{font-size:15px;font-weight:600;}
-.form-hd p{font-size:12px;opacity:.8;margin-top:3px;}
-.form-body{background:var(--card);border:1px solid var(--border);border-top:none;border-radius:0 0 10px 10px;padding:1.25rem;}
-.pri-hint{font-size:12px;color:var(--muted);margin-bottom:12px;}
-.pri-list{display:flex;flex-direction:column;gap:8px;margin-bottom:1.25rem;}
-.pri-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid var(--border);border-radius:8px;cursor:pointer;transition:all .12s;user-select:none;}
-.pri-item:hover{border-color:#aaa;background:#f9f9f9;}
-.pri-item.sel{border-color:var(--green);background:var(--green-pale);}
-.pri-item.sel2{border-color:var(--green-light);background:var(--green-pale);}
-.pri-item.sel3{border-color:#a8cfc0;background:var(--green-pale);}
-.pri-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0;}
-.pri-name{flex:1;font-size:13px;font-weight:500;}
-.pri-score-val{font-size:18px;font-weight:700;}
-.pri-rank{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:white;flex-shrink:0;opacity:0;transition:opacity .2s;background:var(--green);}
-.pri-item.sel .pri-rank,.pri-item.sel2 .pri-rank,.pri-item.sel3 .pri-rank{opacity:1;}
+  .intro-bottom { padding: 24px; }
+  .intro-meta { display: flex; gap: 12px; margin-bottom: 20px; }
+  .meta-item { flex: 1; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 12px; padding: 14px 12px; text-align: center; }
+  .meta-num { font-size: 22px; font-weight: 600; color: var(--sage); line-height: 1; margin-bottom: 4px; }
+  .meta-label { font-size: 11px; color: var(--ink-soft); line-height: 1.4; }
 
-/* ──────────────────────────────────
-   SECTION 5: CLIENT CARD
-────────────────────────────────── */
-#card-section{display:none;}
-.client-card{max-width:700px;margin:1.5rem auto 0;background:white;border-radius:16px;border:1px solid var(--border);overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08);}
+  .intro-note { padding: 12px 16px; background: var(--sage-light); border-radius: 10px; font-size: 13px; color: var(--sage-dark); line-height: 1.6; margin-bottom: 20px; }
 
-/* Card Header */
-.cc-hd{background:linear-gradient(160deg,#f9f6f1 0%,#f0ece4 100%);border-bottom:2px solid #e8dfd0;padding:2rem 2rem 1.5rem;}
-.cc-brand{display:flex;align-items:center;gap:14px;margin-bottom:1.25rem;}
-.cc-brand-name{font-size:17px;font-weight:700;color:var(--green);letter-spacing:.3px;}
-.cc-brand-title{font-size:11px;color:#9a8c7e;text-transform:uppercase;letter-spacing:.8px;margin-top:2px;}
-.cc-divider{height:1px;background:linear-gradient(90deg,#c8b89a,transparent);margin-bottom:1.25rem;}
-.cc-client-name{font-size:30px;font-weight:700;color:#2c2c2c;letter-spacing:-.5px;margin-bottom:8px;line-height:1.1;}
-.cc-meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
-.cc-pill{font-size:12px;color:#5a5a5a;background:rgba(255,255,255,.7);border:1px solid #ddd5c8;border-radius:20px;padding:3px 10px;}
-.cc-pill b{color:#2c2c2c;}
-.cc-complaints{margin-top:10px;font-size:13px;color:#4a4a4a;background:rgba(255,255,255,.8);border-left:3px solid var(--green-light);padding:8px 12px;border-radius:0 8px 8px 0;line-height:1.5;}
-.cc-complaints-lbl{font-weight:700;color:var(--green);margin-right:4px;}
+  .btn-start { display: block; width: 100%; padding: 18px; background: var(--sage); color: #fff; border: none; border-radius: 14px; font-family: 'Geologica', sans-serif; font-size: 16px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .btn-start:hover { background: var(--sage-dark); }
 
-/* Card Body */
-.cc-body{padding:1.5rem 2rem;}
-.cc-sec-title{display:flex;align-items:center;gap:12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--green-light);margin-bottom:1rem;}
-.cc-sec-line{flex:1;height:1px;background:linear-gradient(90deg,#c8ddd5,transparent);}
+  /* ── TEST ── */
+  .test-header { padding: 14px 24px 12px; border-bottom: 1px solid var(--border-soft); display: flex; align-items: center; justify-content: space-between; }
+  .test-header-title { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+  .test-progress-label { font-size: 12px; color: var(--ink-soft); }
+  .progress-track { height: 2px; background: var(--border); overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--sage); transition: width 0.4s ease; }
 
-/* Legend */
-.cc-legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;}
-.cc-leg-item{display:flex;align-items:center;gap:5px;font-size:11px;font-weight:600;}
-.cc-leg-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+  .question-wrap { padding: 36px 24px 24px; }
+  .question-text { font-size: 21px; font-weight: 400; color: var(--ink); line-height: 1.45; margin-bottom: 32px; letter-spacing: -0.01em; }
 
-/* All systems rows */
-.cc-systems{display:flex;flex-direction:column;gap:5px;}
-.cc-sys-row{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:#fafaf8;border:1px solid #ede8e0;}
-.cc-sys-pri{background:#f2f8f5;border:1.5px solid var(--green-light);box-shadow:0 2px 8px rgba(122,171,148,.12);}
-.cc-sys-dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0;}
-.cc-sys-name{flex:1;font-size:13px;color:#2c2c2c;}
-.cc-sys-score{font-size:18px;font-weight:700;flex-shrink:0;min-width:28px;text-align:right;}
-.cc-sys-badge{font-size:11px;font-weight:600;padding:2px 10px;border-radius:20px;flex-shrink:0;min-width:88px;text-align:center;}
-.cc-sys-star{width:20px;text-align:center;font-size:13px;flex-shrink:0;}
+  .answer-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  .btn-ans { padding: 18px 12px; border: 1px solid var(--border); border-radius: 14px; background: var(--white); font-family: 'Geologica', sans-serif; font-size: 16px; font-weight: 500; color: var(--ink-mid); cursor: pointer; transition: all 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .btn-ans:hover { border-color: var(--sage-mid); background: var(--sage-light); color: var(--sage); }
+  .btn-ans.selected-yes { border-color: var(--sage); background: var(--sage-light); color: var(--sage-dark); }
+  .btn-ans.selected-no { border-color: var(--border); background: var(--surface); color: var(--ink-soft); }
+  .btn-ans svg { width: 18px; height: 18px; }
 
-/* Priority cards */
-.cc-priorities{display:flex;flex-direction:column;gap:10px;}
-.cc-pri-card{border-radius:12px;overflow:hidden;border:1px solid #e0d8cc;box-shadow:0 2px 10px rgba(0,0,0,.05);}
-.cc-pri-hd{display:flex;align-items:center;gap:10px;padding:.875rem 1.25rem;color:white;}
-.cc-pri-num{font-size:20px;flex-shrink:0;}
-.cc-pri-sysname{flex:1;font-size:14px;font-weight:600;}
-.cc-pri-pts{background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;flex-shrink:0;}
-.cc-pri-rec{padding:1rem 1.25rem;font-size:13px;line-height:1.65;color:#3a3a3a;background:#fdfcfa;}
+  .reaction-box { padding: 14px 16px; background: var(--amber-light); border-left: 3px solid var(--amber); border-radius: 0 10px 10px 0; font-size: 13.5px; color: #6B3E10; line-height: 1.65; margin-bottom: 20px; display: none; animation: fadeIn 0.25s ease; }
+  .reaction-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 5px; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
 
-/* Card Footer */
-.cc-footer{background:#f7f4ef;border-top:1px solid #e8e0d5;padding:1.25rem 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
-.cc-footer-brand{display:flex;align-items:center;gap:10px;}
-.cc-footer-lb{width:38px;height:38px;border-radius:50%;background:var(--green-light);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;flex-shrink:0;}
-.cc-footer-name{font-size:14px;font-weight:700;color:var(--green);}
-.cc-footer-sub{font-size:10px;color:#9a8c7e;text-transform:uppercase;letter-spacing:.5px;}
-.cc-footer-note{font-size:11px;color:#bbb;font-style:italic;}
+  .btn-next { display: none; width: 100%; padding: 17px; background: var(--sage); color: #fff; border: none; border-radius: 14px; font-family: 'Geologica', sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .btn-next:hover { background: var(--sage-dark); }
 
-/* BUTTONS */
-.btn-primary{padding:12px 20px;background:var(--navy);color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s;}
-.btn-primary:hover{background:#142247;}
-.btn-green{padding:12px 20px;background:var(--green);color:white;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s;}
-.btn-green:hover{background:#3a6359;}
-.btn-green:disabled{background:#aaa;cursor:not-allowed;}
-.btn-outline{padding:10px 18px;background:white;color:var(--navy);border:1.5px solid var(--navy);border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all .12s;}
-.btn-outline:hover{background:var(--navy);color:white;}
-.btn-ghost{padding:12px 16px;background:white;color:var(--muted);border:1px solid var(--border);border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:all .12s;}
-.btn-ghost:hover{background:#f5f5f5;color:var(--text);}
-.btn-full{width:100%;padding:13px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;border:none;transition:background .15s;}
-.btn-nav{margin-top:1rem;display:flex;gap:10px;}
+  /* ── RESULT ── */
+  .result-hero { padding: 36px 24px 28px; border-bottom: 1px solid var(--border-soft); }
+  .result-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .result-title { font-size: 23px; font-weight: 400; color: var(--ink); line-height: 1.3; margin-bottom: 14px; letter-spacing: -0.015em; }
+  .result-desc { font-size: 15px; color: var(--ink-mid); line-height: 1.7; }
 
-@media print {
-  header,.steps,#intake-section,#test-section,#results-section,#form-section,.btn-nav,.btn-print{display:none!important;}
-  #card-section{display:block!important;}
-  .client-card{box-shadow:none;border:none;margin:0;max-width:100%;border-radius:0;}
-  body{background:white;}
-  .layout{padding:0;max-width:100%;}
-  .cc-hd,.cc-pri-hd,.cc-sys-dot,.cc-footer-lb,.cc-sys-pri{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-}
+  .systems-section { padding: 24px 24px 8px; border-bottom: 1px solid var(--border-soft); }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 16px; }
+  .system-row { display: flex; align-items: center; padding: 11px 0; border-bottom: 1px solid var(--border-soft); gap: 12px; }
+  .system-row:last-child { border-bottom: none; }
+  .sys-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .dot-signal { background: #C8762A; }
+  .dot-ok { background: #3D6B5A; }
+  .sys-name { font-size: 14px; color: var(--ink); flex: 1; }
+  .sys-status { font-size: 12px; padding: 3px 10px; border-radius: 99px; font-weight: 500; }
+  .status-signal { background: var(--amber-light); color: var(--amber); }
+  .status-ok { background: var(--sage-light); color: var(--sage); }
+
+  /* ── INSIGHT + CARD ── */
+  .insight-card-block { margin: 20px 24px; background: var(--sage-light); border-radius: 16px; padding: 20px; }
+  .insight-text { font-size: 14px; color: var(--sage-dark); line-height: 1.7; margin-bottom: 18px; }
+  .insight-text strong { font-weight: 600; color: var(--sage-dark); }
+  .card-title { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 12px; }
+  .card-list { list-style: none; }
+  .card-list li { font-size: 14px; color: var(--sage-dark); line-height: 1.6; padding: 4px 0; display: flex; gap: 8px; }
+  .card-list li::before { content: "✔"; color: var(--sage); font-size: 13px; flex-shrink: 0; }
+
+  /* ── STORY ── */
+  .story-block { margin: 0 24px 20px; background: var(--surface); border: 1px solid var(--border-soft); border-radius: 16px; padding: 20px; }
+  .story-author { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .story-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--sage); color: #fff; font-size: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .story-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .story-role { font-size: 11px; color: var(--ink-soft); }
+  .story-text { font-size: 14px; color: var(--ink-mid); line-height: 1.75; }
+
+  /* ── CTA ── */
+  .cta-section { margin: 0 24px 32px; padding: 24px; background: var(--sage-dark); border-radius: 20px; }
+  .cta-final-phrase { font-size: 15px; color: var(--sage-mid); line-height: 1.6; margin-bottom: 16px; font-style: italic; }
+  .cta-title { font-size: 20px; font-weight: 400; color: #fff; line-height: 1.35; margin-bottom: 20px; letter-spacing: -0.01em; }
+  .cta-title strong { font-weight: 600; }
+  .btn-cta { display: block; width: 100%; padding: 16px; background: #fff; color: var(--sage-dark); border: none; border-radius: 12px; font-family: 'Geologica', sans-serif; font-size: 14px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: background 0.2s; }
+  .btn-cta:hover { background: var(--sage-light); }
+  .cta-note { text-align: center; margin-top: 12px; font-size: 12px; color: var(--sage-mid); }
+
+  .restart-btn { display: block; text-align: center; margin: 0 auto 24px; padding: 10px; background: none; border: none; font-family: 'Geologica', sans-serif; font-size: 13px; color: var(--ink-soft); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 </style>
 </head>
 <body>
+<div class="page-wrap">
 
-<header>
-  <div class="hd-left">
-    <h1>Оцінка систем організму</h1>
-    <div class="byline">нутриціолог Любов Бухарова</div>
-  </div>
-  <span class="badge">Експертна версія</span>
-</header>
-
-<div class="layout">
-
-  <!-- STEP INDICATOR -->
-  <div class="steps" id="steps">
-    <div class="step active" id="step1"><div class="step-num">1</div><span>Знайомство</span></div>
-    <div class="step-line"></div>
-    <div class="step" id="step2"><div class="step-num">2</div><span>Діагностика</span></div>
-    <div class="step-line"></div>
-    <div class="step" id="step3"><div class="step-num">3</div><span>Результати</span></div>
-    <div class="step-line"></div>
-    <div class="step" id="step4"><div class="step-num">4</div><span>Картка</span></div>
+  <div class="topbar">
+    <span class="brand-name">Бухарова Любов</span>
+    <span class="brand-tag">Нутриціолог</span>
   </div>
 
-  <!-- ══════════════════════════════
-       SECTION 1: INTAKE
-  ══════════════════════════════ -->
-  <div id="intake-section">
-    <div class="card">
-      <div class="intake-header">
-        <h2>Знайомство з клієнтом 💚</h2>
-        <p>Заповніть під час розмови — дані підтягнуться в картку клієнта</p>
+  <!-- INTRO -->
+  <div id="screen-intro" class="screen active">
+    <div class="intro-top">
+      <div class="intro-eyebrow">Міні-тест</div>
+      <h1 class="intro-title">Чому тіло говорить<br>з нами <strong>симптомами?</strong></h1>
+
+      <div class="symptoms-grid">
+        <span class="symptom-tag">втома з ранку</span>
+        <span class="symptom-tag">набряки</span>
+        <span class="symptom-tag">живіт</span>
+        <span class="symptom-tag">зміна ваги</span>
+        <span class="symptom-tag">поганий сон</span>
+        <span class="symptom-tag">тяга до солодкого</span>
+        <span class="symptom-tag">випадіння волосся</span>
+        <span class="symptom-tag">зміни шкіри</span>
+        <span class="symptom-tag">перепади настрою</span>
+        <span class="symptom-tag">тривога без причини</span>
       </div>
 
-      <!-- Q1 -->
-      <div class="q-block">
-        <div class="q-num">Питання 1</div>
-        <div class="q-text">Розкажіть трохи про себе 😊</div>
-        <div class="q-sub">Ім'я, вік, вага — чим займаєтесь і який у вас зараз ритм життя?</div>
-        <div class="q-row">
-          <div>
-            <label class="q-label">Ім'я</label>
-            <input class="q-input" id="q-name" type="text" placeholder="Марія">
-          </div>
-          <div>
-            <label class="q-label">Вік</label>
-            <input class="q-input" id="q-age" type="number" placeholder="35" min="1" max="120">
-          </div>
-          <div>
-            <label class="q-label">Вага (кг)</label>
-            <input class="q-input" id="q-weight" type="number" placeholder="65" min="1" max="300">
-          </div>
+      <p class="intro-connect">Усе в організмі пов'язано. Тіло рідко подає лише один сигнал — і кожен симптом має свою причину.</p>
+
+      <div class="lyubov-quote-intro">
+        <div class="lyubov-quote-intro-text">
+          "Я створила цей міні-тест щоб показати вам що тіло — це система. І для справжнього відновлення потрібна комплексна робота з розумінням."
+        </div>
+        <div class="lyubov-quote-intro-author">
+          <div class="lyubov-avatar-sm">Л</div>
+          <span class="lyubov-author-name">Любов Бухарова, нутриціолог</span>
         </div>
       </div>
-
-      <!-- Q2 -->
-      <div class="q-block">
-        <div class="q-num">Питання 2</div>
-        <div class="q-text">Що зараз вас найбільше турбує у самопочутті або в тілі?</div>
-        <label class="q-label">Скарга (з'явиться в картці клієнта)</label>
-        <input class="q-input" id="q-complaints" type="text" placeholder="Наприклад: набряки, втома, поганий сон...">
-      </div>
-
-      <!-- Q3 -->
-      <div class="q-block">
-        <div class="q-num">Питання 3</div>
-        <div class="q-text">Як цей стан впливає на ваше життя, енергію, настрій або стосунки з близькими?</div>
-        <div class="q-sub">Чого ви через це ніби "не можете отримати" від життя зараз?</div>
-        <textarea class="q-textarea" id="q3" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q4 -->
-      <div class="q-block">
-        <div class="q-num">Питання 4</div>
-        <div class="q-text">Як давно ви помічаєте ці зміни або живете в такому стані?</div>
-        <textarea class="q-textarea" id="q4" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q5 -->
-      <div class="q-block">
-        <div class="q-num">Питання 5</div>
-        <div class="q-text">Як ви самі пояснюєте собі, чому організм зараз працює саме так?</div>
-        <textarea class="q-textarea" id="q5" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q6 -->
-      <div class="q-block">
-        <div class="q-num">Питання 6</div>
-        <div class="q-text">Чи пробували ви вже щось змінювати?</div>
-        <div class="q-sub">Харчування, дієти, вітаміни, спорт, обстеження. Що реально допомогло, а що — ні?</div>
-        <textarea class="q-textarea" id="q6" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q7 -->
-      <div class="q-block">
-        <div class="q-num">Питання 7</div>
-        <div class="q-text">Як вам здається, що найбільше заважало отримати стабільний результат?</div>
-        <textarea class="q-textarea" id="q7" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q8 -->
-      <div class="q-block">
-        <div class="q-num">Питання 8</div>
-        <div class="q-text">Що найбільше виснажує вас у цій ситуації саме емоційно?</div>
-        <textarea class="q-textarea" id="q8" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q9 -->
-      <div class="q-block">
-        <div class="q-num">Питання 9</div>
-        <div class="q-text">Як ви думаєте, що буде з вашим станом через рік, якщо нічого не змінювати?</div>
-        <textarea class="q-textarea" id="q9" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q10 -->
-      <div class="q-block">
-        <div class="q-num">Питання 10</div>
-        <div class="q-text">Якою для вас є ваша "точка Б"?</div>
-        <div class="q-sub">Як ви хочете почувати себе, виглядати і жити?</div>
-        <textarea class="q-textarea" id="q10" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <!-- Q11 -->
-      <div class="q-block">
-        <div class="q-num">Питання 11</div>
-        <div class="q-text">Якщо у вас буде зрозумілий план і підтримка під ваш ритм життя — чи готові ви реально зайнятись своїм відновленням?</div>
-        <textarea class="q-textarea" id="q11" placeholder="Нотатки..."></textarea>
-      </div>
-
-      <div class="intake-footer">
-        <button class="btn-green btn-full" onclick="goToTest()">Перейти до діагностики →</button>
-      </div>
     </div>
-  </div>
 
-  <!-- ══════════════════════════════
-       SECTION 2: TEST
-  ══════════════════════════════ -->
-  <div id="test-section">
-    <div class="card">
-      <div class="card-hd">
-        <h2>Симптоми клієнта</h2>
-        <div class="prog-wrap">
-          <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
-          <span class="prog-label" id="prog-label">0 / 48</span>
+    <div class="intro-bottom">
+      <div class="intro-meta">
+        <div class="meta-item">
+          <div class="meta-num">10</div>
+          <div class="meta-label">питань так / ні</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-num">9</div>
+          <div class="meta-label">систем тіла</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-num">~2′</div>
+          <div class="meta-label">хвилини</div>
         </div>
       </div>
-      <div class="instruction">Натисніть на симптом, якщо він є у клієнта — одразу відмічається весь рядок</div>
-      <div class="symptom-list" id="symptom-list"></div>
-      <div class="btn-results-wrap" style="padding:1.25rem;display:flex;gap:10px;border-top:1px solid var(--border);">
-        <button class="btn-primary" style="flex:1;font-size:15px;" onclick="showResults()">Показати результати →</button>
-        <button class="btn-ghost" onclick="resetTest()">↺ Скинути</button>
-        <button class="btn-outline" onclick="backToIntake()">← Знайомство</button>
+      <div class="intro-note">Відповідайте чесно. Ніхто не бачить результатів, крім вас.</div>
+      <button class="btn-start" onclick="startTest()">Розпочати →</button>
+    </div>
+  </div>
+
+  <!-- TEST -->
+  <div id="screen-test" class="screen">
+    <div class="test-header">
+      <span class="test-header-title">Тіло — це система</span>
+      <span class="test-progress-label" id="progress-label">1 / 10</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:10%"></div>
+    </div>
+
+    <div class="question-wrap">
+      <div class="question-text" id="q-text"></div>
+      <div class="answer-row">
+        <button class="btn-ans" id="btn-yes" onclick="answer(true)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Так
+        </button>
+        <button class="btn-ans" id="btn-no" onclick="answer(false)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Ні
+        </button>
+      </div>
+      <div class="reaction-box" id="reaction-box">
+        <div class="reaction-label">Що це означає</div>
+        <div id="reaction-text"></div>
+      </div>
+      <button class="btn-next" id="btn-next" onclick="nextQuestion()">Далі →</button>
+    </div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="screen-result" class="screen">
+
+    <div class="result-hero">
+      <div class="result-eyebrow">На що зараз варто звернути увагу</div>
+      <h2 class="result-title" id="result-title"></h2>
+      <p class="result-desc" id="result-desc"></p>
+    </div>
+
+    <div class="systems-section">
+      <div class="section-label">Твої системи</div>
+      <div id="systems-list"></div>
+    </div>
+
+    <div class="insight-card-block">
+      <div class="insight-text" id="insight-text"></div>
+      <div class="card-title">📍 Карта ресурсу тіла</div>
+      <ul class="card-list">
+        <li>які системи реально перевантажені</li>
+        <li>чому це відбувається саме у вас</li>
+        <li>як симптоми пов'язані між собою</li>
+        <li>з чого почати відновлення</li>
+      </ul>
+    </div>
+
+    <div class="story-block">
+      <div class="story-author">
+        <div class="story-avatar">Л</div>
+        <div>
+          <div class="story-name">Любов Бухарова</div>
+          <div class="story-role">нутриціолог</div>
+        </div>
+      </div>
+      <div class="story-text">
+        Мої аналізи були в нормі. Лікарі казали — це стрес. Але я точно відчувала що щось не так.<br><br>
+        У мене були перевантажені 3 системи. І лише коли я це побачила — пішло справжнє відновлення. Я знову відчула енергію з ранку, перестала зриватись на солодке, нарешті почала висипатись, і зникли роздратування та тривога.<br><br>
+        Тепер я тут, щоб допомогти вам.
       </div>
     </div>
+
+    <div class="cta-section">
+      <div class="cta-final-phrase">Не звикайте до стану який забирає вашу енергію.</div>
+      <div class="cta-title"><strong>За 45 хвилин</strong> ви зрозумієте як відновити саме своє тіло</div>
+      <a class="btn-cta" href="https://t.me/Lyubov_nutritionist?text=Любове%2C%20хочу%20Карту%20Ресурсу%20Тіла" target="_blank">Написати Любові — Хочу Карту Ресурсу Тіла →</a>
+      <div class="cta-note">45 хвилин · Онлайн · з нутриціологом Любов'ю<br><br>Я зв'яжусь з вами протягом 24 годин для узгодження зручного часу 🤍</div>
+    </div>
+
+    <button class="restart-btn" onclick="restart()">Пройти тест знову</button>
   </div>
 
-  <!-- ══════════════════════════════
-       SECTION 3: EXPERT RESULTS
-  ══════════════════════════════ -->
-  <div id="results-section">
-    <div class="results-hd">
-      <h2>Результати діагностики</h2>
-      <span class="meta" id="results-meta"></span>
-    </div>
-    <div class="results-list" id="results-list"></div>
-    <div class="btn-nav">
-      <button class="btn-outline" onclick="backToTest()">← До тесту</button>
-      <button class="btn-green" style="flex:1;font-size:15px;" onclick="showForm()">Створити картку клієнта →</button>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════
-       SECTION 4: PRIORITY FORM
-  ══════════════════════════════ -->
-  <div id="form-section">
-    <div class="form-hd"><h2>Оберіть 3 пріоритетні системи</h2><p>Натискайте на системи в порядку пріоритетності ① ② ③</p></div>
-    <div class="form-body">
-      <div class="pri-hint">Системи відсортовані від найвищого балу. Оберіть 3 — кнопка активується автоматично.</div>
-      <div class="pri-list" id="pri-list"></div>
-      <button class="btn-green btn-full" id="btn-create" onclick="createCard()" disabled>Сформувати картку клієнта →</button>
-    </div>
-    <div class="btn-nav">
-      <button class="btn-outline" onclick="backToResults()">← До результатів</button>
-    </div>
-  </div>
-
-  <!-- ══════════════════════════════
-       SECTION 5: CLIENT CARD
-  ══════════════════════════════ -->
-  <div id="card-section">
-    <div class="client-card" id="client-card"></div>
-
-    <!-- Save options for iPhone -->
-    <div style="max-width:700px;margin:1rem auto 0;background:white;border:1px solid #e2dfd8;border-radius:12px;padding:1.25rem;">
-      <div style="font-size:12px;font-weight:700;color:#6b6b6b;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;">Зберегти картку клієнта</div>
-
-      <button onclick="savePDF()" style="width:100%;padding:13px;background:#4a7c6a;color:white;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:12px;">
-        🖨 Зберегти як PDF
-      </button>
-
-      <div style="background:#f9f6f1;border:1px solid #e8dfd0;border-radius:8px;padding:12px;font-size:13px;color:#5a5a5a;line-height:1.7;">
-        <div style="font-weight:600;color:#4a7c6a;margin-bottom:6px;">📱 Як зберегти PDF на iPhone (Safari):</div>
-        <div>1. Натисни кнопку вище</div>
-        <div>2. Внизу екрану з'явиться меню — прокрути вліво і знайди <b>"Друк"</b></div>
-        <div>3. На екрані друку — <b>зведи два пальці</b> на прев'ю документа</div>
-        <div>4. Документ відкриється як PDF — натисни <b>↑ Поділитися</b></div>
-        <div>5. Обери <b>"Зберегти у файли"</b> або відразу надішли у Telegram/Viber</div>
-      </div>
-    </div>
-
-    <div class="btn-nav" style="max-width:700px;margin:.75rem auto 0;">
-      <button class="btn-outline" onclick="backToForm()">← Змінити</button>
-      <button class="btn-primary" style="flex:1;" onclick="startNew()">Новий клієнт</button>
-    </div>
-  </div>
-
-</div><!-- /layout -->
+</div>
 
 <script>
-const SYSTEMS=[
-  {n:1,name:"Перетравлення та засвоєння їжі",color:"#C8941A"},
-  {n:2,name:"Шлунково-кишковий тракт",       color:"#2E8B4A"},
-  {n:3,name:"Серцево-судинна система",        color:"#5BB8E8"},
-  {n:4,name:"Нервова система",                color:"#2B3F8C"},
-  {n:5,name:"Імунна система",                 color:"#7B3080"},
-  {n:6,name:"Дихальна система",               color:"#8A8A8A"},
-  {n:7,name:"Сечовидільна система",           color:"#A0640A"},
-  {n:8,name:"Ендокринна система",             color:"#C060A8"},
-  {n:9,name:"Опорно-рухова система",          color:"#3A7D3A"}
+const questions = [
+  {
+    systemFull: "Система перетравлення",
+    text: "Після їжі відчуваєш важкість, здуття або відчуття що їжа «лежить»?",
+    reaction: "Важкість і здуття після їжі — тіло сигналізує. Але що саме запустило цей процес — індивідуально для кожної."
+  },
+  {
+    systemFull: "ШКТ",
+    text: "Живіт або вага змінились без явної причини?",
+    reaction: "Зміни живота і ваги без причини — це не про їжу. За цим стоїть глибший збій. Який саме — ваша особиста картина."
+  },
+  {
+    systemFull: "Серцево-судинна система",
+    text: "Буває розсіяність, погіршення пам'яті або важко зосередитись?",
+    reaction: "Туман в голові і розсіяність — рідко бувають самі по собі. За цим завжди стоїть причина — і вона глибша ніж здається."
+  },
+  {
+    systemFull: "Нервова система",
+    text: "Прокидаєшся вночі, сон поверхневий — або тривога і роздратування без причини?",
+    reaction: "Порушення сну і тривога без причини — це не характер і не слабкість. Але що саме виснажує твою нервову систему — потрібно розібратись."
+  },
+  {
+    systemFull: "Імунна система",
+    text: "Часто хворієш або одужання йде довго і важко?",
+    reaction: "Тіло перестало захищатись — бо кинуло всі сили на щось інше. На що саме — покаже ваша картина."
+  },
+  {
+    systemFull: "Дихальна система",
+    text: "Відчуваєш швидку втомлюваність навіть без фізичного навантаження?",
+    reaction: "Швидка втомлюваність без навантаження — це сигнал що тіло витрачає ресурс не туди. Але звідки витік — у кожної своя причина."
+  },
+  {
+    systemFull: "Сечовидільна система",
+    text: "Бувають набряки зранку або ввечері — обличчя, руки, ноги?",
+    reaction: "Набряки — це не просто вода. Це сигнал що тіло не справляється з виведенням зайвого. Чому саме у вас — окрема історія."
+  },
+  {
+    systemFull: "Ендокринна система",
+    text: "Тягне на солодке або відчуваєш різкі перепади енергії протягом дня?",
+    reaction: "Тяга до солодкого і перепади енергії можуть говорити про багато різних факторів. Що саме стоїть за цим у вас — можна розібратись."
+  },
+  {
+    systemFull: "Опорно-рухова система",
+    text: "Є болі у спині, суглобах або скутість вранці?",
+    reaction: "Болі і скутість — це тіло яке довго мовчало. За цим завжди стоїть більше ніж здається."
+  },
+  {
+    systemFull: "Загальний ресурс",
+    text: "Хочеш зайнятись собою — але немає ні сили ні бажання навіть почати?",
+    reaction: "Немає сили почати — це не лінь. Це тіло яке вже віддало весь ресурс. Але звідки саме витік — ваша індивідуальна картина."
+  }
 ];
 
-const THRESH=[
-  {great:[0,2],good:[3,4], ok:[5,9], bad:"≥10"},
-  {great:[0,2],good:[3,4], ok:[5,9], bad:"≥10"},
-  {great:[0,2],good:[2,3], ok:[4,7], bad:"≥8" },
-  {great:[0,2],good:[3,5], ok:[6,10],bad:"≥11"},
-  {great:[0,2],good:[3,4], ok:[5,7], bad:"≥8" },
-  {great:[0,0],good:[1,1], ok:[2,4], bad:"≥5" },
-  {great:[0,0],good:[1,1], ok:[2,4], bad:"≥5" },
-  {great:[0,2],good:[3,5], ok:[6,10],bad:"≥11"},
-  {great:[0,1],good:[2,3], ok:[4,7], bad:"≥8" }
-];
+let current = 0;
+let answers = [];
+let answered = false;
 
-const RECS=[
-  "Зверніть увагу на режим харчування та ретельне пережовування їжі. Уникайте переїдання. Рекомендується вживати більше ферментованих продуктів, гірких трав та достатню кількість води між прийомами їжі.",
-  "Важливо відновити мікробіом кишківника. Рекомендується збільшити споживання клітковини та пробіотичних продуктів, зменшити цукор та оброблені продукти. Зверніть увагу на регулярність стільця.",
-  "Рекомендується зменшити споживання насичених жирів та солі, збільшити омега-3 жирні кислоти та магній. Регулярна помірна фізична активність та управління стресом є ключовими факторами.",
-  "Важливо нормалізувати сон та знизити рівень стресу. Рекомендується вживати продукти багаті на магній, вітаміни групи B та омега-3. Обмежте каву, алкоголь та цукор.",
-  "Зверніть увагу на достатній рівень вітаміну D, цинку та вітаміну С. Рекомендується уникати продуктів що викликають запалення, підтримувати здоров'я кишківника як основи імунітету.",
-  "Рекомендується зменшити споживання молочних продуктів що збільшують слиз, звернути увагу на якість повітря в приміщенні. Вітамін С, цинк та антиоксиданти підтримують здоров'я дихальних шляхів.",
-  "Важливо достатнє споживання чистої води — не менше 1.5–2 літри на день. Зменшіть сіль, каву та алкоголь. Журавлина, петрушка та кропива підтримують роботу нирок.",
-  "Гормональний баланс потребує стабільного рівня цукру в крові. Рекомендується харчування без різких стрибків глюкози, достатній сон, зменшення стресу та підтримка щитовидної залози йодом та селеном.",
-  "Зверніть увагу на достатній рівень кальцію, магнію, вітаміну D та К2. Рекомендується помірна фізична активність та достатнє споживання білка для підтримки м'язової маси."
-];
+function startTest() {
+  document.getElementById('screen-intro').classList.remove('active');
+  document.getElementById('screen-test').classList.add('active');
+  renderQuestion();
+}
 
-const SYMPTOMS=[
-  {text:"Зниження енергії, втрата сил",                         cols:[0,2,3,4,7]},
-  {text:"Часті захворювання",                                   cols:[4]},
-  {text:"Неприємний запах тіла, з ротової порожнини",           cols:[0,1,5,6]},
-  {text:"Важкість у перетравленні їжі",                         cols:[0,4]},
-  {text:"Часте споживання червоного м'яса",                     cols:[1,2,5]},
-  {text:"Болючі, нерегулярні місячні",                          cols:[1,6,7]},
-  {text:"Часте використання антибіотиків",                      cols:[1,4]},
-  {text:"Зловживання алкоголем",                                cols:[3,7]},
-  {text:"Часті перепади настрою",                               cols:[3,7]},
-  {text:"Алергія на харчові продукти",                          cols:[0,4,5]},
-  {text:"Набряки під очима",                                    cols:[2,3,6]},
-  {text:"Паління",                                              cols:[2,3,5]},
-  {text:"Розсіяність, погана пам'ять",                          cols:[2,3,7]},
-  {text:"Знижений імунітет",                                    cols:[0,4]},
-  {text:"Печія та газоутворення після прийому їжі",             cols:[0,4]},
-  {text:"Часті стреси",                                         cols:[2,3,4,7]},
-  {text:"Дефекти шкіри або поганий колір обличчя",              cols:[0,1,6,7,8]},
-  {text:"Надмірне споживання вуглеводів, тяга до солодкого",    cols:[3,7]},
-  {text:"Надмірне споживання молочних продуктів",               cols:[1,5]},
-  {text:"Пригнічення, апатія, депресія",                        cols:[1,3]},
-  {text:"Безсоння, або неспокійний сон",                        cols:[3,7]},
-  {text:"Проблеми менопаузи",                                   cols:[3,7,8]},
-  {text:"Часте сечовипускання",                                 cols:[6]},
-  {text:"Випадіння волосся",                                    cols:[2,3,7,8]},
-  {text:"Набряки та болі у суглобах",                           cols:[2,4,8]},
-  {text:"Труднощі збереження нормальної ваги",                  cols:[3,4,7,8]},
-  {text:"Швидка втомлюваність",                                 cols:[2,5,8]},
-  {text:"Недотримання режиму харчування",                       cols:[0,1,7]},
-  {text:"Повільне одужання",                                    cols:[1,2,4,7]},
-  {text:"Нерегулярний стілець",                                 cols:[0,1,3]},
-  {text:"Відсутність апетиту",                                  cols:[0,3,7]},
-  {text:"Низька сексуальна активність",                         cols:[7]},
-  {text:"Тонкі та ламкі нігті",                                 cols:[0,8]},
-  {text:"Сухе, тьмяне, пошкоджене волосся",                    cols:[0,6]},
-  {text:"Споживання жирної їжі",                                cols:[0,1,2]},
-  {text:"Відчуття страху, тривоги",                             cols:[3,7]},
-  {text:"Недостатність клітковини у раціоні",                   cols:[1]},
-  {text:"Судоми м'язів",                                        cols:[3,8]},
-  {text:"Не сприятлива екологія",                               cols:[4,5]},
-  {text:"Часте споживання кави, чаю",                           cols:[3,7,8]},
-  {text:"Підвищена роздратованість, втрата самоконтролю",       cols:[3,4,8]},
-  {text:"Гіперчутливість до хімічних та харчових продуктів",    cols:[0,1,4]},
-  {text:"Грибкові ураження",                                    cols:[0,1,4]},
-  {text:"Слабість у м'язах, крихкість кісток",                  cols:[0,6,8]},
-  {text:"Постійна тривога",                                     cols:[0,3]},
-  {text:"Роздратованість, надмірна збудливість",                cols:[1,3,7]},
-  {text:"Малорухомий спосіб життя",                             cols:[1,3,7,8]},
-  {text:"Підвищене виділення мокроти",                          cols:[1,5]}
-];
+function renderQuestion() {
+  answered = false;
+  const q = questions[current];
+  document.getElementById('q-text').textContent = q.text;
+  document.getElementById('reaction-box').style.display = 'none';
+  document.getElementById('reaction-text').textContent = '';
+  document.getElementById('btn-next').style.display = 'none';
+  document.getElementById('btn-yes').className = 'btn-ans';
+  document.getElementById('btn-no').className = 'btn-ans';
+  const pct = Math.round(((current + 1) / questions.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = (current + 1) + ' / ' + questions.length;
+  document.getElementById('btn-next').textContent = current < questions.length - 1 ? 'Далі →' : 'Показати результат →';
+}
 
-let active=new Array(SYMPTOMS.length).fill(false);
-let scored=[];
-let selPri=[];
+function answer(yes) {
+  if (answered) return;
+  answered = true;
+  answers.push({ yes, q: questions[current] });
+  document.getElementById('btn-yes').className = 'btn-ans' + (yes ? ' selected-yes' : '');
+  document.getElementById('btn-no').className = 'btn-ans' + (!yes ? ' selected-no' : '');
+  if (yes) {
+    document.getElementById('reaction-text').textContent = questions[current].reaction;
+    document.getElementById('reaction-box').style.display = 'block';
+  }
+  document.getElementById('btn-next').style.display = 'block';
+}
 
-// ── STEP INDICATOR ──
-function setStep(n){
-  for(let i=1;i<=4;i++){
-    const el=document.getElementById('step'+i);
-    el.className='step'+(i<n?' done':i===n?' active':'');
+function nextQuestion() {
+  if (current < questions.length - 1) {
+    current++;
+    renderQuestion();
+  } else {
+    showResult();
   }
 }
 
-// ── NAVIGATION ──
-function show(id){['intake-section','test-section','results-section','form-section','card-section'].forEach(s=>document.getElementById(s).style.display='none');document.getElementById(id).style.display='block';window.scrollTo({top:0,behavior:'smooth'});}
+function showResult() {
+  document.getElementById('screen-test').classList.remove('active');
+  document.getElementById('screen-result').classList.add('active');
+  window.scrollTo(0, 0);
 
-function goToTest(){show('test-section');setStep(2);}
-function backToIntake(){show('intake-section');setStep(1);}
-function showResults(){
-  const total=active.filter(Boolean).length;
-  document.getElementById('results-meta').textContent=`${total} симптомів відмічено`;
-  calcScored();buildResults();
-  show('results-section');setStep(3);
-}
-function backToTest(){show('test-section');setStep(2);}
-function showForm(){calcScored();buildPriList();show('form-section');setStep(3);}
-function backToResults(){show('results-section');setStep(3);}
-function backToForm(){show('form-section');setStep(4);}
-function startNew(){
-  active.fill(false);
-  SYMPTOMS.forEach((_,i)=>{const r=document.getElementById('row-'+i);const c=document.getElementById('chk-'+i);if(r)r.classList.remove('active');if(c)c.textContent='';});
-  updateProg();
-  ['q-name','q-age','q-weight','q-complaints','q3','q4','q5','q6','q7','q8','q9','q10','q11'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-  show('intake-section');setStep(1);
-}
+  const yesCount = answers.filter(a => a.yes).length;
+  const title = document.getElementById('result-title');
+  const desc = document.getElementById('result-desc');
+  const insightEl = document.getElementById('insight-text');
 
-// ── TEST ──
-function updateProg(){
-  const t=active.filter(Boolean).length;
-  document.getElementById('prog-fill').style.width=(t/SYMPTOMS.length*100)+'%';
-  document.getElementById('prog-label').textContent=t+' / '+SYMPTOMS.length;
-}
-function toggleRow(idx){
-  active[idx]=!active[idx];
-  document.getElementById('row-'+idx).classList.toggle('active',active[idx]);
-  document.getElementById('chk-'+idx).textContent=active[idx]?'✓':'';
-  updateProg();
-}
-function resetTest(){active.fill(false);SYMPTOMS.forEach((_,i)=>{const r=document.getElementById('row-'+i);const c=document.getElementById('chk-'+i);if(r)r.classList.remove('active');if(c)c.textContent='';});updateProg();}
+  if (yesCount === 0) {
+    title.textContent = 'Явних сигналів зараз немає';
+    desc.textContent = 'Твій організм зараз у відносному балансі. Підтримуй цей стан — і тіло відповість енергією та стабільністю.';
+    insightEl.innerHTML = 'Цей міні-тест показує реакції ваших систем. Якщо в майбутньому щось зміниться — ви знатимете куди звернути увагу.';
+  } else if (yesCount <= 3) {
+    title.textContent = 'Є кілька сигналів на які варто звернути увагу';
+    desc.textContent = 'Поки без критичних змін — але тіло вже підказує. Саме зараз найкращий момент розібратись що відбувається.';
+    insightEl.innerHTML = 'Цей міні-тест показує <strong>реакції</strong> ваших систем — але не показує які з них реально перевантажені. Що саме стоїть за цими сигналами — покаже Карта ресурсу тіла.';
+  } else if (yesCount <= 6) {
+    title.textContent = 'Кілька систем одночасно подають сигнали';
+    desc.textContent = 'Те що ви відчуваєте — не випадковість. Це тіло яке намагається достукатись. Кожен симптом має свою причину — і вони між собою пов\'язані.';
+    insightEl.innerHTML = 'Цей міні-тест показує <strong>реакції</strong> ваших систем — але не показує які з них реально перевантажені. Часто за кількома реакціями стоїть одна причина. Яка саме у вас — покаже Карта ресурсу тіла.';
+  } else {
+    title.textContent = 'Більшість систем зараз сигналізують';
+    desc.textContent = 'Симптоми накопичувались поступово. Тіло справлялось як могло — але зараз йому потрібна підтримка і розуміння з чого починати.';
+    insightEl.innerHTML = 'Цей міні-тест показує <strong>реакції</strong> ваших систем — але не показує які з них реально перевантажені. <strong>Не лякайтесь цифри.</strong> Часто за багатьма реакціями стоять лише 2-3 системи які тягнуть за собою решту. Які саме у вас — покаже Карта ресурсу тіла.';
+  }
 
-// ── STATUS ──
-function getStatus(si,score){
-  const t=THRESH[si];
-  if(score<=t.great[1])return{key:'great',label:'Дуже добре',cls:'st-great'};
-  if(score<=t.good[1]) return{key:'good', label:'Добре',      cls:'st-good'};
-  if(score<=t.ok[1])   return{key:'ok',  label:'Задовільно', cls:'st-ok'};
-  return                     {key:'bad', label:'Незадовільно',cls:'st-bad'};
-}
-function mkPct(si,score){return Math.min(96,Math.round(score/(THRESH[si].ok[1]+5)*100));}
-function rng(a,b){return a===b?''+a:a+'–'+b;}
-
-// ── SCORED ──
-function calcScored(){
-  scored=SYSTEMS.map((sys,si)=>{
-    const score=SYMPTOMS.reduce((a,sym,r)=>a+(active[r]&&sym.cols.includes(si)?1:0),0);
-    const activeSyms=SYMPTOMS.filter((sym,r)=>active[r]&&sym.cols.includes(si));
-    return{sys,si,score,activeSyms};
-  }).sort((a,b)=>b.score-a.score);
-}
-
-// ── EXPERT RESULTS ──
-function buildResults(){
-  const list=document.getElementById('results-list');
-  list.innerHTML='';
-  scored.forEach(({sys,si,score,activeSyms})=>{
-    const t=THRESH[si];const st=getStatus(si,score);
-    const tot=t.ok[1]+5;
-    const gW=Math.max(9,Math.round((t.great[1]-t.great[0]+1)/tot*100));
-    const goW=Math.max(9,Math.round((t.good[1]-t.good[0]+1)/tot*100));
-    const oW=Math.max(9,Math.round((t.ok[1]-t.ok[0]+1)/tot*100));
-    const bW=100-gW-goW-oW;
-    const mp=mkPct(si,score);
-    const seg=k=>st.key===k?'thresh-seg cur':'thresh-seg';
-    const lbl=k=>st.key===k?'t-lbl cur':'t-lbl';
-    const card=document.createElement('div');
-    card.className='sys-card';
-    card.innerHTML=`<div class="sys-card-hd"><div class="sys-num" style="background:${sys.color}">${sys.n}</div><div class="sys-name">${sys.name}</div><div class="sys-score" style="color:${sys.color}">${score}</div></div><div class="sys-card-body"><span class="st-badge ${st.cls}">${st.label}</span><div class="thresh-wrap"><div class="thresh-lbl">Пороги оцінки:</div><div class="thresh-bar" style="grid-template-columns:${gW}% ${goW}% ${oW}% ${bW}%"><div class="${seg('great')}" style="background:#2e7d32"><span>${rng(t.great[0],t.great[1])}</span></div><div class="${seg('good')}" style="background:#1565c0"><span>${rng(t.good[0],t.good[1])}</span></div><div class="${seg('ok')}" style="background:#e65100"><span>${rng(t.ok[0],t.ok[1])}</span></div><div class="${seg('bad')}" style="background:#b71c1c"><span>${t.bad}</span></div></div><div class="thresh-lbls" style="grid-template-columns:${gW}% ${goW}% ${oW}% ${bW}%"><div class="${lbl('great')}">Дуже добре</div><div class="${lbl('good')}">Добре</div><div class="${lbl('ok')}">Задовільно</div><div class="${lbl('bad')}">Незадовільно</div></div><div class="thresh-mk-wrap"><div class="thresh-mk" style="left:${mp}%;background:${sys.color}"></div></div></div><div class="sym-list-title">Відмічені симптоми (${activeSyms.length})</div>${activeSyms.length===0?'<div class="sym-none">немає відмічених симптомів</div>':`<ul class="sym-list">${activeSyms.map(s=>`<li>${s.text}</li>`).join('')}</ul>`}</div>`;
-    list.appendChild(card);
+  const listEl = document.getElementById('systems-list');
+  listEl.innerHTML = '';
+  answers.forEach(a => {
+    const row = document.createElement('div');
+    row.className = 'system-row';
+    row.innerHTML = `
+      <span class="sys-dot ${a.yes ? 'dot-signal' : 'dot-ok'}"></span>
+      <span class="sys-name">${a.q.systemFull}</span>
+      <span class="sys-status ${a.yes ? 'status-signal' : 'status-ok'}">${a.yes ? 'є сигнали' : 'без сигналів'}</span>
+    `;
+    listEl.appendChild(row);
   });
 }
 
-// ── PRIORITY LIST ──
-function buildPriList(){
-  selPri=[];
-  const list=document.getElementById('pri-list');
-  list.innerHTML='';
-  scored.forEach(({sys,si,score})=>{
-    const st=getStatus(si,score);
-    const item=document.createElement('div');
-    item.className='pri-item';item.id='pri-'+si;item.onclick=()=>togglePri(si);
-    item.innerHTML=`<div class="pri-dot" style="background:${sys.color}">${sys.n}</div><div class="pri-name">${sys.name}</div><div class="pri-score-val" style="color:${sys.color}">${score}</div><div><span class="st-badge ${st.cls}" style="margin:0">${st.label}</span></div><div class="pri-rank" id="rank-${si}"></div>`;
-    list.appendChild(item);
-  });
+function restart() {
+  current = 0;
+  answers = [];
+  answered = false;
+  document.getElementById('screen-result').classList.remove('active');
+  document.getElementById('screen-intro').classList.add('active');
+  window.scrollTo(0, 0);
 }
-function togglePri(si){
-  const idx=selPri.indexOf(si);
-  if(idx>=0)selPri.splice(idx,1);
-  else{if(selPri.length>=3)return;selPri.push(si);}
-  updatePriUI();
-}
-function updatePriUI(){
-  const cls=['sel','sel2','sel3'];
-  scored.forEach(({si})=>{
-    const item=document.getElementById('pri-'+si);
-    const rank=document.getElementById('rank-'+si);
-    item.className='pri-item';rank.textContent='';
-    const pos=selPri.indexOf(si);
-    if(pos>=0){item.classList.add(cls[pos]);rank.textContent=pos+1;}
-  });
-  document.getElementById('btn-create').disabled=selPri.length!==3;
-}
-
-// ── CREATE CLIENT CARD ──
-function createCard(){
-  const name      =document.getElementById('q-name').value.trim()||'Клієнт';
-  const age       =document.getElementById('q-age').value;
-  const weight    =document.getElementById('q-weight').value;
-  const complaints=document.getElementById('q-complaints').value.trim();
-  const today     =new Date().toLocaleDateString('uk-UA',{day:'numeric',month:'long',year:'numeric'});
-
-  const meta=[];
-  if(age)    meta.push(`<span class="cc-pill">Вік: <b>${age} р.</b></span>`);
-  if(weight) meta.push(`<span class="cc-pill">Вага: <b>${weight} кг</b></span>`);
-  meta.push(`<span class="cc-pill">📅 <b>${today}</b></span>`);
-
-  const stC={great:'#2e7d32',good:'#1565c0',ok:'#e65100',bad:'#b71c1c'};
-  const stB={great:'#e8f5e9',good:'#e3f0ff',ok:'#fff8e1',bad:'#fdecea'};
-
-  const allHTML=[...scored].sort((a,b)=>a.si-b.si).map(({sys,si,score})=>{
-    const st=getStatus(si,score);
-    const isPri=selPri.includes(si);
-    return `<div class="cc-sys-row${isPri?' cc-sys-pri':''}"><div class="cc-sys-dot" style="background:${sys.color}">${sys.n}</div><div class="cc-sys-name">${sys.name}</div><div class="cc-sys-score" style="color:${sys.color}">${score}</div><div class="cc-sys-badge" style="background:${stB[st.key]};color:${stC[st.key]}">${st.label}</div><div class="cc-sys-star">${isPri?'⭐':''}</div></div>`;
-  }).join('');
-
-  const priHTML=selPri.map((si,i)=>{
-    const s=SYSTEMS[si];
-    const{score}=scored.find(x=>x.si===si);
-    const nums=['①','②','③'];
-    return `<div class="cc-pri-card"><div class="cc-pri-hd" style="background:${s.color}"><span class="cc-pri-num">${nums[i]}</span><span class="cc-pri-sysname">${s.name}</span><span class="cc-pri-pts">${score} балів</span></div><div class="cc-pri-rec">${RECS[si]}</div></div>`;
-  }).join('');
-
-  document.getElementById('client-card').innerHTML=`
-    <div class="cc-hd">
-      <div class="cc-brand">
-        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-          <circle cx="26" cy="26" r="26" fill="#7aab94" opacity=".12"/>
-          <circle cx="26" cy="26" r="23" fill="none" stroke="#7aab94" stroke-width="1.5" opacity=".4"/>
-          <text x="26" y="33" text-anchor="middle" font-size="20" font-weight="700" fill="#4a7c6a" font-family="Georgia,serif" letter-spacing="-1">LB</text>
-          <path d="M26 8 Q29 4 32 7 Q30 10 26 9 Q22 10 20 7 Q23 4 26 8Z" fill="#7aab94" opacity=".6"/>
-        </svg>
-        <div><div class="cc-brand-name">Любов Бухарова</div><div class="cc-brand-title">Нутриціолог · Оцінка систем організму</div></div>
-      </div>
-      <div class="cc-divider"></div>
-      <div class="cc-client-name">${name}</div>
-      <div class="cc-meta-row">${meta.join('')}</div>
-      ${complaints?`<div class="cc-complaints"><span class="cc-complaints-lbl">💬 Скарги:</span>${complaints}</div>`:''}
-    </div>
-    <div class="cc-body">
-      <div class="cc-sec-title"><span class="cc-sec-line"></span><span>Оцінка систем організму</span><span class="cc-sec-line"></span></div>
-      <div class="cc-legend">
-        <span class="cc-leg-item" style="color:#2e7d32"><span class="cc-leg-dot" style="background:#2e7d32"></span>Дуже добре</span>
-        <span class="cc-leg-item" style="color:#1565c0"><span class="cc-leg-dot" style="background:#1565c0"></span>Добре</span>
-        <span class="cc-leg-item" style="color:#e65100"><span class="cc-leg-dot" style="background:#e65100"></span>Задовільно</span>
-        <span class="cc-leg-item" style="color:#b71c1c"><span class="cc-leg-dot" style="background:#b71c1c"></span>Незадовільно</span>
-        <span class="cc-leg-item" style="color:#4a7c6a">⭐ Пріоритет</span>
-      </div>
-      <div class="cc-systems">${allHTML}</div>
-      <div class="cc-sec-title" style="margin-top:1.75rem"><span class="cc-sec-line"></span><span>Пріоритетні напрямки роботи</span><span class="cc-sec-line"></span></div>
-      <div class="cc-priorities">${priHTML}</div>
-    </div>
-    <div class="cc-footer">
-      <div class="cc-footer-brand">
-        <div class="cc-footer-lb">LB</div>
-        <div><div class="cc-footer-name">Любов Бухарова</div><div class="cc-footer-sub">Нутриціолог</div></div>
-      </div>
-      <div class="cc-footer-note">Результати носять інформаційний характер</div>
-    </div>`;
-
-  show('card-section');setStep(4);
-}
-
-// ── SAVE PDF (iPhone friendly) ──
-function savePDF(){
-  window.print();
-}
-
-function init(){
-  const list=document.getElementById('symptom-list');
-  SYMPTOMS.forEach((sym,r)=>{
-    const row=document.createElement('div');
-    row.className='symptom-row';row.id='row-'+r;row.onclick=()=>toggleRow(r);
-    const dots=sym.cols.map(c=>`<div class="sdot" style="background:${SYSTEMS[c].color}" title="${SYSTEMS[c].name}"></div>`).join('');
-    row.innerHTML=`<div class="sym-check" id="chk-${r}"></div><div class="sym-text">${sym.text}</div><div class="sym-dots">${dots}</div>`;
-    list.appendChild(row);
-    if(r<SYMPTOMS.length-1){const d=document.createElement('div');d.className='row-div';list.appendChild(d);}
-  });
-  // Show intake first
-  show('intake-section');setStep(1);
-}
-
-init();
 </script>
 </body>
 </html>
