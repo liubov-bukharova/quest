@@ -700,8 +700,7 @@ function createCard(){
       </div>
       <div class="cc-footer-note">Результати носять інформаційний характер</div>
     </div>`;
-  
-  addRecommendations();
+
   show('card-section');setStep(4);
 }
 
@@ -710,90 +709,6 @@ function savePDF(){
   window.print();
 }
 
-function addRecommendations(){
-  const recSection=document.getElementById('cc-recommendations');
-  recSection.innerHTML=`
-    <div class="cc-rec-sec">
-      <div class="cc-rec-title">💡 Що це означає?</div>
-      <div class="cc-rec-box">
-        <div style="margin-bottom:12px;"><b>Твоє тіло працює в режимі ПЕРЕВАНТАЖЕННЯ.</b></div>
-        <div style="margin-bottom:8px;">Це означає:</div>
-        <div style="margin-left:12px;margin-bottom:12px;">
-          <div style="margin-bottom:8px;">✔️ Енергія витрачається на "компенсацію" систем</div>
-          <div style="margin-bottom:8px;">✔️ Організм намагається відновитись, але не встигає</div>
-          <div style="margin-bottom:8px;">✔️ Симптоми будуть посилюватись без системної роботи</div>
-        </div>
-        <div style="font-size:12px;color:#666;padding-top:12px;border-top:1px solid #c8ddd5;">⚠️ Важливо: Це НЕ "щось незрозуміле" і НЕ вина в тобі.<br/>Це просто сигнал що організму потрібна допомога 🌿</div>
-      </div>
-    </div>
-    <div class="cc-rec-sec">
-      <div class="cc-rec-title">🚀 Що робити далі?</div>
-      <div class="cc-rec-path">
-        <div class="cc-rec-path-hd">ШЛЯХ 1️⃣: ПРОГРАМА "RESET ТІЛА 35+"</div>
-        <div class="cc-rec-path-body">
-          <div style="margin-bottom:12px;"><div class="cc-rec-label">Для кого:</div><div class="cc-rec-value">Жінок які хочуть зрозуміти своє тіло і почати відновлення самостійно</div></div>
-          <div style="margin-bottom:12px;"><div class="cc-rec-label">Період:</div><div class="cc-rec-value">4 тижні (28 днів)</div></div>
-          <div style="margin-bottom:12px;">
-            <div class="cc-rec-label">Що ти отримаєш:</div>
-            <div class="cc-rec-value">
-              ✅ РОЗУМІННЯ як працює твоє тіло<br/>
-              ✅ ЗМІНИ у харчовій поведінці<br/>
-              ✅ ФОРМУВАННЯ нових здорових звичок<br/>
-              ✅ Енергія і легкість<br/>
-              ✅ Ясність що робити далі
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="cc-rec-path">
-        <div class="cc-rec-path-hd" style="background:linear-gradient(135deg,#7aab94 0%,#9bc5b4 100%);">ШЛЯХ 2️⃣: ІНДИВІДУАЛЬНИЙ НУТРИЦЕВТИЧНИЙ СУПРОВІД</div>
-        <div class="cc-rec-path-body">
-          <div style="margin-bottom:12px;"><div class="cc-rec-label">Для кого:</div><div class="cc-rec-value">Жінок які хочуть глибшого відновлення, персональної програми і постійної підтримки</div></div>
-          <div style="margin-bottom:12px;"><div class="cc-rec-label">Період:</div><div class="cc-rec-value">3 місяці</div></div>
-          <div style="margin-bottom:12px;">
-            <div class="cc-rec-label">Що ти отримаєш:</div>
-            <div class="cc-rec-value">
-              ✅ ГЛИБОКЕ ВІДНОВЛЕННЯ систем організму<br/>
-              ✅ ПЕРСОНАЛЬНА СХЕМА саме під тебе<br/>
-              ✅ СТІЙКІ РЕЗУЛЬТАТИ на довго<br/>
-              ✅ Повна енергія і ресурс<br/>
-              ✅ Розуміння як жити далі самостійно
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cc-rec-sec">
-      <div class="cc-rec-title">💬 Моя рекомендація</div>
-      <div class="cc-rec-box">
-        <div style="margin-bottom:12px;"><b>Я рекомендую розпочати ЗІ ШЛЯХУ 1️⃣</b></div>
-        <div style="margin-bottom:8px;"><b>▶ СПОЧАТКУ:</b> RESET ТІЛА 35+ (4 тижні)</div>
-        <div style="margin-left:12px;margin-bottom:12px;font-size:12px;">
-          └─ Ти розумієш своє тіло<br/>
-          └─ Бачиш як воно реагує на зміни<br/>
-          └─ Готова до більш серйозної роботи
-        </div>
-        <div style="margin-bottom:8px;"><b>▶ ПОТІМ:</b> Індивідуальний супровід (3 місяці)</div>
-        <div style="margin-left:12px;font-size:12px;">
-          └─ Закріпиш все що дізналась<br/>
-          └─ Персональна схема саме під тебе<br/>
-          └─ Повне відновлення ресурсу
-        </div>
-      </div>
-    </div>
-    <div class="cc-rec-cta">
-      <div class="cc-rec-cta-title">💌 Готова почати?</div>
-      <a href="https://t.me/Lyubov_nutritionist" class="cc-btn-telegram">💬 Напиши Любові в Telegram</a>
-      <div class="cc-rec-cta-contact">@Lyubov_nutritionist</div>
-      <div class="cc-rec-cta-note">Я розповім про всі деталі та допоможу вибрати шлях ✨</div>
-    </div>
-    <div style="margin-top:1.5rem;text-align:center;">
-      <button onclick="savePDF()" style="width:100%;padding:14px;background:#4a7c6a;color:white;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s;">
-        🖨 Зберегти картку як PDF
-      </button>
-    </div>
-  `;
-  
 function init(){
   const list=document.getElementById('symptom-list');
   SYMPTOMS.forEach((sym,r)=>{
