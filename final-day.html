@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Моя тарілка на кожен день · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cr:#F7F4EC;--ink:#1C2A1E;--ink2:#3A4E3C;--mu:#6B7F6D;--g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--bd:rgba(28,58,36,.14);--gold:#C8943A;
+--w:#4F8FB0;--wp:#EAF3F8;--p:#B8674A;--pp:#FAEEE8;--f:#C8943A;--fp:#FBF3E2;--c:#2E6B3A;--cp:#E8F5E9}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);background:var(--cr);overflow-x:hidden}
+.w{max-width:480px;margin:0 auto;padding:0 18px}
+header{background:radial-gradient(ellipse 80% 70% at 50% 100%,rgba(90,170,104,.2),transparent 65%),#1C3A24;color:#F0F7F0;text-align:center;padding:34px 22px 40px}
+.apl{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:6px 16px 6px 6px;margin-bottom:22px}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;color:#fff}
+.an{font-size:12px;font-weight:500;line-height:1.2;text-align:left}
+.ar{font-size:9px;letter-spacing:2px;color:rgba(200,230,200,.7);text-transform:uppercase;text-align:left}
+.eyb{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#8FCC9A;margin-bottom:10px;display:block}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,9vw,46px);font-weight:700;line-height:1.1}
+h1 em{font-style:italic;color:#8FCC9A}
+.sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:rgba(180,220,184,.85);margin-top:10px;line-height:1.6}
+.today{position:sticky;top:0;z-index:50;background:rgba(247,244,236,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd);padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px}
+.today .w{display:flex;align-items:center;gap:12px}
+.dt{font-size:11px;color:var(--mu);letter-spacing:.5px}
+.tr{flex:1;height:6px;border-radius:3px;background:rgba(28,58,36,.1);overflow:hidden}
+.tf{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--g2),var(--g3));transition:width .4s}
+.tn{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--g2);min-width:42px;text-align:right}
+.lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--mu);text-align:center;margin:22px 0 16px;line-height:1.6}
+.card{border-radius:20px;padding:18px 18px 16px;margin-bottom:14px;border:1.5px solid var(--bd);background:#fff;box-shadow:0 2px 12px rgba(28,58,36,.06);transition:all .25s;position:relative}
+.card.w1{background:var(--wp);border-color:rgba(79,143,176,.3)}
+.card.w2{background:var(--pp);border-color:rgba(184,103,74,.3)}
+.card.w3{background:var(--fp);border-color:rgba(200,148,58,.35)}
+.card.w4{background:var(--cp);border-color:rgba(46,107,58,.3)}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.ic{font-size:2rem;flex-shrink:0}
+.wk{font-size:9px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500}
+.w1 .wk{color:var(--w)}.w2 .wk{color:var(--p)}.w3 .wk{color:var(--gd,#8A6020)}.w4 .wk{color:var(--c)}
+.hab{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;line-height:1.25;margin-top:2px}
+ul{list-style:none;margin-bottom:14px}
+li{font-size:13px;color:var(--ink2);line-height:1.5;padding:5px 0 5px 20px;position:relative;border-top:1px solid rgba(28,58,36,.08)}
+li:first-child{border-top:none}
+li::before{content:'🌿';position:absolute;left:0;top:7px;font-size:11px}
+li b{font-weight:500;color:var(--ink)}
+.chk{width:100%;display:flex;align-items:center;justify-content:center;gap:9px;padding:13px;border-radius:14px;border:1.5px solid var(--bd);background:rgba(255,255,255,.75);font-family:'Jost',sans-serif;font-size:14px;font-weight:500;color:var(--ink2);cursor:pointer;transition:all .2s}
+.chk .bx{width:22px;height:22px;border-radius:7px;border:1.5px solid rgba(28,58,36,.3);display:flex;align-items:center;justify-content:center;font-size:12px;color:transparent;transition:all .2s}
+.card.done .chk{background:var(--g2);border-color:var(--g2);color:#fff}
+.card.done .chk .bx{background:#fff;border-color:#fff;color:var(--g2)}
+.plate{background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:20px;padding:24px 20px;text-align:center;margin:6px 0 14px;box-shadow:0 4px 20px rgba(28,58,36,.22)}
+.pl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(200,235,200,.7);display:block;margin-bottom:10px}
+.pt{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5.5vw,26px);font-weight:700;color:#F0F7F0;line-height:1.3}
+.pt em{font-style:italic;color:#8FCC9A}
+.ps{font-size:12px;color:rgba(180,220,184,.8);margin-top:8px;line-height:1.6}
+.ok{display:none;text-align:center;padding:14px;margin-bottom:14px;background:var(--cp);border:1px solid rgba(46,107,58,.3);border-radius:14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--g2);line-height:1.5}
+.ok.show{display:block}
+.tg{display:flex;align-items:center;gap:12px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border-radius:14px;padding:14px 18px;text-decoration:none;margin-bottom:10px}
+.tg .t{flex:1}.tg .m{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:700;color:#fff}.tg .s{font-size:10px;color:rgba(200,235,200,.8)}
+.tg .a{color:rgba(200,235,200,.7)}
+.tip{font-size:11px;color:var(--mu);text-align:center;line-height:1.6;padding:6px 14px 34px}
+</style>
+</head>
+<body>
+<header>
+  <div class="apl"><div class="av">ЛБ</div><div><div class="an">Любов Бухарова</div><div class="ar">Нутриціолог</div></div></div>
+  <span class="eyb">Нагадування · 4 тижні в одному місці</span>
+  <h1>Моя тарілка<br><em>на кожен день</em></h1>
+  <p class="sub">Відкривай щоранку — і згадуй, що вже стало твоєю звичкою 🌿</p>
+</header>
+
+<div class="today"><div class="w"><span class="dt" id="dt"></span><div class="tr"><div class="tf" id="tf"></div></div><span class="tn" id="tn">0/4</span></div></div>
+
+<main class="w">
+  <p class="lead">Познач те, що зробила сьогодні. Завтра картки починаються заново 💚</p>
+
+  <div class="card w1" id="c1">
+    <div class="top"><span class="ic">💧</span><div><div class="wk">Тиждень 1 · Вода</div><div class="hab">П'ю достатньо води щодня</div></div></div>
+    <ul>
+      <li>Моя норма: <b>30 мл × вага тіла</b>, мінімум 1,5 л на день</li>
+      <li><b>Склянка води натще</b> зранку</li>
+      <li>Маленькими ковтками <b>кожні 20–30 хвилин</b></li>
+      <li>Їжа і напої — окремо; до кожної кави — склянка води</li>
+    </ul>
+    <button class="chk" onclick="tg('c1')"><span class="bx">✓</span><span>Сьогодні зробила</span></button>
+  </div>
+
+  <div class="card w2" id="c2">
+    <div class="top"><span class="ic">💪</span><div><div class="wk">Тиждень 2 · Білок</div><div class="hab">Запитую «Де тут білок?»</div></div></div>
+    <ul>
+      <li>Білок у <b>кожному прийомі їжі</b></li>
+      <li>Баланс: <b>1 тваринний : 2 рослинних</b></li>
+      <li>До блюда — <b>зелень або кислинка</b></li>
+      <li>Їм у спокої, ретельно жую; <b>три глибокі вдихи</b> перед їжею</li>
+    </ul>
+    <button class="chk" onclick="tg('c2')"><span class="bx">✓</span><span>Сьогодні зробила</span></button>
+  </div>
+
+  <div class="card w3" id="c3">
+    <div class="top"><span class="ic">🥑</span><div><div class="wk">Тиждень 3 · Жири</div><div class="hab">Додаю корисний жир щодня</div></div></div>
+    <ul>
+      <li><b>Якісна олія</b> — 1–2 ст.л. на день</li>
+      <li><b>Горіхи або насіння</b> — жменя ~30 г; авокадо — ½</li>
+      <li><b>Жирна риба</b> — 2–3 рази на тиждень</li>
+      <li>Читаю склад — <b>шукаю трансжири</b></li>
+    </ul>
+    <button class="chk" onclick="tg('c3')"><span class="bx">✓</span><span>Сьогодні зробила</span></button>
+  </div>
+
+  <div class="card w4" id="c4">
+    <div class="top"><span class="ic">🌾</span><div><div class="wk">Тиждень 4 · Вуглеводи</div><div class="hab">Обираю складні вуглеводи і поєдную їх з овочами</div></div></div>
+    <ul>
+      <li><b>Овочі або зелень</b> до кожної страви</li>
+      <li><b>Білок + овочі</b> замість білок + каша</li>
+      <li>Фрукти — <b>через 20–30 хвилин</b> після основної їжі</li>
+      <li>Кефір і йогурт — <b>окремим перекусом</b>; тарілку не перевантажую</li>
+    </ul>
+    <button class="chk" onclick="tg('c4')"><span class="bx">✓</span><span>Сьогодні зробила</span></button>
+  </div>
+
+  <div class="ok" id="ok">🏆 Усі чотири звички на сьогодні — є!<br>Ти молодець 💚</div>
+
+  <div class="plate">
+    <span class="pl">Головна ідея</span>
+    <div class="pt">Простіша тарілка —<br><em>більше легкості</em></div>
+    <p class="ps">Це не заборони на все життя. Спостерігай за тілом — воно підкаже, що працює саме для тебе.</p>
+  </div>
+
+  <a class="tg" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener"><span style="font-size:1.3rem">✈️</span><div class="t"><div class="m">Написати Любові</div><div class="s">@Lyubov_nutritionist · Telegram</div></div><span class="a">→</span></a>
+  <p class="tip">Додай цю сторінку в закладки або на головний екран телефону — і вона завжди буде під рукою 💛</p>
+</main>
+
+<script>
+const ids=['c1','c2','c3','c4'];
+const today=new Date();
+const key='reminder-'+today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+const mon=['січня','лютого','березня','квітня','травня','червня','липня','серпня','вересня','жовтня','листопада','грудня'];
+document.getElementById('dt').textContent='Сьогодні, '+today.getDate()+' '+mon[today.getMonth()];
+let state={};
+try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){state={}}
+function render(){
+  let n=0;
+  ids.forEach(i=>{const on=!!state[i];document.getElementById(i).classList.toggle('done',on);if(on)n++;});
+  document.getElementById('tn').textContent=n+'/4';
+  document.getElementById('tf').style.width=(n/4*100)+'%';
+  document.getElementById('ok').classList.toggle('show',n===4);
+}
+function tg(id){
+  state[id]=!state[id];
+  try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}
+  render();
+}
+render();
+</script>
+</body>
+</html>
