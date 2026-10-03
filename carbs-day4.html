@@ -89,10 +89,9 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
 .rec-try-btn:hover{background:var(--g2);color:#fff;border-color:var(--g2)}
 .rec-card.done .rec-try-btn{background:var(--g2);color:#fff;border-color:var(--g2);pointer-events:none}
 
-/* ЗАВДАННЯ BADGE */
 .task-badge{display:inline-flex;align-items:center;gap:7px;background:var(--g1);color:#fff;border-radius:20px;padding:5px 14px;font-size:9px;letter-spacing:2px;text-transform:uppercase}
 
-/* ЗАВДАННЯ 1 — МОЇ ПОЄДНАННЯ */
+/* ЗАВДАННЯ */
 .combo-grid{display:flex;flex-direction:column;gap:10px}
 .combo-card{background:#fff;border:1.5px solid var(--bd);border-radius:14px;padding:14px 16px;transition:all .2s}
 .combo-card.selected{border-color:var(--g2);background:var(--g5)}
@@ -119,48 +118,11 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
 .dot-mixed{background:#B8600A}
 .dot-complex{background:var(--red)}
 
-/* ЗАВДАННЯ 2 — ТРЕКЕР ВІДЧУТТІВ */
-.feeling-tracker{display:flex;flex-direction:column;gap:12px}
-.ft-meal{background:#fff;border:1.5px solid var(--bd);border-radius:16px;overflow:hidden;box-shadow:0 2px 10px rgba(28,58,36,.06)}
-.ft-meal-header{display:flex;align-items:center;gap:12px;padding:14px 16px}
-.ft-meal-icon{font-size:1.4rem;flex-shrink:0}
-.ft-meal-info{flex:1}
-.ft-meal-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink)}
-.ft-meal-time{font-size:11px;color:var(--mu);margin-top:1px}
-.ft-status{width:10px;height:10px;border-radius:50%;background:rgba(28,58,36,.12);flex-shrink:0;transition:background .3s}
-.ft-feelings{display:flex;gap:7px;padding:0 16px 14px;flex-wrap:wrap}
-.ft-btn{padding:8px 14px;border-radius:20px;border:1.5px solid var(--bd);background:#F8FCF8;font-size:12px;color:var(--ink2);cursor:pointer;transition:all .2s;user-select:none;display:flex;align-items:center;gap:5px}
-.ft-btn:hover{border-color:var(--bd2)}
-.ft-btn.f-light{background:#E8F5E9;border-color:#2E6B3A;color:#2E6B3A;font-weight:500}
-.ft-btn.f-ok{background:#FDF3E7;border-color:#B8600A;color:#B8600A;font-weight:500}
-.ft-btn.f-heavy{background:var(--redp);border-color:var(--red);color:var(--red);font-weight:500}
-.ft-meal.felt-light{border-color:#2E6B3A}
-.ft-meal.felt-ok{border-color:#B8600A}
-.ft-meal.felt-heavy{border-color:var(--red)}
-.ft-meal.felt-light .ft-status{background:#2E6B3A}
-.ft-meal.felt-ok .ft-status{background:#B8600A}
-.ft-meal.felt-heavy .ft-status{background:var(--red)}
-.ft-comment{display:none;margin:0 16px 14px}
-.ft-comment.show{display:block;animation:slide-down .2s ease}
-.ft-comment-inp{width:100%;background:#F8FCF8;border:1.5px solid var(--bd);border-radius:9px;padding:8px 12px;font-family:'Jost',sans-serif;font-size:12px;color:var(--ink);outline:none;resize:none;min-height:40px;line-height:1.55;transition:border-color .15s}
-.ft-comment-inp:focus{border-color:var(--g2)}
-.ft-comment-inp::placeholder{color:var(--mu2);font-style:italic}
 .ft-insight{display:none;margin-top:14px;padding:13px 15px;border-radius:12px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;text-align:center;line-height:1.6;animation:pp .4s ease}
 .ft-insight.show{display:block}
 .ft-insight.ins-good{background:var(--g5);color:var(--g2);border:1px solid var(--bd)}
 .ft-insight.ins-mixed{background:var(--warnp);color:var(--warn);border:1px solid var(--warnb)}
 .ft-insight.ins-bad{background:var(--redp);color:var(--red);border:1px solid var(--redb)}
-
-/* ПРИКЛАДИ ТАРІЛОК */
-.plate-examples{display:flex;flex-direction:column;gap:10px}
-.plate-ex{background:#fff;border:1.5px solid var(--bd);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(28,58,36,.06)}
-.plate-ex-header{display:flex;align-items:center;gap:12px;padding:13px 15px;background:var(--g5);border-bottom:1px solid var(--bd)}
-.plate-ex-icon{font-size:1.3rem;flex-shrink:0}
-.plate-ex-time{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mu)}
-.plate-ex-name{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--ink)}
-.plate-ex-body{padding:12px 15px}
-.plate-ex-meal{font-size:13.5px;color:var(--ink2);font-weight:500;margin-bottom:4px}
-.plate-ex-why{font-size:11.5px;color:var(--mu);line-height:1.6}
 
 /* ЗВИЧКА */
 .hc{background:#fff;border:1.5px solid var(--bd);border-radius:20px;padding:26px 22px;text-align:center;position:relative;overflow:hidden;box-shadow:0 2px 14px rgba(28,58,36,.07)}
@@ -339,7 +301,6 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
   <h2 class="tt rv">Правила<br><em>простої тарілки</em></h2>
   <p class="sb rv">Натисни на кожну щоб розкрити. Постав галочку "спробую" 🌿</p>
 
-  <!-- РЕК 1 -->
   <div class="rec-card rv" id="rec1">
     <div class="rec-header" onclick="toggleRec('rec1')">
       <div class="rec-num">1</div>
@@ -357,7 +318,6 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
   </div>
 
-  <!-- РЕК 2 -->
   <div class="rec-card rv" id="rec2">
     <div class="rec-header" onclick="toggleRec('rec2')">
       <div class="rec-num">2</div>
@@ -375,7 +335,6 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
   </div>
 
-  <!-- РЕК 3 -->
   <div class="rec-card rv" id="rec3">
     <div class="rec-header" onclick="toggleRec('rec3')">
       <div class="rec-num">3</div>
@@ -391,7 +350,6 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
   </div>
 
-  <!-- РЕК 4 -->
   <div class="rec-card rv" id="rec4">
     <div class="rec-header" onclick="toggleRec('rec4')">
       <div class="rec-num">4</div>
@@ -408,7 +366,6 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
   </div>
 
-  <!-- РЕК 5 -->
   <div class="rec-card rv" id="rec5">
     <div class="rec-header" onclick="toggleRec('rec5')">
       <div class="rec-num">5</div>
@@ -427,7 +384,7 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
   </div>
 </div></section>
 
-<!-- ЗАВДАННЯ — ПОЄДНАННЯ + ВІДЧУТТЯ -->
+<!-- ЗАВДАННЯ -->
 <section><div class="w">
   <div style="text-align:center;margin-bottom:10px" class="rv"><span class="task-badge">✦ Завдання</span></div>
   <h2 class="tt rv">Поєднання і відчуття<br><em>сьогодні</em></h2>
@@ -442,10 +399,7 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
   <div class="combo-grid rv" id="comboGrid">
 
     <div class="combo-card" id="cc-breakfast">
-      <div class="combo-card-header">
-        <span class="combo-meal-icon">🌅</span>
-        <span class="combo-meal-name">Сніданок</span>
-      </div>
+      <div class="combo-card-header"><span class="combo-meal-icon">🌅</span><span class="combo-meal-name">Сніданок</span></div>
       <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
       <div class="combo-options">
         <div class="combo-opt" onclick="selectCombo('breakfast','simple',this)">🟢 Просте</div>
@@ -465,10 +419,7 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
 
     <div class="combo-card" id="cc-snack1">
-      <div class="combo-card-header">
-        <span class="combo-meal-icon">🍎</span>
-        <span class="combo-meal-name">Перекус</span>
-      </div>
+      <div class="combo-card-header"><span class="combo-meal-icon">🍎</span><span class="combo-meal-name">Перекус</span></div>
       <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
       <div class="combo-options">
         <div class="combo-opt" onclick="selectCombo('snack1','simple',this)">🟢 Просте</div>
@@ -488,10 +439,7 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
 
     <div class="combo-card" id="cc-lunch">
-      <div class="combo-card-header">
-        <span class="combo-meal-icon">🍽️</span>
-        <span class="combo-meal-name">Обід</span>
-      </div>
+      <div class="combo-card-header"><span class="combo-meal-icon">🍽️</span><span class="combo-meal-name">Обід</span></div>
       <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
       <div class="combo-options">
         <div class="combo-opt" onclick="selectCombo('lunch','simple',this)">🟢 Просте</div>
@@ -511,10 +459,7 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     </div>
 
     <div class="combo-card" id="cc-dinner">
-      <div class="combo-card-header">
-        <span class="combo-meal-icon">🌙</span>
-        <span class="combo-meal-name">Вечеря</span>
-      </div>
+      <div class="combo-card-header"><span class="combo-meal-icon">🌙</span><span class="combo-meal-name">Вечеря</span></div>
       <div style="font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu);margin-bottom:6px">Поєднання</div>
       <div class="combo-options">
         <div class="combo-opt" onclick="selectCombo('dinner','simple',this)">🟢 Просте</div>
@@ -541,12 +486,7 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
   </div>
 
   <div class="ft-insight" id="ftInsight"></div>
-
 </div></section>
-
-
-
-
 
 <!-- РЕФЛЕКСІЯ -->
 <section><div class="w">
@@ -582,7 +522,6 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
     <p style="font-size:11px;color:var(--mu);line-height:1.6"><strong style="color:var(--ink2)">Це твій особистий простір.</strong> Нотатки лише на твоєму пристрої 💛</p>
   </div>
 </div></section>
-
 
 <!-- ТРЕКЕРИ -->
 <section><div class="w">
@@ -685,19 +624,17 @@ section:not(#s-hero):not(#s-final):nth-child(even){background:var(--cr2)}
   <p class="fns rv">Ти вже спостерігаєш за своїм тілом.<br>Це і є початок змін 🌱</p>
   <div class="tc rv">
     <span class="tcl">Завтра · День 5</span>
-    <div class="tci">💧</div>
-    <div class="tct">Вода і травлення —<br><em>зв'язок який ми ігноруємо</em></div>
-    <p class="tcd">Дізнаєшся як правильне пиття води впливає на травлення і енергію 💛</p>
+    <div class="tci">🏆</div>
+    <div class="tct">Підсумок<br><em>всього 4 тижня</em></div>
+    <p class="tcd">Разом підведемо підсумки: що ти помітила у своєму тілі і що беремо з собою далі 💛</p>
   </div>
 </section>
 
 <script>
-// SCROLL + REVEAL
 window.addEventListener('scroll',()=>{const s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-document.documentElement.clientHeight;document.getElementById('pb').style.width=(s/h*100)+'%';});
 const ob=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('on')})},{threshold:.06});
 document.querySelectorAll('.rv').forEach(el=>ob.observe(el));
 
-// РЕКОМЕНДАЦІЇ
 function toggleRec(id){
   const body=document.getElementById('body-'+id);
   const arr=document.getElementById('arr-'+id);
@@ -708,12 +645,11 @@ function toggleRec(id){
 function tryRec(id){
   const card=document.getElementById(id);
   card.classList.add('done');
-  const btn=card.querySelector('.rec-try-btn');
-  btn.textContent='✅ Зафіксовано!';
+  card.querySelector('.rec-try-btn').textContent='✅ Зафіксовано!';
 }
 
-// ЗАВДАННЯ 1 — ПОЄДНАННЯ
 const comboState={};
+const feelingState={};
 function selectCombo(meal,type,el){
   const card=document.getElementById('cc-'+meal);
   card.querySelectorAll('.combo-options .combo-opt').forEach(o=>{
@@ -731,7 +667,6 @@ function selectCombo(meal,type,el){
   comboState[meal]=type;
   updateComboSummary();
 }
-
 function selectComboFeeling(meal,feeling,el){
   const wrap=document.getElementById('cfw-'+meal);
   wrap.querySelectorAll('.combo-opt').forEach(o=>o.classList.remove('active-simple','active-mixed','active-complex'));
@@ -748,7 +683,6 @@ function updateFeelingInsight(){
   const ins=document.getElementById('ftInsight');
   const lights=vals.filter(v=>v==='light').length;
   const heavys=vals.filter(v=>v==='heavy').length;
-  ins.classList.add('show');
   if(lights>=vals.length*0.7){
     ins.className='ft-insight show ins-good';
     ins.textContent='😊 Чудово! Сьогодні переважає легкість. Твоє тіло добре реагує — продовжуй спостерігати 🌿';
@@ -779,14 +713,16 @@ function updateComboSummary(){
   }).join('');
 }
 
-// ЗАВДАННЯ 2 — ВІДЧУТТЯ
-
-
+// Рефлексія — зірки
+const starMsgs=['','Дякую за чесність 🌿','Наступного разу буде легше 💛','Добре! 🌱','Чудово! 💚','Відмінно! 🏆'];
+function rs(n){
+  document.querySelectorAll('#stars .star').forEach((s,i)=>s.classList.toggle('li',i<n));
+  document.getElementById('smsg').textContent=starMsgs[n]||'';
+}
 
 // ТРЕКЕРИ
 function toggleOpt(id){const b=document.getElementById('body-'+id),a=document.getElementById('arr-'+id),o=b.classList.contains('open');b.classList.toggle('open',!o);if(a)a.classList.toggle('open',!o);}
 
-// ТРЕКЕРИ
 let wg=0;const cupsEl=document.getElementById('cups');const wm=['','','💧','💧 Добрий початок','','💧 Половина 🌿','','','💧 Добре!','','💧 Норма! 🏆'];
 for(let i=0;i<10;i++){const b=document.createElement('button');b.type='button';b.className='cup';b.textContent='🥛';b.addEventListener('click',()=>{wg=b.classList.contains('fi')?i:i+1;document.querySelectorAll('.cup').forEach((c,j)=>c.classList.toggle('fi',j<wg));document.getElementById('wml').textContent=wg*200;document.getElementById('wcv').textContent=wg+' / 10';document.getElementById('wpf').style.width=(wg/10*100)+'%';document.getElementById('wmsg').textContent=wm[wg]||'';});cupsEl.appendChild(b);}
 const pm2=['','Перший прийом — будуємо! 🌱','Два — краще 💛','Три — відмінно! 💪','Ідеально! 🏆'];
@@ -794,7 +730,6 @@ function tm(e){e.classList.toggle('ch');const d=document.querySelectorAll('#meal
 const fatMsgs=['','🥑 Одне джерело — вже є!','💛 Два — відмінно!','🏆 Три — ідеально!'];
 function toggleFat(row){row.classList.toggle('ch');const n=document.querySelectorAll('#fatRows .fat-row.ch').length;document.getElementById('fatCount').textContent=n;document.getElementById('fatMsg').textContent=fatMsgs[Math.min(n,fatMsgs.length-1)];document.getElementById('fatResult').classList.toggle('sh',n>0);}
 
-// ЗБЕРЕГТИ
 function saveDay(){document.getElementById('saveDone').classList.add('show');document.querySelector('.save-btn').style.opacity='.5';document.querySelector('.save-btn').style.pointerEvents='none';setTimeout(()=>document.getElementById('s-final').scrollIntoView({behavior:'smooth'}),800);}
 </script>
 </body>
