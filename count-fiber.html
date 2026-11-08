@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Гайд · Рахуємо клітковину · Любов Бухарова</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--cr:#F4F8F2;--cr2:#EDF5EB;--g1:#1C3A24;--g2:#2E6B3A;--g3:#5AAA68;--g4:#A8D8AC;--g5:#E8F5E9;--ink:#1A2E1C;--ink2:#2E4A30;--mu:#5A7A5C;--bd:rgba(28,58,36,.14);--bd2:rgba(28,58,36,.26);--warn:#B8600A;--warnp:#FDF3E7;--warnb:rgba(184,96,10,.22)}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);background:var(--cr);line-height:1.7;overflow-x:hidden}
+.w{max-width:480px;margin:0 auto}
+section{padding:48px 22px}
+section:nth-of-type(even){background:var(--cr2)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,7vw,34px);line-height:1.2;font-weight:700;text-align:center;margin-bottom:8px}
+h2 em{font-style:italic;color:var(--g2)}
+.sb{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--mu);text-align:center;margin-bottom:22px;line-height:1.6}
+.card{background:#fff;border:1.5px solid var(--bd);border-radius:16px;padding:18px 18px;box-shadow:0 2px 14px rgba(28,58,36,.07)}
+.card p{font-size:14px;color:var(--mu)}
+.card strong{color:var(--ink2);font-weight:500}
+.card+.card{margin-top:12px}
+
+/* hero */
+.hero{background:radial-gradient(ellipse 70% 50% at 50% 100%,rgba(90,170,104,.18),transparent 60%),var(--g1);color:#F0F7F0;text-align:center;padding:72px 24px 64px;min-height:78svh;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.by{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:6px 16px 6px 6px;margin-bottom:30px;font-size:12px;color:#E8F5E9}
+.av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#5AAA68,#2E6B3A);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:13px;color:#fff}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,11vw,62px);line-height:1.05;font-weight:700;letter-spacing:-1px}
+.hero h1 span{display:block;font-style:italic;font-weight:600;color:#8FCC9A;font-size:.62em;margin-top:6px}
+.hero p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:rgba(180,220,184,.9);max-width:290px;margin-top:18px}
+
+/* norm scale */
+.scale{display:flex;flex-direction:column;gap:8px}
+.sr{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--bd);border-radius:12px;padding:11px 14px;font-size:13px;color:var(--ink2)}
+.sr b{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--g2);min-width:64px}
+.sr.ok{background:var(--g5);border-color:var(--bd2)}
+
+/* steps */
+.step{display:flex;gap:14px;align-items:flex-start}
+.step+.step{margin-top:16px;padding-top:16px;border-top:1px solid var(--bd)}
+.n{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--g3);line-height:1;min-width:26px}
+.step h3{font-family:'Cormorant Garamond',serif;font-size:19px;margin-bottom:2px}
+.step p{font-size:14px;color:var(--mu)}
+
+/* products */
+details{background:#fff;border:1.5px solid var(--bd);border-radius:14px;margin-bottom:10px;overflow:hidden}
+summary{list-style:none;cursor:pointer;padding:14px 16px;font-size:15px;color:var(--ink2);display:flex;justify-content:space-between;align-items:center;font-weight:400}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';font-size:20px;color:var(--g2);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details[open] summary{background:var(--g5)}
+.row{display:flex;justify-content:space-between;gap:10px;padding:10px 16px;border-top:1px solid rgba(28,58,36,.07);font-size:13px;color:var(--ink2)}
+.row small{display:block;font-size:11px;color:var(--mu);line-height:1.3}
+.row b{font-weight:500;color:var(--g2);white-space:nowrap}
+.top b{color:var(--warn)}
+
+
+.tot-bar{position:sticky;top:0;z-index:20;background:linear-gradient(135deg,var(--g1),var(--g2));border-radius:14px;padding:12px 16px 14px;margin-bottom:14px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;box-shadow:0 4px 16px rgba(28,58,36,.25)}
+.tl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(200,235,202,.75)}
+.tn{font-family:'Cormorant Garamond',serif;font-size:2.1rem;font-weight:700;color:#fff;line-height:1}
+.tu{font-size:12px;color:rgba(200,235,202,.85);margin-left:4px}
+.tv{font-size:12px;font-style:italic;color:rgba(220,245,222,.95);text-align:right;max-width:150px;line-height:1.4}
+.tb{grid-column:1/-1;height:3px;background:rgba(255,255,255,.18);border-radius:2px;overflow:hidden;margin-top:6px}
+.tb i{display:block;height:100%;width:0;background:linear-gradient(90deg,#8FCC9A,#C8F0CA);transition:width .35s}
+.pr{display:flex;align-items:center;gap:8px;padding:9px 12px 9px 16px;border-top:1px solid rgba(28,58,36,.07);font-size:13px;color:var(--ink2)}
+.pr.on{background:rgba(46,107,58,.06)}
+.pr .nm{flex:1;min-width:0}
+.pr small{display:block;font-size:11px;color:var(--mu);line-height:1.3}
+.pr .fb{font-size:11px;color:var(--g2);font-weight:500;white-space:nowrap}
+.pr.top .fb{color:var(--warn)}
+.ct{display:flex;align-items:center}
+.ct button{width:32px;height:32px;border-radius:8px;border:1.5px solid var(--bd);background:#F8FCF8;color:var(--mu);font-size:17px;cursor:pointer;font-family:'Jost',sans-serif;line-height:1}
+.ct button:hover,.ct button:focus-visible{border-color:var(--g2);color:var(--g2);background:var(--g5);outline:none}
+.ct .v{width:26px;text-align:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:var(--mu)}
+.pr.on .v{color:var(--g2)}
+.rst{display:block;margin:6px auto 0;background:none;border:1.5px solid var(--bd2);border-radius:20px;padding:8px 18px;font-family:'Jost',sans-serif;font-size:12px;color:var(--mu);cursor:pointer}
+.rst:hover{background:var(--g5)}
+/* example */
+.ex{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px}
+.ex td{padding:8px 0;border-bottom:1px solid var(--bd);color:var(--ink2)}
+.ex td:last-child{text-align:right;color:var(--g2);font-weight:500}
+.ex tr.tot td{border:none;padding-top:12px;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--g1)}
+
+.tip{background:var(--warnp);border:1px solid var(--warnb);border-radius:12px;padding:12px 15px;font-size:13px;color:var(--warn);line-height:1.65;margin-top:12px}
+.tip strong{font-weight:500}
+ul.l{list-style:none}
+ul.l li{font-size:14px;color:var(--mu);padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--bd)}
+ul.l li:last-child{border:none}
+ul.l li::before{content:'🌿';position:absolute;left:0;font-size:13px}
+ul.l strong{color:var(--ink2);font-weight:500}
+.cta{display:flex;align-items:center;gap:10px;background:linear-gradient(135deg,#1C3A24,#2E6B3A);border-radius:12px;padding:14px 16px;color:#fff;text-decoration:none;font-size:14px;margin-top:16px}
+.cta span:last-child{margin-left:auto;opacity:.7}
+footer{background:var(--g1);color:rgba(180,220,184,.85);text-align:center;padding:36px 22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px}
+footer small{display:block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;letter-spacing:1px;margin-top:8px;opacity:.7}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="by"><div class="av">ЛБ</div>Любов Бухарова · нутриціолог</div>
+  <h1>Рахуємо<span>клітковину</span></h1>
+  <p>Без ваг і додатків: просто тарілка, жменя і ложка 🌿</p>
+</section>
+
+<section><div class="w">
+  <h2>Навіщо її <em>рахувати</em></h2>
+  <p class="sb">Бо більшість із нас недоїдає її, і навіть не помічає</p>
+  <div class="card">
+    <p><strong>Клітковина — це їжа для корисних бактерій кишечника.</strong> Вона підтримує травлення, насичує надовше, згладжує стрибки цукру після їжі та допомагає тримати стабільну енергію.</p>
+  </div>
+  <div class="card">
+    <p>Підрахунок потрібен не назавжди. Зробиш його раз-два — і почнеш <strong>бачити клітковину на тарілці</strong> без жодних розрахунків.</p>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Твоя <em>норма</em></h2>
+  <p class="sb">Орієнтир для дорослої людини — 25–35 г на день</p>
+  <div class="scale">
+    <div class="sr"><b>&lt; 15 г</b>Дуже мало. Тіло не отримує достатньо</div>
+    <div class="sr"><b>15–24 г</b>Недостатньо. Є простір для росту</div>
+    <div class="sr ok"><b>25–35 г</b>Норма. Ти на правильному шляху</div>
+    <div class="sr"><b>36+ г</b>Відмінно. Головне — пити достатньо води</div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Як рахувати: <em>3 кроки</em></h2>
+  <p class="sb">Займає 5 хвилин. Найкраще — ввечері, пам'ятаючи весь день</p>
+  <div class="card">
+    <div class="step"><div class="n">1</div><div><h3>Пригадай день по прийомах їжі</h3><p>Сніданок, обід, вечеря і перекуси. Не забудь про насіння в йогурті та жменю горіхів.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h3>Натискай + біля продуктів у калькуляторі нижче</h3><p>Порції — у «ручних мірках»: кулак, жменя, тарілка, столова ложка. Зважувати не треба. З'їла дві порції — натисни + двічі.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h3>Дивись підсумок і порівнюй з нормою</h3><p>Сума й підказка оновлюються одразу. Ціль — 25–35 г. Результат приблизний, і цього достатньо.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Порахуй <em>свій день</em></h2>
+  <p class="sb">Відкрий категорію й натискай + біля кожної порції. Сума рахується сама</p>
+
+  <div class="tot-bar" id="totBar">
+    <div><div class="tl">Клітковина за день</div><div><span class="tn" id="tn">0</span><span class="tu">г</span></div></div>
+    <div class="tv" id="tv">Натискай + біля продуктів</div>
+    <div class="tb"><i id="tbi"></i></div>
+  </div>
+  <div id="cats"></div>
+  <button class="rst" type="button" onclick="resetAll()">Почати спочатку</button>
+  <div class="tip">🏆 <strong>Лідери:</strong> бобові, чіа, льон, малина й авокадо. Один такий продукт дає 5–12 г за раз.</div>
+</div></section>
+
+<section><div class="w">
+  <h2>Приклад <em>підрахунку дня</em></h2>
+  <p class="sb">Так це виглядає на практиці</p>
+  <div class="card">
+    <table class="ex">
+      <tr><td>🌅 Вівсянка (40 г сухих) + малина (жменя)</td><td>10,5 г</td></tr>
+      <tr><td>🍎 Яблуко зі шкіркою</td><td>4,3 г</td></tr>
+      <tr><td>🍽️ Гречка (тарілка) + броколі (кулак)</td><td>10,0 г</td></tr>
+      <tr><td>🌙 Морква + 1 ст. л. насіння чіа</td><td>7,4 г</td></tr>
+      <tr class="tot"><td>Разом</td><td>32,2 г ✅</td></tr>
+    </table>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Як додати <em>+5 г</em> уже сьогодні</h2>
+  <p class="sb">Не змінюй усе, додай один-два продукти</p>
+  <div class="card">
+    <ul class="l">
+      <li><strong>У сніданок:</strong> 1 ст. л. чіа або меленого льону в кашу чи йогурт (+4–5 г)</li>
+      <li><strong>На перекус:</strong> груша чи яблуко зі шкіркою замість соку (+4–5 г)</li>
+      <li><strong>В обід:</strong> кулак броколі або половина авокадо до основної страви (+5–7 г)</li>
+      <li><strong>Замість білого:</strong> гречка, булгур чи цільнозерновий хліб (+2–5 г)</li>
+      <li><strong>У суп чи салат:</strong> нут або сочевиця (+7–10 г)</li>
+    </ul>
+  </div>
+  <div class="tip">💧 <strong>Важливо:</strong> збільшуй клітковину поступово й пий воду маленькими ковтками протягом дня. Різкий стрибок без води дає здуття.</div>
+</div></section>
+
+<section><div class="w">
+  <h2>Часті <em>запитання</em></h2>
+  <details><summary>Рахувати треба щодня?</summary><div class="row" style="display:block;color:var(--mu)">Ні. Достатньо 2–3 днів, щоб побачити свій «середній» раціон. Далі орієнтуйся на тарілку: половина — овочі, плюс крупа або бобові.</div></details>
+  <details><summary>Рахувати сиру чи варену вагу?</summary><div class="row" style="display:block;color:var(--mu)">У списку вказані порції так, як їх їдять (крупи й бобові — вже варені). Тому просто бери порцію з таблиці.</div></details>
+  <details><summary>Чи точні ці цифри?</summary><div class="row" style="display:block;color:var(--mu)">Це приблизні значення: залежать від сорту, стиглості й розміру. Для звичок такої точності достатньо.</div></details>
+  <details><summary>Чи можна взяти клітковину у добавках?</summary><div class="row" style="display:block;color:var(--mu)">Краще з їжі: разом із нею ти отримуєш вітаміни й поліфеноли. Добавки варто обговорювати з фахівцем.</div></details>
+  <a class="cta" href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener"><span>✈️</span><span>Є питання? Напиши Любові: @Lyubov_nutritionist</span><span>→</span></a>
+</div></section>
+
+<footer>Клітковина — це їжа для твоїх корисних бактерій 🌿<small>Любов Бухарова · нутриціолог</small></footer>
+<script>
+const D=[
+['🥦 Овочі',[['Авокадо','½ шт (~100 г)',6.7,1],['Броколі варена','1 кулак (~150 г)',5],['Зелена капуста','1 кулак (~100 г)',3.5],['Квасоля стручкова','1 жменя (~100 г)',3],['Буряк варений','1 невеликий (~100 г)',2.8],['Цвітна капуста','1 кулак (~100 г)',2.5],['Морква сира','1 середня (~80 г)',2.2],['Шпинат свіжий','2 жмені (~100 г)',2.2],['Гарбуз варений','1 кулак (~150 г)',2],['Квашена капуста','2 ст. л. (~60 г)',1.7],['Салат листовий','2 жмені (~100 г)',1.6],['Перець солодкий','1 середній (~120 г)',1.6],['Помідор','1 середній (~120 г)',1.4],['Огірок','1 середній (~150 г)',0.9]]],
+['🍎 Фрукти та ягоди',[['Малина','1 жменя (~100 г)',6.5,1],['Груша','1 середня (~170 г)',5.3,1],['Ківі','2 шт (~150 г)',4.5],['Інжир сушений','3 шт (~45 г)',4.4],['Яблуко зі шкіркою','1 (~180 г)',4.3],['Апельсин','1 середній (~150 г)',3.3],['Банан','1 середній (~120 г)',3.1],['Мандарин','2 шт (~150 г)',2.7],['Чорниця','1 жменя (~100 г)',2.4],['Фініки сушені','3 шт (~30 г)',2.4],['Персик','1 середній (~150 г)',2.3],['Полуниця','1 жменя (~100 г)',2],['Слива','3–4 шт (~120 г)',1.7],['Вишня','1 жменя (~100 г)',1.6],['Родзинки','2 ст. л. (~30 г)',1.1],['Виноград','1 жменя (~100 г)',0.9]]],
+['🌾 Крупи, хліб і бобові',[['Сочевиця варена','1 тарілка (~150 г)',11.9,1],['Нут варений','1 тарілка (~150 г)',11.4,1],['Квасоля варена','1 тарілка (~150 г)',9.6,1],['Кіноа варена','1 тарілка (~150 г)',7.5],['Булгур варений','1 тарілка (~150 г)',6.8],['Гречка варена','1 тарілка (~150 г)',5],['Цільнозернові спагеті','1 тарілка (~100 г)',4.5],['Вівсянка','~40 г сухих',4],['Бурий рис варений','1 тарілка (~150 г)',2.7],['Цільнозерновий хліб','1 скибочка (~40 г)',2.6]]],
+['🥜 Горіхи та насіння',[['Насіння чіа','1 ст. л. (~15 г)',5.2,1],['Насіння льону','1 ст. л. (~15 г)',4.1,1],['Мигдаль','1 жменя (~30 г)',3.8],['Фісташки','1 жменя (~30 г)',3.1],['Фундук','1 жменя (~30 г)',2.9],['Арахіс','1 жменя (~30 г)',2.6],['Волоський горіх','1 жменя (~30 г)',2],['Кунжут','1 ст. л. (~15 г)',1.8],['Насіння соняшника','1 ст. л. (~15 г)',1.3],['Кеш\'ю','1 жменя (~30 г)',1],['Насіння гарбуза','1 ст. л. (~15 г)',0.9]]]
+];
+const cnt={},fmt=n=>(Math.round(n*10)/10).toString().replace('.',',');
+const root=document.getElementById('cats');
+D.forEach(([title,items],ci)=>{
+  const d=document.createElement('details'); if(ci===0)d.open=true;
+  d.innerHTML='<summary>'+title+'</summary>';
+  items.forEach(([n,por,f,top],i)=>{
+    const k=ci+'_'+i; cnt[k]=0;
+    const r=document.createElement('div'); r.className='pr'+(top?' top':''); r.id='r'+k;
+    r.innerHTML='<div class="nm">'+n+'<small>'+por+'</small></div><span class="fb">'+fmt(f)+' г</span><div class="ct"><button type="button" aria-label="Менше: '+n+'">−</button><div class="v" id="v'+k+'">0</div><button type="button" aria-label="Більше: '+n+'">+</button></div>';
+    const b=r.querySelectorAll('button');
+    b[0].onclick=()=>chg(k,-1,f); b[1].onclick=()=>chg(k,1,f);
+    d.appendChild(r);
+  });
+  root.appendChild(d);
+});
+const F={};
+function chg(k,dl,f){cnt[k]=Math.max(0,cnt[k]+dl);F[k]=f;paint(k);total();}
+function paint(k){document.getElementById('v'+k).textContent=cnt[k];document.getElementById('r'+k).classList.toggle('on',cnt[k]>0);}
+function total(){
+  let t=0;for(const k in cnt)t+=cnt[k]*(F[k]||0);
+  t=Math.round(t*10)/10;
+  document.getElementById('tn').textContent=fmt(t);
+  document.getElementById('tbi').style.width=Math.min(t/35*100,100)+'%';
+  document.getElementById('tv').textContent=t===0?'Натискай + біля продуктів':t<15?'🚨 Дуже мало. Норма 25–35 г':t<25?'⚠️ Недостатньо, є куди рости':t<=35?'✅ Норма! Чудово 🌿':'🏆 Відмінно! Пий більше води';
+}
+function resetAll(){for(const k in cnt){cnt[k]=0;paint(k);}total();}
+</script>
+</body>
+</html>
