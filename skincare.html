@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Діагностика типу вашої шкіри</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f5f8f4;--card:#fff;--tx:#222a24;--mu:#6b7a6f;--ac:#2f7d4f;--soft:#e6f2ea;--bd:#dce6de}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151b17;--card:#1d2620;--tx:#e8f0ea;--mu:#9db0a2;--ac:#3f9a66;--soft:#22382a;--bd:#2c3a30}}
+:root[data-theme="dark"]{--bg:#151b17;--card:#1d2620;--tx:#e8f0ea;--mu:#9db0a2;--ac:#3f9a66;--soft:#22382a;--bd:#2c3a30}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 14px 60px}
+h1{font-size:1.7rem;line-height:1.2;margin:.2em 0 .3em}
+h2{font-size:1.2rem;margin:0 0 .6em;color:var(--ac)}
+p.lead{color:var(--mu);margin:0 0 1em}
+section{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:16px 0}
+.sc{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{padding:8px 6px;border-bottom:1px dotted var(--ac);text-align:center}
+th{color:var(--ac);font-weight:600;font-size:.85rem}
+td:first-child,th:first-child{text-align:left}
+td label{display:flex;align-items:center;justify-content:center;gap:5px;cursor:pointer;min-width:44px;min-height:36px}
+.chk{display:flex;gap:8px;align-items:flex-start;padding:6px 0;cursor:pointer}
+.chk input{margin-top:5px}
+h3{margin:.8em 0 .3em;font-size:1rem;border-bottom:1px solid var(--ac);padding-bottom:3px;color:var(--ac);text-transform:uppercase;letter-spacing:.03em}
+button{font:inherit;cursor:pointer;border:1px solid var(--ac);background:var(--ac);color:#fff;border-radius:999px;padding:10px 20px}
+button.o{background:transparent;color:var(--ac)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.tabs button{padding:6px 14px;background:transparent;color:var(--ac)}
+.tabs button.on{background:var(--ac);color:#fff}
+.res{background:var(--soft);border-radius:12px;padding:12px 14px;margin:10px 0}
+.res b{color:var(--ac)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}}
+.rt{border:1px solid var(--bd);border-radius:12px;padding:10px 14px}
+.rt h4{margin:0 0 6px;color:var(--ac);border-bottom:1px dotted var(--ac);padding-bottom:4px}
+.rt ol{margin:0;padding-left:20px}
+.note{color:var(--mu);font-size:.9rem}
+.hide{display:none}
+.f{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:10px}
+label.fl{display:block;font-size:.85rem;color:var(--mu)}
+textarea,input[type=text]{display:block;width:100%;font:inherit;padding:9px 10px;margin-top:3px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+<main>
+<h1>Діагностика типу вашої шкіри</h1>
+<p class="lead">Провізор-косметолог, нутриціолог Любов Бухарова</p>
+<section>
+<h2>Дані клієнтки</h2>
+<div class="f"><label class="fl">Ім’я<input type="text" id="nm"></label><label class="fl">Вік<input type="text" id="ag" inputmode="numeric"></label></div>
+<label class="fl">Проблема<input type="text" id="pr"></label>
+</section>
+
+<section>
+<h2>Частина I. Сухий, нормальний чи жирний тип</h2>
+<p class="note">Оберіть відповіді, що найкраще описують вашу шкіру.</p>
+<div class="sc"><table id="t1"></table></div>
+</section>
+
+<section>
+<h2>Частина II. Ваша шкіра протягом року</h2>
+<p class="note">Позначте підхожі пункти.</p>
+<div id="lst"></div>
+<p style="margin-top:16px"><button id="go">Результат</button> <button class="o" id="rs">Скинути</button></p>
+<p class="note hide" id="err"></p>
+</section>
+
+<section id="out" class="hide">
+<h2>Базовий догляд за вашим типом шкіри</h2>
+<p class="note">Провізор-косметолог, нутриціолог Любов Бухарова</p>
+<div class="res" id="card"></div>
+<h3>Тип шкіри</h3>
+<div class="res" id="r1"></div>
+<h3>Опис вашої шкіри</h3>
+<p id="intro"></p>
+<p class="note hide" id="r2"></p>
+<h3>Сезонний догляд</h3>
+<div class="tabs" id="tt"></div>
+<div class="tabs" id="ts"></div>
+<div class="grid" id="care"></div>
+<div class="res hide" id="vc"></div>
+<div class="res hide" id="va"></div>
+<div class="res" id="mb"><b>Мої улюблені сироватки — Medik8</b><br>Замовити можна за моїм посиланням: <a href="https://prz.io/ZgvBoZKi3" target="_blank" rel="noopener" style="color:inherit;font-weight:700">prz.io/ZgvBoZKi3</a></div>
+<h3>Рекомендації нутриціолога</h3>
+<ul id="nu"></ul>
+<label class="fl">Мої нотатки для клієнтки<textarea id="nt" rows="4"></textarea></label>
+<p class="note">Загальні орієнтовні рекомендації; вони не замінюють консультацію лікаря.</p>
+<div class="rt" style="margin-top:16px"><h4>Налаштування картки (лише для вас)</h4><label class="chk"><input type="checkbox" id="mk" checked> <span>Додати рекомендацію Medik8 із посиланням</span></label><label class="chk"><input type="checkbox" id="vk" checked> <span>Додати інструкцію щодо вітаміну C</span></label><label class="chk"><input type="checkbox" id="ak" checked> <span>Додати рекомендації щодо вітаміну A</span></label><p class="note" style="margin:4px 0 0">Самих галочок у PDF не буде: клієнтка бачить лише те, що ви відмітили.</p></div>
+<p style="margin-top:16px"><button id="pdfb">Надіслати PDF клієнтці</button></p>
+<p class="note hide" id="pm"></p>
+<div id="pdf" style="position:fixed;left:-9999px;top:0;width:700px"></div>
+</section>
+
+<p class="note" style="text-align:center">Провізор-косметолог, нутриціолог Любов Бухарова<br>Telegram: <a href="https://t.me/Lyubov_nutritionist" target="_blank" rel="noopener" style="color:inherit;font-weight:700">@Lyubov_nutritionist</a><br>Instagram: <a href="https://www.instagram.com/liubov_bukharova_nutri?utm_source=qr" target="_blank" rel="noopener" style="color:inherit;font-weight:700">liubov_bukharova_nutri</a></p>
+</main>
+
+<script>
+var Q1=[["Моя шкіра жирна",[3,2,1]],["Мій ніс блищить",[3,2,1]],["Моє обличчя місцями сухе",[1,2,3]],["Моя шкіра має нерівну структуру",[3,2,1]],["У мене акне",[3,2,1]],["Моя шкіра волога на дотик",[2,3,1]],["У мене помітні зморшки",[1,2,3]],["Моя шкіра тьмяна",[3,2,1]],["Макіяж не тримається довго",[3,2,1]],["Моя шкіра схильна до подразнень",[1,2,3]]];
+var SS=["У мене видно пори на лобі, носі та підборідді","Макіяж не тримається","Шкіра схильна до жирного блиску","Я схильна до акне та висипань","Шкіра має нерівну структуру","У мене глибокі зморшки навколо очей і рота","Шкіра в Т-зоні завжди жирна","Шкіра жирна, але водночас схильна до лущення","У мене несиметричні зморшки","Шкіра недостатньо чиста та свіжа"];
+var AW=["Шкіра груба й постійно лущиться","Макіяж погано лягає та змащується","У мене мімічні зморшки навколо очей","Шкіра тонка","Гарний колір обличчя","Шкіра на дотик не здається м’якою та зволоженою","Шкірі бракує пружності","Груба шкіра навколо підборіддя","Щоки багряно-червоного кольору","Наприкінці літа шкіра починає сохнути"];
+var D={dry:["Суха шкіра","Ваша шкіра виробляє мало поту й жиру, крім того, в ній низький вміст вологи. Вона схильна до шорсткості та утворення зморшок, тому боріться з утратою вологи й приділяйте особливу увагу зволоженню цілий рік, незалежно від пори року. Ви помітите, наскільки покращиться стан шкіри в спекотні місяці."],
+normal:["Нормальна шкіра","У вас ідеальна шкіра зі швидким обміном речовин. Мінус у тому, що вона чутлива до сезонних коливань клімату. У міжсезоння їй потрібен особливий догляд. Зволожуйте її влітку та відлущуйте взимку."],
+oily:["Жирна шкіра","Ваша шкіра виробляє забагато жиру, що призводить до появи акне та висипань, а макіяж легко змащується. Візьміть за звичку відлущувати відмерлі клітини за допомогою скрабу для обличчя, але не зловживайте вмиванням. Зволожуйте шкіру для підтримання балансу вологи й жиру, а також нормалізації роботи сальних залоз."]};
+var INTRO={ss:"Через нестачу вологи ваша шкіра виробляє багато жиру. Проблеми виникають навесні та влітку. Люди з таким типом шкіри зазвичай занадто часто вмиваються й дбають про усунення жиру, але надмірне вмивання лише позбавляє шкіру вологи, стимулюючи роботу сальних залоз. Головне завдання — досягти балансу вологи й жиру в шкірі.",
+aw:"Ваша шкіра містить мало вологи й жиру. Це призводить до проблем, спричинених сухістю, як-от лущення шкіри та мімічні зморшки в осінні й зимові місяці. Водночас жирний крем не є рішенням: насамперед потрібно подбати про здоров’я внутрішніх шарів шкіри й лише потім про зволоження її поверхні. Після насичення дерми вологою та поживними речовинами нанесіть крем, щоб їх утримати. Використовуйте зволожувальний крем навіть улітку."};
+var TN={ss:"Варіант 1",aw:"Варіант 2"};var tie=false;
+var SN={spring:"Весна",summer:"Літо",autumn:"Осінь",winter:"Зима"};
+var ML=["Засіб для вмивання","Лосьйон","Сироватка","Емульсія / крем"];
+var EL=["Засіб для очищення","Лосьйон","Сироватка","Емульсія / крем"];
+var C={
+ss:{spring:[["Гель-мило для обличчя","Освітлювальний лосьйон","Сироватка з вітаміном C","Емульсія для захисту від УФ-випромінювання"],["Очищувальне молочко","Освітлювальний лосьйон","Емульсійна сироватка з вітаміном A","— (замінюється кроком 3)"]],
+summer:[["Освітлювальне мило для обличчя","Освітлювальний лосьйон","Сироватка з вітаміном C","Емульсія для захисту від УФ-випромінювання"],["Очищувальний гель","Освітлювальний лосьйон","Сироватка з вітаміном C","Освітлювальна емульсія"]],
+autumn:[["Гель-мило для обличчя","Освітлювальний лосьйон","Сироватка з вітаміном C","Освітлювальна емульсія або крем"],["Очищувальний мус","В’яжучий лосьйон","Зволожувальна сироватка","Зволожувальна емульсія"]],
+winter:[["Мус-мило для обличчя","В’яжучий лосьйон","Зволожувальна сироватка","Зволожувальна емульсія"],["Очищувальний крем","Зволожувальний лосьйон","Зволожувальна сироватка","Зволожувальний крем"]]},
+aw:{spring:[["Мус-мило для обличчя","Зволожувальний лосьйон","Зволожувальна сироватка","Зволожувальна емульсія"],["Очищувальна емульсія","Зволожувальний лосьйон","Зволожувальна сироватка","Зволожувальна емульсія або крем"]],
+summer:[["Гель-мило для обличчя","Зволожувальний освітлювальний лосьйон","Зволожувальна сироватка з вітаміном C","Зволожувальна емульсія або освітлювальний крем"],["Очищувальна емульсія","Зволожувальний лосьйон","Зволожувальна сироватка","Зволожувальна емульсія або крем"]],
+autumn:[["Пінливе мило для обличчя","Зволожувальний лосьйон","Сироватка проти зморшок","Емульсія або крем проти зморшок"],["Очищувальний крем","Зволожувальний лосьйон","Зволожувальна сироватка","Підтягувальний крем від втрати вологи та зморшок"]],
+winter:[["Мус-мило для обличчя","Зволожувальний лосьйон","Підтягувальна сироватка","Зволожувальний крем"],["Очищувальний крем","Зволожувальний лосьйон","Підтягувальна сироватка","Висококонцентрований зволожувальний крем"]]}};
+var $=function(i){return document.getElementById(i)};
+var curT="ss",curS="autumn";
+(function(){var m=new Date().getMonth();curS=m>=2&&m<=4?"spring":m>=5&&m<=7?"summer":m>=8&&m<=10?"autumn":"winter";})();
+
+var h='<tr><th>Твердження</th><th>Так</th><th>Іноді</th><th>Ні</th></tr>';
+Q1.forEach(function(q,i){h+='<tr><td>'+q[0]+'</td>';q[1].forEach(function(p,j){h+='<td><label><input type="radio" name="q'+i+'" value="'+p+'" aria-label="'+p+'"></label></td>'});h+='</tr>'});
+$("t1").innerHTML=h;
+var hh="";SS.forEach(function(t,i){[["ss",t],["aw",AW[i]]].forEach(function(p){hh+='<label class="chk"><input type="checkbox" name="'+p[0]+'"> <span>'+p[1]+'</span></label>'})});$("lst").innerHTML=hh;
+
+function count(n){return document.querySelectorAll('input[name="'+n+'"]:checked').length}
+function render(){
+ $("intro").textContent=INTRO[curT];renderNu();renderVc();renderVa();
+ $("tt").innerHTML=tie?["ss","aw"].map(function(k){return '<button class="'+(k===curT?'on':'')+'" data-t="'+k+'">'+TN[k]+'</button>'}).join(""):"";
+ $("ts").innerHTML=Object.keys(SN).map(function(k){return '<button class="'+(k===curS?'on':'')+'" data-s="'+k+'" style="border-color:'+SC[k]+';'+(k===curS?'background:'+SC[k]+';color:'+(k==="autumn"?'#222':'#fff'):'color:'+SCT[k])+'">'+SN[k]+'</button>'}).join("");
+ var d=C[curT][curS],t=["Ранковий догляд","Вечірній догляд"],L=[ML,EL];
+ $("care").innerHTML=d.map(function(a,i){return '<div class="rt" style="border:2px solid '+SC[curS]+'"><h4 style="color:'+SCT[curS]+';border-bottom-color:'+SC[curS]+'">'+t[i]+' · '+SN[curS].toLowerCase()+'</h4><ol>'+a.map(function(x,j){return '<li><span class="note">'+L[i][j]+':</span> '+x+'</li>'}).join("")+'</ol></div>'}).join("");
+}
+$("go").onclick=function(){
+ var sum=0,n=0;
+ Q1.forEach(function(q,i){var r=document.querySelector('input[name="q'+i+'"]:checked');if(r){sum+=+r.value;n++}});
+ var e=$("err");
+ if(n<10){e.textContent="Відповіді в частині I: "+n+" із 10. Дайте відповідь на всі твердження.";e.classList.remove("hide");return}
+ e.classList.add("hide");
+ var k=sum<=15?"dry":sum<=20?"normal":"oily";
+ var esc=function(s){return s.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})};
+ var g=function(i){return esc($(i).value.trim())||"—"};
+ $("card").innerHTML='<b>Карта клієнта</b><br>Ім’я: '+g("nm")+'<br>Вік: '+g("ag")+'<br>Проблема: '+g("pr");
+ lastK=k;$("r1").innerHTML='<b>'+D[k][0]+'</b><br>'+D[k][1];
+ var a=count("ss"),b=count("aw"),r2=$("r2");
+ tie=a===b;
+ if(tie){r2.textContent="Позначок порівну — перегляньте обидва варіанти догляду нижче.";r2.classList.remove("hide")}else{r2.classList.add("hide");curT=a>b?"ss":"aw"}
+ $("out").classList.remove("hide");render();$("out").scrollIntoView({behavior:"smooth"});
+};
+$("rs").onclick=function(){document.querySelectorAll("input").forEach(function(i){if(i.type==="text")i.value="";else i.checked=false});$("nt").value="";$("mk").checked=true;$("vk").checked=true;$("ak").checked=true;$("mb").classList.remove("hide");$("out").classList.add("hide");$("err").classList.add("hide");window.scrollTo(0,0)};
+var NU={dry:["Пийте достатньо води протягом дня, а не лише коли відчуваєте спрагу.","Щодня включайте корисні жири: жирна морська риба, лляна олія, горіхи, авокадо, оливкова олія.","Не обмежуйте жири надто суворо: вони потрібні шкірі для бар’єрної функції.","Джерела вітаміну E: насіння, горіхи, рослинні олії.","Обмежте алкоголь і надлишок кави: вони посилюють зневоднення."],
+normal:["Збалансоване харчування: білок у кожному прийомі їжі, овочі та фрукти різних кольорів.","Достатньо води та регулярний сон — основа стабільного стану шкіри.","Коригуйте раціон за сезоном: більше свіжих овочів і води влітку, більше корисних жирів узимку."],
+oily:["Обмежте цукор і продукти з високим глікемічним індексом: солодке, біла випічка, солодкі напої.","Більше клітковини: овочі, бобові, цільнозернові продукти.","Омега-3 (жирна риба, насіння льону, волоські горіхи) допомагають зменшити запальність.","Цинк у раціоні: гарбузове насіння, бобові, яйця. При акне працювати з кишківником.","Менше смаженого та фастфуду."],
+ss:["Влітку збільшуйте питний режим і додавайте більше овочів, зелені та ягід.","Продукти з вітаміном C (перець, цитрусові, ківі, капуста) підтримують колаген і рівний тон шкіри.","Надлишок жирної їжі та солодкого посилює жирний блиск."],
+aw:["У холодну пору додавайте теплі страви: супи, тушковані овочі, каші.","Достатньо корисних жирів і білка для відновлення бар’єра шкіри.","Вітамін A: морква, гарбуз, яйця. Вітамін D восени та взимку — за аналізами та порадою лікаря.","Пийте достатньо води, навіть коли не спекотно."]};
+var SC={spring:"#2f9e5b",summer:"#e03b3b",autumn:"#f0b400",winter:"#2f7ee0"};
+var SCT={spring:"#2f7d4f",summer:"#d42f2f",autumn:"#b07d00",winter:"#2a6fcc"};
+var VC='<ol style="margin:6px 0;padding-left:20px"><li>Після душу чи вмивання зачекайте близько 10 хвилин: шкіра має бути сухою, а не вологою, щоб вітамін C залишався активним.</li><li>Нанесіть сироватку з вітаміном C на чисту суху шкіру.</li><li>Через 5–7 хвилин, коли сироватка вбереться, закрийте її кремом.</li><li>Вранці завершіть догляд сонцезахисним засобом із SPF: разом із вітаміном C він надійніше захищає шкіру від сонця.</li></ol>Так вітамін C краще засвоюється й ефективніше працює в шкірі.';
+var BR=function(a){return '<div style="margin-top:8px">Мої улюблені сироватки — <b>Medik8</b>. Замовити можна за моїм посиланням: '+(a?'<a href="https://prz.io/ZgvBoZKi3" target="_blank" rel="noopener" style="color:inherit;font-weight:700">prz.io/ZgvBoZKi3</a>':'prz.io/ZgvBoZKi3')+'</div>'};
+function hasVc(o){return JSON.stringify(o).indexOf("вітаміном C")>-1}
+function renderVc(){var e=$("vc");if(hasVc(C[curT][curS])&&$("vk").checked){e.innerHTML='<b>Як наносити сироватку з вітаміном C</b>'+VC;e.classList.remove("hide")}else e.classList.add("hide")}
+function vcPdf(){return hasVc(C[curT])&&$("vk").checked?'<div style="background:#e6f2ea;border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px"><b>Як наносити сироватку з вітаміном C</b> (актуально: '+Object.keys(SN).filter(function(s){return hasVc(C[curT][s])}).map(function(s){return SN[s].toLowerCase()}).join(", ")+')'+VC+'</div>':""}
+var VA='<ul style="margin:6px 0;padding-left:20px"><li>Якщо ви ніколи не користувалися вітаміном A, починайте з найменшої концентрації.</li><li>Наносіть увечері на чисту суху шкіру: спочатку 2–3 рази на тиждень, потім поступово частіше.</li><li>Якщо шкіра чутлива або хочете м’якший варіант, оберіть бакучіол — рослинну альтернативу ретинолу.</li><li>Вдень обов’язково користуйтеся кремом із SPF.</li><li>На початку можливі легка сухість і лущення. Якщо подразнення сильне, зробіть паузу й зверніться до фахівця.</li><li>Вагітним і жінкам, які годують грудьми, ретиноїди не підходять — такий засіб потрібно обговорити з лікарем.</li></ul>';
+function hasVa(o){return JSON.stringify(o).indexOf("вітаміном A")>-1}
+function renderVa(){var e=$("va");if(hasVa(C[curT][curS])&&$("ak").checked){e.innerHTML='<b>Як починати користуватися вітаміном A</b>'+VA;e.classList.remove("hide")}else e.classList.add("hide")}
+function vaPdf(){return hasVa(C[curT])&&$("ak").checked?'<div style="background:#e6f2ea;border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px"><b>Як починати користуватися вітаміном A</b> (актуально: '+Object.keys(SN).filter(function(s){return hasVa(C[curT][s])}).map(function(s){return SN[s].toLowerCase()}).join(", ")+')'+VA+'</div>':""}
+function nuList(){return NU[lastK].concat(NU[curT])}
+function renderNu(){$("nu").innerHTML=nuList().map(function(x){return '<li>'+x+'</li>'}).join("")}
+var lastK="normal";
+var E=function(s){return (s||"").replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})};
+function pdfHtml(){
+ var v=function(i){return E($(i).value.trim())||"—"};
+ var st="font:15px/1.5 system-ui,Arial,sans-serif;color:#222a24;background:#fff;padding:28px;";
+ var hd=function(t){return '<div style="font-size:18px;font-weight:700;color:#2f7d4f;border-bottom:1px solid #2f7d4f;margin:16px 0 8px">'+t+'</div>'};
+ var p1='<div style="'+st+'"><div style="font-size:26px;font-weight:700;color:#2f7d4f">Базовий догляд за вашим типом шкіри</div><div style="color:#6b7a6f;margin-bottom:18px">Провізор-косметолог, нутриціолог Любов Бухарова</div><div style="background:#e6f2ea;border-radius:10px;padding:12px 16px"><b>Карта клієнта</b><br>Ім’я: '+v("nm")+'<br>Вік: '+v("ag")+'<br>Проблема: '+v("pr")+'</div>'+hd("Тип шкіри")+'<b>'+D[lastK][0]+'</b><br>'+D[lastK][1]+hd("Опис вашої шкіри")+INTRO[curT]+'</div>';
+ var bx=Object.keys(SN).map(function(s){var d=C[curT][s],t=["Ранок","Вечір"];return '<div style="border:2px solid '+SC[s]+';border-radius:10px;padding:8px 12px"><div style="font-weight:700;color:'+SCT[s]+';font-size:16px">'+SN[s]+'</div>'+d.map(function(a,i){return '<div style="font-weight:600;margin-top:6px">'+t[i]+'</div><ol style="margin:2px 0 0;padding-left:18px;font-size:12.5px">'+a.map(function(x){return '<li>'+x+'</li>'}).join("")+'</ol>'}).join("")+'</div>'}).join("");
+ var p2='<div style="'+st+'">'+hd("Сезонний догляд")+'<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">'+bx+'</div>'+vcPdf()+vaPdf()+'<div style="color:#6b7a6f;margin-top:16px;text-align:center">Провізор-косметолог, нутриціолог Любов Бухарова</div></div>';
+ var nt=$("nt").value.trim();
+ var p3='<div style="'+st+'">'+hd("Рекомендації нутриціолога")+'<ul style="padding-left:20px">'+nuList().map(function(x){return '<li style="margin:4px 0">'+x+'</li>'}).join("")+'</ul>'+(nt?hd("Нотатки для клієнтки")+E(nt).replace(/\n/g,"<br>"):"")+($("mk").checked?'<div style="background:#e6f2ea;border-radius:10px;padding:10px 14px;margin-top:14px;font-size:13px">'+BR(0)+'</div>':"")+'<div style="color:#6b7a6f;margin-top:16px;font-size:12px">Загальні орієнтовні рекомендації; вони не замінюють консультацію лікаря.</div><div style="color:#6b7a6f;margin-top:12px;text-align:center">Провізор-косметолог, нутриціолог Любов Бухарова<br>Telegram: @Lyubov_nutritionist<br>Instagram: instagram.com/liubov_bukharova_nutri</div></div>';
+ return p1+p2+p3;
+}
+async function mkPdf(){
+ var host=$("pdf");host.innerHTML=pdfHtml();
+ var J=window.jspdf.jsPDF,doc=new J({unit:"mm",format:"a4"}),pgs=host.children;
+ for(var i=0;i<pgs.length;i++){
+  var cv=await html2canvas(pgs[i],{scale:2,backgroundColor:"#ffffff"});
+  var w=190,h=cv.height*w/cv.width;if(h>277){w=w*277/h;h=277}
+  if(i)doc.addPage();
+  doc.addImage(cv.toDataURL("image/jpeg",0.92),"JPEG",10,10,w,h);
+ }
+ host.innerHTML="";return doc.output("blob");
+}
+$("mk").onchange=function(){$("mb").classList.toggle("hide",!this.checked)};$("vk").onchange=renderVc;$("ak").onchange=renderVa;
+$("pdfb").onclick=async function(){
+ var b=this,pm=$("pm"),lab=b.textContent;pm.classList.add("hide");b.disabled=true;b.textContent="Готую PDF…";
+ try{
+  var blob=await mkPdf();
+  var nm=($("nm").value.trim()||"klientka").replace(/[^\p{L}\p{N}]+/gu,"_");
+  var fn="Diagnostyka_shkiry_"+nm+".pdf";
+  var f=new File([blob],fn,{type:"application/pdf"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:"Діагностика типу вашої шкіри"});return}catch(e){if(e&&e.name==="AbortError")return}}
+  var dl=window.claude&&await window.claude.use("downloads");
+  if(!dl){throw new Error("no downloads")}
+  await dl.save({filename:fn,data:blob});
+ }catch(e){
+  if(!e||e.code!=="declined"){pm.textContent="Не вдалося створити PDF. Спробуйте ще раз або зробіть знімок екрана картки.";pm.classList.remove("hide")}
+ }finally{b.disabled=false;b.textContent=lab}
+};
+document.addEventListener("click",function(ev){var t=ev.target;if(t.dataset&&t.dataset.t){curT=t.dataset.t;render()}if(t.dataset&&t.dataset.s){curS=t.dataset.s;render()}});
+</script>
+</body>
+</html>
